@@ -1,10 +1,14 @@
 import Anthropic from "@anthropic-ai/sdk"
 import type { DropInClass, Training, Retreat, ContactInfo, FetchedPage } from "../types"
 
-const anthropic = new Anthropic()
+let _anthropic: Anthropic | null = null
+function getClient() {
+  if (!_anthropic) _anthropic = new Anthropic()
+  return _anthropic
+}
 
 async function callClaude(system: string, userMessage: string): Promise<string> {
-  const response = await anthropic.messages.create({
+  const response = await getClient().messages.create({
     model: "claude-sonnet-4-6",
     max_tokens: 4096,
     system,

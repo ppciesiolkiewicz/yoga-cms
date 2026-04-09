@@ -109,10 +109,10 @@ export async function detectTech(
   let technologies: DetectedTechnology[] = []
 
   try {
-    const Wappalyzer = (await import("simple-wappalyzer")).default
-    const wappalyzer = new Wappalyzer()
-    const result = await wappalyzer.analyze({ url, html })
-    technologies = result.technologies.map((t: { name: string; categories: { name: string }[]; version?: string }) => ({
+    const wappalyze = (await import("simple-wappalyzer")).default
+    const result = await wappalyze({ url, html, headers: {} })
+    const techs = Array.isArray(result) ? result : result?.technologies ?? []
+    technologies = techs.map((t: { name: string; categories: { name: string }[]; version?: string }) => ({
       name: t.name,
       category: t.categories?.[0]?.name ?? "Other",
       version: t.version || undefined,

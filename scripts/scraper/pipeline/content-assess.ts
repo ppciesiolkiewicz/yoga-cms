@@ -1,7 +1,11 @@
 import Anthropic from "@anthropic-ai/sdk"
 import type { ContentAssessment, FetchedPage } from "../types"
 
-const anthropic = new Anthropic()
+let _anthropic: Anthropic | null = null
+function getClient() {
+  if (!_anthropic) _anthropic = new Anthropic()
+  return _anthropic
+}
 
 const SYSTEM_PROMPT = `You are an expert at evaluating yoga studio website content. You assess whether the content serves potential customers effectively.
 
@@ -101,7 +105,7 @@ Return a JSON object with this exact structure:
   console.log(`  Assessing content with Claude API...`)
 
   try {
-    const response = await anthropic.messages.create({
+    const response = await getClient().messages.create({
       model: "claude-sonnet-4-6",
       max_tokens: 4096,
       system: SYSTEM_PROMPT,
