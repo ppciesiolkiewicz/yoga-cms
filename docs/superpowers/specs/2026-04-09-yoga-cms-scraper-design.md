@@ -45,34 +45,25 @@ yoga-cms/
 ### Input: `scripts/scraper/websites-data.ts`
 
 ```ts
-type PageType = "drop-in" | "training" | "retreat"
 type ScrapeMode = "fetch" | "browser"
 
-type City =
-  | "Rishikesh"
-  | "Wroclaw"
-  | "Warszawa"
-  | "Berlin"
-  | "Melbourne"
-  | "Sydney"
-  | "Barcelona"
-  | "Paris"
-
-interface StudioUrl {
+interface ScrapableUrl {
   url: string
-  pageType: PageType
   scrapeMode?: ScrapeMode  // default: "fetch"
 }
 
 interface StudioEntry {
   studioName: string
-  city: City
-  website: string          // main homepage URL
-  urls: StudioUrl[]        // specific pages to scrape
+  city: string
+  website: string              // main homepage URL
+  dropIns: ScrapableUrl[]      // drop-in class pages
+  trainings: ScrapableUrl[]    // TTC and other training pages
+  retreats: ScrapableUrl[]     // retreat pages
+  contact?: ScrapableUrl       // contact page (single)
 }
 ```
 
-Studios are grouped per entry (unlike rishikesh-yoga's flat list). Each studio has a homepage and a list of specific page URLs categorized by type.
+Studios are grouped per entry with URLs organized by content type. This makes it clear at a glance what each studio offers and where to find it.
 
 Initial data: import relevant studios from `rishikesh-yoga/src/data/websites-data.ts` (Rishikesh studios), then add studios found via web search for the other cities.
 
@@ -122,6 +113,18 @@ interface StudioReport {
     }
   }
 
+  // Stage 2b: Feature detection (from Wappalyzer + HTML/nav analysis)
+  features: {
+    onlineBooking?: string              // online payment/booking system: "Mindbody", "Momoyoga", "Fitogram", "Acuity", "Stripe", "custom", etc.
+    onlineClasses: boolean              // offers livestream/on-demand classes
+    chat?: string                       // "Tawk.to", "Intercom", "WhatsApp widget", etc.
+    ecommerce: boolean                  // shop/merchandise
+    newsletter: boolean                 // email signup detected
+    blog: boolean                       // blog section detected
+    multiLanguage: boolean              // multiple language options
+    addOnServices: string[]             // e.g. ["massage", "ayurveda", "accommodation", "sound healing"]
+  }
+
   // Stage 3: Content quality assessment (Claude)
   contentAssessment: {
     overallScore: number                      // 1-10
@@ -162,6 +165,17 @@ interface StudioReport {
       }
       notes: string
     }[]
+  }
+
+  // Contact info (extracted from any page)
+  contact: {
+    email?: string
+    phone?: string
+    whatsapp?: string
+    instagram?: string
+    facebook?: string
+    address?: string
+    contactPageUrl?: string
   }
 
   // Stage 4: Extracted data
