@@ -19,15 +19,19 @@ function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 }
 
-function parseArgs(): { studioFilter?: string; maxAgeDays?: number } {
+function parseArgs(): { studioFilter?: string; cityFilter?: string; maxAgeDays?: number; limit?: number } {
   const args = process.argv.slice(2)
   let studioFilter: string | undefined
-  let maxAgeDays: number | undefined
+  let cityFilter: string | undefined
+  let maxAgeDays: number | undefined = 999
+  let limit: number | undefined
   for (let i = 0; i < args.length; i++) {
     if (args[i] === "--studio" && args[i + 1]) { studioFilter = args[i + 1]; i++ }
+    if (args[i] === "--city" && args[i + 1]) { cityFilter = args[i + 1]; i++ }
     if (args[i] === "--update-older-than-days" && args[i + 1]) { maxAgeDays = parseInt(args[i + 1], 10); i++ }
+    if (args[i] === "--limit" && args[i + 1]) { limit = parseInt(args[i + 1], 10); i++ }
   }
-  return { studioFilter, maxAgeDays }
+  return { studioFilter, cityFilter, maxAgeDays, limit }
 }
 
 function isStale(slug: string, maxAgeDays: number | undefined): boolean {
@@ -118,12 +122,17 @@ async function main() {
     console.error("Error: ANTHROPIC_API_KEY environment variable is required")
     process.exit(1)
   }
-  const { studioFilter, maxAgeDays } = parseArgs()
+  const { studioFilter, cityFilter, maxAgeDays, limit } = parseArgs()
   let toScrape = studios
   if (studioFilter) {
-    toScrape = studios.filter(s => s.studioName.toLowerCase().includes(studioFilter.toLowerCase()))
+    toScrape = toScrape.filter(s => s.studioName.toLowerCase().includes(studioFilter.toLowerCase()))
     if (toScrape.length === 0) { console.error(`No studios matching "${studioFilter}"`); process.exit(1) }
   }
+  if (cityFilter) {
+    toScrape = toScrape.filter(s => s.city.toLowerCase().includes(cityFilter.toLowerCase()))
+    if (toScrape.length === 0) { console.error(`No studios in city "${cityFilter}"`); process.exit(1) }
+  }
+  if (limit) { toScrape = toScrape.slice(0, limit) }
   toScrape = toScrape.filter(s => isStale(slugify(s.studioName), maxAgeDays))
   if (toScrape.length === 0) { console.log("All studios are up to date."); return }
 
