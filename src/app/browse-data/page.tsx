@@ -1,10 +1,12 @@
 import Link from "next/link"
-import { getStudioIndex } from "@/lib/data"
+import { getAllStudioSummaries } from "@/lib/data"
+
+export const dynamic = "force-dynamic"
 
 export default function BrowseDataPage() {
-  const index = getStudioIndex()
+  const studios = getAllStudioSummaries().sort((a, b) => a.city.localeCompare(b.city))
 
-  if (!index || index.studios.length === 0) {
+  if (studios.length === 0) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-16">
         <h1 className="text-3xl font-bold">Browse Studio Data</h1>
@@ -20,7 +22,7 @@ export default function BrowseDataPage() {
       <div className="mb-6 flex items-center justify-between">
         <h1 className="text-3xl font-bold">Browse Studio Data</h1>
         <p className="text-sm text-gray-500">
-          {index.studios.length} studios &middot; Generated {new Date(index.generatedAt).toLocaleDateString()}
+          {studios.length} studios
         </p>
       </div>
 
@@ -37,7 +39,7 @@ export default function BrowseDataPage() {
             </tr>
           </thead>
           <tbody className="divide-y divide-gray-200">
-            {index.studios.map(studio => (
+            {studios.map(studio => (
               <tr key={studio.slug} className="hover:bg-gray-50">
                 <td className="px-4 py-3">
                   <Link href={`/browse-data/${studio.slug}`} className="font-medium text-blue-600 hover:underline">

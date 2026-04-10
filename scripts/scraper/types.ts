@@ -5,10 +5,17 @@ export interface ScrapableUrl {
   scrapeMode?: ScrapeMode // default: "fetch"
 }
 
+export interface SearchRanking {
+  query: string              // e.g. "yoga studio Melbourne"
+  position: number           // 1-based rank in search results
+  isTopResult: boolean       // position <= 5
+}
+
 export interface StudioEntry {
   studioName: string
   city: string
   website: string
+  searchRanking?: SearchRanking
   dropIns: ScrapableUrl[]
   trainings: ScrapableUrl[]
   retreats: ScrapableUrl[]
@@ -139,6 +146,7 @@ export interface StudioReport {
   studioName: string
   city: string
   website: string
+  searchRanking?: SearchRanking
   scrapedAt: string
   navigation: NavLink[]
   tech: TechAssessment

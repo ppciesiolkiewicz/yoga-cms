@@ -89,7 +89,7 @@ async function scrapeStudio(entry: StudioEntry): Promise<StudioReport> {
   if (entry.contact) contact.contactPageUrl = entry.contact.url
 
   return {
-    slug, studioName: entry.studioName, city: entry.city, website: entry.website,
+    slug, studioName: entry.studioName, city: entry.city, website: entry.website, searchRanking: entry.searchRanking,
     scrapedAt: new Date().toISOString(), navigation,
     tech: { ...tech, lighthouse }, features, contentAssessment, contact,
     dropInClasses, trainings, retreats,

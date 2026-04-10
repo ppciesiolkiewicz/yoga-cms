@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getStudioReport, getAllSlugs } from "@/lib/data"
+import { getStudioReport } from "@/lib/data"
 import type {
   StudioReport,
   TechAssessment,
@@ -14,9 +14,7 @@ import type {
   LighthouseScores,
 } from "../../../../scripts/scraper/types"
 
-export async function generateStaticParams() {
-  return getAllSlugs().map(slug => ({ slug }))
-}
+export const dynamic = "force-dynamic"
 
 export default async function StudioDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

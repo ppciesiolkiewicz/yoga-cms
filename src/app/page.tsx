@@ -8,6 +8,10 @@ export default function Home() {
       <Link href="/browse-data" className="mt-4 inline-block text-blue-600 hover:underline">
         Browse scraped data &rarr;
       </Link>
+      <br />
+      <Link href="/research" className="mt-2 inline-block text-blue-600 hover:underline">
+        Yoga studio software research &rarr;
+      </Link>
     </main>
   );
 }
