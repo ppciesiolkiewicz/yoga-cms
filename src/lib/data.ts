@@ -36,10 +36,10 @@ export function getAllStudioSummaries(): StudioIndexEntry[] {
         city: report.city,
         platform: report.tech.platform,
         overallContentScore: report.contentAssessment.overallScore,
-        estimatedMonthlyCost: report.tech.totalEstimatedMonthlyCost,
+        estimatedMonthlyCost: { min: report.tech.totalEstimatedMonthlyCost.min, max: report.tech.totalEstimatedMonthlyCost.max },
         lighthousePerformance: report.tech.lighthouse.performance,
         pageCount: report.navigation.length,
       } satisfies StudioIndexEntry
     })
-    .filter((s): s is StudioIndexEntry => s !== null)
+    .filter(s => s !== null)
 }
