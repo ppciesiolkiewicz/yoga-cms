@@ -9,7 +9,7 @@ export default function BrowseDataPage() {
   if (studios.length === 0) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-16">
-        <h1 className="text-3xl font-bold">Browse Studio Data</h1>
+        <h1 className="text-3xl font-bold">Browse Studio Website Data</h1>
         <p className="mt-4 text-gray-600">
           No data yet. Run <code className="rounded bg-gray-100 px-2 py-1">npm run scrape</code> to scrape studios.
         </p>
@@ -19,8 +19,9 @@ export default function BrowseDataPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
-      <div className="mb-6 flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Browse Studio Data</h1>
+      <Link href="/" className="text-sm text-blue-600 hover:underline">&larr; Home</Link>
+      <div className="mt-2 mb-6 flex items-center justify-between">
+        <h1 className="text-3xl font-bold">Browse Studio Website Data</h1>
         <p className="text-sm text-gray-500">
           {studios.length} studios
         </p>
