@@ -79,19 +79,26 @@ Expected: exit 0; `.firecrawl/` present in `.gitignore`.
 Create a scratch file `scripts/scraper/_sdk-smoke.ts`:
 ```ts
 import "dotenv/config"
-import FirecrawlApp from "@mendable/firecrawl-js"
+import Firecrawl from "@mendable/firecrawl-js"
 
-const fc = new FirecrawlApp({ apiKey: process.env.FIRECRAWL_API_KEY! })
-const res = await fc.scrapeUrl("https://firecrawl.dev", {
-  formats: ["markdown"],
-  onlyMainContent: true,
-})
-if (!res.success) {
-  console.error("FAIL:", res.error)
-  process.exit(1)
+async function main() {
+  const fc = new Firecrawl({ apiKey: process.env.FIRECRAWL_API_KEY! })
+  try {
+    const doc = await fc.scrape("https://firecrawl.dev", {
+      formats: ["markdown"],
+      onlyMainContent: true,
+    })
+    console.log("OK, markdown bytes:", (doc.markdown ?? "").length)
+  } catch (error) {
+    console.error("FAIL:", error instanceof Error ? error.message : error)
+    process.exit(1)
+  }
 }
-console.log("OK, markdown bytes:", (res.markdown ?? "").length)
+
+main()
 ```
+
+Note: tsx uses CommonJS transform, so top-level `await` is not available. Wrap async work in `main()`.
 
 Run:
 ```bash
@@ -307,15 +314,15 @@ git commit -m "refactor(types): add RawStudio/PagesJson, markdown FetchedPage, S
 
 ```ts
 // scripts/scraper/pipeline/firecrawl-client.ts
-import FirecrawlApp from "@mendable/firecrawl-js"
+import Firecrawl from "@mendable/firecrawl-js"
 
-let _fc: FirecrawlApp | null = null
+let _fc: Firecrawl | null = null
 
-function getClient(): FirecrawlApp {
+function getClient(): Firecrawl {
   if (!_fc) {
     const key = process.env.FIRECRAWL_API_KEY
     if (!key) throw new Error("FIRECRAWL_API_KEY is required for Firecrawl fetcher")
-    _fc = new FirecrawlApp({ apiKey: key })
+    _fc = new Firecrawl({ apiKey: key })
   }
   return _fc
 }
@@ -330,19 +337,18 @@ export async function scrapeUrl(
   url: string,
   opts: { includeHtml?: boolean } = {},
 ): Promise<ScrapeResult | { error: string }> {
-  const formats: ("markdown" | "html" | "links")[] = ["markdown", "links"]
+  const formats: Array<"markdown" | "html" | "links"> = ["markdown", "links"]
   if (opts.includeHtml) formats.push("html")
   try {
-    const res = await getClient().scrapeUrl(url, {
+    const doc = await getClient().scrape(url, {
       formats,
       onlyMainContent: true,
       waitFor: 1500,
     })
-    if (!res.success) return { error: (res as { error?: string }).error ?? "unknown firecrawl error" }
     return {
-      markdown: res.markdown ?? "",
-      html: opts.includeHtml ? (res.html ?? "") : undefined,
-      links: res.links ?? [],
+      markdown: doc.markdown ?? "",
+      html: opts.includeHtml ? (doc.html ?? "") : undefined,
+      links: doc.links ?? [],
     }
   } catch (error) {
     return { error: error instanceof Error ? error.message : String(error) }
@@ -354,9 +360,8 @@ export async function mapUrl(
   search: string,
 ): Promise<string[]> {
   try {
-    const res = await getClient().mapUrl(website, { search, limit: 20 })
-    if (!res.success) return []
-    return (res.links ?? []).map(l => (typeof l === "string" ? l : l.url)).filter(Boolean)
+    const data = await getClient().map(website, { search, limit: 20 })
+    return (data.links ?? []).map(l => l.url).filter((u): u is string => typeof u === "string")
   } catch {
     return []
   }
@@ -366,10 +371,8 @@ const CREDIT_FLOOR = 50
 
 export async function ensureCredits(): Promise<{ ok: boolean; remaining: number }> {
   try {
-    const res = await (getClient() as unknown as {
-      checkCredits?: () => Promise<{ remainingCredits?: number }>
-    }).checkCredits?.()
-    const remaining = res?.remainingCredits ?? -1
+    const usage = await getClient().getCreditUsage()
+    const remaining = usage.remainingCredits ?? -1
     return { ok: remaining < 0 || remaining >= CREDIT_FLOOR, remaining }
   } catch {
     return { ok: true, remaining: -1 }
@@ -377,7 +380,12 @@ export async function ensureCredits(): Promise<{ ok: boolean; remaining: number 
 }
 ```
 
-Note on the credit check: the Firecrawl JS SDK exposes `checkCredits` on some versions and not others. The code above falls back to treating an unknown result as "ok" rather than blocking the pipeline. The pre-run smoke test in Task 1 confirms auth works; credits are visible via `firecrawl --status` if the guard is inconclusive.
+**SDK v4 notes for subagent:**
+- Default export `Firecrawl` is the v2 client. It exposes `.scrape(url, opts)`, `.map(url, opts)`, and `.getCreditUsage()`.
+- `.scrape()` returns a `Document` directly (no `{ success, ... }` wrapper). It throws on transport / API error, so the try/catch is the failure path.
+- `.map()` returns `{ links: SearchResultWeb[] }` where each link has `.url`, `.title`, `.description`. The wrapper flattens to `string[]`.
+- `Document.links` is already `string[]`.
+- Credit floor is 50. If `getCreditUsage()` is unavailable or fails, treat as unknown/ok rather than blocking — the scrape failure path will still surface real problems.
 
 - [ ] **Step 2: Type check**
 
@@ -394,15 +402,19 @@ Create `scripts/scraper/_client-smoke.ts`:
 import "dotenv/config"
 import { scrapeUrl, ensureCredits } from "./pipeline/firecrawl-client"
 
-const credits = await ensureCredits()
-console.log("credits:", credits)
+async function main() {
+  const credits = await ensureCredits()
+  console.log("credits:", credits)
 
-const res = await scrapeUrl("https://firecrawl.dev", { includeHtml: true })
-if ("error" in res) {
-  console.error("FAIL:", res.error)
-  process.exit(1)
+  const res = await scrapeUrl("https://firecrawl.dev", { includeHtml: true })
+  if ("error" in res) {
+    console.error("FAIL:", res.error)
+    process.exit(1)
+  }
+  console.log("markdown bytes:", res.markdown.length, "html bytes:", res.html?.length, "links:", res.links.length)
 }
-console.log("markdown bytes:", res.markdown.length, "html bytes:", res.html?.length, "links:", res.links.length)
+
+main()
 ```
 
 Run:
