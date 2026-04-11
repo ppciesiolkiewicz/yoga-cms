@@ -77,38 +77,39 @@ function filterStudios(args: Args): StudioEntry[] {
 
 async function runStageFor(entry: StudioEntry, stage: Stage, args: Args): Promise<void> {
   const slug = slugify(entry.studioName)
-
   const shouldRun = (exists: () => boolean) => args.force || !exists()
 
-  if (stage === "tech" || stage === "all") {
-    if (shouldRun(() => analysisArtifactExists(slug, "tech.json"))) {
-      await analyzeTechStage(entry)
+  type Task = { name: string; run: () => Promise<void> }
+  const tasks: Task[] = []
+
+  const addStage = (
+    name: string,
+    artifact: string,
+    fn: () => Promise<void>,
+  ): void => {
+    if (shouldRun(() => analysisArtifactExists(slug, artifact))) {
+      tasks.push({ name, run: fn })
     } else {
-      console.log(`  · tech cached for ${entry.studioName}`)
+      console.log(`  · ${name} cached for ${entry.studioName}`)
     }
   }
 
-  if (stage === "lighthouse" || stage === "all") {
-    if (shouldRun(() => analysisArtifactExists(slug, "lighthouse.json"))) {
-      await analyzeLighthouseStage(entry)
-    } else {
-      console.log(`  · lighthouse cached for ${entry.studioName}`)
-    }
-  }
+  if (stage === "tech" || stage === "all") addStage("tech", "tech.json", () => analyzeTechStage(entry))
+  if (stage === "lighthouse" || stage === "all") addStage("lighthouse", "lighthouse.json", () => analyzeLighthouseStage(entry))
+  if (stage === "content" || stage === "all") addStage("content", "content.json", () => analyzeContentStage(entry))
+  if (stage === "extract" || stage === "all") addStage("extract", "extracted.json", () => analyzeExtractStage(entry))
 
-  if (stage === "content" || stage === "all") {
-    if (shouldRun(() => analysisArtifactExists(slug, "content.json"))) {
-      await analyzeContentStage(entry)
-    } else {
-      console.log(`  · content cached for ${entry.studioName}`)
-    }
-  }
-
-  if (stage === "extract" || stage === "all") {
-    if (shouldRun(() => analysisArtifactExists(slug, "extracted.json"))) {
-      await analyzeExtractStage(entry)
-    } else {
-      console.log(`  · extract cached for ${entry.studioName}`)
+  if (tasks.length > 0) {
+    const results = await Promise.allSettled(tasks.map(t => t.run()))
+    let failed = 0
+    results.forEach((r, i) => {
+      if (r.status === "rejected") {
+        failed++
+        console.error(`  ✗ ${tasks[i].name} failed for ${entry.studioName}: ${r.reason instanceof Error ? r.reason.message : r.reason}`)
+      }
+    })
+    if (failed > 0 && (stage === "report" || stage === "all")) {
+      throw new Error(`${failed} stage(s) failed — skipping report`)
     }
   }
 

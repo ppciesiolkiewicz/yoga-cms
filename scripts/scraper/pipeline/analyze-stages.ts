@@ -125,6 +125,9 @@ async function computeClassification(
   return result
 }
 
+// In-flight cache so concurrent content+extract stages don't double-compute.
+const classificationInFlight = new Map<string, Promise<ClassificationJson>>()
+
 /**
  * Returns the studio's classification. Uses the disk cache at
  * `data/analysis/<slug>/classification.json` if present; otherwise runs the
@@ -139,10 +142,20 @@ async function getOrComputeClassification(
     console.log(`  Classify: using cached classification.json`)
     return cached
   }
-  const result = await computeClassification(entry, slug)
-  writeClassification(slug, result)
-  console.log(`  Classify: wrote classification.json`)
-  return result
+  const existing = classificationInFlight.get(slug)
+  if (existing) return existing
+  const p = (async () => {
+    const result = await computeClassification(entry, slug)
+    writeClassification(slug, result)
+    console.log(`  Classify: wrote classification.json`)
+    return result
+  })()
+  classificationInFlight.set(slug, p)
+  try {
+    return await p
+  } finally {
+    classificationInFlight.delete(slug)
+  }
 }
 
 function pagesByCategory(
@@ -199,11 +212,13 @@ export async function analyzeContentStage(entry: StudioEntry): Promise<void> {
   const trainingPages = pagesByCategory(pages, classification, "training")
   const retreatPages = pagesByCategory(pages, classification, "retreat")
 
+  const retryHint = `npm run analyze -- --stage content --studio "${entry.studioName}" --force`
   const assessment = await assessContent(
     entry.studioName,
     dropInPages,
     trainingPages,
     retreatPages,
+    retryHint,
   )
 
   const payload: ContentJson = { generatedAt: new Date().toISOString(), assessment }

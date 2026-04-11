@@ -114,17 +114,28 @@ function TechCard({ tech }: { tech: TechAssessment }) {
 
 function TechTooltipContent({ t }: { t: DetectedTechnology }) {
   return (
-    <div className="pointer-events-none invisible absolute bottom-full left-1/2 z-20 mb-1.5 w-60 -translate-x-1/2 rounded-md border border-gray-700 bg-gray-900 p-2.5 text-left text-[11px] text-gray-100 opacity-0 shadow-lg transition-opacity duration-75 group-hover:visible group-hover:opacity-100">
-      <div className="mb-1 font-semibold text-white">
-        {t.name}
-        {t.version && <span className="ml-1 font-mono text-gray-400">v{t.version}</span>}
+    <div className="pointer-events-none invisible absolute bottom-full left-1/2 z-50 w-60 -translate-x-1/2 pb-1.5 opacity-0 transition-[opacity,visibility] duration-75 delay-[0ms] group-hover:pointer-events-auto group-hover:visible group-hover:opacity-100 group-hover:delay-350">
+      <div className="rounded-md border border-gray-700 bg-gray-900 p-2.5 text-left text-[11px] text-gray-100 shadow-lg">
+        <div className="mb-1 font-semibold text-white">
+          {t.name}
+          {t.version && <span className="ml-1 font-mono text-gray-400">v{t.version}</span>}
+        </div>
+        <div className="text-gray-300">{t.categories.join(" · ") || t.category}</div>
+        {typeof t.confidence === "number" && (
+          <div className="text-gray-400">Confidence: {t.confidence}%</div>
+        )}
+        {t.description && <div className="mt-1 text-gray-300">{t.description}</div>}
+        {t.website && (
+          <a
+            href={t.website}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-1 block break-all text-blue-300 underline-offset-2 hover:underline"
+          >
+            {t.website}
+          </a>
+        )}
       </div>
-      <div className="text-gray-300">{t.categories.join(" · ") || t.category}</div>
-      {typeof t.confidence === "number" && (
-        <div className="text-gray-400">Confidence: {t.confidence}%</div>
-      )}
-      {t.description && <div className="mt-1 text-gray-300">{t.description}</div>}
-      {t.website && <div className="mt-1 break-all text-blue-300">{t.website}</div>}
     </div>
   )
 }

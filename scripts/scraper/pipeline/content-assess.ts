@@ -162,7 +162,7 @@ const RETREAT_SCHEMA = `{
   ]
 }`
 
-async function callClaude<T>(systemPrompt: string, userPrompt: string, label: string): Promise<T> {
+async function callClaude<T>(systemPrompt: string, userPrompt: string, label: string, retryHint: string): Promise<T> {
   const maxAttempts = 3
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -181,6 +181,7 @@ async function callClaude<T>(systemPrompt: string, userPrompt: string, label: st
       if (attempt < maxAttempts) {
         const delay = 1500 * attempt
         console.warn(`  ⚠ ${label} attempt ${attempt} failed (${error instanceof Error ? error.message : error}); retrying in ${delay}ms`)
+        console.warn(`    retry full stage: ${retryHint}`)
         await new Promise(r => setTimeout(r, delay))
       }
     }
@@ -200,13 +201,14 @@ Return a JSON object with this exact structure:
 ${schema}`
 }
 
-async function assessDropIn(studioName: string, pages: FetchedPage[]): Promise<DropInPageAssessment[]> {
+async function assessDropIn(studioName: string, pages: FetchedPage[], retryHint: string): Promise<DropInPageAssessment[]> {
   if (pages.length === 0) return []
   try {
     const result = await callClaude<{ pages: DropInPageAssessment[] }>(
       DROP_IN_PROMPT,
       buildUserPrompt(studioName, pages, DROP_IN_SCHEMA),
       "Drop-in assessment",
+      retryHint,
     )
     return result.pages ?? []
   } catch (error) {
@@ -215,13 +217,14 @@ async function assessDropIn(studioName: string, pages: FetchedPage[]): Promise<D
   }
 }
 
-async function assessTraining(studioName: string, pages: FetchedPage[]): Promise<TrainingPageAssessment[]> {
+async function assessTraining(studioName: string, pages: FetchedPage[], retryHint: string): Promise<TrainingPageAssessment[]> {
   if (pages.length === 0) return []
   try {
     const result = await callClaude<{ pages: TrainingPageAssessment[] }>(
       TRAINING_PROMPT,
       buildUserPrompt(studioName, pages, TRAINING_SCHEMA),
       "Training assessment",
+      retryHint,
     )
     return result.pages ?? []
   } catch (error) {
@@ -230,13 +233,14 @@ async function assessTraining(studioName: string, pages: FetchedPage[]): Promise
   }
 }
 
-async function assessRetreat(studioName: string, pages: FetchedPage[]): Promise<RetreatPageAssessment[]> {
+async function assessRetreat(studioName: string, pages: FetchedPage[], retryHint: string): Promise<RetreatPageAssessment[]> {
   if (pages.length === 0) return []
   try {
     const result = await callClaude<{ pages: RetreatPageAssessment[] }>(
       RETREAT_PROMPT,
       buildUserPrompt(studioName, pages, RETREAT_SCHEMA),
       "Retreat assessment",
+      retryHint,
     )
     return result.pages ?? []
   } catch (error) {
@@ -279,6 +283,7 @@ export async function assessContent(
   dropInPages: FetchedPage[],
   trainingPages: FetchedPage[],
   retreatPages: FetchedPage[],
+  retryHint: string,
 ): Promise<ContentAssessment> {
   if (dropInPages.length === 0 && trainingPages.length === 0 && retreatPages.length === 0) {
     return {
@@ -293,9 +298,9 @@ export async function assessContent(
   console.log(`  Assessing content with Claude API (per-type)...`)
 
   const [dropIn, training, retreat] = await Promise.all([
-    assessDropIn(studioName, dropInPages),
-    assessTraining(studioName, trainingPages),
-    assessRetreat(studioName, retreatPages),
+    assessDropIn(studioName, dropInPages, retryHint),
+    assessTraining(studioName, trainingPages, retryHint),
+    assessRetreat(studioName, retreatPages, retryHint),
   ])
 
   return {
