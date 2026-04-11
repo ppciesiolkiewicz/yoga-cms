@@ -5,3 +5,4 @@ node_modules/
 .firecrawl/
 .DS_Store
 simple-wappalyzer/
+.worktrees/
