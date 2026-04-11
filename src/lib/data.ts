@@ -3,6 +3,7 @@ import { join } from "path"
 import type { StudioReport, StudioIndex, StudioIndexEntry } from "../../scripts/scraper/types"
 
 const DATA_DIR = join(process.cwd(), "data")
+const REPORTS_DIR = join(DATA_DIR, "reports")
 
 export function getStudioIndex(): StudioIndex | null {
   const filePath = join(DATA_DIR, "index.json")
@@ -11,16 +12,16 @@ export function getStudioIndex(): StudioIndex | null {
 }
 
 export function getStudioReport(slug: string): StudioReport | null {
-  const filePath = join(DATA_DIR, `${slug}.json`)
+  const filePath = join(REPORTS_DIR, `${slug}.json`)
   if (!existsSync(filePath)) return null
   return JSON.parse(readFileSync(filePath, "utf-8")) as StudioReport
 }
 
-/** Scan data/ for individual JSON files — works even before index.json is written. */
+/** Scan data/reports/ for individual JSON files — works even before index.json is written. */
 export function getAllSlugs(): string[] {
-  if (!existsSync(DATA_DIR)) return []
-  return readdirSync(DATA_DIR)
-    .filter(f => f.endsWith(".json") && f !== "index.json")
+  if (!existsSync(REPORTS_DIR)) return []
+  return readdirSync(REPORTS_DIR)
+    .filter(f => f.endsWith(".json"))
     .map(f => f.replace(/\.json$/, ""))
 }
 
