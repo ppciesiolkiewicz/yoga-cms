@@ -75,12 +75,23 @@ export interface RawStudio {
 export interface NavLink {
   label: string
   href: string
+  /** Score 1-10 if this nav link matches an assessed page (drop-in, training, or retreat). */
+  score?: number
+  /** Category of the assessed page this link points to, if any. */
+  pageType?: "dropIn" | "training" | "retreat"
 }
 
 export interface DetectedTechnology {
   name: string
   category: string
+  categories: string[]
   version?: string
+  confidence?: number
+  website?: string
+  icon?: string
+  description?: string
+  slug?: string
+  cpe?: string | null
 }
 
 export interface CostItem {

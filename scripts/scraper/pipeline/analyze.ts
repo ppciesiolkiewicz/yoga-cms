@@ -1,5 +1,5 @@
 // scripts/scraper/pipeline/analyze.ts
-import type { StudioReport, StudioEntry, FetchedPage, NavLink } from "../types"
+import type { StudioReport, StudioEntry, FetchedPage, NavLink, ContentAssessment } from "../types"
 import { loadRawStudio } from "./raw-io"
 import { detectTech } from "./tech-detect"
 import { assessContent } from "./content-assess"
@@ -12,6 +12,44 @@ import {
 
 function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
+}
+
+function normalizeUrl(url: string): string {
+  try {
+    const u = new URL(url)
+    return `${u.origin}${u.pathname}`.replace(/\/$/, "").toLowerCase()
+  } catch {
+    return url.toLowerCase()
+  }
+}
+
+function annotateNavigationWithScores(
+  navigation: NavLink[],
+  assessment: ContentAssessment,
+  dropInPageUrls: string[],
+): NavLink[] {
+  const trainingByUrl = new Map(
+    assessment.trainingPages.map(p => [normalizeUrl(p.url), p.score]),
+  )
+  const retreatByUrl = new Map(
+    assessment.retreatPages.map(p => [normalizeUrl(p.url), p.score]),
+  )
+  const dropInUrls = new Set(dropInPageUrls.map(normalizeUrl))
+  const dropInScore = assessment.dropInPresentation?.score
+
+  return navigation.map(link => {
+    const key = normalizeUrl(link.href)
+    if (trainingByUrl.has(key)) {
+      return { ...link, score: trainingByUrl.get(key), pageType: "training" as const }
+    }
+    if (retreatByUrl.has(key)) {
+      return { ...link, score: retreatByUrl.get(key), pageType: "retreat" as const }
+    }
+    if (dropInUrls.has(key) && dropInScore !== undefined) {
+      return { ...link, score: dropInScore, pageType: "dropIn" as const }
+    }
+    return link
+  })
 }
 
 function extractNavFromHtml(html: string, baseUrl: string): NavLink[] {
@@ -50,7 +88,7 @@ export async function analyzeStudio(entry: StudioEntry): Promise<StudioReport> {
   const retreatPages: FetchedPage[] = raw.pages.filter(p => p.category === "retreat")
   const contactPages: FetchedPage[] = raw.pages.filter(p => p.category === "contact")
 
-  const navigation = extractNavFromHtml(raw.homepage.html, raw.website)
+  const rawNavigation = extractNavFromHtml(raw.homepage.html, raw.website)
 
   const { tech, features } = await detectTech(raw.website, raw.homepage.html)
   const lighthouse = raw.lighthouse
@@ -77,6 +115,12 @@ export async function analyzeStudio(entry: StudioEntry): Promise<StudioReport> {
 
   const contactPageUrl = contactPages[0]?.url
   if (contactPageUrl) contact.contactPageUrl = contactPageUrl
+
+  const navigation = annotateNavigationWithScores(
+    rawNavigation,
+    contentAssessment,
+    dropInPages.map(p => p.url),
+  )
 
   return {
     slug,

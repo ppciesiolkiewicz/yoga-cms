@@ -75,9 +75,11 @@ function detectFeatures(technologies: DetectedTechnology[], html: string): Featu
   else if (names.includes("Stripe") || htmlLower.includes("stripe")) onlineBooking = "Stripe (custom)"
 
   let chat: string | undefined
-  if (names.includes("Tawk.to")) chat = "Tawk.to"
-  else if (names.includes("Intercom")) chat = "Intercom"
-  else if (htmlLower.includes("wa.me") || htmlLower.includes("whatsapp")) chat = "WhatsApp"
+  if (names.includes("Tawk.to") || htmlLower.includes("embed.tawk.to") || htmlLower.includes("tawk.to/")) chat = "Tawk.to"
+  else if (names.includes("Intercom") || htmlLower.includes("widget.intercom.io")) chat = "Intercom"
+  else if (names.includes("Crisp") || htmlLower.includes("client.crisp.chat")) chat = "Crisp"
+  else if (htmlLower.includes("widget.drift.com")) chat = "Drift"
+  else if (htmlLower.includes("wa.me/") || htmlLower.includes("api.whatsapp.com")) chat = "WhatsApp"
 
   return {
     onlineBooking,
@@ -112,11 +114,31 @@ export async function detectTech(
     const wappalyze = (await import("simple-wappalyzer")).default
     const result = await wappalyze({ url, html, headers: {} })
     const techs = Array.isArray(result) ? result : result?.technologies ?? []
-    technologies = techs.map((t: { name: string; categories: { name: string }[]; version?: string }) => ({
-      name: t.name,
-      category: t.categories?.[0]?.name ?? "Other",
-      version: t.version || undefined,
-    }))
+    technologies = techs.map((t: {
+      name: string
+      categories: { name: string }[]
+      version?: string
+      confidence?: number
+      website?: string
+      icon?: string
+      description?: string | null
+      slug?: string
+      cpe?: string | null
+    }) => {
+      const categories = (t.categories ?? []).map(c => c.name).filter(Boolean)
+      return {
+        name: t.name,
+        category: categories[0] ?? "Other",
+        categories,
+        version: t.version || undefined,
+        confidence: typeof t.confidence === "number" ? t.confidence : undefined,
+        website: t.website || undefined,
+        icon: t.icon || undefined,
+        description: t.description ?? undefined,
+        slug: t.slug || undefined,
+        cpe: t.cpe ?? undefined,
+      }
+    })
   } catch (error) {
     console.warn(`  ⚠ Wappalyzer failed for ${url}: ${error}`)
   }

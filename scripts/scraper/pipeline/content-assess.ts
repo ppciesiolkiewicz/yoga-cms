@@ -104,26 +104,36 @@ Return a JSON object with this exact structure:
 
   console.log(`  Assessing content with Claude API...`)
 
-  try {
-    const response = await getClient().messages.create({
-      model: "claude-sonnet-4-6",
-      max_tokens: 4096,
-      system: SYSTEM_PROMPT,
-      messages: [{ role: "user", content: userPrompt }],
-    })
+  const maxAttempts = 3
+  let lastError: unknown
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const response = await getClient().messages.create({
+        model: "claude-sonnet-4-6",
+        max_tokens: 4096,
+        system: SYSTEM_PROMPT,
+        messages: [{ role: "user", content: userPrompt }],
+      })
 
-    let text = response.content[0].type === "text" ? response.content[0].text : ""
-    text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
+      let text = response.content[0].type === "text" ? response.content[0].text : ""
+      text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
 
-    return JSON.parse(text) as ContentAssessment
-  } catch (error) {
-    console.warn(`  ⚠ Content assessment failed: ${error}`)
-    return {
-      overallScore: 0,
-      summary: "Assessment failed.",
-      dropInPresentation: null,
-      trainingPages: [],
-      retreatPages: [],
+      return JSON.parse(text) as ContentAssessment
+    } catch (error) {
+      lastError = error
+      if (attempt < maxAttempts) {
+        const delay = 1500 * attempt
+        console.warn(`  ⚠ Content assessment attempt ${attempt} failed (${error instanceof Error ? error.message : error}); retrying in ${delay}ms`)
+        await new Promise(r => setTimeout(r, delay))
+      }
     }
+  }
+  console.warn(`  ⚠ Content assessment failed after ${maxAttempts} attempts: ${lastError}`)
+  return {
+    overallScore: 0,
+    summary: "Assessment failed.",
+    dropInPresentation: null,
+    trainingPages: [],
+    retreatPages: [],
   }
 }

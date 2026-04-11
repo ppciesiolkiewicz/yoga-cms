@@ -8,14 +8,26 @@ function getClient() {
 }
 
 async function callClaude(system: string, userMessage: string): Promise<string> {
-  const response = await getClient().messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 4096,
-    system,
-    messages: [{ role: "user", content: userMessage }],
-  })
-  let text = response.content[0].type === "text" ? response.content[0].text : ""
-  return text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
+  const maxAttempts = 3
+  let lastError: unknown
+  for (let attempt = 1; attempt <= maxAttempts; attempt++) {
+    try {
+      const response = await getClient().messages.create({
+        model: "claude-sonnet-4-6",
+        max_tokens: 4096,
+        system,
+        messages: [{ role: "user", content: userMessage }],
+      })
+      const text = response.content[0].type === "text" ? response.content[0].text : ""
+      return text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
+    } catch (error) {
+      lastError = error
+      if (attempt < maxAttempts) {
+        await new Promise(r => setTimeout(r, 1500 * attempt))
+      }
+    }
+  }
+  throw lastError
 }
 
 export async function extractDropInClasses(pages: FetchedPage[], studioName: string): Promise<DropInClass[]> {
