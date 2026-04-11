@@ -1,17 +1,19 @@
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { getStudioReport } from "@/lib/data"
+import { getStudioReport, getAllStudioSummaries } from "@/lib/data"
+import { StudioSidePanel } from "./StudioSidePanel"
 import type {
   StudioReport,
   TechAssessment,
+  DetectedTechnology,
   Features,
   NavLink,
   ContentAssessment,
+  DropInPageAssessment,
   TrainingPageAssessment,
   RetreatPageAssessment,
   ContactInfo,
   ProgressiveDisclosure,
-  LighthouseScores,
 } from "../../../../scripts/scraper/types"
 
 export const dynamic = "force-dynamic"
@@ -20,9 +22,12 @@ export default async function StudioDetailPage({ params }: { params: Promise<{ s
   const { slug } = await params
   const report = getStudioReport(slug)
   if (!report) notFound()
+  const summaries = getAllStudioSummaries()
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-8 space-y-6">
+    <>
+    <StudioSidePanel studios={summaries} currentSlug={slug} />
+    <main className="ml-65 max-w-5xl px-6 py-8 space-y-6">
       {/* Header */}
       <div>
         <Link href="/browse-data" className="text-sm text-blue-600 hover:underline">
@@ -45,6 +50,7 @@ export default async function StudioDetailPage({ params }: { params: Promise<{ s
       <ContactCard contact={report.contact} />
       <ExtractedDataCard report={report} />
     </main>
+    </>
   )
 }
 
@@ -70,14 +76,10 @@ function TechCard({ tech }: { tech: TechAssessment }) {
 
       {tech.detectedTechnologies.length > 0 && (
         <div className="mt-4">
-          <p className="mb-2 text-xs uppercase text-gray-500">Detected Technologies</p>
-          <div className="flex flex-wrap gap-2">
-            {tech.detectedTechnologies.map(t => (
-              <span key={t.name} className="rounded-full bg-gray-100 px-2 py-0.5 text-xs" title={t.category}>
-                {t.name}{t.version ? ` ${t.version}` : ""}
-              </span>
-            ))}
-          </div>
+          <p className="mb-2 text-xs uppercase text-gray-500">
+            Detected Technologies ({tech.detectedTechnologies.length})
+          </p>
+          <DetectedTechList technologies={tech.detectedTechnologies} />
         </div>
       )}
 
@@ -107,6 +109,47 @@ function TechCard({ tech }: { tech: TechAssessment }) {
         </div>
       )}
     </section>
+  )
+}
+
+function TechTooltipContent({ t }: { t: DetectedTechnology }) {
+  return (
+    <div className="pointer-events-none invisible absolute bottom-full left-1/2 z-20 mb-1.5 w-60 -translate-x-1/2 rounded-md border border-gray-700 bg-gray-900 p-2.5 text-left text-[11px] text-gray-100 opacity-0 shadow-lg transition-opacity duration-75 group-hover:visible group-hover:opacity-100">
+      <div className="mb-1 font-semibold text-white">
+        {t.name}
+        {t.version && <span className="ml-1 font-mono text-gray-400">v{t.version}</span>}
+      </div>
+      <div className="text-gray-300">{t.categories.join(" · ") || t.category}</div>
+      {typeof t.confidence === "number" && (
+        <div className="text-gray-400">Confidence: {t.confidence}%</div>
+      )}
+      {t.description && <div className="mt-1 text-gray-300">{t.description}</div>}
+      {t.website && <div className="mt-1 break-all text-blue-300">{t.website}</div>}
+    </div>
+  )
+}
+
+function DetectedTechList({ technologies }: { technologies: DetectedTechnology[] }) {
+  return (
+    <div className="flex flex-wrap gap-1.5">
+      {technologies.map(t => {
+        const label = t.name + (t.version ? ` ${t.version}` : "")
+        const chipClass =
+          "inline-flex items-center rounded-full border border-gray-200 bg-gray-50 px-2 py-0.5 text-xs text-gray-700 hover:bg-gray-100 hover:border-gray-300"
+        return (
+          <div key={t.name} className="group relative">
+            {t.website ? (
+              <a href={t.website} target="_blank" rel="noopener noreferrer" className={chipClass}>
+                {label}
+              </a>
+            ) : (
+              <span className={chipClass}>{label}</span>
+            )}
+            <TechTooltipContent t={t} />
+          </div>
+        )
+      })}
+    </div>
   )
 }
 
@@ -221,12 +264,13 @@ function ContentAssessmentCard({ assessment }: { assessment: ContentAssessment }
       </div>
       <p className="text-sm text-gray-600">{assessment.summary}</p>
 
-      {assessment.dropInPresentation && (
+      {assessment.dropInPages.length > 0 && (
         <div className="mt-4">
-          <h3 className="mb-1 text-sm font-medium">Drop-in Presentation</h3>
-          <div className="flex items-center gap-2">
-            <ScoreBadge score={assessment.dropInPresentation.score} />
-            <p className="text-sm text-gray-500">{assessment.dropInPresentation.notes}</p>
+          <h3 className="mb-2 text-sm font-medium">Drop-in Pages</h3>
+          <div className="space-y-3">
+            {assessment.dropInPages.map(page => (
+              <DropInPageCard key={page.url} page={page} />
+            ))}
           </div>
         </div>
       )}
@@ -256,6 +300,37 @@ function ContentAssessmentCard({ assessment }: { assessment: ContentAssessment }
   )
 }
 
+function DualScoreBadges({ conversion, seo }: { conversion: number; seo: number }) {
+  return (
+    <div className="flex items-center gap-1">
+      <span className="text-xs text-gray-500">Conv</span>
+      <ScoreBadge score={conversion} />
+      <span className="ml-1 text-xs text-gray-500">SEO</span>
+      <ScoreBadge score={seo} />
+    </div>
+  )
+}
+
+function DropInPageCard({ page }: { page: DropInPageAssessment }) {
+  return (
+    <div className="rounded-lg border border-gray-100 p-4">
+      <div className="flex flex-wrap items-center gap-2">
+        <a href={page.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-600 hover:underline">
+          {page.pageName}
+        </a>
+        <DualScoreBadges conversion={page.conversionScore} seo={page.seoScore} />
+        {!page.scheduleVisible && (
+          <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs text-orange-700">Schedule hidden</span>
+        )}
+        {!page.pricesClear && (
+          <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs text-orange-700">Prices unclear</span>
+        )}
+      </div>
+      {page.notes && <p className="mt-2 text-xs text-gray-500">{page.notes}</p>}
+    </div>
+  )
+}
+
 function TrainingPageCard({ page }: { page: TrainingPageAssessment }) {
   return (
     <div className="rounded-lg border border-gray-100 p-4">
@@ -263,7 +338,7 @@ function TrainingPageCard({ page }: { page: TrainingPageAssessment }) {
         <a href={page.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-600 hover:underline">
           {page.pageName}
         </a>
-        <ScoreBadge score={page.score} />
+        <DualScoreBadges conversion={page.conversionScore} seo={page.seoScore} />
         {page.fillerContentWarning && (
           <span className="rounded-full bg-orange-100 px-2 py-0.5 text-xs text-orange-700">Filler Content</span>
         )}
@@ -285,7 +360,7 @@ function RetreatPageCard({ page }: { page: RetreatPageAssessment }) {
         <a href={page.url} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-blue-600 hover:underline">
           {page.pageName}
         </a>
-        <ScoreBadge score={page.score} />
+        <DualScoreBadges conversion={page.conversionScore} seo={page.seoScore} />
       </div>
       <DisclosureChecklist disclosure={page.progressiveDisclosure} />
       {page.notes && <p className="mt-2 text-xs text-gray-500">{page.notes}</p>}
