@@ -1,14 +1,14 @@
-export type ScrapeMode = "fetch" | "browser"
-
-export interface ScrapableUrl {
-  url: string
-  scrapeMode?: ScrapeMode // default: "fetch"
+export interface StudioOverrides {
+  dropIns?: string[]
+  trainings?: string[]
+  retreats?: string[]
+  contact?: string
 }
 
 export interface SearchRanking {
-  query: string              // e.g. "yoga studio Melbourne"
-  position: number           // 1-based rank in search results
-  isTopResult: boolean       // position <= 5
+  query: string
+  position: number
+  isTopResult: boolean
 }
 
 export interface StudioEntry {
@@ -16,18 +16,60 @@ export interface StudioEntry {
   city: string
   website: string
   searchRanking?: SearchRanking
-  dropIns: ScrapableUrl[]
-  trainings: ScrapableUrl[]
-  retreats: ScrapableUrl[]
-  contact?: ScrapableUrl
+  overrides?: StudioOverrides
 }
 
-// ── Output types ────────────────────────────────────────────
+// ── Raw fetch output ────────────────────────────────────────
+
+export type PageCategory = "home" | "dropIn" | "training" | "retreat" | "contact"
+export type DiscoverySource = "override" | "homepage-links" | `map:${string}`
+
+export type RawPage =
+  | {
+      status: "ok"
+      url: string
+      file: string
+      category: PageCategory
+      source: DiscoverySource
+      fetchedAt: string
+      bytes: number
+    }
+  | {
+      status: "failed"
+      url: string
+      file: string
+      category: PageCategory
+      source: DiscoverySource
+      fetchedAt: string
+      error: string
+    }
+
+export interface PagesJson {
+  studioName: string
+  website: string
+  fetchedAt: string
+  pages: RawPage[]
+}
 
 export interface FetchedPage {
   url: string
-  html: string
-  text: string
+  markdown: string
+  category: PageCategory
+}
+
+export interface RawStudio {
+  slug: string
+  studioName: string
+  website: string
+  fetchedAt: string
+  pages: FetchedPage[]
+  homepage: {
+    url: string
+    markdown: string
+    html: string
+    links: string[]
+  }
+  lighthouse: LighthouseScores
 }
 
 export interface NavLink {
