@@ -55,6 +55,29 @@ export async function mapUrl(
   }
 }
 
+export async function fetchResponseHeaders(url: string): Promise<Record<string, string> | undefined> {
+  try {
+    const res = await fetch(url, {
+      method: "GET",
+      redirect: "follow",
+      headers: {
+        "User-Agent":
+          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+      },
+    })
+    const out: Record<string, string> = {}
+    res.headers.forEach((value, key) => {
+      out[key] = value
+    })
+    // Drain the body so the socket releases cleanly (we only care about headers).
+    try { await res.body?.cancel() } catch { /* ignore */ }
+    return out
+  } catch (error) {
+    console.warn(`  ⚠ Header fetch failed for ${url}: ${error instanceof Error ? error.message : error}`)
+    return undefined
+  }
+}
+
 const CREDIT_FLOOR = 50
 
 export async function ensureCredits(): Promise<{ ok: boolean; remaining: number }> {

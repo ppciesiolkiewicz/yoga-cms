@@ -1,5 +1,11 @@
 import Anthropic from "@anthropic-ai/sdk"
-import type { ContentAssessment, FetchedPage } from "../types"
+import type {
+  ContentAssessment,
+  DropInPageAssessment,
+  FetchedPage,
+  RetreatPageAssessment,
+  TrainingPageAssessment,
+} from "../types"
 
 let _anthropic: Anthropic | null = null
 function getClient() {
@@ -7,103 +13,156 @@ function getClient() {
   return _anthropic
 }
 
-const SYSTEM_PROMPT = `You are an expert at evaluating yoga studio website content. You assess whether the content serves potential customers effectively.
+const DROP_IN_PROMPT = `You judge yoga drop-in class pages.
 
-Key principles:
-- Pages with less text convert better (14.3% vs 11.1% for verbose pages)
-- Multiple offers on one page reduce conversions by 266%
-- Landing pages with minimal text have 34% higher conversions
-- Addressing buyer fears/objections increases conversion by ~80%
-- Average attention span is 47 seconds — key info must be immediate
+A visitor wants to answer: "When can I come? How much? Where? What styles?"
 
-For training/retreat pages, check "progressive disclosure" — the five questions must be answered upfront, before any philosophy or filler content:
-1. WHEN — dates clearly visible near the top
-2. WHERE — location stated early
-3. PRICE — price visible without scrolling past filler
-4. WHAT — what the training actually covers
-5. HOW LONG — duration stated early
+Good page:
+- Class schedule visible near the top — day, time, style
+- Prices clear (single class, class packs, first-time deals)
+- Studio address and how to get there
+- Easy way to book or just show up
+- Short class descriptions, not long philosophy
 
-Red flags:
-- "What is yoga?" content on a page targeting people who already practice yoga
-- "Why choose us?" sections (signals insecurity, delays useful information)
-- Key information (price, dates) buried below the 40% scroll depth mark
-- Philosophy essays before practical details
-- Multiple unrelated offers on one page
+Bad page:
+- Schedule hidden below a long story
+- "What is yoga" text on a commercial class page
+- Prices missing or "contact us for prices"
+- Training and retreat offers mixed in with drop-in classes
 
-For drop-in class pages:
-- Schedule should be immediately visible and well-organized
-- Prices should be clear
-- Class descriptions should be concise
+SEO (Google) — check:
+- Page title names the city and class type (e.g. "Hatha classes in Barcelona")
+- Clear H1 matching the title
+- LocalBusiness schema with address, phone, hours
+- Unique copy, not generic boilerplate
+- Images have alt text
 
-Score each page 1-10 where:
-- 9-10: Key info immediate, clean layout, no filler
-- 7-8: Key info findable but could be better positioned
-- 5-6: Some filler content, key info requires scrolling
-- 3-4: Significant filler, key info buried
-- 1-2: Key info nearly impossible to find, excessive philosophy/filler
+Score each page 1-10 twice:
+- conversionScore: how well does the page help a visitor book?
+- seoScore: how well can Google find and rank the page?
 
-Return ONLY valid JSON. No markdown, no code fences.`
+Return only valid JSON. No markdown, no code fences.`
 
-export async function assessContent(
-  studioName: string,
-  dropInPages: FetchedPage[],
-  trainingPages: FetchedPage[],
-  retreatPages: FetchedPage[]
-): Promise<ContentAssessment> {
-  const allPages = [
-    ...dropInPages.map(p => ({ ...p, type: "drop-in" as const })),
-    ...trainingPages.map(p => ({ ...p, type: "training" as const })),
-    ...retreatPages.map(p => ({ ...p, type: "retreat" as const })),
-  ]
+const TRAINING_PROMPT = `You judge yoga teacher training (YTT) pages.
 
-  if (allPages.length === 0) {
-    return {
-      overallScore: 0,
-      summary: "No pages available for assessment.",
-      dropInPresentation: null,
-      trainingPages: [],
-      retreatPages: [],
-    }
-  }
+A visitor is deciding: "Should I enroll here, or keep looking?"
 
-  const pagesDescription = allPages
-    .map(p => `[${p.type.toUpperCase()}] ${p.url}\n${p.markdown.slice(0, 12000)}`)
-    .join("\n\n---\n\n")
+Five facts must be near the top, before any story:
+- WHEN — dates
+- WHERE — place
+- PRICE
+- WHAT — what you will learn, hours, style
+- HOW LONG — days or weeks
 
-  const userPrompt = `Assess the content quality of "${studioName}" website pages.
+Good page:
+- All 5 facts visible before any philosophy
+- Real curriculum with topics listed
+- Teacher names and short bios
+- Reviews or past student outcomes
+- Clear way to apply or book
 
-${pagesDescription}
+Bad page:
+- "What is yoga" or philosophy before the price
+- "Why choose us" filler sections
+- Price or dates hidden far down
+- Many different training offers mixed on one page
 
-Return a JSON object with this exact structure:
-{
-  "overallScore": <number 1-10>,
-  "summary": "<2-3 sentences>",
-  "dropInPresentation": { "score": <number>, "notes": "<string>" } or null if no drop-in pages,
-  "trainingPages": [
+SEO (Google) — check:
+- Title names the course, hours, and city (e.g. "200hr YTT Rishikesh")
+- Clear H1 matching the title
+- Course schema, FAQ schema if there is a FAQ
+- Real curriculum depth — Google rewards this on training pages
+- Images with alt text, unique photos
+
+Score each page 1-10 twice:
+- conversionScore: how well does it help a visitor decide and enroll?
+- seoScore: how well can Google find and rank it?
+
+A training page can score high on both: put price and dates at the top, keep curriculum depth below. Conversion and SEO do not have to fight.
+
+Return only valid JSON. No markdown, no code fences.`
+
+const RETREAT_PROMPT = `You judge yoga retreat pages.
+
+A visitor wants to answer: "Can I go? When? Where? How much? What happens each day?"
+
+Five facts must be near the top, before any story:
+- WHEN — dates
+- WHERE — place
+- PRICE and what it includes
+- WHAT — yoga style, activities
+- HOW LONG — days
+
+Good page:
+- All 5 facts visible before the story
+- Real location — town, venue, not just "paradise"
+- What is included: room, food, yoga, transfers
+- Daily schedule
+- Clear way to book
+
+Bad page:
+- Dates or price hidden
+- Long philosophy before facts
+- Stock photos with no real place info
+- Several different retreats mixed on one page
+
+SEO (Google) — check:
+- Title names the retreat type, place, and month (e.g. "Yoga retreat in Bali, November")
+- Clear H1 matching the title
+- Event or TouristTrip schema if possible
+- Real itinerary text, not filler
+- Images with alt text
+
+Score each page 1-10 twice:
+- conversionScore: how well does it help a visitor decide and book?
+- seoScore: how well can Google find and rank it?
+
+Return only valid JSON. No markdown, no code fences.`
+
+const DROP_IN_SCHEMA = `{
+  "pages": [
     {
       "url": "<url>",
-      "pageName": "<descriptive name>",
-      "score": <number 1-10>,
+      "pageName": "<short descriptive name>",
+      "conversionScore": <number 1-10>,
+      "seoScore": <number 1-10>,
+      "scheduleVisible": <bool>,
+      "pricesClear": <bool>,
+      "notes": "<string>"
+    }
+  ]
+}`
+
+const TRAINING_SCHEMA = `{
+  "pages": [
+    {
+      "url": "<url>",
+      "pageName": "<short descriptive name>",
+      "conversionScore": <number 1-10>,
+      "seoScore": <number 1-10>,
       "progressiveDisclosure": { "when": <bool>, "where": <bool>, "price": <bool>, "what": <bool>, "howLong": <bool> },
       "keyInfoScrollDepthEstimate": "top" | "middle" | "bottom",
       "fillerContentWarning": <bool>,
       "whyChooseUsWarning": <bool>,
       "notes": "<string>"
     }
-  ],
-  "retreatPages": [
+  ]
+}`
+
+const RETREAT_SCHEMA = `{
+  "pages": [
     {
       "url": "<url>",
-      "pageName": "<descriptive name>",
-      "score": <number 1-10>,
+      "pageName": "<short descriptive name>",
+      "conversionScore": <number 1-10>,
+      "seoScore": <number 1-10>,
       "progressiveDisclosure": { "when": <bool>, "where": <bool>, "price": <bool>, "what": <bool>, "howLong": <bool> },
       "notes": "<string>"
     }
   ]
 }`
 
-  console.log(`  Assessing content with Claude API...`)
-
+async function callClaude<T>(systemPrompt: string, userPrompt: string, label: string): Promise<T> {
   const maxAttempts = 3
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -111,29 +170,139 @@ Return a JSON object with this exact structure:
       const response = await getClient().messages.create({
         model: "claude-sonnet-4-6",
         max_tokens: 4096,
-        system: SYSTEM_PROMPT,
+        system: systemPrompt,
         messages: [{ role: "user", content: userPrompt }],
       })
-
       let text = response.content[0].type === "text" ? response.content[0].text : ""
       text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
-
-      return JSON.parse(text) as ContentAssessment
+      return JSON.parse(text) as T
     } catch (error) {
       lastError = error
       if (attempt < maxAttempts) {
         const delay = 1500 * attempt
-        console.warn(`  ⚠ Content assessment attempt ${attempt} failed (${error instanceof Error ? error.message : error}); retrying in ${delay}ms`)
+        console.warn(`  ⚠ ${label} attempt ${attempt} failed (${error instanceof Error ? error.message : error}); retrying in ${delay}ms`)
         await new Promise(r => setTimeout(r, delay))
       }
     }
   }
-  console.warn(`  ⚠ Content assessment failed after ${maxAttempts} attempts: ${lastError}`)
+  throw lastError
+}
+
+function buildUserPrompt(studioName: string, pages: FetchedPage[], schema: string): string {
+  const pagesDescription = pages
+    .map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`)
+    .join("\n\n---\n\n")
+  return `Assess these "${studioName}" pages.
+
+${pagesDescription}
+
+Return a JSON object with this exact structure:
+${schema}`
+}
+
+async function assessDropIn(studioName: string, pages: FetchedPage[]): Promise<DropInPageAssessment[]> {
+  if (pages.length === 0) return []
+  try {
+    const result = await callClaude<{ pages: DropInPageAssessment[] }>(
+      DROP_IN_PROMPT,
+      buildUserPrompt(studioName, pages, DROP_IN_SCHEMA),
+      "Drop-in assessment",
+    )
+    return result.pages ?? []
+  } catch (error) {
+    console.warn(`  ⚠ Drop-in assessment failed: ${error}`)
+    return []
+  }
+}
+
+async function assessTraining(studioName: string, pages: FetchedPage[]): Promise<TrainingPageAssessment[]> {
+  if (pages.length === 0) return []
+  try {
+    const result = await callClaude<{ pages: TrainingPageAssessment[] }>(
+      TRAINING_PROMPT,
+      buildUserPrompt(studioName, pages, TRAINING_SCHEMA),
+      "Training assessment",
+    )
+    return result.pages ?? []
+  } catch (error) {
+    console.warn(`  ⚠ Training assessment failed: ${error}`)
+    return []
+  }
+}
+
+async function assessRetreat(studioName: string, pages: FetchedPage[]): Promise<RetreatPageAssessment[]> {
+  if (pages.length === 0) return []
+  try {
+    const result = await callClaude<{ pages: RetreatPageAssessment[] }>(
+      RETREAT_PROMPT,
+      buildUserPrompt(studioName, pages, RETREAT_SCHEMA),
+      "Retreat assessment",
+    )
+    return result.pages ?? []
+  } catch (error) {
+    console.warn(`  ⚠ Retreat assessment failed: ${error}`)
+    return []
+  }
+}
+
+function pageAvg(p: { conversionScore: number; seoScore: number }): number {
+  return (p.conversionScore + p.seoScore) / 2
+}
+
+function computeOverall(
+  dropIn: DropInPageAssessment[],
+  training: TrainingPageAssessment[],
+  retreat: RetreatPageAssessment[],
+): number {
+  const all = [...dropIn, ...training, ...retreat]
+  if (all.length === 0) return 0
+  const sum = all.reduce((acc, p) => acc + pageAvg(p), 0)
+  return Math.round((sum / all.length) * 10) / 10
+}
+
+function buildSummary(
+  studioName: string,
+  dropIn: DropInPageAssessment[],
+  training: TrainingPageAssessment[],
+  retreat: RetreatPageAssessment[],
+): string {
+  const parts: string[] = []
+  if (dropIn.length > 0) parts.push(`${dropIn.length} drop-in`)
+  if (training.length > 0) parts.push(`${training.length} training`)
+  if (retreat.length > 0) parts.push(`${retreat.length} retreat`)
+  if (parts.length === 0) return `No pages assessed for ${studioName}.`
+  return `Assessed ${parts.join(", ")} page(s) for ${studioName}.`
+}
+
+export async function assessContent(
+  studioName: string,
+  dropInPages: FetchedPage[],
+  trainingPages: FetchedPage[],
+  retreatPages: FetchedPage[],
+): Promise<ContentAssessment> {
+  if (dropInPages.length === 0 && trainingPages.length === 0 && retreatPages.length === 0) {
+    return {
+      overallScore: 0,
+      summary: "No pages available for assessment.",
+      dropInPages: [],
+      trainingPages: [],
+      retreatPages: [],
+    }
+  }
+
+  console.log(`  Assessing content with Claude API (per-type)...`)
+
+  const [dropIn, training, retreat] = await Promise.all([
+    assessDropIn(studioName, dropInPages),
+    assessTraining(studioName, trainingPages),
+    assessRetreat(studioName, retreatPages),
+  ])
+
   return {
-    overallScore: 0,
-    summary: "Assessment failed.",
-    dropInPresentation: null,
-    trainingPages: [],
-    retreatPages: [],
+    overallScore: computeOverall(dropIn, training, retreat),
+    summary: buildSummary(studioName, dropIn, training, retreat),
+    dropInPages: dropIn,
+    trainingPages: training,
+    retreatPages: retreat,
   }
 }

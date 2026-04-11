@@ -21,7 +21,7 @@ export interface StudioEntry {
 
 // ── Raw fetch output ────────────────────────────────────────
 
-export type PageCategory = "home" | "dropIn" | "training" | "retreat" | "contact"
+export type PageCategory = "dropIn" | "training" | "retreat" | "contact"
 export type DiscoverySource = "override" | "homepage-links" | `map:${string}`
 
 export type RawPage =
@@ -29,7 +29,6 @@ export type RawPage =
       status: "ok"
       url: string
       file: string
-      category: PageCategory
       source: DiscoverySource
       fetchedAt: string
       bytes: number
@@ -38,7 +37,6 @@ export type RawPage =
       status: "failed"
       url: string
       file: string
-      category: PageCategory
       source: DiscoverySource
       fetchedAt: string
       error: string
@@ -51,10 +49,64 @@ export interface PagesJson {
   pages: RawPage[]
 }
 
+export interface HomeLink {
+  label: string
+  href: string
+}
+
+export interface HomeJson {
+  url: string
+  links: HomeLink[]
+}
+
+export interface DiscoveryCandidate {
+  url: string
+  label: string
+  source: DiscoverySource
+}
+
+export interface DiscoveryJson {
+  studioName: string
+  website: string
+  generatedAt: string
+  candidates: DiscoveryCandidate[]
+}
+
+export interface ClassificationJson {
+  generatedAt: string
+  dropIn: string[]
+  training: string[]
+  retreat: string[]
+  contact: string | null
+}
+
+export interface TechFeaturesJson {
+  generatedAt: string
+  tech: Omit<TechAssessment, "lighthouse">
+  features: Features
+}
+
+export interface LighthouseJson {
+  generatedAt: string
+  scores: LighthouseScores
+}
+
+export interface ContentJson {
+  generatedAt: string
+  assessment: ContentAssessment
+}
+
+export interface ExtractedJson {
+  generatedAt: string
+  dropInClasses: DropInClass[]
+  trainings: Training[]
+  retreats: Retreat[]
+  contact: ContactInfo
+}
+
 export interface FetchedPage {
   url: string
   markdown: string
-  category: PageCategory
 }
 
 export interface RawStudio {
@@ -67,7 +119,8 @@ export interface RawStudio {
     url: string
     markdown: string
     html: string
-    links: string[]
+    links: HomeLink[]
+    headers?: Record<string, string>
   }
   lighthouse: LighthouseScores
 }
@@ -133,29 +186,34 @@ export interface ProgressiveDisclosure {
   howLong: boolean
 }
 
-export interface TrainingPageAssessment {
+export interface PageAssessmentBase {
   url: string
   pageName: string
-  score: number
+  conversionScore: number
+  seoScore: number
+  notes: string
+}
+
+export interface DropInPageAssessment extends PageAssessmentBase {
+  scheduleVisible: boolean
+  pricesClear: boolean
+}
+
+export interface TrainingPageAssessment extends PageAssessmentBase {
   progressiveDisclosure: ProgressiveDisclosure
   keyInfoScrollDepthEstimate: "top" | "middle" | "bottom"
   fillerContentWarning: boolean
   whyChooseUsWarning: boolean
-  notes: string
 }
 
-export interface RetreatPageAssessment {
-  url: string
-  pageName: string
-  score: number
+export interface RetreatPageAssessment extends PageAssessmentBase {
   progressiveDisclosure: ProgressiveDisclosure
-  notes: string
 }
 
 export interface ContentAssessment {
   overallScore: number
   summary: string
-  dropInPresentation: { score: number; notes: string } | null
+  dropInPages: DropInPageAssessment[]
   trainingPages: TrainingPageAssessment[]
   retreatPages: RetreatPageAssessment[]
 }

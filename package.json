@@ -7,10 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "scrape": "tsx scripts/scraper/scrape.ts",
-    "scrape:studio": "tsx scripts/scraper/scrape.ts --studio",
-    "scrape:fetch": "tsx scripts/scraper/scrape.ts --stage fetch",
-    "scrape:analyze": "tsx scripts/scraper/scrape.ts --stage analyze"
+    "fetch": "tsx scripts/scraper/fetch.ts",
+    "analyze": "tsx scripts/scraper/analyze.ts",
+    "migrate-raw": "tsx scripts/scraper/migrate-raw.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.81.0",

@@ -8,14 +8,20 @@ function getClient() {
 }
 
 const SYSTEM = `You classify links from a yoga studio website homepage into exactly these buckets:
-- dropIns: schedule, classes, prices, timetable
-- trainings: teacher trainings (TTC, 200hr, 300hr, YTT, etc.)
-- retreats: retreats, workshops over multiple days away from the studio
-- contact: contact, about-us-with-contact, location
-- other: everything else (home, blog, shop, gallery, philosophy, about generic, etc.)
+- dropIns: single-session classes, schedules, timetables, class prices, walk-in classes
+- trainings: multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs that run over several days at the studio. Any page titled "Course", "Certification", "Program", or "Immersion" belongs here — even non-yoga ones like sound healing courses, meditation programs, pranayama courses.
+- retreats: multi-day immersive stays away from the studio (abroad, in nature, residential retreats)
+- contact: contact page, about-with-contact, location page
+- other: everything else (home, blog, shop, gallery, generic philosophy, generic about)
+
+Rules:
+- "Course" / "Certification" / "Program" / "Immersion" in the label → trainings, not dropIns.
+- "Retreat" in the label → retreats.
+- Only classify as dropIns if it is clearly about regular/recurring classes or the studio schedule.
+- Use labels as the primary signal, URLs as fallback.
 
 Return ONLY a JSON object: { "dropIns": ["url"], "trainings": ["url"], "retreats": ["url"], "contact": "url" | null, "other": ["url"] }.
-Cap dropIns, trainings, retreats at 3 URLs each. contact is a single URL or null. Prefer the most informative page when you have to choose. Use the labels as primary signal, URLs as fallback.`
+Cap dropIns, trainings, retreats at 5 URLs each. contact is a single URL or null. Prefer the most informative page when you have to choose.`
 
 export interface ClassifiedLinks {
   dropIns: string[]
@@ -51,9 +57,9 @@ Classify into JSON as instructed.`
     text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
     const parsed = JSON.parse(text) as ClassifiedLinks & { other?: unknown }
     return {
-      dropIns: Array.isArray(parsed.dropIns) ? parsed.dropIns.slice(0, 3) : [],
-      trainings: Array.isArray(parsed.trainings) ? parsed.trainings.slice(0, 3) : [],
-      retreats: Array.isArray(parsed.retreats) ? parsed.retreats.slice(0, 3) : [],
+      dropIns: Array.isArray(parsed.dropIns) ? parsed.dropIns.slice(0, 5) : [],
+      trainings: Array.isArray(parsed.trainings) ? parsed.trainings.slice(0, 5) : [],
+      retreats: Array.isArray(parsed.retreats) ? parsed.retreats.slice(0, 5) : [],
       contact: typeof parsed.contact === "string" ? parsed.contact : null,
     }
   } catch {
@@ -72,9 +78,9 @@ function classifyByKeyword(links: Array<{ label: string; href: string }>): Class
   for (const { label, href } of links) {
     const hay = `${label} ${href}`.toLowerCase()
     if (!out.contact && /contact|reach|email|location/.test(hay)) out.contact = href
-    else if (/training|ytt|ttc|200[-\s]?hour|300[-\s]?hour|teacher/.test(hay)) push(out.trainings, href, 3)
-    else if (/retreat|workshop/.test(hay)) push(out.retreats, href, 3)
-    else if (/schedule|class(es)?|timetable|price|drop[-\s]?in/.test(hay)) push(out.dropIns, href, 3)
+    else if (/training|ytt|ttc|200[-\s]?hour|300[-\s]?hour|teacher|course|certification|immersion|program/.test(hay)) push(out.trainings, href, 5)
+    else if (/retreat/.test(hay)) push(out.retreats, href, 5)
+    else if (/schedule|class(es)?|timetable|price|drop[-\s]?in/.test(hay)) push(out.dropIns, href, 5)
   }
   return out
 }

@@ -4,12 +4,21 @@ Next.js 16 project — a CMS for yoga studios.
 
 ## Scripts
 - `npm run dev` — start dev server
-- `npm run scrape` — run full scraper pipeline
-- `npm run scrape:studio "Studio Name"` — scrape a single studio
+- `npm run fetch -- [options]` — download raw artifacts only (see `--help`)
+- `npm run analyze -- [options]` — process raw into final report (see `--help`)
+- `npm run migrate-raw` — one-time migration for phase 1 raw shape
+
+Fetch and analyze are always run as separate CLIs. No compound.
 
 ## Structure
-- `scripts/scraper/` — CLI scraper pipeline
-- `data/` — generated JSON reports (one per studio + index.json)
+- `scripts/scraper/fetch.ts` — fetch CLI entry
+- `scripts/scraper/analyze.ts` — analyze CLI entry
+- `scripts/scraper/pipeline/fetch-stages.ts` — homepage, discovery, pages stages
+- `scripts/scraper/pipeline/analyze-stages.ts` — classify, tech, lighthouse, content, extract, report stages
+- `data/raw/<slug>/` — fetch artifacts (home.*, discovery.json, pages.json)
+- `data/analysis/<slug>/` — analyze artifacts (classification, tech, lighthouse, content, extracted)
+- `data/reports/<slug>.json` — final report per studio
+- `data/index.json` — summary index across all studios
 - `src/app/browse-data/` — dashboard to browse scraped data
 
 ## Key notes

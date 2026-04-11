@@ -3,3 +3,5 @@ node_modules/
 .env
 *.tsbuildinfo
 .firecrawl/
+.DS_Store
+simple-wappalyzer/
