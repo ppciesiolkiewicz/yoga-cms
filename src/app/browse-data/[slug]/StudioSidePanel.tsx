@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { useEffect, useRef } from "react"
 import type { StudioIndexEntry } from "../../../../scripts/scraper/types"
 
@@ -14,6 +15,7 @@ export function StudioSidePanel({
   const sorted = [...studios].sort((a, b) => a.city.localeCompare(b.city))
   const currentRef = useRef<HTMLAnchorElement>(null)
   const scrollRef = useRef<HTMLDivElement>(null)
+  const router = useRouter()
 
   useEffect(() => {
     if (currentRef.current && scrollRef.current) {
@@ -39,6 +41,13 @@ export function StudioSidePanel({
                 <Link
                   ref={isCurrent ? currentRef : undefined}
                   href={`/browse-data/${s.slug}`}
+                  onClick={e => {
+                    if (isCurrent) return
+                    const hash = window.location.hash
+                    if (!hash) return
+                    e.preventDefault()
+                    router.push(`/browse-data/${s.slug}${hash}`)
+                  }}
                   className={`block px-3 py-2 text-sm transition-colors ${
                     isCurrent ? "bg-blue-50 ring-1 ring-inset ring-blue-200" : "hover:bg-gray-50"
                   }`}

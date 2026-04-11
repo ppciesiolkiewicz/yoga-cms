@@ -2,6 +2,7 @@ import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getStudioReport, getAllStudioSummaries } from "@/lib/data"
 import { StudioSidePanel } from "./StudioSidePanel"
+import { ScrollSpy } from "./ScrollSpy"
 import type {
   StudioReport,
   TechAssessment,
@@ -50,6 +51,7 @@ export default async function StudioDetailPage({ params }: { params: Promise<{ s
       <ContactCard contact={report.contact} />
       <ExtractedDataCard report={report} />
     </main>
+    <ScrollSpy />
     </>
   )
 }
@@ -58,8 +60,10 @@ export default async function StudioDetailPage({ params }: { params: Promise<{ s
 
 function TechCard({ tech }: { tech: TechAssessment }) {
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">Tech Stack</h2>
+    <section id="tech" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-lg font-semibold">
+        <a href="#tech" className="cursor-pointer hover:text-blue-600">Tech Stack</a>
+      </h2>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <p className="text-xs uppercase text-gray-500">Platform</p>
@@ -180,8 +184,10 @@ function FeaturesCard({ features }: { features: Features }) {
   ]
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">Features</h2>
+    <section id="features" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-lg font-semibold">
+        <a href="#features" className="cursor-pointer hover:text-blue-600">Features</a>
+      </h2>
       <div className="grid gap-2 sm:grid-cols-2">
         {features.onlineBooking && (
           <div className="flex items-center gap-2 text-sm">
@@ -223,8 +229,10 @@ function FeaturesCard({ features }: { features: Features }) {
 function NavigationCard({ navigation }: { navigation: NavLink[] }) {
   if (navigation.length === 0) return null
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">Navigation</h2>
+    <section id="navigation" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-lg font-semibold">
+        <a href="#navigation" className="cursor-pointer hover:text-blue-600">Navigation</a>
+      </h2>
       <ul className="flex flex-wrap gap-2">
         {navigation.map(link => (
           <li key={link.href}>
@@ -255,9 +263,11 @@ function ContentAssessmentCard({ assessment }: { assessment: ContentAssessment }
       : "bg-red-100 text-red-800"
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
+    <section id="content-assessment" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
       <div className="mb-4 flex items-center gap-3">
-        <h2 className="text-lg font-semibold">Content Assessment</h2>
+        <h2 className="text-lg font-semibold">
+          <a href="#content-assessment" className="cursor-pointer hover:text-blue-600">Content Assessment</a>
+        </h2>
         <span className={`rounded-full px-3 py-0.5 text-sm font-medium ${scoreColor}`}>
           {assessment.overallScore}/10
         </span>
@@ -421,8 +431,10 @@ function ContactCard({ contact }: { contact: ContactInfo }) {
   if (!hasAny) return null
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">Contact</h2>
+    <section id="contact" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-lg font-semibold">
+        <a href="#contact" className="cursor-pointer hover:text-blue-600">Contact</a>
+      </h2>
       <dl className="grid gap-2 text-sm sm:grid-cols-2">
         {contact.email && (
           <>
@@ -494,8 +506,10 @@ function ExtractedDataCard({ report }: { report: StudioReport }) {
   if (!hasData) return null
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-lg font-semibold">Extracted Data</h2>
+    <section id="extracted-data" className="scroll-mt-4 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-lg font-semibold">
+        <a href="#extracted-data" className="cursor-pointer hover:text-blue-600">Extracted Data</a>
+      </h2>
       <div className="grid gap-6 sm:grid-cols-3">
         {report.dropInClasses.length > 0 && (
           <div>
