@@ -3,111 +3,87 @@ import { writeFileSync, mkdirSync, existsSync, readFileSync, readdirSync } from 
 import { join, dirname } from "path"
 import { fileURLToPath } from "url"
 import { studios } from "./websites-data"
-import { fetchStudioPages } from "./pipeline/fetch"
-import { detectTech } from "./pipeline/tech-detect"
-import { runLighthouse } from "./pipeline/lighthouse"
-import { assessContent } from "./pipeline/content-assess"
-import { extractDropInClasses, extractTrainings, extractRetreats, extractContactInfo } from "./pipeline/data-extract"
-import type { StudioEntry, StudioReport, StudioIndex, ScrapableUrl } from "./types"
+import { fetchStudio } from "./pipeline/fetch"
+import { analyzeStudio } from "./pipeline/analyze"
+import { rawExists, rawFetchedAt } from "./pipeline/raw-io"
+import type { StudioEntry, StudioReport, StudioIndex } from "./types"
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 config({ path: join(__dirname, "../../.env") })
 
 const DATA_DIR = join(__dirname, "../../data")
+const REPORTS_DIR = join(DATA_DIR, "reports")
+
+type Stage = "all" | "fetch" | "analyze"
 
 function slugify(name: string): string {
   return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 }
 
-function parseArgs(): { studioFilter?: string; cityFilter?: string; maxAgeDays?: number; limit?: number } {
+interface Args {
+  stage: Stage
+  studioFilter?: string
+  cityFilter?: string
+  maxAgeDays: number
+  limit?: number
+  force: boolean
+  skipMapFallback: boolean
+}
+
+function parseArgs(): Args {
   const args = process.argv.slice(2)
-  let studioFilter: string | undefined
-  let cityFilter: string | undefined
-  let maxAgeDays: number | undefined = 999
-  let limit: number | undefined
+  const out: Args = {
+    stage: "all",
+    maxAgeDays: 999,
+    force: false,
+    skipMapFallback: false,
+  }
   for (let i = 0; i < args.length; i++) {
-    if (args[i] === "--studio" && args[i + 1]) { studioFilter = args[i + 1]; i++ }
-    if (args[i] === "--city" && args[i + 1]) { cityFilter = args[i + 1]; i++ }
-    if (args[i] === "--update-older-than-days" && args[i + 1]) { maxAgeDays = parseInt(args[i + 1], 10); i++ }
-    if (args[i] === "--limit" && args[i + 1]) { limit = parseInt(args[i + 1], 10); i++ }
+    const a = args[i]
+    if (a === "--stage" && args[i + 1]) { out.stage = args[++i] as Stage }
+    else if (a === "--studio" && args[i + 1]) { out.studioFilter = args[++i] }
+    else if (a === "--city" && args[i + 1]) { out.cityFilter = args[++i] }
+    else if (a === "--update-older-than-days" && args[i + 1]) { out.maxAgeDays = parseInt(args[++i], 10) }
+    else if (a === "--limit" && args[i + 1]) { out.limit = parseInt(args[++i], 10) }
+    else if (a === "--force") { out.force = true }
+    else if (a === "--skip-map-fallback") { out.skipMapFallback = true }
   }
-  return { studioFilter, cityFilter, maxAgeDays, limit }
+  return out
 }
 
-function isStale(slug: string, maxAgeDays: number | undefined): boolean {
-  if (maxAgeDays === undefined) return true
-  const filePath = join(DATA_DIR, `${slug}.json`)
-  if (!existsSync(filePath)) return true
-  try {
-    const data = JSON.parse(readFileSync(filePath, "utf-8")) as StudioReport
-    const age = Date.now() - new Date(data.scrapedAt).getTime()
-    return age > maxAgeDays * 24 * 60 * 60 * 1000
-  } catch { return true }
+function reportPath(slug: string): string {
+  return join(REPORTS_DIR, `${slug}.json`)
 }
 
-function getAllPages(entry: StudioEntry): ScrapableUrl[] {
-  return [...entry.dropIns, ...entry.trainings, ...entry.retreats, ...(entry.contact ? [entry.contact] : [])]
+function readReport(slug: string): StudioReport | null {
+  try { return JSON.parse(readFileSync(reportPath(slug), "utf-8")) as StudioReport } catch { return null }
 }
 
-async function scrapeStudio(entry: StudioEntry): Promise<StudioReport> {
-  const slug = slugify(entry.studioName)
-  console.log(`\n═══ ${entry.studioName} (${entry.city}) ═══`)
-
-  // Stage 1: Fetch pages
-  const allPages = getAllPages(entry)
-  const { navigation, pages } = await fetchStudioPages(entry.website, allPages)
-
-  // Categorize fetched pages by type
-  const dropInUrls = new Set(entry.dropIns.map(u => u.url))
-  const trainingUrls = new Set(entry.trainings.map(u => u.url))
-  const retreatUrls = new Set(entry.retreats.map(u => u.url))
-  const contactUrls = new Set(entry.contact ? [entry.contact.url] : [])
-
-  const dropInPages = pages.filter(p => dropInUrls.has(p.url))
-  const trainingPages = pages.filter(p => trainingUrls.has(p.url))
-  const retreatPages = pages.filter(p => retreatUrls.has(p.url))
-  const contactPages = pages.filter(p => contactUrls.has(p.url))
-
-  // Stage 2: Tech detection (use first page HTML or empty)
-  const homepageHtml = pages[0]?.html ?? ""
-  const { tech, features } = await detectTech(entry.website, homepageHtml)
-
-  // Stage 3: Lighthouse
-  const lighthouse = await runLighthouse(entry.website)
-
-  // Stage 4: Content assessment
-  const contentAssessment = await assessContent(entry.studioName, dropInPages, trainingPages, retreatPages)
-
-  // Stage 5: Data extraction (parallel)
-  const [dropInClasses, trainings, retreats, contact] = await Promise.all([
-    extractDropInClasses(dropInPages, entry.studioName),
-    extractTrainings(trainingPages, entry.studioName),
-    extractRetreats(retreatPages, entry.studioName),
-    extractContactInfo([...contactPages, ...pages.slice(0, 1)], entry.studioName),
-  ])
-
-  if (entry.contact) contact.contactPageUrl = entry.contact.url
-
-  return {
-    slug, studioName: entry.studioName, city: entry.city, website: entry.website, searchRanking: entry.searchRanking,
-    scrapedAt: new Date().toISOString(), navigation,
-    tech: { ...tech, lighthouse }, features, contentAssessment, contact,
-    dropInClasses, trainings, retreats,
-  }
+function isReportFresh(slug: string, maxAgeDays: number): boolean {
+  const report = readReport(slug)
+  if (!report) return false
+  const ageMs = Date.now() - new Date(report.scrapedAt).getTime()
+  if (ageMs > maxAgeDays * 24 * 60 * 60 * 1000) return false
+  const rawAt = rawFetchedAt(slug)
+  if (rawAt && rawAt.getTime() > new Date(report.scrapedAt).getTime()) return false
+  return true
 }
 
 function writeReport(report: StudioReport) {
-  mkdirSync(DATA_DIR, { recursive: true })
-  writeFileSync(join(DATA_DIR, `${report.slug}.json`), JSON.stringify(report, null, 2), "utf-8")
-  console.log(`  ✓ Wrote data/${report.slug}.json`)
+  mkdirSync(REPORTS_DIR, { recursive: true })
+  writeFileSync(reportPath(report.slug), JSON.stringify(report, null, 2), "utf-8")
+  console.log(`  ✓ Wrote data/reports/${report.slug}.json`)
 }
 
 function writeIndex(reports: StudioReport[]) {
   const index: StudioIndex = {
     generatedAt: new Date().toISOString(),
     studios: reports.map(r => ({
-      slug: r.slug, studioName: r.studioName, city: r.city,
-      platform: r.tech.platform, overallContentScore: r.contentAssessment.overallScore,
+      slug: r.slug,
+      studioName: r.studioName,
+      city: r.city,
+      platform: r.tech.platform,
+      overallContentScore: r.contentAssessment.overallScore,
       estimatedMonthlyCost: r.tech.totalEstimatedMonthlyCost,
       lighthousePerformance: r.tech.lighthouse.performance,
       pageCount: r.navigation.length,
@@ -117,50 +93,89 @@ function writeIndex(reports: StudioReport[]) {
   console.log(`\n✓ Wrote index with ${reports.length} studios`)
 }
 
+function filterStudios(args: Args): StudioEntry[] {
+  let list = studios
+  if (args.studioFilter) {
+    list = list.filter(s => s.studioName.toLowerCase().includes(args.studioFilter!.toLowerCase()))
+    if (list.length === 0) { console.error(`No studios matching "${args.studioFilter}"`); process.exit(1) }
+  }
+  if (args.cityFilter) {
+    list = list.filter(s => s.city.toLowerCase().includes(args.cityFilter!.toLowerCase()))
+    if (list.length === 0) { console.error(`No studios in city "${args.cityFilter}"`); process.exit(1) }
+  }
+  if (args.limit) list = list.slice(0, args.limit)
+  return list
+}
+
+async function doFetch(list: StudioEntry[], args: Args): Promise<void> {
+  for (const entry of list) {
+    try {
+      await fetchStudio(entry, { force: args.force, maxAgeDays: args.maxAgeDays, skipMapFallback: args.skipMapFallback })
+    } catch (error) {
+      console.error(`  ✗ Fetch failed for ${entry.studioName}: ${error instanceof Error ? error.message : error}`)
+    }
+  }
+}
+
+async function doAnalyze(list: StudioEntry[], args: Args): Promise<StudioReport[]> {
+  const reports: StudioReport[] = []
+  for (const entry of list) {
+    const slug = slugify(entry.studioName)
+
+    if (!rawExists(slug)) {
+      console.warn(`  ⚠ No raw for ${entry.studioName} — run fetch first`)
+      continue
+    }
+
+    if (!args.force && isReportFresh(slug, args.maxAgeDays)) {
+      console.log(`─── analyze: ${entry.studioName} — fresh, skipping ───`)
+      const existing = readReport(slug)
+      if (existing) reports.push(existing)
+      continue
+    }
+
+    try {
+      const report = await analyzeStudio(entry)
+      writeReport(report)
+      reports.push(report)
+    } catch (error) {
+      console.error(`  ✗ Analyze failed for ${entry.studioName}: ${error instanceof Error ? error.message : error}`)
+    }
+  }
+  return reports
+}
+
+function loadAllReports(): StudioReport[] {
+  if (!existsSync(REPORTS_DIR)) return []
+  const reports: StudioReport[] = []
+  for (const file of readdirSync(REPORTS_DIR)) {
+    if (!file.endsWith(".json")) continue
+    try { reports.push(JSON.parse(readFileSync(join(REPORTS_DIR, file), "utf-8"))) } catch {}
+  }
+  return reports
+}
+
 async function main() {
   if (!process.env.ANTHROPIC_API_KEY) {
     console.error("Error: ANTHROPIC_API_KEY environment variable is required")
     process.exit(1)
   }
-  const { studioFilter, cityFilter, maxAgeDays, limit } = parseArgs()
-  let toScrape = studios
-  if (studioFilter) {
-    toScrape = toScrape.filter(s => s.studioName.toLowerCase().includes(studioFilter.toLowerCase()))
-    if (toScrape.length === 0) { console.error(`No studios matching "${studioFilter}"`); process.exit(1) }
-  }
-  if (cityFilter) {
-    toScrape = toScrape.filter(s => s.city.toLowerCase().includes(cityFilter.toLowerCase()))
-    if (toScrape.length === 0) { console.error(`No studios in city "${cityFilter}"`); process.exit(1) }
-  }
-  if (limit) { toScrape = toScrape.slice(0, limit) }
-  toScrape = toScrape.filter(s => isStale(slugify(s.studioName), maxAgeDays))
-  if (toScrape.length === 0) { console.log("All studios are up to date."); return }
+  const args = parseArgs()
+  const list = filterStudios(args)
+  console.log(`Stage: ${args.stage} — ${list.length} studio(s) in scope`)
 
-  console.log(`Scraping ${toScrape.length} studio(s)...\n`)
-  const reports: StudioReport[] = []
-
-  // Load existing reports we're not re-scraping
-  if (existsSync(DATA_DIR)) {
-    const scrapeSlugs = new Set(toScrape.map(s => slugify(s.studioName)))
-    for (const file of readdirSync(DATA_DIR)) {
-      if (file === "index.json" || !file.endsWith(".json")) continue
-      const slug = file.replace(".json", "")
-      if (!scrapeSlugs.has(slug)) {
-        try { reports.push(JSON.parse(readFileSync(join(DATA_DIR, file), "utf-8"))) } catch {}
-      }
-    }
+  if (args.stage === "fetch" || args.stage === "all") {
+    await doFetch(list, args)
   }
 
-  for (const entry of toScrape) {
-    try {
-      const report = await scrapeStudio(entry)
-      reports.push(report)
-      writeReport(report)
-    } catch (error) {
-      console.error(`  ✗ Failed to scrape ${entry.studioName}: ${error}`)
-    }
+  if (args.stage === "analyze" || args.stage === "all") {
+    const produced = await doAnalyze(list, args)
+    // Rebuild index from all reports (produced + untouched), deduped by slug
+    const all = new Map<string, StudioReport>()
+    for (const r of loadAllReports()) all.set(r.slug, r)
+    for (const r of produced) all.set(r.slug, r)
+    writeIndex(Array.from(all.values()))
   }
-  writeIndex(reports)
 }
 
 main()
