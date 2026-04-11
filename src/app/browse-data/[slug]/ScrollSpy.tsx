@@ -6,10 +6,26 @@ const SECTION_IDS = ["tech", "features", "navigation", "content-assessment", "co
 
 export function ScrollSpy() {
   useEffect(() => {
+    const html = document.documentElement
+    html.style.scrollBehavior = "auto"
+    const hashId = window.location.hash.slice(1)
+    if (hashId) {
+      const target = document.getElementById(hashId)
+      if (target) target.scrollIntoView({ block: "start" })
+    }
+    const raf = requestAnimationFrame(() => {
+      html.style.scrollBehavior = "smooth"
+    })
+
     const sections = SECTION_IDS
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null)
-    if (sections.length === 0) return
+    if (sections.length === 0) {
+      return () => {
+        cancelAnimationFrame(raf)
+        html.style.scrollBehavior = ""
+      }
+    }
 
     let ticking = false
     const update = () => {
@@ -36,7 +52,11 @@ export function ScrollSpy() {
 
     update()
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => window.removeEventListener("scroll", onScroll)
+    return () => {
+      cancelAnimationFrame(raf)
+      window.removeEventListener("scroll", onScroll)
+      html.style.scrollBehavior = ""
+    }
   }, [])
 
   return null
