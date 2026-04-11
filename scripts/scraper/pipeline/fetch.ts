@@ -1,101 +1,42 @@
-import * as cheerio from "cheerio"
-import type { ScrapableUrl, NavLink, FetchedPage } from "../types"
+import type { StudioEntry } from "../types"
+import { fetchStudioFirecrawl, type FetchOpts } from "./fetch-firecrawl"
+import { fetchStudioLegacy } from "./fetch-legacy"
+import { rawExists, rawFetchedAt } from "./raw-io"
 
-export async function fetchPageHtml(url: string): Promise<string | null> {
-  try {
-    console.log(`  Fetching: ${url}`)
-    const response = await fetch(url, {
-      headers: {
-        "User-Agent":
-          "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-      },
-    })
-    if (!response.ok) {
-      console.warn(`  ⚠ HTTP ${response.status} for ${url}`)
-      return null
-    }
-    return await response.text()
-  } catch (error) {
-    console.warn(`  ⚠ Failed to fetch ${url}: ${error}`)
-    return null
-  }
+function slugify(name: string): string {
+  return name.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "")
 }
 
-export async function fetchPageHtmlBrowser(url: string): Promise<string | null> {
-  try {
-    console.log(`  Fetching (browser): ${url}`)
-    const { chromium } = await import("playwright")
-    const browser = await chromium.launch({ headless: true })
-    try {
-      const page = await browser.newPage()
-      await page.goto(url, { waitUntil: "networkidle", timeout: 30000 })
-      return await page.content()
-    } finally {
-      await browser.close()
-    }
-  } catch (error) {
-    console.warn(`  ⚠ Failed to fetch (browser) ${url}: ${error}`)
-    return null
-  }
+export interface FetchStudioOpts {
+  force: boolean
+  maxAgeDays: number
+  skipMapFallback: boolean
 }
 
-export function extractText(html: string): string {
-  const $ = cheerio.load(html)
-  $("script, style, nav, footer, iframe, noscript").remove()
-  return $("body").text().replace(/\s+/g, " ").trim().slice(0, 8000)
+export function isRawFresh(slug: string, maxAgeDays: number): boolean {
+  if (!rawExists(slug)) return false
+  const at = rawFetchedAt(slug)
+  if (!at) return false
+  const ageMs = Date.now() - at.getTime()
+  return ageMs < maxAgeDays * 24 * 60 * 60 * 1000
 }
 
-export function extractNavLinks(html: string, baseUrl: string): NavLink[] {
-  const $ = cheerio.load(html)
-  const links: NavLink[] = []
-  const seen = new Set<string>()
+export async function fetchStudio(entry: StudioEntry, opts: FetchStudioOpts): Promise<void> {
+  const slug = slugify(entry.studioName)
 
-  $("nav a, header a").each((_, el) => {
-    const href = $(el).attr("href")
-    const label = $(el).text().trim()
-    if (!href || !label || label.length > 100) return
-
-    let fullUrl: string
-    try {
-      fullUrl = new URL(href, baseUrl).href
-    } catch {
-      return
-    }
-
-    if (seen.has(fullUrl)) return
-    seen.add(fullUrl)
-
-    try {
-      const base = new URL(baseUrl)
-      const link = new URL(fullUrl)
-      if (link.hostname !== base.hostname) return
-    } catch {
-      return
-    }
-
-    links.push({ label, href: fullUrl })
-  })
-
-  return links
-}
-
-export async function fetchStudioPages(
-  homepageUrl: string,
-  pages: ScrapableUrl[]
-): Promise<{ navigation: NavLink[]; pages: FetchedPage[] }> {
-  const homepageHtml = await fetchPageHtml(homepageUrl)
-  const navigation = homepageHtml ? extractNavLinks(homepageHtml, homepageUrl) : []
-
-  const fetched: FetchedPage[] = []
-  for (const page of pages) {
-    const html = page.scrapeMode === "browser"
-      ? await fetchPageHtmlBrowser(page.url)
-      : await fetchPageHtml(page.url)
-
-    if (html) {
-      fetched.push({ url: page.url, html, text: extractText(html) })
-    }
+  if (!opts.force && isRawFresh(slug, opts.maxAgeDays)) {
+    console.log(`\n═══ fetch: ${entry.studioName} — cached, skipping ═══`)
+    return
   }
 
-  return { navigation, pages: fetched }
+  const fetcher = process.env.SCRAPER_FETCHER === "legacy" ? "legacy" : "firecrawl"
+  if (fetcher === "legacy") {
+    await fetchStudioLegacy(entry)
+    return
+  }
+
+  const fcOpts: FetchOpts = { force: opts.force, skipMapFallback: opts.skipMapFallback }
+  await fetchStudioFirecrawl(entry, fcOpts)
 }
+
+export { loadRawStudio, listRawSlugs } from "./raw-io"
