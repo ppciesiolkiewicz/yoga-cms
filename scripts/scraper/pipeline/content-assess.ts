@@ -67,7 +67,7 @@ export async function assessContent(
   }
 
   const pagesDescription = allPages
-    .map(p => `[${p.type.toUpperCase()}] ${p.url}\n${p.text.slice(0, 3000)}`)
+    .map(p => `[${p.type.toUpperCase()}] ${p.url}\n${p.markdown.slice(0, 12000)}`)
     .join("\n\n---\n\n")
 
   const userPrompt = `Assess the content quality of "${studioName}" website pages.
