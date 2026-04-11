@@ -188,6 +188,26 @@ Before the first fetch, call `fc.checkCredits()` (or the equivalent SDK check). 
 - Claude classify failure → fallback to a keyword heuristic over homepage links (`schedule`, `class`, `training`, `retreat`, `contact`).
 - Firecrawl concurrency is 2 on the free tier. Scrape calls within a studio are bounded to that limit.
 
+### Legacy fetcher fallback
+
+Firecrawl credits are finite (500/cycle). When exhausted, the scraper should still run — degraded, but functional. The legacy cheerio + Playwright path is preserved as an opt-in fallback.
+
+- New module `pipeline/fetch-legacy.ts` holds the current cheerio + Playwright implementation, cleaned up to write into the same `data/raw/<slug>/` shape as the Firecrawl path. It produces `.md` files by wrapping `$("body").text()` output — uglier than Firecrawl markdown, but good enough for an emergency run.
+- `pipeline/fetch.ts` is the Firecrawl implementation.
+- `pipeline/fetch-index.ts` dispatches by env var:
+
+  ```ts
+  const fetcher = process.env.SCRAPER_FETCHER === "legacy"
+    ? fetchStudioLegacy
+    : fetchStudioFirecrawl
+  ```
+
+- Default is Firecrawl. Set `SCRAPER_FETCHER=legacy` (env or one-off prefix) to force the fallback.
+- Legacy path still requires a manual URL list. When `SCRAPER_FETCHER=legacy`, `entry.overrides` becomes mandatory — classification is not attempted. Studios without overrides are skipped with a warning.
+- Analyze stage reads `data/raw/` only and does not care which fetcher produced it.
+
+This is not dead code. It has a specific, documented trigger: "ran out of Firecrawl credits." It lives in its own file so `fetch.ts` stays small.
+
 ## Analyze stage
 
 `pipeline/analyze.ts` is new and fully offline. It reads `data/raw/<slug>/` only and writes `data/reports/<slug>.json`.
@@ -311,7 +331,8 @@ No unit test framework is present in the repo. Testing is a manual smoke plan ru
 7. **Force refetch** — `scrape:fetch --studio "Hum" --force`. Expect credits to decrement.
 8. **Override path** — uncomment an `overrides` block in `websites-data.ts`, re-run fetch for that studio. Expect `source: "override"` in the resulting `pages.json`.
 9. **Full run** — `npm run scrape --limit 5`. Five studios scraped, index rebuilt, credit usage logged at start and end.
-10. **Type check** — `tsc --noEmit` is clean.
+10. **Legacy fallback** — `SCRAPER_FETCHER=legacy npm run scrape:fetch --studio "Ashtanga Yoga Wroclaw" --force`. Expect 0 Firecrawl credits consumed, `data/raw/ashtanga-yoga-wroclaw/` populated, analyze stage produces a valid report. Pick a studio that has an `overrides` block (legacy path requires it).
+11. **Type check** — `tsc --noEmit` is clean.
 
 ### Acceptance
 
