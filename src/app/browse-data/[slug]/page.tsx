@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getStudioReport, getAllStudioSummaries } from "@/lib/data"
 import { StudioSidePanel } from "./StudioSidePanel"
@@ -31,10 +30,7 @@ export default async function StudioDetailPage({ params }: { params: Promise<{ s
     <main className="ml-65 max-w-5xl px-6 py-8 space-y-6">
       {/* Header */}
       <div>
-        <Link href="/browse-data" className="text-sm text-blue-600 hover:underline">
-          &larr; Back to Browse Data
-        </Link>
-        <h1 className="mt-2 text-3xl font-bold">{report.studioName}</h1>
+        <h1 className="text-3xl font-bold">{report.studioName}</h1>
         <div className="mt-1 flex flex-wrap items-center gap-3 text-sm text-gray-500">
           <span>{report.city}</span>
           <a href={report.website} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
