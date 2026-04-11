@@ -64,9 +64,12 @@ export async function fetchStudioFirecrawl(entry: StudioEntry, opts: FetchOpts):
     throw new Error(`Firecrawl credits below floor (remaining=${credits.remaining}). Set SCRAPER_FETCHER=legacy or top up.`)
   }
 
-  // Homepage: scrape markdown + html + links
+  // Homepage: scrape markdown + rawHtml + links.
+  // rawHtml preserves scripts and meta tags so tech-detect (wappalyzer)
+  // can identify the CMS/platform. The standard html format is stripped
+  // of scripts by Firecrawl regardless of onlyMainContent.
   console.log(`  Scraping homepage: ${entry.website}`)
-  const home = await scrapeUrl(entry.website, { includeHtml: true })
+  const home = await scrapeUrl(entry.website, { includeRawHtml: true, onlyMainContent: false })
   if ("error" in home) {
     throw new Error(`Homepage scrape failed for ${entry.studioName}: ${home.error}`)
   }
@@ -129,7 +132,7 @@ export async function fetchStudioFirecrawl(entry: StudioEntry, opts: FetchOpts):
     slug,
     studioName: entry.studioName,
     website: entry.website,
-    homepage: { url: entry.website, markdown: home.markdown, html: home.html ?? "", links: home.links },
+    homepage: { url: entry.website, markdown: home.markdown, html: home.rawHtml ?? home.html ?? "", links: home.links },
     pages,
     lighthouse,
   })

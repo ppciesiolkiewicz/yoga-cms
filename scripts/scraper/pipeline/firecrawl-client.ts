@@ -15,24 +15,27 @@ function getClient(): Firecrawl {
 export interface ScrapeResult {
   markdown: string
   html?: string
+  rawHtml?: string
   links: string[]
 }
 
 export async function scrapeUrl(
   url: string,
-  opts: { includeHtml?: boolean } = {},
+  opts: { includeHtml?: boolean; includeRawHtml?: boolean; onlyMainContent?: boolean } = {},
 ): Promise<ScrapeResult | { error: string }> {
-  const formats: Array<"markdown" | "html" | "links"> = ["markdown", "links"]
+  const formats: Array<"markdown" | "html" | "rawHtml" | "links"> = ["markdown", "links"]
   if (opts.includeHtml) formats.push("html")
+  if (opts.includeRawHtml) formats.push("rawHtml")
   try {
     const doc = await getClient().scrape(url, {
       formats,
-      onlyMainContent: true,
+      onlyMainContent: opts.onlyMainContent ?? true,
       waitFor: 1500,
     })
     return {
       markdown: doc.markdown ?? "",
       html: opts.includeHtml ? (doc.html ?? "") : undefined,
+      rawHtml: opts.includeRawHtml ? (doc.rawHtml ?? "") : undefined,
       links: doc.links ?? [],
     }
   } catch (error) {
