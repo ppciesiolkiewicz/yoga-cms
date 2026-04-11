@@ -508,15 +508,16 @@ export function writeRawStudio(input: WriteRawInput): void {
 
   const usedFiles = new Set<string>(["home.md", "home.html", "lighthouse.json", "pages.json"])
   const rawPages: RawPage[] = []
+  const now = new Date().toISOString()
 
-  // homepage is always a page record too, so analyze can pass it to contact extraction
+  // Homepage always an ok record (if we got this far, we have it).
   rawPages.push({
+    status: "ok",
     url: input.homepage.url,
     file: "home.md",
     category: "home",
     source: "homepage-links",
-    status: "ok",
-    fetchedAt: new Date().toISOString(),
+    fetchedAt: now,
     bytes: Buffer.byteLength(input.homepage.markdown, "utf-8"),
   })
 
@@ -524,17 +525,26 @@ export function writeRawStudio(input: WriteRawInput): void {
     const file = resolveUniqueFile(usedFiles, slugFromPath(page.url), "md")
     if (page.status === "ok") {
       writeFileSync(join(dir, file), page.markdown, "utf-8")
+      rawPages.push({
+        status: "ok",
+        url: page.url,
+        file,
+        category: page.category,
+        source: page.source,
+        fetchedAt: now,
+        bytes: Buffer.byteLength(page.markdown, "utf-8"),
+      })
+    } else {
+      rawPages.push({
+        status: "failed",
+        url: page.url,
+        file,
+        category: page.category,
+        source: page.source,
+        fetchedAt: now,
+        error: page.error ?? "unknown error",
+      })
     }
-    rawPages.push({
-      url: page.url,
-      file,
-      category: page.category,
-      source: page.source,
-      status: page.status,
-      fetchedAt: new Date().toISOString(),
-      bytes: page.status === "ok" ? Buffer.byteLength(page.markdown, "utf-8") : undefined,
-      error: page.error,
-    })
   }
 
   const pagesJson: PagesJson = {
@@ -574,6 +584,7 @@ export function loadRawStudio(slug: string): RawStudio {
   for (const record of pagesJson.pages) {
     if (record.status !== "ok") continue
     if (record.category === "home") continue
+    // status is narrowed to "ok" here, so record.file is readable and record.bytes exists.
     const markdown = readFileSync(join(dir, record.file), "utf-8")
     pages.push({ url: record.url, markdown, category: record.category })
   }
