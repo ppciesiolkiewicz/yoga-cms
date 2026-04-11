@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint",
     "scrape": "tsx scripts/scraper/scrape.ts",
-    "scrape:studio": "tsx scripts/scraper/scrape.ts --studio"
+    "scrape:studio": "tsx scripts/scraper/scrape.ts --studio",
+    "scrape:fetch": "tsx scripts/scraper/scrape.ts --stage fetch",
+    "scrape:analyze": "tsx scripts/scraper/scrape.ts --stage analyze"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.81.0",
