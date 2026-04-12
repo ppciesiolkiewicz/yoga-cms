@@ -28,7 +28,7 @@ export async function fetchHome(repo: Repo, request: Request, site: Site): Promi
   const ctx = { requestId: request.id, siteId: site.id, stage: "fetch-home" }
   await repo.putArtifact({ ...ctx, name: "home.html" }, html)
   await repo.putArtifact({ ...ctx, name: "home.md" }, markdown)
-  await repo.putJson({ ...ctx, name: "home.headers.json" }, headers)
+  await repo.putJson({ ...ctx, name: "home.headers.json" }, headers ?? {})
   await repo.putJson({ ...ctx, name: "home.meta.json" }, {
     url: site.url,
     links: scraped.links ?? [],

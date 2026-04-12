@@ -38,7 +38,7 @@ async function runSite(repo: Repo, request: Request, site: Site, opts: RunOption
       console.log(`  ✓ ${name}`)
     } catch (err) {
       console.warn(`  ✗ ${name} failed: ${err instanceof Error ? err.message : err}`)
-      if (name === "fetch-home") return
+      if (name === "fetch-home" || name === "classify") return
     }
   }
 }
