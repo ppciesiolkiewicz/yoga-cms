@@ -1,5 +1,5 @@
 import type { Repo } from "../db/repo"
-import type { Request, Site } from "../core/types"
+import type { Request, Site, Category } from "../core/types"
 
 const COST_MAP: Record<string, { item: string; min: number; max: number }> = {
   "WordPress": { item: "WordPress hosting", min: 5, max: 50 },
@@ -115,7 +115,13 @@ function estimateCosts(technologies: DetectedTechnology[]): {
   return { costBreakdown: breakdown, total: { min, max, currency: "USD" } }
 }
 
-export async function detectTechStage(repo: Repo, request: Request, site: Site): Promise<void> {
+/**
+ * Per-category tech detection. Wappalyzer requires raw HTML which is only
+ * available from the homepage (fetch-pages stores markdown only). For all
+ * categories we use the homepage HTML as a representative proxy — the tech
+ * stack is generally site-wide.
+ */
+export async function detectTechForCategory(repo: Repo, request: Request, site: Site, category: Category): Promise<void> {
   const htmlBuf = await repo.getArtifact({
     requestId: request.id, siteId: site.id, stage: "fetch-home", name: "home.html",
   })
@@ -134,7 +140,7 @@ export async function detectTechStage(repo: Repo, request: Request, site: Site):
   const { costBreakdown, total } = estimateCosts(technologies)
 
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "detect-tech", name: "detect-tech.json" },
+    { requestId: request.id, siteId: site.id, stage: "detect-tech", name: `${category.id}.json` },
     { platform, detectedTechnologies: technologies, costBreakdown, totalEstimatedMonthlyCost: total },
   )
 }

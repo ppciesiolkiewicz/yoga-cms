@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation"
 import { getRepo } from "@/lib/repo-server"
 import CategoryBlock from "./CategoryBlock"
-import { TechCard } from "./TechCard"
 import { NavigationCard } from "./NavigationCard"
 import { SitesSidebar } from "./SitesSidebar"
 import { ScrollSpy } from "./ScrollSpy"
@@ -21,6 +20,10 @@ interface AIQueryInfo {
   model: string
 }
 
+type TaskStatus = "pending" | "running" | "completed" | "failed" | "not-requested"
+
+type CategoryProgress = Record<string, TaskStatus>
+
 interface ResultFile {
   request: {
     id: string
@@ -34,6 +37,32 @@ interface ResultFile {
     artifacts: Record<string, unknown>
     queries?: AIQueryInfo[]
   }>
+}
+
+interface TechArtifact {
+  platform: string
+  detectedTechnologies: Array<{ name: string; categories: string[]; version?: string; confidence?: number }>
+  costBreakdown: Array<{ item: string; min: number; max: number }>
+  totalEstimatedMonthlyCost: { min: number; max: number; currency: string }
+}
+
+interface LighthouseArtifact {
+  url?: string
+  performance: number
+  accessibility: number
+  seo: number
+  bestPractices: number
+}
+
+interface ContentAssessment {
+  categoryId: string
+  categoryName: string
+  pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }>
+}
+
+interface ExtractArtifact {
+  categoryId: string
+  records: unknown[]
 }
 
 export default async function SiteDetailPage({ params }: Params) {
@@ -51,18 +80,12 @@ export default async function SiteDetailPage({ params }: Params) {
   const siteMeta = result.request.sites.find(s => s.id === siteId)
   if (!site || !siteMeta) notFound()
 
-  const tech = site.artifacts["detect-tech"] as
-    | {
-        platform: string
-        detectedTechnologies: Array<{ name: string; categories: string[]; version?: string; confidence?: number }>
-        costBreakdown: Array<{ item: string; min: number; max: number }>
-        totalEstimatedMonthlyCost: { min: number; max: number; currency: string }
-      }
-    | undefined
-
-  const lighthouse = site.artifacts["run-lighthouse"] as
-    | { performance: number; accessibility: number; seo: number; bestPractices: number }
-    | undefined
+  // Per-category artifact maps
+  const techMap = (site.artifacts["detect-tech"] ?? {}) as Record<string, TechArtifact>
+  const lighthouseMap = (site.artifacts["run-lighthouse"] ?? {}) as Record<string, LighthouseArtifact>
+  const contentMap = (site.artifacts["assess-pages"] ?? {}) as Record<string, ContentAssessment>
+  const extractMap = (site.artifacts["extract-pages-content"] ?? {}) as Record<string, ExtractArtifact>
+  const progressMap = (site.artifacts["progress"] ?? {}) as Record<string, CategoryProgress>
 
   const nav = site.artifacts["parse-links"] as
     | { links: Array<{ label: string; href: string }> }
@@ -70,16 +93,6 @@ export default async function SiteDetailPage({ params }: Params) {
 
   const classify = (
     site.artifacts["classify-nav"] as { byCategory: Record<string, string[]> } | undefined
-  )?.byCategory ?? {}
-
-  const content = (
-    site.artifacts["assess-pages"] as {
-      categories: Array<{ categoryId: string; categoryName: string; pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }> }>
-    } | undefined
-  )?.categories ?? []
-
-  const extract = (
-    site.artifacts["extract-pages-content"] as { byCategory: Record<string, unknown[]> } | undefined
   )?.byCategory ?? {}
 
   const report = site.artifacts["build-report"] as { scrapedAt?: string } | undefined
@@ -95,7 +108,6 @@ export default async function SiteDetailPage({ params }: Params) {
   }))
 
   const sectionIds = [
-    "detect-tech",
     "navigation",
     ...result.request.categories.map(c => `category-${c.id}`),
   ]
@@ -123,7 +135,6 @@ export default async function SiteDetailPage({ params }: Params) {
             </div>
           </div>
 
-          <TechCard tech={tech} lighthouse={lighthouse} />
           <NavigationCard
             nav={nav}
             classify={classify ? { byCategory: classify } : undefined}
@@ -132,12 +143,17 @@ export default async function SiteDetailPage({ params }: Params) {
 
           {result.request.categories.map(cat => {
             const classifiedUrls = classify[cat.id] ?? []
-            const contentPages = content.find(c => c.categoryId === cat.id)?.pages ?? []
-            const extractedRecords = (extract[cat.id] ?? []) as unknown[]
+            const contentPages = contentMap[cat.id]?.pages ?? []
+            const extractedRecords = extractMap[cat.id]?.records ?? []
+            const tech = techMap[cat.id] ?? undefined
+            const lighthouse = lighthouseMap[cat.id] ?? undefined
+            const progress = progressMap[cat.id] ?? undefined
             if (
               classifiedUrls.length === 0 &&
               contentPages.length === 0 &&
-              extractedRecords.length === 0
+              extractedRecords.length === 0 &&
+              !tech &&
+              !lighthouse
             ) {
               return null
             }
@@ -152,6 +168,9 @@ export default async function SiteDetailPage({ params }: Params) {
                 contentPages={contentPages}
                 extractedRecords={extractedRecords}
                 queries={categoryQueries}
+                tech={tech}
+                lighthouse={lighthouse}
+                progress={progress}
               />
             )
           })}

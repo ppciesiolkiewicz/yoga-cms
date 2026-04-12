@@ -2,6 +2,8 @@ export interface CategoryInput {
   name: string
   extraInfo: string
   prompt: string
+  lighthouse?: boolean
+  wappalyzer?: boolean
 }
 
 export interface SiteInput {
@@ -44,11 +46,14 @@ export type StageName =
   | "parse-links"
   | "classify-nav"
   | "fetch-pages"
-  | "detect-tech"
-  | "run-lighthouse"
-  | "assess-pages"
-  | "extract-pages-content"
+  | "run-categories"
   | "build-report"
+
+export type TaskStatus = "pending" | "running" | "completed" | "failed" | "not-requested"
+
+export type CategoryTaskName = "detect-tech" | "run-lighthouse" | "assess-pages" | "extract-pages-content"
+
+export type CategoryProgress = Record<CategoryTaskName, TaskStatus>
 
 export interface RunOptions {
   concurrency?: number

@@ -81,14 +81,21 @@ describe("Repo", () => {
     })).toBe(false)
   })
 
-  it("consolidateRequest aggregates artifacts into result.json", async () => {
+  it("consolidateRequest aggregates per-category artifacts into result.json", async () => {
     const req = await repo.createRequest(sampleInput())
     const siteId = req.sites[0].id
+    const catId = req.categories[0].id
 
-    await repo.putJson({ requestId: req.id, siteId, stage: "detect-tech", name: "detect-tech.json" }, { platform: "WordPress" })
+    // Per-category artifacts use <categoryId>.json
+    await repo.putJson({ requestId: req.id, siteId, stage: "detect-tech", name: `${catId}.json` }, { platform: "WordPress" })
     await repo.putJson(
-      { requestId: req.id, siteId, stage: "assess-pages", name: "assess-pages.json" },
-      { pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
+      { requestId: req.id, siteId, stage: "assess-pages", name: `${catId}.json` },
+      { categoryId: catId, categoryName: "menu", pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
+    )
+    // Single-file stage
+    await repo.putJson(
+      { requestId: req.id, siteId, stage: "classify-nav", name: "classify-nav.json" },
+      { byCategory: {} },
     )
 
     await repo.consolidateRequest(req.id)
@@ -101,8 +108,13 @@ describe("Repo", () => {
     expect(result.request.id).toBe(req.id)
     expect(result.sites).toHaveLength(1)
     expect(result.sites[0].siteId).toBe(siteId)
-    expect(result.sites[0].artifacts["detect-tech"]).toEqual({ platform: "WordPress" })
-    expect(result.sites[0].artifacts["assess-pages"]).toMatchObject({ pages: expect.any(Array) })
+    // Per-category stages are keyed by categoryId
+    const tech = result.sites[0].artifacts["detect-tech"] as Record<string, unknown>
+    expect(tech[catId]).toEqual({ platform: "WordPress" })
+    const assess = result.sites[0].artifacts["assess-pages"] as Record<string, unknown>
+    expect(assess[catId]).toMatchObject({ pages: expect.any(Array) })
+    // Single-file stage
+    expect(result.sites[0].artifacts["classify-nav"]).toEqual({ byCategory: {} })
     expect(result.sites[0].queries).toEqual([])
   })
 })

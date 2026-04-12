@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
 import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
-import type { Request, Site, AIQuery } from "../core/types"
+import type { Request, Site, Category, AIQuery } from "../core/types"
 import { loadCategoryPages } from "./load-pages"
 
 let _client: Anthropic | null = null
@@ -16,12 +16,6 @@ interface PageAssessment {
   conversionScore: number
   seoScore: number
   notes: string
-}
-
-interface CategoryAssessment {
-  categoryId: string
-  categoryName: string
-  pages: PageAssessment[]
 }
 
 const ASSESS_FRAMING = `You judge web pages for a business website in the category described below.
@@ -68,37 +62,37 @@ async function callAssess(categoryPrompt: string, body: string): Promise<AssessR
   return { pages: [], queryInfo: null }
 }
 
-export async function assessPagesStage(repo: Repo, request: Request, site: Site): Promise<void> {
-  const results: CategoryAssessment[] = []
-  for (const category of request.categories) {
-    const pages = await loadCategoryPages(repo, request, site, category)
-    if (pages.length === 0) {
-      results.push({ categoryId: category.id, categoryName: category.name, pages: [] })
-      continue
-    }
-    const body = `Category: ${category.name}
-
-${pages.map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}`
-    const result = await callAssess(category.prompt, body)
-    if (result.queryInfo) {
-      const query: AIQuery = {
-        id: newId("q"),
-        requestId: request.id,
-        siteId: site.id,
-        categoryId: category.id,
-        stage: "assess-pages",
-        model: "claude-sonnet-4-6",
-        prompt: result.queryInfo.prompt,
-        dataRefs: pages.map(p => p.url),
-        response: result.queryInfo.response,
-        createdAt: new Date().toISOString(),
-      }
-      await repo.putQuery(query)
-    }
-    results.push({ categoryId: category.id, categoryName: category.name, pages: result.pages })
+export async function assessPagesForCategory(repo: Repo, request: Request, site: Site, category: Category): Promise<void> {
+  const pages = await loadCategoryPages(repo, request, site, category)
+  if (pages.length === 0) {
+    await repo.putJson(
+      { requestId: request.id, siteId: site.id, stage: "assess-pages", name: `${category.id}.json` },
+      { categoryId: category.id, categoryName: category.name, pages: [] },
+    )
+    return
   }
+
+  const body = `Category: ${category.name}\n\n${pages.map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}`
+  const result = await callAssess(category.prompt, body)
+
+  if (result.queryInfo) {
+    const query: AIQuery = {
+      id: newId("q"),
+      requestId: request.id,
+      siteId: site.id,
+      categoryId: category.id,
+      stage: "assess-pages",
+      model: "claude-sonnet-4-6",
+      prompt: result.queryInfo.prompt,
+      dataRefs: pages.map(p => p.url),
+      response: result.queryInfo.response,
+      createdAt: new Date().toISOString(),
+    }
+    await repo.putQuery(query)
+  }
+
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "assess-pages", name: "assess-pages.json" },
-    { categories: results },
+    { requestId: request.id, siteId: site.id, stage: "assess-pages", name: `${category.id}.json` },
+    { categoryId: category.id, categoryName: category.name, pages: result.pages },
   )
 }

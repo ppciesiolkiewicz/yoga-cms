@@ -1,28 +1,59 @@
-import type { AnalyzeInput, RunOptions, StageName, Request, Site } from "./types"
+import type { AnalyzeInput, RunOptions, StageName, Request, Site, Category, CategoryProgress, CategoryTaskName } from "./types"
 import { Repo } from "../db/repo"
 import { fetchHome } from "../pipeline/fetch-home"
 import { parseLinks } from "../pipeline/parse-links"
 import { classifyNav } from "../pipeline/classify-nav"
 import { fetchPages } from "../pipeline/fetch-pages"
-import { detectTechStage } from "../pipeline/detect-tech"
-import { runLighthouseStage } from "../pipeline/run-lighthouse"
-import { assessPagesStage } from "../pipeline/assess-pages"
-import { extractPagesContentStage } from "../pipeline/extract-pages-content"
+import { detectTechForCategory } from "../pipeline/detect-tech"
+import { runLighthouseForCategory } from "../pipeline/run-lighthouse"
+import { assessPagesForCategory } from "../pipeline/assess-pages"
+import { extractPagesContentForCategory } from "../pipeline/extract-pages-content"
 import { buildReportStage } from "../pipeline/build-report"
 
-type Stage = (repo: Repo, request: Request, site: Site) => Promise<void>
+// ── progress helpers ──
 
-const STAGES: Array<{ name: StageName; fn: Stage }> = [
-  { name: "fetch-home", fn: fetchHome },
-  { name: "parse-links", fn: parseLinks },
-  { name: "classify-nav", fn: classifyNav },
-  { name: "fetch-pages", fn: fetchPages },
-  { name: "detect-tech", fn: detectTechStage },
-  { name: "run-lighthouse", fn: runLighthouseStage },
-  { name: "assess-pages", fn: assessPagesStage },
-  { name: "extract-pages-content", fn: extractPagesContentStage },
-  { name: "build-report", fn: buildReportStage },
-]
+async function saveProgress(repo: Repo, requestId: string, siteId: string, progress: Record<string, CategoryProgress>): Promise<void> {
+  await repo.putJson({ requestId, siteId, stage: "", name: "progress.json" }, progress)
+}
+
+function initCategoryProgress(category: Category): CategoryProgress {
+  return {
+    "detect-tech": category.wappalyzer ? "pending" : "not-requested",
+    "run-lighthouse": category.lighthouse ? "pending" : "not-requested",
+    "assess-pages": "pending",
+    "extract-pages-content": "pending",
+  }
+}
+
+async function runCategoryTask(
+  taskName: CategoryTaskName,
+  fn: () => Promise<void>,
+  progress: Record<string, CategoryProgress>,
+  categoryId: string,
+  repo: Repo,
+  requestId: string,
+  siteId: string,
+): Promise<boolean> {
+  if (progress[categoryId][taskName] === "not-requested") return true
+
+  progress[categoryId][taskName] = "running"
+  await saveProgress(repo, requestId, siteId, progress)
+
+  try {
+    await fn()
+    progress[categoryId][taskName] = "completed"
+    await saveProgress(repo, requestId, siteId, progress)
+    console.log(`    ✓ ${taskName}`)
+    return true
+  } catch (err) {
+    progress[categoryId][taskName] = "failed"
+    await saveProgress(repo, requestId, siteId, progress)
+    console.warn(`    ✗ ${taskName}: ${err instanceof Error ? err.message : err}`)
+    return false
+  }
+}
+
+// ── site runner ──
 
 function shouldRun(stage: StageName, opts: RunOptions): boolean {
   return !opts.stages || opts.stages.includes(stage)
@@ -30,18 +61,77 @@ function shouldRun(stage: StageName, opts: RunOptions): boolean {
 
 async function runSite(repo: Repo, request: Request, site: Site, opts: RunOptions): Promise<void> {
   console.log(`\n═══ ${site.url} ═══`)
-  for (const { name, fn } of STAGES) {
+
+  // Infrastructure stages (sequential, bail on critical failures)
+  const infra: Array<{ name: StageName; fn: () => Promise<void>; bail: boolean }> = [
+    { name: "fetch-home", fn: () => fetchHome(repo, request, site), bail: true },
+    { name: "parse-links", fn: () => parseLinks(repo, request, site), bail: false },
+    { name: "classify-nav", fn: () => classifyNav(repo, request, site), bail: true },
+    { name: "fetch-pages", fn: () => fetchPages(repo, request, site), bail: true },
+  ]
+
+  for (const { name, fn, bail } of infra) {
     if (!shouldRun(name, opts)) continue
     try {
       console.log(`  ▶ ${name}`)
-      await fn(repo, request, site)
+      await fn()
       console.log(`  ✓ ${name}`)
     } catch (err) {
       console.warn(`  ✗ ${name} failed: ${err instanceof Error ? err.message : err}`)
-      if (name === "fetch-home" || name === "classify-nav") return
+      if (bail) return
+    }
+  }
+
+  // Per-category processing
+  if (shouldRun("run-categories", opts)) {
+    const progress: Record<string, CategoryProgress> = {}
+    for (const cat of request.categories) {
+      progress[cat.id] = initCategoryProgress(cat)
+    }
+    await saveProgress(repo, request.id, site.id, progress)
+
+    for (const cat of request.categories) {
+      console.log(`  ▷ category: ${cat.name}`)
+
+      await runCategoryTask(
+        "detect-tech",
+        () => detectTechForCategory(repo, request, site, cat),
+        progress, cat.id, repo, request.id, site.id,
+      )
+
+      await runCategoryTask(
+        "run-lighthouse",
+        () => runLighthouseForCategory(repo, request, site, cat),
+        progress, cat.id, repo, request.id, site.id,
+      )
+
+      await runCategoryTask(
+        "assess-pages",
+        () => assessPagesForCategory(repo, request, site, cat),
+        progress, cat.id, repo, request.id, site.id,
+      )
+
+      await runCategoryTask(
+        "extract-pages-content",
+        () => extractPagesContentForCategory(repo, request, site, cat),
+        progress, cat.id, repo, request.id, site.id,
+      )
+    }
+  }
+
+  // Build report
+  if (shouldRun("build-report", opts)) {
+    try {
+      console.log(`  ▶ build-report`)
+      await buildReportStage(repo, request, site)
+      console.log(`  ✓ build-report`)
+    } catch (err) {
+      console.warn(`  ✗ build-report: ${err instanceof Error ? err.message : err}`)
     }
   }
 }
+
+// ── public entry ──
 
 export async function runAnalysis(
   input: AnalyzeInput,

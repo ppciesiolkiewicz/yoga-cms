@@ -1,4 +1,5 @@
 import { ScoreBadge } from "./TechCard"
+import { TechCard } from "./TechCard"
 
 interface PageAssessment {
   url: string
@@ -17,6 +18,23 @@ interface QueryInfo {
   model: string
 }
 
+type TaskStatus = "pending" | "running" | "completed" | "failed" | "not-requested"
+
+interface TechArtifact {
+  platform: string
+  detectedTechnologies: Array<{ name: string; categories: string[]; version?: string; confidence?: number }>
+  costBreakdown: Array<{ item: string; min: number; max: number }>
+  totalEstimatedMonthlyCost: { min: number; max: number; currency: string }
+}
+
+interface LighthouseArtifact {
+  url?: string
+  performance: number
+  accessibility: number
+  seo: number
+  bestPractices: number
+}
+
 interface Props {
   categoryId: string
   categoryName: string
@@ -25,6 +43,24 @@ interface Props {
   contentPages: PageAssessment[]
   extractedRecords: unknown[]
   queries?: QueryInfo[]
+  tech?: TechArtifact
+  lighthouse?: LighthouseArtifact
+  progress?: Record<string, TaskStatus>
+}
+
+function StatusBadge({ status }: { status: TaskStatus }) {
+  const styles: Record<TaskStatus, string> = {
+    pending: "bg-gray-100 text-gray-600",
+    running: "bg-blue-100 text-blue-700",
+    completed: "bg-green-100 text-green-700",
+    failed: "bg-red-100 text-red-700",
+    "not-requested": "bg-gray-50 text-gray-400",
+  }
+  return (
+    <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${styles[status]}`}>
+      {status}
+    </span>
+  )
 }
 
 function QueryDetails({ query }: { query: QueryInfo }) {
@@ -129,18 +165,34 @@ function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { recor
 }
 
 export default function CategoryBlock(props: Props) {
-  const contentQuery = props.queries?.find(q => q.stage === "content") ?? null
-  const extractQuery = props.queries?.find(q => q.stage === "extract") ?? null
+  const contentQuery = props.queries?.find(q => q.stage === "assess-pages") ?? null
+  const extractQuery = props.queries?.find(q => q.stage === "extract-pages-content") ?? null
 
   return (
     <section
       id={`category-${props.categoryId}`}
       className="mb-6 rounded-lg border border-gray-200 bg-white p-6"
     >
-      <h2 className="text-xl font-semibold text-gray-900">{props.categoryName}</h2>
-      {props.extraInfo && (
-        <p className="mt-1 mb-4 text-sm text-gray-500">{props.extraInfo}</p>
-      )}
+      <div className="mb-4 flex items-start justify-between">
+        <div>
+          <h2 className="text-xl font-semibold text-gray-900">{props.categoryName}</h2>
+          {props.extraInfo && (
+            <p className="mt-1 text-sm text-gray-500">{props.extraInfo}</p>
+          )}
+        </div>
+        {props.progress && (
+          <div className="flex flex-wrap gap-1">
+            {Object.entries(props.progress).map(([task, status]) => (
+              <div key={task} className="flex items-center gap-1 text-xs text-gray-500">
+                <span>{task.replace(/-/g, " ")}:</span>
+                <StatusBadge status={status as TaskStatus} />
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <TechCard tech={props.tech} lighthouse={props.lighthouse} />
 
       {props.classifiedUrls.length > 0 && (
         <div className="mb-4">

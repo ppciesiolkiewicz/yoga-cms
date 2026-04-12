@@ -115,29 +115,61 @@ export class Repo {
     const request = await this.getRequest(id)
     const sites: Array<{ siteId: string; url: string; artifacts: Record<string, unknown>; queries: AIQuery[] }> = []
 
+    // Stages that store per-category artifacts as <categoryId>.json
+    const perCategoryStages = new Set(["detect-tech", "run-lighthouse", "assess-pages", "extract-pages-content"])
+
     for (const site of request.sites) {
       const stages = await this.store.listDirs(
         join(requestDir(this.root, id), "sites", site.id),
       )
       const artifacts: Record<string, unknown> = {}
       for (const stage of stages) {
-        const candidates = [
-          `${stage}.json`,
-          "classify-nav.json", "detect-tech.json", "run-lighthouse.json",
-          "assess-pages.json", "extract-pages-content.json", "build-report.json",
-        ]
-        for (const name of candidates) {
-          const ref = { requestId: id, siteId: site.id, stage, name }
-          if (await this.artifactExists(ref)) {
-            try {
-              artifacts[stage] = await this.getJson(ref)
-            } catch {
-              // not json, skip in result.json (raw files still on disk)
+        if (perCategoryStages.has(stage)) {
+          // Collect per-category JSONs into a map keyed by categoryId
+          const byCategory: Record<string, unknown> = {}
+          for (const cat of request.categories) {
+            const ref = { requestId: id, siteId: site.id, stage, name: `${cat.id}.json` }
+            if (await this.artifactExists(ref)) {
+              try {
+                byCategory[cat.id] = await this.getJson(ref)
+              } catch {
+                // skip non-parseable
+              }
             }
-            break
+          }
+          if (Object.keys(byCategory).length > 0) {
+            artifacts[stage] = byCategory
+          }
+        } else {
+          // Single-file stages — try common names
+          const candidates = [
+            `${stage}.json`,
+            "classify-nav.json", "build-report.json", "nav-links.json",
+          ]
+          for (const name of candidates) {
+            const ref = { requestId: id, siteId: site.id, stage, name }
+            if (await this.artifactExists(ref)) {
+              try {
+                artifacts[stage] = await this.getJson(ref)
+              } catch {
+                // not json, skip in result.json (raw files still on disk)
+              }
+              break
+            }
           }
         }
       }
+
+      // Also pick up progress.json from site root
+      const progressRef = { requestId: id, siteId: site.id, stage: "", name: "progress.json" }
+      if (await this.artifactExists(progressRef)) {
+        try {
+          artifacts["progress"] = await this.getJson(progressRef)
+        } catch {
+          // skip
+        }
+      }
+
       const queries = await this.getQueries(id, site.id)
       sites.push({ siteId: site.id, url: site.url, artifacts, queries })
     }

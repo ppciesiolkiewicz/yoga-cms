@@ -83,6 +83,13 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
     }
   }
 
+  // Automatically assign the site root URL to any category named "home" (case-insensitive)
+  for (const category of request.categories) {
+    if (category.name.toLowerCase() === "home" && !byCategory[category.id]?.includes(site.url)) {
+      ;(byCategory[category.id] ??= []).unshift(site.url)
+    }
+  }
+
   await repo.putJson(
     { requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json" },
     { byCategory },

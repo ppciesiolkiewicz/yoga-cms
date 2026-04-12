@@ -1,5 +1,5 @@
 import type { Repo } from "../db/repo"
-import type { Request, Site } from "../core/types"
+import type { Request, Site, Category } from "../core/types"
 
 interface LighthouseScores {
   performance: number
@@ -42,10 +42,17 @@ async function runLighthouse(url: string): Promise<LighthouseScores> {
   }
 }
 
-export async function runLighthouseStage(repo: Repo, request: Request, site: Site): Promise<void> {
-  const scores = await runLighthouse(site.url)
+export async function runLighthouseForCategory(repo: Repo, request: Request, site: Site, category: Category): Promise<void> {
+  // Load category's classified URLs; use first as representative page
+  const classify = await repo.getJson<{ byCategory: Record<string, string[]> }>({
+    requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json",
+  })
+  const urls = classify.byCategory[category.id] ?? []
+  const targetUrl = urls[0] ?? site.url
+
+  const scores = await runLighthouse(targetUrl)
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "run-lighthouse", name: "run-lighthouse.json" },
-    scores,
+    { requestId: request.id, siteId: site.id, stage: "run-lighthouse", name: `${category.id}.json` },
+    { url: targetUrl, ...scores },
   )
 }
