@@ -45,6 +45,8 @@ export type StageName =
   | "fetch-home"
   | "parse-links"
   | "classify-nav"
+  | "estimate-content"
+  | "generate-quote"
   | "fetch-pages"
   | "run-categories"
   | "build-report"
@@ -79,4 +81,51 @@ export interface AIQuery {
   dataRefs: string[]      // page URLs fed as context
   response: string
   createdAt: string
+}
+
+export interface PageEstimate {
+  url: string
+  charCount: number
+  estimatedTokens: number
+}
+
+export interface SiteEstimate {
+  siteId: string
+  pages: PageEstimate[]
+  totalChars: number
+  totalEstimatedTokens: number
+}
+
+export type OrderStatus = "quoted" | "approved" | "completed"
+
+export interface OrderLineItem {
+  stage: string
+  description: string
+  unit: string
+  quantity: number
+  unitCost: number
+  estimatedCost: number
+  actualCost?: number
+  actualQuantity?: number
+}
+
+export interface OrderSite {
+  siteId: string
+  url: string
+  pageCount: number
+  estimatedTokens: number
+  lineItems: OrderLineItem[]
+  subtotal: number
+}
+
+export interface Order {
+  id: string
+  requestId: string
+  createdAt: string
+  status: OrderStatus
+  sites: OrderSite[]
+  totalEstimatedCost: number
+  totalActualCost?: number
+  approvedAt?: string
+  completedAt?: string
 }
