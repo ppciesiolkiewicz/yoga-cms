@@ -53,7 +53,7 @@ export type StageName =
 
 export type TaskStatus = "pending" | "running" | "completed" | "failed" | "not-requested"
 
-export type CategoryTaskName = "detect-tech" | "run-lighthouse" | "assess-pages" | "extract-pages-content"
+export type CategoryTaskName = "detect-tech" | "run-lighthouse" | "extract-pages-content"
 
 export type CategoryProgress = Record<CategoryTaskName, TaskStatus>
 

@@ -6,7 +6,6 @@ import { classifyNav } from "../pipeline/classify-nav"
 import { fetchPages } from "../pipeline/fetch-pages"
 import { detectTechForCategory } from "../pipeline/detect-tech"
 import { runLighthouseForCategory } from "../pipeline/run-lighthouse"
-import { assessPagesForCategory } from "../pipeline/assess-pages"
 import { extractPagesContentForCategory } from "../pipeline/extract-pages-content"
 import { buildReportStage } from "../pipeline/build-report"
 import { estimateContent } from "../pipeline/estimate-content"
@@ -25,7 +24,6 @@ function initCategoryProgress(category: Category): CategoryProgress {
   return {
     "detect-tech": category.wappalyzer ? "pending" : "not-requested",
     "run-lighthouse": category.lighthouse ? "pending" : "not-requested",
-    "assess-pages": "pending",
     "extract-pages-content": "pending",
   }
 }
@@ -45,15 +43,16 @@ async function runCategoryTask(
   await saveProgress(repo, requestId, siteId, progress)
 
   try {
+    process.stdout.write(`    ▶ ${taskName}`)
     await fn()
     progress[categoryId][taskName] = "completed"
     await saveProgress(repo, requestId, siteId, progress)
-    console.log(`    ✓ ${taskName}`)
+    process.stdout.write(`\r    ✓ ${taskName}\n`)
     return true
   } catch (err) {
     progress[categoryId][taskName] = "failed"
     await saveProgress(repo, requestId, siteId, progress)
-    console.warn(`    ✗ ${taskName}: ${err instanceof Error ? err.message : err}`)
+    process.stdout.write(`\r    ✗ ${taskName}: ${err instanceof Error ? err.message : err}\n`)
     return false
   }
 }
@@ -87,11 +86,11 @@ async function runSitePhase1(repo: Repo, request: Request, site: Site, opts: Run
   for (const { name, fn, bail } of stages) {
     if (!shouldRun(name, opts)) continue
     try {
-      console.log(`  ▶ ${name}`)
+      process.stdout.write(`  ▶ ${name}`)
       await fn()
-      console.log(`  ✓ ${name}`)
+      process.stdout.write(`\r  ✓ ${name}\n`)
     } catch (err) {
-      console.warn(`  ✗ ${name} failed: ${err instanceof Error ? err.message : err}`)
+      process.stdout.write(`\r  ✗ ${name} failed: ${err instanceof Error ? err.message : err}\n`)
       if (bail) return false
     }
   }
@@ -104,11 +103,11 @@ async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: Run
   // fetch-pages
   if (shouldRun("fetch-pages", opts)) {
     try {
-      console.log(`  ▶ fetch-pages`)
+      process.stdout.write(`  ▶ fetch-pages`)
       await fetchPages(repo, request, site)
-      console.log(`  ✓ fetch-pages`)
+      process.stdout.write(`\r  ✓ fetch-pages\n`)
     } catch (err) {
-      console.warn(`  ✗ fetch-pages failed: ${err instanceof Error ? err.message : err}`)
+      process.stdout.write(`\r  ✗ fetch-pages failed: ${err instanceof Error ? err.message : err}\n`)
       return
     }
   }
@@ -135,11 +134,6 @@ async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: Run
         progress, cat.id, repo, request.id, site.id,
       )
       await runCategoryTask(
-        "assess-pages",
-        () => assessPagesForCategory(repo, request, site, cat),
-        progress, cat.id, repo, request.id, site.id,
-      )
-      await runCategoryTask(
         "extract-pages-content",
         () => extractPagesContentForCategory(repo, request, site, cat),
         progress, cat.id, repo, request.id, site.id,
@@ -150,11 +144,11 @@ async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: Run
   // Build report
   if (shouldRun("build-report", opts)) {
     try {
-      console.log(`  ▶ build-report`)
+      process.stdout.write(`  ▶ build-report`)
       await buildReportStage(repo, request, site)
-      console.log(`  ✓ build-report`)
+      process.stdout.write(`\r  ✓ build-report\n`)
     } catch (err) {
-      console.warn(`  ✗ build-report: ${err instanceof Error ? err.message : err}`)
+      process.stdout.write(`\r  ✗ build-report: ${err instanceof Error ? err.message : err}\n`)
     }
   }
 }

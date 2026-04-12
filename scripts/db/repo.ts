@@ -116,7 +116,7 @@ export class Repo {
     const sites: Array<{ siteId: string; url: string; artifacts: Record<string, unknown>; queries: AIQuery[] }> = []
 
     // Stages that store per-category artifacts as <categoryId>.json
-    const perCategoryStages = new Set(["detect-tech", "run-lighthouse", "assess-pages", "extract-pages-content"])
+    const perCategoryStages = new Set(["detect-tech", "run-lighthouse", "extract-pages-content"])
 
     for (const site of request.sites) {
       const stages = await this.store.listDirs(
