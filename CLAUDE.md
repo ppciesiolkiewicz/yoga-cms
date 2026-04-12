@@ -42,6 +42,18 @@ Follow atomic design methodology for component organization:
 - **Organisms** (`src/app/**/` colocated) — feature-level compositions (e.g. SitesSidebar, CategoryBlock). Live next to the route that uses them. Can import atoms and molecules.
 - **Pages** (`src/app/**/page.tsx`) — route entry points. Compose organisms, handle data fetching.
 
+### Component Structure
+Components can have nested sub-components in a `components/` folder:
+```
+src/components/ui/
+  Input/
+    index.ts
+    Input.tsx
+    components/
+      Label.tsx
+      ...
+```
+
 ### Component Rules
 - New UI primitives go in `src/components/ui/` and must be exported from `src/components/ui/index.ts`.
 - Use Radix UI for any interactive primitive (dialogs, dropdowns, tooltips, tabs, etc.). Don't build custom implementations.
