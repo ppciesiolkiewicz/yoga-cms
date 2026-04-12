@@ -18,12 +18,11 @@ async function runLighthouse(url: string): Promise<LighthouseScores> {
     })
     try {
       const lighthouse = (await import("lighthouse")).default
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const result = await lighthouse(url, {
         output: "json",
         onlyCategories: ["performance", "accessibility", "seo", "best-practices"],
         port: chrome.port,
-      } as any)
+      })
       if (!result?.lhr?.categories) {
         return { performance: 0, accessibility: 0, seo: 0, bestPractices: 0 }
       }

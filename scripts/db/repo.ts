@@ -9,7 +9,7 @@ import type {
   Site,
 } from "../core/types"
 import { Store } from "./store"
-import { dbRoot, requestDir, siteDir, refToPath } from "./paths"
+import { dbRoot, requestDir, refToPath } from "./paths"
 
 export class Repo {
   readonly root: string
