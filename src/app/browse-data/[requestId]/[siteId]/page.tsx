@@ -1,7 +1,10 @@
-import Link from "next/link"
 import { notFound } from "next/navigation"
 import { getRepo } from "@/lib/repo-server"
 import CategoryBlock from "./CategoryBlock"
+import { TechCard } from "./TechCard"
+import { NavigationCard } from "./NavigationCard"
+import { SitesSidebar } from "./SitesSidebar"
+import { ScrollSpy } from "./ScrollSpy"
 
 export const dynamic = "force-dynamic"
 
@@ -38,35 +41,102 @@ export default async function SiteDetailPage({ params }: Params) {
   const siteMeta = result.request.sites.find(s => s.id === siteId)
   if (!site || !siteMeta) notFound()
 
-  const classify = (site.artifacts["classify"] as { byCategory: Record<string, string[]> } | undefined)?.byCategory ?? {}
-  const content = (site.artifacts["content"] as { categories: Array<{ categoryId: string; pages: unknown[] }> } | undefined)?.categories ?? []
-  const extract = (site.artifacts["extract"] as { byCategory: Record<string, unknown[]> } | undefined)?.byCategory ?? {}
+  const tech = site.artifacts["tech"] as
+    | {
+        platform: string
+        detectedTechnologies: Array<{ name: string; categories: string[]; version?: string; confidence?: number }>
+        costBreakdown: Array<{ item: string; min: number; max: number }>
+        totalEstimatedMonthlyCost: { min: number; max: number; currency: string }
+      }
+    | undefined
+
+  const lighthouse = site.artifacts["lighthouse"] as
+    | { performance: number; accessibility: number; seo: number; bestPractices: number }
+    | undefined
+
+  const nav = site.artifacts["extract-nav"] as
+    | { links: Array<{ label: string; href: string }> }
+    | undefined
+
+  const classify = (
+    site.artifacts["classify"] as { byCategory: Record<string, string[]> } | undefined
+  )?.byCategory ?? {}
+
+  const content = (
+    site.artifacts["content"] as {
+      categories: Array<{ categoryId: string; categoryName: string; pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }> }>
+    } | undefined
+  )?.categories ?? []
+
+  const extract = (
+    site.artifacts["extract"] as { byCategory: Record<string, unknown[]> } | undefined
+  )?.byCategory ?? {}
+
+  const displayName = result.request.displayName ?? requestId
+  const siteName = String(siteMeta.meta?.name ?? siteMeta.url)
+
+  const sidebarSites = result.request.sites.map(s => ({
+    id: s.id,
+    url: s.url,
+    name: String(s.meta?.name ?? s.url),
+  }))
+
+  const sectionIds = [
+    "tech",
+    "navigation",
+    ...result.request.categories.map(c => `category-${c.id}`),
+  ]
 
   return (
-    <main className="mx-auto max-w-6xl px-4 py-8">
-      <Link href={`/browse-data/${requestId}`} className="text-sm text-blue-600 hover:underline">&larr; {result.request.displayName ?? requestId}</Link>
-      <div className="mt-2 mb-6">
-        <h1 className="text-3xl font-bold">{String(siteMeta.meta?.name ?? siteMeta.url)}</h1>
-        <p className="text-sm text-gray-500"><a href={siteMeta.url} className="underline">{siteMeta.url}</a></p>
-      </div>
+    <>
+      <SitesSidebar
+        requestId={requestId}
+        displayName={displayName}
+        sites={sidebarSites}
+        currentSiteId={siteId}
+      />
 
-      {result.request.categories.map(cat => {
-        const classifiedUrls = classify[cat.id] ?? []
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const contentPages = ((content.find(c => c.categoryId === cat.id)?.pages ?? []) as any[])
-        const extractedRecords = (extract[cat.id] ?? []) as unknown[]
-        if (classifiedUrls.length === 0 && contentPages.length === 0 && extractedRecords.length === 0) return null
-        return (
-          <CategoryBlock
-            key={cat.id}
-            categoryName={cat.name}
-            extraInfo={cat.extraInfo}
-            classifiedUrls={classifiedUrls}
-            contentPages={contentPages}
-            extractedRecords={extractedRecords}
-          />
-        )
-      })}
-    </main>
+      <main className="ml-65 min-h-screen bg-gray-50 px-8 py-8">
+        <div className="mx-auto max-w-4xl">
+          <div className="mb-6">
+            <h1 className="text-3xl font-bold text-gray-900">{siteName}</h1>
+            <p className="mt-1 text-sm text-gray-500">
+              <a href={siteMeta.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+                {siteMeta.url}
+              </a>
+            </p>
+          </div>
+
+          <TechCard tech={tech} lighthouse={lighthouse} />
+          <NavigationCard nav={nav} />
+
+          {result.request.categories.map(cat => {
+            const classifiedUrls = classify[cat.id] ?? []
+            const contentPages = content.find(c => c.categoryId === cat.id)?.pages ?? []
+            const extractedRecords = (extract[cat.id] ?? []) as unknown[]
+            if (
+              classifiedUrls.length === 0 &&
+              contentPages.length === 0 &&
+              extractedRecords.length === 0
+            ) {
+              return null
+            }
+            return (
+              <CategoryBlock
+                key={cat.id}
+                categoryId={cat.id}
+                categoryName={cat.name}
+                extraInfo={cat.extraInfo}
+                classifiedUrls={classifiedUrls}
+                contentPages={contentPages}
+                extractedRecords={extractedRecords}
+              />
+            )
+          })}
+        </div>
+      </main>
+
+      <ScrollSpy sectionIds={sectionIds} />
+    </>
   )
 }
