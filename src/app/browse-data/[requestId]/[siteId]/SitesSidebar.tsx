@@ -32,7 +32,7 @@ export function SitesSidebar({
   }, [currentSiteId])
 
   return (
-    <aside className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-gray-200 bg-white shadow-sm">
+    <aside className="fixed left-0 top-12.25 z-30 flex h-[calc(100vh-49px)] w-65 flex-col border-r border-gray-200 bg-white shadow-sm">
       <div className="sticky top-0 border-b border-gray-100 bg-white/90 px-3 py-2 backdrop-blur">
         <Link href={`/browse-data/${requestId}`} className="block text-xs text-blue-600 hover:underline">
           &larr; Back to {displayName}

@@ -244,17 +244,21 @@ export default function CategoryBlock(props: Props) {
       )}
 
       {props.extractedRecords.length > 0 && (
-        <div>
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Extracted Data ({props.extractedRecords.length})
-          </div>
-          {extractQuery && <QueryDetails query={extractQuery} />}
-          <div className="mt-2 space-y-2">
-            {props.extractedRecords.map((record, i) => (
-              <ExtractedRecordCard key={i} record={record} index={i} categoryName={props.categoryName} extraInfo={props.extraInfo} />
-            ))}
-          </div>
-        </div>
+        <Accordion>
+          <AccordionItem value="extracted-data">
+            <AccordionTrigger className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              <span>Extracted Data ({props.extractedRecords.length})</span>
+            </AccordionTrigger>
+            <AccordionContent>
+              {extractQuery && <QueryDetails query={extractQuery} />}
+              <div className="mt-2 space-y-2">
+                {props.extractedRecords.map((record, i) => (
+                  <ExtractedRecordCard key={i} record={record} index={i} categoryName={props.categoryName} extraInfo={props.extraInfo} />
+                ))}
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       )}
     </section>
   )

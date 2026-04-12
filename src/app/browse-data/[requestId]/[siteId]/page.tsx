@@ -3,7 +3,7 @@ import { getRepo } from "@/lib/repo-server"
 import CategoryBlock from "./CategoryBlock"
 import { NavigationCard } from "./NavigationCard"
 import { SitesSidebar } from "./SitesSidebar"
-import { ScrollSpy } from "./ScrollSpy"
+import { PageNav } from "./PageNav"
 
 export const dynamic = "force-dynamic"
 
@@ -119,11 +119,11 @@ export default async function SiteDetailPage({ params }: Params) {
     ...(contactCategory ? [contactCategory] : []),
   ]
 
-  const sectionIds = [
-    ...(homeCategory ? [`category-${homeCategory.id}`] : []),
-    "navigation",
-    ...otherCategories.map(c => `category-${c.id}`),
-    ...(contactCategory ? [`category-${contactCategory.id}`] : []),
+  const sections = [
+    ...(homeCategory ? [{ id: `category-${homeCategory.id}`, label: homeCategory.name }] : []),
+    { id: "navigation", label: "Navigation" },
+    ...otherCategories.map(c => ({ id: `category-${c.id}`, label: c.name })),
+    ...(contactCategory ? [{ id: `category-${contactCategory.id}`, label: contactCategory.name }] : []),
   ]
 
   function renderCategory(cat: typeof result.request.categories[number]) {
@@ -197,7 +197,7 @@ export default async function SiteDetailPage({ params }: Params) {
         </div>
       </main>
 
-      <ScrollSpy sectionIds={sectionIds} />
+      <PageNav sections={sections} />
     </>
   )
 }
