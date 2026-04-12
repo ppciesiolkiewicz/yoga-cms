@@ -32,12 +32,16 @@ export function SitesSidebar({
   }, [currentSiteId])
 
   return (
-    <aside className="fixed left-0 top-12.25 z-30 flex h-[calc(100vh-49px)] w-65 flex-col border-r border-gray-200 bg-white shadow-sm">
-      <div className="sticky top-0 border-b border-gray-100 bg-white/90 px-3 py-2 backdrop-blur">
-        <Link href={`/browse-data/${requestId}`} className="block text-xs text-blue-600 hover:underline">
-          &larr; Back to {displayName}
+    <aside className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-gray-200 bg-white shadow-sm">
+      <div className="sticky top-0 border-b border-gray-200 bg-white px-3 py-3">
+        <Link
+          href={`/browse-data/${requestId}`}
+          className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
+        >
+          <span className="text-lg leading-none">&larr;</span>
+          <span className="truncate">{displayName}</span>
         </Link>
-        <span className="mt-1 block text-xs font-semibold uppercase tracking-wide text-gray-500">
+        <span className="mt-2 block text-xs font-semibold uppercase tracking-wide text-gray-500">
           Sites · {sites.length}
         </span>
       </div>

@@ -2,7 +2,7 @@
 
 import { useState, useCallback } from "react"
 import type { SerperResponse } from "@/lib/serp-types"
-import type { AnalyzeInput } from "../../../scripts/core/types"
+import type { AnalyzeInput } from "../../../../scripts/core/types"
 import { Input } from "@/components/ui/Input"
 import { SearchSection } from "./SearchSection"
 import { SitesSection, type SelectedSite } from "./SitesSection"

@@ -21,6 +21,7 @@ interface TechArtifact {
 }
 
 interface LighthouseArtifact {
+  url?: string
   performance: number
   accessibility: number
   seo: number

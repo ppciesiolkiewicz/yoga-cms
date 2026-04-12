@@ -1,4 +1,4 @@
-import type { AnalyzeInput } from "../../../scripts/core/types"
+import type { AnalyzeInput } from "../../../../scripts/core/types"
 import { Card } from "@/components/ui/Card"
 
 export function ReviewSection({ input }: { input: AnalyzeInput }) {

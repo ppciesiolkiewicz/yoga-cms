@@ -4,6 +4,7 @@ import CategoryBlock from "./CategoryBlock"
 import { NavigationCard } from "./NavigationCard"
 import { SitesSidebar } from "./SitesSidebar"
 import { PageNav } from "./PageNav"
+import { SectionDivider } from "./SectionDivider"
 
 export const dynamic = "force-dynamic"
 
@@ -185,15 +186,27 @@ export default async function SiteDetailPage({ params }: Params) {
 
           {homeCategory && renderCategory(homeCategory)}
 
+          <SectionDivider />
+
           <NavigationCard
             nav={nav}
             classify={classify ? { byCategory: classify } : undefined}
             categories={result.request.categories.map(c => ({ id: c.id, name: c.name }))}
           />
 
-          {otherCategories.map(cat => renderCategory(cat))}
+          {otherCategories.map(cat => (
+            <div key={cat.id}>
+              <SectionDivider />
+              {renderCategory(cat)}
+            </div>
+          ))}
 
-          {contactCategory && renderCategory(contactCategory)}
+          {contactCategory && (
+            <>
+              <SectionDivider />
+              {renderCategory(contactCategory)}
+            </>
+          )}
         </div>
       </main>
 
