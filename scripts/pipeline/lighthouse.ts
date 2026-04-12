@@ -1,0 +1,52 @@
+import type { Repo } from "../db/repo"
+import type { Request, Site } from "../core/types"
+
+interface LighthouseScores {
+  performance: number
+  accessibility: number
+  seo: number
+  bestPractices: number
+}
+
+async function runLighthouse(url: string): Promise<LighthouseScores> {
+  try {
+    const chromeLauncher = await import("chrome-launcher")
+    const { chromium } = await import("playwright")
+    const chrome = await chromeLauncher.launch({
+      chromePath: chromium.executablePath(),
+      chromeFlags: ["--headless=new", "--no-sandbox", "--disable-gpu"],
+    })
+    try {
+      const lighthouse = (await import("lighthouse")).default
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const result = await lighthouse(url, {
+        output: "json",
+        onlyCategories: ["performance", "accessibility", "seo", "best-practices"],
+        port: chrome.port,
+      } as any)
+      if (!result?.lhr?.categories) {
+        return { performance: 0, accessibility: 0, seo: 0, bestPractices: 0 }
+      }
+      const cats = result.lhr.categories
+      return {
+        performance: Math.round((cats.performance?.score ?? 0) * 100),
+        accessibility: Math.round((cats.accessibility?.score ?? 0) * 100),
+        seo: Math.round((cats.seo?.score ?? 0) * 100),
+        bestPractices: Math.round((cats["best-practices"]?.score ?? 0) * 100),
+      }
+    } finally {
+      await chrome.kill()
+    }
+  } catch (err) {
+    console.warn(`  ⚠ lighthouse failed for ${url}: ${err}`)
+    return { performance: 0, accessibility: 0, seo: 0, bestPractices: 0 }
+  }
+}
+
+export async function lighthouseStage(repo: Repo, request: Request, site: Site): Promise<void> {
+  const scores = await runLighthouse(site.url)
+  await repo.putJson(
+    { requestId: request.id, siteId: site.id, stage: "lighthouse", name: "lighthouse.json" },
+    scores,
+  )
+}
