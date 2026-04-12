@@ -10,10 +10,13 @@ function client(): Anthropic {
   return _client
 }
 
-const EXTRACT_FRAMING = `Using the category description above, extract structured records from the page text below.
-Return ONLY a JSON object with a "records" key holding an array of objects.
-Each object's fields are up to you based on the category description, but keep field names consistent across records within this response.
-If no records are found, return { "records": [] }.
+const EXTRACT_FRAMING = `You are analyzing web pages for the category described above.
+For each page provided below, extract one record.
+If the category description specifies a JSON schema, follow it exactly.
+Otherwise, return fields you find relevant based on the category description.
+Every record must always include "url" (the page URL) and "summary" (1-2 sentence plain-language overview of the page).
+Fields ending in "Score" must be numbers from 1 to 10.
+Return a JSON object: { "records": [<one record per page>] }.
 No markdown, no code fences.`
 
 interface ExtractResult {
