@@ -72,6 +72,7 @@ export default async function SiteDetailPage({ params }: Params) {
     site.artifacts["extract"] as { byCategory: Record<string, unknown[]> } | undefined
   )?.byCategory ?? {}
 
+  const report = site.artifacts["report"] as { scrapedAt?: string } | undefined
   const displayName = result.request.displayName ?? requestId
   const siteName = String(siteMeta.meta?.name ?? siteMeta.url)
 
@@ -100,11 +101,14 @@ export default async function SiteDetailPage({ params }: Params) {
         <div className="mx-auto max-w-4xl">
           <div className="mb-6">
             <h1 className="text-3xl font-bold text-gray-900">{siteName}</h1>
-            <p className="mt-1 text-sm text-gray-500">
-              <a href={siteMeta.url} target="_blank" rel="noopener noreferrer" className="underline hover:text-gray-700">
+            <div className="mt-1 flex flex-wrap items-center gap-3 text-sm text-gray-500">
+              <a href={siteMeta.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                 {siteMeta.url}
               </a>
-            </p>
+              {report?.scrapedAt && (
+                <span>Scraped {new Date(report.scrapedAt).toLocaleDateString()}</span>
+              )}
+            </div>
           </div>
 
           <TechCard tech={tech} lighthouse={lighthouse} />
