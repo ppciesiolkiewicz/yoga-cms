@@ -9,6 +9,11 @@ import { runLighthouseForCategory } from "../pipeline/run-lighthouse"
 import { assessPagesForCategory } from "../pipeline/assess-pages"
 import { extractPagesContentForCategory } from "../pipeline/extract-pages-content"
 import { buildReportStage } from "../pipeline/build-report"
+import { estimateContent } from "../pipeline/estimate-content"
+import { generateQuote, formatQuoteSummary } from "../pipeline/generate-quote"
+import { finalizeOrder } from "../pipeline/finalize-order"
+import { loadPricingConfig } from "../quote/pricing"
+import { createInterface } from "readline"
 
 // ── progress helpers ──
 
@@ -59,18 +64,27 @@ function shouldRun(stage: StageName, opts: RunOptions): boolean {
   return !opts.stages || opts.stages.includes(stage)
 }
 
-async function runSite(repo: Repo, request: Request, site: Site, opts: RunOptions): Promise<void> {
-  console.log(`\n═══ ${site.url} ═══`)
+async function promptApproval(message: string): Promise<boolean> {
+  const rl = createInterface({ input: process.stdin, output: process.stdout })
+  return new Promise(resolve => {
+    rl.question(message, answer => {
+      rl.close()
+      resolve(answer.trim().toLowerCase() === "y")
+    })
+  })
+}
 
-  // Infrastructure stages (sequential, bail on critical failures)
-  const infra: Array<{ name: StageName; fn: () => Promise<void>; bail: boolean }> = [
+async function runSitePhase1(repo: Repo, request: Request, site: Site, opts: RunOptions): Promise<boolean> {
+  console.log(`\n═══ ${site.url} (Phase 1: estimate) ═══`)
+
+  const stages: Array<{ name: StageName; fn: () => Promise<void>; bail: boolean }> = [
     { name: "fetch-home", fn: () => fetchHome(repo, request, site), bail: true },
     { name: "parse-links", fn: () => parseLinks(repo, request, site), bail: false },
     { name: "classify-nav", fn: () => classifyNav(repo, request, site), bail: true },
-    { name: "fetch-pages", fn: () => fetchPages(repo, request, site), bail: true },
+    { name: "estimate-content", fn: () => estimateContent(repo, request, site), bail: true },
   ]
 
-  for (const { name, fn, bail } of infra) {
+  for (const { name, fn, bail } of stages) {
     if (!shouldRun(name, opts)) continue
     try {
       console.log(`  ▶ ${name}`)
@@ -78,7 +92,24 @@ async function runSite(repo: Repo, request: Request, site: Site, opts: RunOption
       console.log(`  ✓ ${name}`)
     } catch (err) {
       console.warn(`  ✗ ${name} failed: ${err instanceof Error ? err.message : err}`)
-      if (bail) return
+      if (bail) return false
+    }
+  }
+  return true
+}
+
+async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: RunOptions): Promise<void> {
+  console.log(`\n═══ ${site.url} (Phase 2: analyze) ═══`)
+
+  // fetch-pages
+  if (shouldRun("fetch-pages", opts)) {
+    try {
+      console.log(`  ▶ fetch-pages`)
+      await fetchPages(repo, request, site)
+      console.log(`  ✓ fetch-pages`)
+    } catch (err) {
+      console.warn(`  ✗ fetch-pages failed: ${err instanceof Error ? err.message : err}`)
+      return
     }
   }
 
@@ -98,19 +129,16 @@ async function runSite(repo: Repo, request: Request, site: Site, opts: RunOption
         () => detectTechForCategory(repo, request, site, cat),
         progress, cat.id, repo, request.id, site.id,
       )
-
       await runCategoryTask(
         "run-lighthouse",
         () => runLighthouseForCategory(repo, request, site, cat),
         progress, cat.id, repo, request.id, site.id,
       )
-
       await runCategoryTask(
         "assess-pages",
         () => assessPagesForCategory(repo, request, site, cat),
         progress, cat.id, repo, request.id, site.id,
       )
-
       await runCategoryTask(
         "extract-pages-content",
         () => extractPagesContentForCategory(repo, request, site, cat),
@@ -142,19 +170,75 @@ export async function runAnalysis(
   console.log(`\n==> Request ${request.id} (${request.sites.length} sites, ${request.categories.length} categories)`)
 
   const concurrency = Math.max(1, opts.concurrency ?? 1)
-  const queue = [...request.sites]
-  async function worker(): Promise<void> {
-    while (queue.length > 0) {
-      const site = queue.shift()
+
+  // ── Phase 1: estimate ──
+  const phase1Sites: Site[] = []
+  const queue1 = [...request.sites]
+  async function worker1(): Promise<void> {
+    while (queue1.length > 0) {
+      const site = queue1.shift()
       if (!site) return
       try {
-        await runSite(repo, request, site, opts)
+        const ok = await runSitePhase1(repo, request, site, opts)
+        if (ok) phase1Sites.push(site)
       } catch (err) {
         console.warn(`  ✗ site ${site.url} failed: ${err instanceof Error ? err.message : err}`)
       }
     }
   }
-  await Promise.all(Array.from({ length: concurrency }, worker))
+  await Promise.all(Array.from({ length: concurrency }, worker1))
+
+  if (phase1Sites.length === 0) {
+    console.warn("\n==> No sites completed Phase 1. Aborting.")
+    return request.id
+  }
+
+  // ── Generate quote ──
+  if (shouldRun("generate-quote" as StageName, opts)) {
+    const pricing = loadPricingConfig()
+    const order = await generateQuote(repo, request, pricing)
+    console.log(formatQuoteSummary(order))
+
+    const approved = await promptApproval("  Proceed with analysis? (y/n): ")
+    if (!approved) {
+      console.log("\n==> Quote rejected. Exiting.")
+      return request.id
+    }
+
+    order.status = "approved"
+    order.approvedAt = new Date().toISOString()
+    await repo.putJson(
+      { requestId: request.id, stage: "order", name: "order.json" },
+      order,
+    )
+    console.log("\n==> Quote approved. Starting analysis...")
+  }
+
+  // ── Phase 2: analyze (only sites that passed Phase 1) ──
+  const queue2 = [...phase1Sites]
+  async function worker2(): Promise<void> {
+    while (queue2.length > 0) {
+      const site = queue2.shift()
+      if (!site) return
+      try {
+        await runSitePhase2(repo, request, site, opts)
+      } catch (err) {
+        console.warn(`  ✗ site ${site.url} failed: ${err instanceof Error ? err.message : err}`)
+      }
+    }
+  }
+  await Promise.all(Array.from({ length: concurrency }, worker2))
+
+  // ── Finalize order ──
+  if (shouldRun("generate-quote" as StageName, opts)) {
+    try {
+      const pricing = loadPricingConfig()
+      await finalizeOrder(repo, request, pricing)
+      console.log(`\n==> Order finalized`)
+    } catch (err) {
+      console.warn(`  ✗ finalize-order: ${err instanceof Error ? err.message : err}`)
+    }
+  }
 
   await repo.consolidateRequest(request.id)
   console.log(`\n==> consolidated → requests/${request.id}/result.json`)
