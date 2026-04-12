@@ -13,6 +13,7 @@ export async function POST(req: Request) {
 
   const serperBody: Record<string, unknown> = { q: body.query }
   if (body.page) serperBody.page = body.page
+  if (body.gl) serperBody.gl = body.gl
 
   const serperRes = await fetch("https://google.serper.dev/search", {
     method: "POST",

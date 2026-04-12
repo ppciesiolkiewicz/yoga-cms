@@ -1,0 +1,44 @@
+{
+  "displayName": "Developer tool SaaS landing pages",
+  "categories": [
+    {
+      "name": "Home",
+      "extraInfo": "",
+      "prompt": "You judge the homepage of a developer-focused SaaS product.\n\nA developer lands here and wants to answer: \"What does it do? Can I try it now? Is it worth my time?\"\n\nGood page:\n- Value proposition in one sentence (not marketing fluff)\n- Code snippet, demo, or interactive example visible early\n- \"Get started\" or \"Try free\" above the fold\n- Clear indication of free tier or trial\n- Technical credibility: integrations, open source, API-first messaging\n- Social proof from developers, not just logos\n\nBad page:\n- \"Unlock the power of\" or \"Transform your workflow\" vague copy\n- No code, no demo, no technical detail on homepage\n- \"Book a demo\" as the only CTA (developer hostile)\n- Enterprise-first messaging on a dev tool\n\nSEO check:\n- Title is descriptive (not just brand name)\n- Meta description explains the product\n- SoftwareApplication or WebApplication schema\n- Fast load (developers notice)\n\nScore 1-10 twice:\n- conversionScore: does a developer want to sign up and try it?\n- seoScore: can Google rank this for the product category?\n\nReturn only valid JSON.",
+      "wappalyzer": true,
+      "lighthouse": true
+    },
+    {
+      "name": "Pricing",
+      "extraInfo": "pricing, plans, free tier, open source, enterprise, billing",
+      "prompt": "You judge SaaS pricing pages for developer tools.\n\nA developer or engineering lead wants to answer: \"Is there a free tier? What are the limits? How much at scale?\"\n\nGood page:\n- Free tier clearly shown with limits\n- Plan comparison table with specific numbers (not checkmarks)\n- Usage-based pricing explained with calculator\n- Self-serve sign up for most tiers\n- Enterprise option separate, not blocking the page\n\nBad page:\n- \"Contact sales\" for all plans\n- Vague limits (\"generous free tier\" without numbers)\n- Per-seat pricing hidden in footnotes\n- Feature comparison with meaningless tier names\n\nSEO check:\n- Title includes \"pricing\" + product name\n- PriceSpecification schema\n- FAQ section for common billing questions\n\nScore 1-10 twice:\n- conversionScore: can an engineer pick a plan and start in 5 minutes?\n- seoScore: does the page rank for \"[product] pricing\"?\n\nReturn only valid JSON."
+    },
+    {
+      "name": "Docs",
+      "extraInfo": "documentation, docs, API reference, guides, quickstart, tutorials, SDK",
+      "prompt": "You judge developer documentation pages.\n\nA developer wants to: get started quickly, find API references, copy working code.\n\nGood page:\n- Quickstart guide within 1-2 clicks from docs home\n- Working code examples (not pseudocode)\n- Search that works\n- Clear navigation: guides vs reference vs tutorials\n- Language/framework tabs for code examples\n- Copy button on code blocks\n\nBad page:\n- Auto-generated API docs with no context\n- No quickstart or getting started guide\n- Outdated examples that don't work\n- No search\n- PDF documentation\n\nSEO check:\n- Individual pages for each topic (not one giant page)\n- Titles include the specific topic\n- Code blocks are indexable (not images)\n- Canonical URLs set correctly\n\nScore 1-10 twice:\n- conversionScore: can a developer go from zero to working code in 10 minutes?\n- seoScore: do individual doc pages rank for specific queries?\n\nReturn only valid JSON."
+    },
+    {
+      "name": "Contact",
+      "extraInfo": "contact, support, help, community, discord, slack, forum",
+      "prompt": "You judge contact/support pages for developer tools. A developer needs: support channels (Discord, GitHub issues, email), response time expectations, community links, status page. Good pages offer multiple channels appropriate for developers (not just a sales form). Score each page 1-10 for conversionScore (can a developer get help fast?) and seoScore (structured data, indexable support content)."
+    }
+  ],
+  "sites": [
+    { "url": "https://vercel.com", "meta": { "name": "Vercel" } },
+    { "url": "https://supabase.com", "meta": { "name": "Supabase" } },
+    { "url": "https://planetscale.com", "meta": { "name": "PlanetScale" } },
+    { "url": "https://railway.app", "meta": { "name": "Railway" } },
+    { "url": "https://fly.io", "meta": { "name": "Fly.io" } },
+    { "url": "https://www.convex.dev", "meta": { "name": "Convex" } },
+    { "url": "https://turso.tech", "meta": { "name": "Turso" } },
+    { "url": "https://neon.tech", "meta": { "name": "Neon" } },
+    { "url": "https://upstash.com", "meta": { "name": "Upstash" } },
+    { "url": "https://resend.com", "meta": { "name": "Resend" } },
+    { "url": "https://www.inngest.com", "meta": { "name": "Inngest" } },
+    { "url": "https://trigger.dev", "meta": { "name": "Trigger.dev" } },
+    { "url": "https://posthog.com", "meta": { "name": "PostHog" } },
+    { "url": "https://sentry.io", "meta": { "name": "Sentry" } },
+    { "url": "https://linear.app", "meta": { "name": "Linear" } }
+  ]
+}

@@ -1,6 +1,6 @@
 "use client"
 
-import { type ChangeEvent } from "react"
+import { type ChangeEvent, useState } from "react"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 
@@ -8,39 +8,51 @@ export interface SelectedSite {
   url: string
   title: string
   snippet: string
-  meta: { name: string; city: string }
+  meta: { name: string }
+}
+
+function normalizeUrl(raw: string): string | null {
+  let value = raw.trim()
+  if (!value) return null
+  if (!/^https?:\/\//i.test(value)) value = "https://" + value
+  try {
+    return new URL(value).href
+  } catch {
+    return null
+  }
 }
 
 export function SitesSection({
   sites,
+  onAdd,
   onUpdateMeta,
   onRemove,
 }: {
   sites: Map<string, SelectedSite>
-  onUpdateMeta: (url: string, field: "name" | "city", value: string) => void
+  onAdd: (url: string, title: string, snippet: string) => void
+  onUpdateMeta: (url: string, field: "name", value: string) => void
   onRemove: (url: string) => void
 }) {
   const entries = [...sites.entries()]
+  const [manualUrl, setManualUrl] = useState("")
 
-  if (entries.length === 0) {
-    return (
-      <section>
-        <h2 className="mb-3 text-lg font-semibold">Selected Sites</h2>
-        <p className="text-sm text-gray-500">No sites selected yet. Search and check sites above.</p>
-      </section>
-    )
+  function handleAddManual() {
+    const url = normalizeUrl(manualUrl)
+    if (!url || sites.has(url)) return
+    onAdd(url, "", "")
+    setManualUrl("")
   }
 
   return (
     <section>
-      <h2 className="mb-3 text-lg font-semibold">Selected Sites ({entries.length})</h2>
+      <h2 className="mb-3 text-lg font-semibold">Selected Sites{entries.length > 0 ? ` (${entries.length})` : ""}</h2>
+
       <div className="overflow-x-auto rounded-lg border border-gray-200">
         <table className="w-full text-left text-sm">
           <thead className="bg-gray-50 text-xs uppercase text-gray-500">
             <tr>
               <th className="px-3 py-2">URL</th>
               <th className="px-3 py-2">Name</th>
-              <th className="px-3 py-2">City</th>
               <th className="px-3 py-2 w-12"></th>
             </tr>
           </thead>
@@ -59,19 +71,33 @@ export function SitesSection({
                   />
                 </td>
                 <td className="px-3 py-2">
-                  <Input
-                    value={site.meta.city}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdateMeta(url, "city", e.target.value)}
-                    className="w-32"
-                  />
-                </td>
-                <td className="px-3 py-2">
                   <Button variant="ghost" onClick={() => onRemove(url)} className="text-red-500 hover:text-red-700">
                     &times;
                   </Button>
                 </td>
               </tr>
             ))}
+            <tr className="bg-gray-50/50">
+              <td className="px-3 py-2" colSpan={2}>
+                <Input
+                  value={manualUrl}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => setManualUrl(e.target.value)}
+                  onKeyDown={(e: React.KeyboardEvent) => { if (e.key === "Enter") { e.preventDefault(); handleAddManual() } }}
+                  placeholder="Enter a URL, e.g. example.com"
+                  className="w-full"
+                />
+              </td>
+              <td className="px-3 py-2">
+                <Button
+                  variant="ghost"
+                  onClick={handleAddManual}
+                  disabled={!manualUrl.trim()}
+                  className="text-blue-600 hover:text-blue-800 font-medium"
+                >
+                  Add +
+                </Button>
+              </td>
+            </tr>
           </tbody>
         </table>
       </div>

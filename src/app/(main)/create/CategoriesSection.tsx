@@ -1,11 +1,13 @@
 "use client"
 
-import { type ChangeEvent } from "react"
+import { type ChangeEvent, useState } from "react"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 import { Textarea } from "@/components/ui/Textarea"
 import { Checkbox } from "@/components/ui/Checkbox"
 import { Card } from "@/components/ui/Card"
+import { Collapsible } from "@/components/ui/Collapsible"
+import { Modal, ModalTitle, ModalDescription, ModalClose } from "@/components/ui/Modal"
 
 export interface CategoryDraft {
   id: string
@@ -15,6 +17,238 @@ export interface CategoryDraft {
   wappalyzer: boolean
   lighthouse: boolean
   removable: boolean
+  enabled: boolean
+}
+
+export interface CategoryTemplate {
+  name: string
+  description: string
+  extraInfo: string
+  prompt: string
+  wappalyzer: boolean
+  lighthouse: boolean
+}
+
+export const categoryTemplates: CategoryTemplate[] = [
+  {
+    name: "Pricing",
+    description: "Pricing pages, plans, and rate cards",
+    extraInfo: "pricing, plans, rates, packages, cost, fees",
+    prompt: "Extract pricing tiers, plan names, prices, billing frequency, and what's included in each tier. Note any free trials, money-back guarantees, or enterprise/custom pricing options. Summarize how pricing is structured and whether it's easy to compare options.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "Services",
+    description: "Service offerings and descriptions",
+    extraInfo: "services, offerings, what we do, solutions",
+    prompt: "List each service or offering with its description, target audience, and any stated outcomes or benefits. Note how services are organized and whether there are clear next steps for interested visitors.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "About",
+    description: "About the company, team, and mission",
+    extraInfo: "about, team, our story, mission, values, who we are",
+    prompt: "Summarize the company story, mission, and values. List key team members with their roles. Note founding year, location, company size if mentioned, and any unique differentiators or credentials highlighted.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "Blog",
+    description: "Blog posts, articles, and news",
+    extraInfo: "blog, articles, news, insights, resources, posts",
+    prompt: "Summarize the blog's main topics, posting frequency, and content quality. List recent post titles with dates. Note whether posts have authors, categories, and engagement signals (comments, shares).",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "FAQ",
+    description: "Frequently asked questions and help pages",
+    extraInfo: "faq, frequently asked questions, help, support, knowledge base",
+    prompt: "Extract all questions and their answers. Group by topic if categories exist. Note how comprehensive the FAQ is and whether it addresses common buyer concerns like pricing, refunds, support, and getting started.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "Testimonials",
+    description: "Reviews, testimonials, and case studies",
+    extraInfo: "testimonials, reviews, case studies, success stories, clients",
+    prompt: "Extract testimonials with the reviewer's name, role, company, and quote. For case studies, summarize the challenge, solution, and results. Note any ratings, metrics, or before/after comparisons.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+  {
+    name: "Careers",
+    description: "Job openings and career information",
+    extraInfo: "careers, jobs, openings, hiring, work with us, join us",
+    prompt: "List open positions with title, department, location, and employment type. Summarize company culture highlights, benefits, and perks mentioned. Note the application process and any stated values around workplace culture.",
+    wappalyzer: false,
+    lighthouse: false,
+  },
+]
+
+function BuiltInCategory({
+  cat,
+  onUpdate,
+}: {
+  cat: CategoryDraft
+  onUpdate: (id: string, patch: Partial<CategoryDraft>) => void
+}) {
+  const description = cat.name.toLowerCase() === "home"
+    ? "Analyzes the homepage URL for each site"
+    : "Looks for contact, about, and location pages"
+
+  const features = [
+    cat.wappalyzer && "Wappalyzer",
+    cat.lighthouse && "Lighthouse",
+  ].filter((f): f is string => !!f)
+
+  return (
+    <Card className="p-0 overflow-hidden">
+      <Collapsible
+        trigger={
+          <div className="flex items-center gap-3 px-4 py-3 w-full">
+            <div onClick={(e) => e.stopPropagation()}>
+              <Checkbox
+                label=""
+                checked={cat.enabled}
+                onCheckedChange={(v: boolean) => onUpdate(cat.id, { enabled: v })}
+              />
+            </div>
+            <div className="flex-1 flex items-center gap-2 text-left" onClick={(e) => e.stopPropagation()}>
+              <Input
+                value={cat.name}
+                disabled
+                className="w-32"
+              />
+              <span className="text-xs text-gray-400">{description}</span>
+            </div>
+            {features.length > 0 && (
+              <div className="flex gap-1">
+                {features.map((f) => (
+                  <span key={f} className="rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500">{f}</span>
+                ))}
+              </div>
+            )}
+          </div>
+        }
+        className="w-full"
+      >
+        <div className="space-y-2 border-t border-gray-100 px-4 py-3">
+          {cat.name.toLowerCase() !== "home" && (
+            <div>
+              <Input
+                value={cat.extraInfo}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdate(cat.id, { extraInfo: e.target.value })}
+                placeholder="Keywords to help classify pages into this category"
+                className="w-full"
+              />
+              <span className="mt-0.5 block text-xs text-gray-400">
+                Used to match navigation links to this category
+              </span>
+            </div>
+          )}
+          <div>
+            <Textarea
+              value={cat.prompt}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onUpdate(cat.id, { prompt: e.target.value })}
+              placeholder="Describe what information to extract and how to summarize it"
+              rows={3}
+              className="w-full"
+            />
+            <span className="mt-0.5 block text-xs text-gray-400">
+              Tell the AI what to look for and how to summarize the page content
+            </span>
+          </div>
+          <div className="flex gap-4">
+            <Checkbox
+              label="Wappalyzer"
+              checked={cat.wappalyzer}
+              onCheckedChange={(v: boolean) => onUpdate(cat.id, { wappalyzer: v })}
+            />
+            <Checkbox
+              label="Lighthouse"
+              checked={cat.lighthouse}
+              onCheckedChange={(v: boolean) => onUpdate(cat.id, { lighthouse: v })}
+            />
+            <span className="text-xs text-gray-400 self-center">Run tech detection / performance audit for this category</span>
+          </div>
+        </div>
+      </Collapsible>
+    </Card>
+  )
+}
+
+function CustomCategory({
+  cat,
+  onUpdate,
+  onRemove,
+}: {
+  cat: CategoryDraft
+  onUpdate: (id: string, patch: Partial<CategoryDraft>) => void
+  onRemove: (id: string) => void
+}) {
+  return (
+    <Card className="p-4">
+      <div className="flex items-start justify-between gap-4">
+        <div className="flex-1 space-y-2">
+          <div className="flex gap-2">
+            <div className="w-48">
+              <Input
+                value={cat.name}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdate(cat.id, { name: e.target.value })}
+                placeholder="Category name"
+                className="w-full"
+              />
+              <span className="mt-0.5 block text-xs text-gray-400">
+                Short label (e.g. &quot;Pricing&quot;, &quot;Services&quot;)
+              </span>
+            </div>
+            <div className="flex-1">
+              <Input
+                value={cat.extraInfo}
+                onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdate(cat.id, { extraInfo: e.target.value })}
+                placeholder="Keywords to help classify pages into this category"
+                className="w-full"
+              />
+              <span className="mt-0.5 block text-xs text-gray-400">
+                Used to match navigation links to this category
+              </span>
+            </div>
+          </div>
+          <div>
+            <Textarea
+              value={cat.prompt}
+              onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onUpdate(cat.id, { prompt: e.target.value })}
+              placeholder="Describe what information to extract and how to summarize it"
+              rows={3}
+              className="w-full"
+            />
+            <span className="mt-0.5 block text-xs text-gray-400">
+              Tell the AI what to look for and how to summarize the page content
+            </span>
+          </div>
+          <div className="flex gap-4">
+            <Checkbox
+              label="Wappalyzer"
+              checked={cat.wappalyzer}
+              onCheckedChange={(v: boolean) => onUpdate(cat.id, { wappalyzer: v })}
+            />
+            <Checkbox
+              label="Lighthouse"
+              checked={cat.lighthouse}
+              onCheckedChange={(v: boolean) => onUpdate(cat.id, { lighthouse: v })}
+            />
+            <span className="text-xs text-gray-400 self-center">Run tech detection / performance audit for this category</span>
+          </div>
+        </div>
+        <Button variant="ghost" onClick={() => onRemove(cat.id)} className="text-red-500 hover:text-red-700">
+          &times;
+        </Button>
+      </div>
+    </Card>
+  )
 }
 
 export function CategoriesSection({
@@ -24,65 +258,98 @@ export function CategoriesSection({
   onUpdate,
 }: {
   categories: CategoryDraft[]
-  onAdd: () => void
+  onAdd: (template?: CategoryTemplate) => void
   onRemove: (id: string) => void
   onUpdate: (id: string, patch: Partial<CategoryDraft>) => void
 }) {
+  const [modalOpen, setModalOpen] = useState(false)
+  const builtIn = categories.filter((c) => !c.removable)
+  const custom = categories.filter((c) => c.removable)
+  const existingNames = new Set(categories.map((c) => c.name.toLowerCase()))
+
+  function handleSelect(template?: CategoryTemplate) {
+    onAdd(template)
+    setModalOpen(false)
+  }
+
   return (
     <section>
-      <div className="mb-3 flex items-center justify-between">
+      <div className="mb-1 flex items-center justify-between">
         <h2 className="text-lg font-semibold">Categories</h2>
-        <Button variant="secondary" onClick={onAdd}>+ Add category</Button>
+        <Button variant="secondary" onClick={() => setModalOpen(true)}>Add category</Button>
       </div>
-      <div className="space-y-3">
-        {categories.map((cat) => (
-          <Card key={cat.id} className="p-4">
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex-1 space-y-2">
-                <div className="flex gap-2">
-                  <Input
-                    value={cat.name}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdate(cat.id, { name: e.target.value })}
-                    placeholder="Category name"
-                    className="w-48"
-                    disabled={!cat.removable}
-                  />
-                  <Input
-                    value={cat.extraInfo}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdate(cat.id, { extraInfo: e.target.value })}
-                    placeholder="Extra info (keywords, description)"
-                    className="flex-1"
-                  />
-                </div>
-                <Textarea
-                  value={cat.prompt}
-                  onChange={(e: ChangeEvent<HTMLTextAreaElement>) => onUpdate(cat.id, { prompt: e.target.value })}
-                  placeholder="Assessment prompt..."
-                  rows={3}
-                  className="w-full"
-                />
-                <div className="flex gap-4">
-                  <Checkbox
-                    label="Wappalyzer"
-                    checked={cat.wappalyzer}
-                    onCheckedChange={(v: boolean) => onUpdate(cat.id, { wappalyzer: v })}
-                  />
-                  <Checkbox
-                    label="Lighthouse"
-                    checked={cat.lighthouse}
-                    onCheckedChange={(v: boolean) => onUpdate(cat.id, { lighthouse: v })}
-                  />
-                </div>
-              </div>
-              {cat.removable && (
-                <Button variant="ghost" onClick={() => onRemove(cat.id)} className="text-red-500 hover:text-red-700">
-                  &times;
-                </Button>
-              )}
-            </div>
-          </Card>
+      <p className="mb-4 text-sm text-gray-500">
+        What types of pages to look for on each site.
+      </p>
+
+      <div className="space-y-2 mb-4">
+        {builtIn.map((cat) => (
+          <BuiltInCategory key={cat.id} cat={cat} onUpdate={onUpdate} />
         ))}
       </div>
+
+      {custom.length > 0 && (
+        <div className="space-y-3">
+          {custom.map((cat) => (
+            <CustomCategory key={cat.id} cat={cat} onUpdate={onUpdate} onRemove={onRemove} />
+          ))}
+        </div>
+      )}
+
+      <Modal open={modalOpen} onOpenChange={setModalOpen}>
+        <div className="p-6">
+          <ModalTitle>Add Category</ModalTitle>
+          <ModalDescription className="mt-1">
+            Choose a template to get started, or create a blank category.
+          </ModalDescription>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            <button
+              type="button"
+              onClick={() => handleSelect()}
+              className="rounded-lg border-2 border-blue-400 bg-blue-50 p-3 text-left transition-colors hover:border-blue-500 hover:bg-blue-100"
+            >
+              <div className="text-sm font-medium text-blue-700">Blank category</div>
+              <div className="mt-0.5 text-xs text-blue-500">Start from scratch with your own settings</div>
+            </button>
+            {categoryTemplates
+              .slice()
+              .sort((a, b) => {
+                const aAdded = existingNames.has(a.name.toLowerCase()) ? 1 : 0
+                const bAdded = existingNames.has(b.name.toLowerCase()) ? 1 : 0
+                return aAdded - bAdded
+              })
+              .map((t) => {
+                const alreadyAdded = existingNames.has(t.name.toLowerCase())
+                return (
+                  <button
+                    key={t.name}
+                    type="button"
+                    disabled={alreadyAdded}
+                    onClick={() => handleSelect(t)}
+                    className={`rounded-lg border p-3 text-left transition-colors ${
+                      alreadyAdded
+                        ? "cursor-not-allowed border-gray-100 bg-gray-50/60 text-gray-300"
+                        : "border-gray-200 bg-white shadow-sm hover:border-blue-300 hover:bg-blue-50 hover:shadow"
+                    }`}
+                  >
+                    <div className={`text-sm font-medium ${alreadyAdded ? "text-gray-300" : "text-gray-900"}`}>
+                      {t.name}
+                      {alreadyAdded && <span className="ml-1.5 text-xs font-normal text-gray-300">added</span>}
+                    </div>
+                    <div className={`mt-0.5 text-xs ${alreadyAdded ? "text-gray-200" : "text-gray-500"}`}>{t.description}</div>
+                  </button>
+                )
+              })}
+          </div>
+
+          <div className="mt-4 flex justify-end border-t border-gray-100 pt-4">
+            <ModalClose>
+              <Button variant="ghost">Cancel</Button>
+            </ModalClose>
+          </div>
+        </div>
+      </Modal>
     </section>
   )
 }

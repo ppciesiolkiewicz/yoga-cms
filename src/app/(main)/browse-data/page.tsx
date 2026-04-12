@@ -10,9 +10,9 @@ export default async function BrowseDataPage() {
   if (requests.length === 0) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-16">
-        <h1 className="text-3xl font-bold">Browse Analysis Requests</h1>
+        <h1 className="text-3xl font-bold">Past Analyses</h1>
         <p className="mt-4 text-gray-600">
-          No requests yet. Run <code className="rounded bg-gray-100 px-2 py-1">npm run analyze -- --input data/inputs/yoga.json</code>.
+          No analyses yet. Run <code className="rounded bg-gray-100 px-2 py-1">npm run analyze -- --input data/inputs/yoga.json</code> or <Link href="/create" className="text-blue-600 hover:underline">create one</Link>.
         </p>
       </main>
     )
@@ -22,15 +22,15 @@ export default async function BrowseDataPage() {
     <main className="mx-auto max-w-6xl px-4 py-8">
       <Link href="/" className="text-sm text-blue-600 hover:underline">&larr; Home</Link>
       <div className="mt-2 mb-6 flex items-center justify-between">
-        <h1 className="text-3xl font-bold">Browse Analysis Requests</h1>
-        <p className="text-sm text-gray-500">{requests.length} request(s)</p>
+        <h1 className="text-3xl font-bold">Past Analyses</h1>
+        <p className="text-sm text-gray-500">{requests.length} {requests.length === 1 ? "analysis" : "analyses"}</p>
       </div>
 
       <div className="overflow-x-auto rounded-lg border border-gray-200">
         <table className="w-full text-left text-sm">
           <thead className="bg-gray-50 text-xs uppercase text-gray-500">
             <tr>
-              <th className="px-4 py-3">Display name</th>
+              <th className="px-4 py-3">Name</th>
               <th className="px-4 py-3">Created</th>
               <th className="px-4 py-3 text-center">Sites</th>
               <th className="px-4 py-3 text-center">Categories</th>
@@ -51,6 +51,12 @@ export default async function BrowseDataPage() {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="mt-6">
+        <Link href="/create" className="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+          Create new analysis
+        </Link>
       </div>
     </main>
   )

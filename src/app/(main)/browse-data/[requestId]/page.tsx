@@ -20,7 +20,7 @@ export default async function RequestDetailPage({ params }: Params) {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
-      <Link href="/browse-data" className="text-sm text-blue-600 hover:underline">&larr; Requests</Link>
+      <Link href="/browse-data" className="text-sm text-blue-600 hover:underline">&larr; All Analyses</Link>
       <div className="mt-2 mb-6">
         <h1 className="text-3xl font-bold">{request.displayName ?? request.id}</h1>
         <p className="text-sm text-gray-500">

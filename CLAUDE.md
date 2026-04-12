@@ -28,6 +28,27 @@ Categories can opt into `wappalyzer: true` and/or `lighthouse: true` in the inpu
 
 `Repo.consolidateRequest` aggregates into `result.json`.
 
+## UI & Component Guidelines
+
+### Language & Tone
+- All user-facing text must be professional, friendly, and clear.
+- Prefer plain language over jargon. Write labels, tooltips, and messages as if explaining to a non-technical user.
+- Error messages should explain what happened and what the user can do next.
+
+### Atomic Design
+Follow atomic design methodology for component organization:
+- **Atoms** (`src/components/ui/`) — smallest primitives: Button, Input, Textarea, Card, Checkbox, Chip, Collapsible, Carousel. Built on Radix UI where applicable. These are generic, reusable, and have no domain knowledge.
+- **Molecules** (`src/components/`) — small compositions of atoms for a specific purpose (e.g. SearchBar = Input + Button, ScoreBadge, StatusBadge). May contain light layout logic.
+- **Organisms** (`src/app/**/` colocated) — feature-level compositions (e.g. SitesSidebar, CategoryBlock). Live next to the route that uses them. Can import atoms and molecules.
+- **Pages** (`src/app/**/page.tsx`) — route entry points. Compose organisms, handle data fetching.
+
+### Component Rules
+- New UI primitives go in `src/components/ui/` and must be exported from `src/components/ui/index.ts`.
+- Use Radix UI for any interactive primitive (dialogs, dropdowns, tooltips, tabs, etc.). Don't build custom implementations.
+- Style with Tailwind classes. No CSS modules, no styled-components.
+- All interactive components must be keyboard-accessible and include proper ARIA attributes.
+- Prefer composition over prop sprawl — use children/slots instead of dozens of config props.
+
 ## Key notes
 - Uses cheerio + Playwright + Firecrawl for fetching, wappalyzer-core for tech detection, Claude sonnet for content/extract and haiku for classify.
 - Every category in an input must provide its own `prompt`. The pipeline does NOT auto-generate prompts. Use `core/base-prompt.ts#generatePrompt` from a separate step if you want assisted drafting.

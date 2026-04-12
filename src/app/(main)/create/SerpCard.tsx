@@ -20,7 +20,7 @@ export function SerpCard({
   onSearchRelated: (query: string) => void
 }) {
   return (
-    <Card className="min-w-[600px] max-w-[600px] flex-shrink-0 overflow-y-auto p-4">
+    <Card className="min-w-200 max-w-200 shrink-0 overflow-y-auto p-6">
       <h3 className="mb-3 text-sm font-semibold text-gray-500">{query}</h3>
 
       {/* Knowledge Graph */}
@@ -69,20 +69,20 @@ export function SerpCard({
               onCheckedChange={() => onToggleUrl(result.link, result.title, result.snippet)}
             />
           </div>
-          <div className="min-w-0 flex-1">
+          <a href={result.link} target="_blank" rel="noopener noreferrer" className="min-w-0 flex-1 block rounded p-1 -m-1 hover:bg-gray-50">
             <div className="text-xs text-green-700 truncate">{result.link}</div>
             <div className="text-sm font-medium text-blue-800">{result.title}</div>
             <div className="text-xs text-gray-600">{result.snippet}</div>
             {result.sitelinks && (
               <div className="mt-1 flex flex-wrap gap-1">
                 {result.sitelinks.map((sl) => (
-                  <a key={sl.link} href={sl.link} target="_blank" rel="noopener noreferrer" className="text-xs text-blue-600 hover:underline">
+                  <span key={sl.link} className="text-xs text-blue-600">
                     {sl.title}
-                  </a>
+                  </span>
                 ))}
               </div>
             )}
-          </div>
+          </a>
         </div>
       ))}
 

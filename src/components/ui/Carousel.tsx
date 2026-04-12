@@ -25,21 +25,21 @@ export function Carousel({
       <button
         type="button"
         onClick={() => scroll("left")}
-        className="absolute left-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
+        className="absolute -left-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
         aria-label="Scroll left"
       >
         &#8249;
       </button>
       <div
         ref={scrollRef}
-        className="flex gap-4 overflow-x-auto scroll-smooth px-10 py-2 [&::-webkit-scrollbar]:hidden"
+        className="flex gap-4 overflow-x-auto scroll-smooth py-2 [&::-webkit-scrollbar]:hidden"
       >
         {children}
       </div>
       <button
         type="button"
         onClick={() => scroll("right")}
-        className="absolute right-0 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
+        className="absolute -right-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
         aria-label="Scroll right"
       >
         &#8250;
