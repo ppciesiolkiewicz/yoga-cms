@@ -9,10 +9,7 @@
     "lint": "eslint",
     "test": "vitest run",
     "test:watch": "vitest",
-    "fetch": "tsx scripts/scraper/fetch.ts",
-    "analyze": "tsx scripts/cli/analyze.ts",
-    "analyze:old": "tsx scripts/scraper/analyze.ts",
-    "migrate-raw": "tsx scripts/scraper/migrate-raw.ts"
+    "analyze": "tsx scripts/cli/analyze.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.81.0",
