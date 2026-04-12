@@ -124,7 +124,11 @@ export default async function SiteDetailPage({ params }: Params) {
           </div>
 
           <TechCard tech={tech} lighthouse={lighthouse} />
-          <NavigationCard nav={nav} />
+          <NavigationCard
+            nav={nav}
+            classify={classify ? { byCategory: classify } : undefined}
+            categories={result.request.categories.map(c => ({ id: c.id, name: c.name }))}
+          />
 
           {result.request.categories.map(cat => {
             const classifiedUrls = classify[cat.id] ?? []
