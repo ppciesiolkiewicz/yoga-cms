@@ -12,6 +12,15 @@ interface Params {
   params: Promise<{ requestId: string; siteId: string }>
 }
 
+interface AIQueryInfo {
+  id: string
+  stage: string
+  categoryId?: string
+  prompt: string
+  dataRefs: string[]
+  model: string
+}
+
 interface ResultFile {
   request: {
     id: string
@@ -23,6 +32,7 @@ interface ResultFile {
     siteId: string
     url: string
     artifacts: Record<string, unknown>
+    queries?: AIQueryInfo[]
   }>
 }
 
@@ -76,6 +86,8 @@ export default async function SiteDetailPage({ params }: Params) {
   const displayName = result.request.displayName ?? requestId
   const siteName = String(siteMeta.meta?.name ?? siteMeta.url)
 
+  const siteQueries: AIQueryInfo[] = site.queries ?? []
+
   const sidebarSites = result.request.sites.map(s => ({
     id: s.id,
     url: s.url,
@@ -125,6 +137,7 @@ export default async function SiteDetailPage({ params }: Params) {
             ) {
               return null
             }
+            const categoryQueries = siteQueries.filter(q => q.categoryId === cat.id)
             return (
               <CategoryBlock
                 key={cat.id}
@@ -134,6 +147,7 @@ export default async function SiteDetailPage({ params }: Params) {
                 classifiedUrls={classifiedUrls}
                 contentPages={contentPages}
                 extractedRecords={extractedRecords}
+                queries={categoryQueries}
               />
             )
           })}

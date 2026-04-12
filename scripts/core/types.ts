@@ -62,3 +62,16 @@ export interface ArtifactRef {
   stage: string
   name: string
 }
+
+export interface AIQuery {
+  id: string
+  requestId: string
+  siteId: string
+  categoryId?: string
+  stage: string
+  model: string
+  prompt: string          // full system message (category.prompt + stage framing)
+  dataRefs: string[]      // page URLs fed as context
+  response: string
+  createdAt: string
+}

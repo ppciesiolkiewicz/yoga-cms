@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
+import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
-import type { Request, Site } from "../core/types"
+import type { Request, Site, AIQuery } from "../core/types"
 import { loadCategoryPages } from "./load-pages"
 
 let _client: Anthropic | null = null
@@ -37,7 +38,13 @@ Return only valid JSON with this shape:
 }
 No markdown, no code fences.`
 
-async function callAssess(categoryPrompt: string, body: string): Promise<PageAssessment[]> {
+interface AssessResult {
+  pages: PageAssessment[]
+  queryInfo: { prompt: string; response: string } | null
+}
+
+async function callAssess(categoryPrompt: string, body: string): Promise<AssessResult> {
+  const system = `${categoryPrompt}\n\n---\n${ASSESS_FRAMING}`
   const maxAttempts = 3
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -45,20 +52,20 @@ async function callAssess(categoryPrompt: string, body: string): Promise<PageAss
       const response = await client().messages.create({
         model: "claude-sonnet-4-6",
         max_tokens: 4096,
-        system: `${categoryPrompt}\n\n---\n${ASSESS_FRAMING}`,
+        system,
         messages: [{ role: "user", content: body }],
       })
       let text = response.content[0].type === "text" ? response.content[0].text : ""
       text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
       const parsed = JSON.parse(text) as { pages?: PageAssessment[] }
-      return parsed.pages ?? []
+      return { pages: parsed.pages ?? [], queryInfo: { prompt: system, response: text } }
     } catch (err) {
       lastError = err
       if (attempt < maxAttempts) await new Promise(r => setTimeout(r, 1500 * attempt))
     }
   }
   console.warn(`  ⚠ content assess failed: ${lastError}`)
-  return []
+  return { pages: [], queryInfo: null }
 }
 
 export async function contentStage(repo: Repo, request: Request, site: Site): Promise<void> {
@@ -72,8 +79,23 @@ export async function contentStage(repo: Repo, request: Request, site: Site): Pr
     const body = `Category: ${category.name}
 
 ${pages.map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}`
-    const assessed = await callAssess(category.prompt, body)
-    results.push({ categoryId: category.id, categoryName: category.name, pages: assessed })
+    const result = await callAssess(category.prompt, body)
+    if (result.queryInfo) {
+      const query: AIQuery = {
+        id: newId("q"),
+        requestId: request.id,
+        siteId: site.id,
+        categoryId: category.id,
+        stage: "content",
+        model: "claude-sonnet-4-6",
+        prompt: result.queryInfo.prompt,
+        dataRefs: pages.map(p => p.url),
+        response: result.queryInfo.response,
+        createdAt: new Date().toISOString(),
+      }
+      await repo.putQuery(query)
+    }
+    results.push({ categoryId: category.id, categoryName: category.name, pages: result.pages })
   }
   await repo.putJson(
     { requestId: request.id, siteId: site.id, stage: "content", name: "content.json" },

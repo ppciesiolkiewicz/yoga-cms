@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
+import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
-import type { Request, Site } from "../core/types"
+import type { Request, Site, AIQuery } from "../core/types"
 import { loadCategoryPages } from "./load-pages"
 
 let _client: Anthropic | null = null
@@ -15,7 +16,13 @@ Each object's fields are up to you based on the category description, but keep f
 If no records are found, return { "records": [] }.
 No markdown, no code fences.`
 
-async function callExtract(categoryPrompt: string, body: string): Promise<unknown[]> {
+interface ExtractResult {
+  records: unknown[]
+  queryInfo: { prompt: string; response: string } | null
+}
+
+async function callExtract(categoryPrompt: string, body: string): Promise<ExtractResult> {
+  const system = `${categoryPrompt}\n\n---\n${EXTRACT_FRAMING}`
   const maxAttempts = 3
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -23,20 +30,20 @@ async function callExtract(categoryPrompt: string, body: string): Promise<unknow
       const response = await client().messages.create({
         model: "claude-sonnet-4-6",
         max_tokens: 4096,
-        system: `${categoryPrompt}\n\n---\n${EXTRACT_FRAMING}`,
+        system,
         messages: [{ role: "user", content: body }],
       })
       let text = response.content[0].type === "text" ? response.content[0].text : ""
       text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
       const parsed = JSON.parse(text) as { records?: unknown[] }
-      return parsed.records ?? []
+      return { records: parsed.records ?? [], queryInfo: { prompt: system, response: text } }
     } catch (err) {
       lastError = err
       if (attempt < maxAttempts) await new Promise(r => setTimeout(r, 1500 * attempt))
     }
   }
   console.warn(`  ⚠ extract failed: ${lastError}`)
-  return []
+  return { records: [], queryInfo: null }
 }
 
 export async function extractStage(repo: Repo, request: Request, site: Site): Promise<void> {
@@ -50,7 +57,23 @@ export async function extractStage(repo: Repo, request: Request, site: Site): Pr
     const body = `Category: ${category.name}
 
 ${pages.map(p => `URL: ${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}`
-    byCategory[category.id] = await callExtract(category.prompt, body)
+    const result = await callExtract(category.prompt, body)
+    if (result.queryInfo) {
+      const query: AIQuery = {
+        id: newId("q"),
+        requestId: request.id,
+        siteId: site.id,
+        categoryId: category.id,
+        stage: "extract",
+        model: "claude-sonnet-4-6",
+        prompt: result.queryInfo.prompt,
+        dataRefs: pages.map(p => p.url),
+        response: result.queryInfo.response,
+        createdAt: new Date().toISOString(),
+      }
+      await repo.putQuery(query)
+    }
+    byCategory[category.id] = result.records
   }
   await repo.putJson(
     { requestId: request.id, siteId: site.id, stage: "extract", name: "extract.json" },

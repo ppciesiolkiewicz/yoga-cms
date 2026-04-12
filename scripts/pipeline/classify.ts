@@ -1,6 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk"
+import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
-import type { Request, Site, Category } from "../core/types"
+import type { Request, Site, Category, AIQuery } from "../core/types"
 import type { NavLink } from "./extract-nav"
 
 let _client: Anthropic | null = null
@@ -58,6 +59,19 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
   })
   let text = response.content[0].type === "text" ? response.content[0].text : ""
   text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
+
+  const query: AIQuery = {
+    id: newId("q"),
+    requestId: request.id,
+    siteId: site.id,
+    stage: "classify",
+    model: "claude-haiku-4-5",
+    prompt: system,
+    dataRefs: nav.links.map(l => l.href),
+    response: text,
+    createdAt: new Date().toISOString(),
+  }
+  await repo.putQuery(query)
 
   const parsed = JSON.parse(text) as Record<string, unknown>
   for (const category of request.categories) {

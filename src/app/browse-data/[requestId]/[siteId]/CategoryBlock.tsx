@@ -8,6 +8,15 @@ interface PageAssessment {
   notes: string
 }
 
+interface QueryInfo {
+  id: string
+  stage: string
+  categoryId?: string
+  prompt: string
+  dataRefs: string[]
+  model: string
+}
+
 interface Props {
   categoryId: string
   categoryName: string
@@ -15,9 +24,38 @@ interface Props {
   classifiedUrls: string[]
   contentPages: PageAssessment[]
   extractedRecords: unknown[]
+  queries?: QueryInfo[]
+}
+
+function QueryDetails({ query }: { query: QueryInfo }) {
+  return (
+    <details className="mt-2 text-xs">
+      <summary className="cursor-pointer text-blue-600 hover:underline">View AI query</summary>
+      <div className="mt-2 space-y-2 rounded border border-gray-200 bg-gray-50 p-3">
+        <div>
+          <span className="font-semibold text-gray-700">Model:</span> {query.model}
+        </div>
+        <div>
+          <span className="font-semibold text-gray-700">Prompt:</span>
+          <pre className="mt-1 whitespace-pre-wrap text-gray-600">{query.prompt}</pre>
+        </div>
+        {query.dataRefs.length > 0 && (
+          <div>
+            <span className="font-semibold text-gray-700">Data ({query.dataRefs.length} pages):</span>
+            <ul className="mt-1 text-gray-600">
+              {query.dataRefs.map(ref => <li key={ref} className="truncate">{ref}</li>)}
+            </ul>
+          </div>
+        )}
+      </div>
+    </details>
+  )
 }
 
 export default function CategoryBlock(props: Props) {
+  const contentQuery = props.queries?.find(q => q.stage === "content") ?? null
+  const extractQuery = props.queries?.find(q => q.stage === "extract") ?? null
+
   return (
     <section
       id={`category-${props.categoryId}`}
@@ -55,6 +93,7 @@ export default function CategoryBlock(props: Props) {
           <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
             Content Assessment
           </div>
+          {contentQuery && <QueryDetails query={contentQuery} />}
           <div className="space-y-3">
             {props.contentPages.map(p => (
               <div
@@ -89,40 +128,12 @@ export default function CategoryBlock(props: Props) {
       {props.extractedRecords.length > 0 && (
         <div>
           <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Extracted Data
+            Extracted Data ({props.extractedRecords.length})
           </div>
-          <div className="space-y-3">
-            {props.extractedRecords.map((record, i) => {
-              if (!record || typeof record !== "object") {
-                return (
-                  <div key={i} className="rounded-lg border border-gray-100 bg-gray-50 p-3 text-xs text-gray-600">
-                    {String(record)}
-                  </div>
-                )
-              }
-              const entries = Object.entries(record as Record<string, unknown>)
-              return (
-                <div key={i} className="rounded-lg border border-gray-100 bg-gray-50 p-3">
-                  <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1">
-                    {entries.map(([key, value]) => (
-                      <>
-                        <dt key={`dt-${key}`} className="text-xs font-medium capitalize text-gray-500">
-                          {key.replace(/_/g, " ")}
-                        </dt>
-                        <dd key={`dd-${key}`} className="text-xs text-gray-800">
-                          {Array.isArray(value)
-                            ? value.join(", ")
-                            : value == null
-                              ? <span className="text-gray-400">—</span>
-                              : String(value)}
-                        </dd>
-                      </>
-                    ))}
-                  </dl>
-                </div>
-              )
-            })}
-          </div>
+          {extractQuery && <QueryDetails query={extractQuery} />}
+          <pre className="mt-2 overflow-x-auto rounded-lg border border-gray-100 bg-gray-50 p-4 text-xs text-gray-800">
+            {JSON.stringify(props.extractedRecords, null, 2)}
+          </pre>
         </div>
       )}
     </section>

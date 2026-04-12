@@ -95,7 +95,7 @@ describe("Repo", () => {
 
     const result = await repo.getJson<{
       request: { id: string }
-      sites: Array<{ siteId: string; artifacts: Record<string, unknown> }>
+      sites: Array<{ siteId: string; artifacts: Record<string, unknown>; queries: unknown[] }>
     }>({ requestId: req.id, stage: "", name: "result.json" })
 
     expect(result.request.id).toBe(req.id)
@@ -103,5 +103,6 @@ describe("Repo", () => {
     expect(result.sites[0].siteId).toBe(siteId)
     expect(result.sites[0].artifacts["tech"]).toEqual({ platform: "WordPress" })
     expect(result.sites[0].artifacts["content"]).toMatchObject({ pages: expect.any(Array) })
+    expect(result.sites[0].queries).toEqual([])
   })
 })

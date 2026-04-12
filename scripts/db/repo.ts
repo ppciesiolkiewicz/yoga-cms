@@ -2,6 +2,7 @@ import { randomBytes } from "crypto"
 import { join } from "path"
 import type {
   AnalyzeInput,
+  AIQuery,
   ArtifactRef,
   Request,
   RequestIndexEntry,
@@ -88,9 +89,31 @@ export class Repo {
     return await this.store.exists(refToPath(this.root, ref))
   }
 
+  async putQuery(query: AIQuery): Promise<void> {
+    const dir = query.siteId
+      ? join(requestDir(this.root, query.requestId), "sites", query.siteId, "queries")
+      : join(requestDir(this.root, query.requestId), "queries")
+    await this.store.writeFile(
+      join(dir, `${query.id}.json`),
+      JSON.stringify(query, null, 2),
+    )
+  }
+
+  async getQueries(requestId: string, siteId: string): Promise<AIQuery[]> {
+    const dir = join(requestDir(this.root, requestId), "sites", siteId, "queries")
+    const files = await this.store.listFiles(dir)
+    const queries: AIQuery[] = []
+    for (const f of files) {
+      if (!f.endsWith(".json")) continue
+      const buf = await this.store.readFile(f)
+      queries.push(JSON.parse(buf.toString("utf8")) as AIQuery)
+    }
+    return queries
+  }
+
   async consolidateRequest(id: string): Promise<void> {
     const request = await this.getRequest(id)
-    const sites: Array<{ siteId: string; url: string; artifacts: Record<string, unknown> }> = []
+    const sites: Array<{ siteId: string; url: string; artifacts: Record<string, unknown>; queries: AIQuery[] }> = []
 
     for (const site of request.sites) {
       const stages = await this.store.listDirs(
@@ -115,7 +138,8 @@ export class Repo {
           }
         }
       }
-      sites.push({ siteId: site.id, url: site.url, artifacts })
+      const queries = await this.getQueries(id, site.id)
+      sites.push({ siteId: site.id, url: site.url, artifacts, queries })
     }
 
     const result = { request, sites }
@@ -126,7 +150,7 @@ export class Repo {
   }
 }
 
-function newId(prefix = "r"): string {
+export function newId(prefix = "r"): string {
   const stamp = Date.now().toString(36)
   const rand = randomBytes(4).toString("hex")
   return `${prefix}_${stamp}_${rand}`
