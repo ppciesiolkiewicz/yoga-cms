@@ -44,7 +44,7 @@ async function runCategoryTask(
 
   try {
     process.stdout.write(`    ▶ ${taskName}`)
-    await fn()
+    await withRetry(fn)
     progress[categoryId][taskName] = "completed"
     await saveProgress(repo, requestId, siteId, progress)
     process.stdout.write(`\r    ✓ ${taskName}\n`)
@@ -52,12 +52,29 @@ async function runCategoryTask(
   } catch (err) {
     progress[categoryId][taskName] = "failed"
     await saveProgress(repo, requestId, siteId, progress)
-    process.stdout.write(`\r    ✗ ${taskName}: ${err instanceof Error ? err.message : err}\n`)
+    process.stdout.write(`\n    ✗ ${taskName}: ${err instanceof Error ? err.message : err}\n`)
     return false
   }
 }
 
-// ── site runner ──
+// ── helpers ──
+
+const MAX_RETRIES = 2
+const RETRY_DELAY_MS = 2000
+
+async function withRetry(fn: () => Promise<void>, retries = MAX_RETRIES): Promise<void> {
+  for (let attempt = 0; ; attempt++) {
+    try {
+      await fn()
+      return
+    } catch (err) {
+      if (attempt >= retries) throw err
+      const delay = RETRY_DELAY_MS * (attempt + 1)
+      process.stdout.write(`  ⟳ retrying in ${delay / 1000}s...\n`)
+      await new Promise(r => setTimeout(r, delay))
+    }
+  }
+}
 
 function shouldRun(stage: StageName, opts: RunOptions): boolean {
   return !opts.stages || opts.stages.includes(stage)
@@ -87,10 +104,10 @@ async function runSitePhase1(repo: Repo, request: Request, site: Site, opts: Run
     if (!shouldRun(name, opts)) continue
     try {
       process.stdout.write(`  ▶ ${name}`)
-      await fn()
+      await withRetry(fn)
       process.stdout.write(`\r  ✓ ${name}\n`)
     } catch (err) {
-      process.stdout.write(`\r  ✗ ${name} failed: ${err instanceof Error ? err.message : err}\n`)
+      process.stdout.write(`\n  ✗ ${name} failed: ${err instanceof Error ? err.message : err}\n`)
       if (bail) return false
     }
   }
@@ -104,10 +121,10 @@ async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: Run
   if (shouldRun("fetch-pages", opts)) {
     try {
       process.stdout.write(`  ▶ fetch-pages`)
-      await fetchPages(repo, request, site)
+      await withRetry(() => fetchPages(repo, request, site))
       process.stdout.write(`\r  ✓ fetch-pages\n`)
     } catch (err) {
-      process.stdout.write(`\r  ✗ fetch-pages failed: ${err instanceof Error ? err.message : err}\n`)
+      process.stdout.write(`\n  ✗ fetch-pages failed: ${err instanceof Error ? err.message : err}\n`)
       return
     }
   }
@@ -145,10 +162,10 @@ async function runSitePhase2(repo: Repo, request: Request, site: Site, opts: Run
   if (shouldRun("build-report", opts)) {
     try {
       process.stdout.write(`  ▶ build-report`)
-      await buildReportStage(repo, request, site)
+      await withRetry(() => buildReportStage(repo, request, site))
       process.stdout.write(`\r  ✓ build-report\n`)
     } catch (err) {
-      process.stdout.write(`\r  ✗ build-report: ${err instanceof Error ? err.message : err}\n`)
+      process.stdout.write(`\n  ✗ build-report: ${err instanceof Error ? err.message : err}\n`)
     }
   }
 }

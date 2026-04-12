@@ -39,6 +39,13 @@ const siteEstimate: SiteEstimate = {
   totalEstimatedTokens: 2500,
 }
 
+const classifyQuery = {
+  id: "q_1", requestId: "r_1", siteId: "site_1",
+  stage: "classify-nav", model: "claude-haiku-4-5",
+  prompt: "a".repeat(2000), dataRefs: [], response: "b".repeat(500),
+  createdAt: "2026-04-13T00:00:00Z",
+}
+
 function makeMockRepo() {
   const stored: Record<string, unknown> = {}
   return {
@@ -46,6 +53,7 @@ function makeMockRepo() {
     putJson: vi.fn().mockImplementation(async (ref, data) => {
       stored[`${ref.stage}/${ref.name}`] = data
     }),
+    getQueries: vi.fn().mockResolvedValue([classifyQuery]),
     _stored: stored,
   }
 }
@@ -63,6 +71,17 @@ describe("generateQuote", () => {
     expect(orderSite.siteId).toBe("site_1")
     expect(orderSite.pageCount).toBe(2)
     expect(orderSite.lineItems.length).toBeGreaterThan(0)
+
+    // Check sunk cost line items
+    const fetchHome = orderSite.lineItems.find(li => li.stage === "fetch-home")
+    expect(fetchHome).toBeDefined()
+    expect(fetchHome!.estimatedCost).toBe(0.002)
+    expect(fetchHome!.actualCost).toBe(0.002)
+
+    const classifyNav = orderSite.lineItems.find(li => li.stage === "classify-nav")
+    expect(classifyNav).toBeDefined()
+    expect(classifyNav!.estimatedCost).toBeGreaterThan(0)
+    expect(classifyNav!.actualCost).toBe(classifyNav!.estimatedCost)
 
     // Check service fee line item exists
     const serviceFee = orderSite.lineItems.find(li => li.stage === "service-fee")

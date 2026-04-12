@@ -1,15 +1,65 @@
 import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
-import type { Request, SiteEstimate, Order, OrderLineItem, OrderSite } from "../core/types"
+import type { Request, SiteEstimate, Order, OrderLineItem, OrderSite, AIQuery } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
+
+interface SunkCosts {
+  fetchHomeCost: number
+  classifyNavCost: number
+  classifyNavTokens: number
+}
+
+function computeSunkCosts(queries: AIQuery[], pricing: PricingConfig): SunkCosts {
+  // fetch-home = 1 firecrawl scrape
+  const fetchHomeCost = pricing.firecrawl.perScrape
+
+  // classify-nav = Haiku call, compute from actual query
+  const classifyQuery = queries.find(q => q.stage === "classify-nav")
+  let classifyNavCost = 0
+  let classifyNavTokens = 0
+  if (classifyQuery) {
+    const inputTokens = Math.ceil(classifyQuery.prompt.length / 4)
+    const outputTokens = Math.ceil(classifyQuery.response.length / 4)
+    classifyNavTokens = inputTokens + outputTokens
+    classifyNavCost =
+      (inputTokens / 1000) * pricing.ai.classifyNav.inputPer1kTokens +
+      (outputTokens / 1000) * pricing.ai.classifyNav.outputPer1kTokens
+  }
+
+  return { fetchHomeCost, classifyNavCost, classifyNavTokens }
+}
 
 function buildSiteLineItems(
   request: Request,
   estimate: SiteEstimate,
   pricing: PricingConfig,
+  sunk: SunkCosts,
 ): OrderLineItem[] {
   const items: OrderLineItem[] = []
   const pageCount = estimate.pages.length
+
+  // Sunk costs (already incurred)
+  items.push({
+    stage: "fetch-home",
+    description: "Homepage scrape (sunk)",
+    unit: "per-site",
+    quantity: 1,
+    unitCost: sunk.fetchHomeCost,
+    estimatedCost: sunk.fetchHomeCost,
+    actualCost: sunk.fetchHomeCost,
+    actualQuantity: 1,
+  })
+
+  items.push({
+    stage: "classify-nav",
+    description: "Navigation classification (sunk)",
+    unit: "per-site",
+    quantity: 1,
+    unitCost: sunk.classifyNavCost,
+    estimatedCost: sunk.classifyNavCost,
+    actualCost: sunk.classifyNavCost,
+    actualQuantity: sunk.classifyNavTokens,
+  })
 
   // Service fee
   items.push({
@@ -132,7 +182,9 @@ export async function generateQuote(
       continue
     }
 
-    const lineItems = buildSiteLineItems(request, estimate, pricing)
+    const queries = await repo.getQueries(request.id, site.id)
+    const sunk = computeSunkCosts(queries, pricing)
+    const lineItems = buildSiteLineItems(request, estimate, pricing, sunk)
     const subtotal = lineItems.reduce((s, li) => s + li.estimatedCost, 0)
 
     orderSites.push({
@@ -181,6 +233,23 @@ export function formatQuoteSummary(order: Order): string {
     lines.push(``)
   }
 
+  // Aggregate by cost category
+  let scraping = 0
+  let ai = 0
+  let serviceFee = 0
+  for (const site of order.sites) {
+    for (const li of site.lineItems) {
+      if (li.stage === "service-fee") serviceFee += li.estimatedCost
+      else if (li.stage === "fetch-home" || li.stage === "fetch-pages" || li.stage === "estimate-content") scraping += li.estimatedCost
+      else ai += li.estimatedCost
+    }
+  }
+
+  lines.push(`  ──────────────────────────────────────`)
+  lines.push(`    ${"Scraping".padEnd(35)} $${scraping.toFixed(4)}`)
+  lines.push(`    ${"AI".padEnd(35)} $${ai.toFixed(4)}`)
+  lines.push(`    ${"Service fee".padEnd(35)} $${serviceFee.toFixed(4)}`)
+  lines.push(`  ──────────────────────────────────────`)
   lines.push(`  ${"TOTAL ESTIMATED COST".padEnd(37)} $${order.totalEstimatedCost.toFixed(4)}`)
   lines.push(``)
   return lines.join("\n")
