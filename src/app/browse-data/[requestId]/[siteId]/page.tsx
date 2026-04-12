@@ -107,10 +107,58 @@ export default async function SiteDetailPage({ params }: Params) {
     name: String(s.meta?.name ?? s.url),
   }))
 
-  const sectionIds = [
-    "navigation",
-    ...result.request.categories.map(c => `category-${c.id}`),
+  // Order: home → navigation → other categories → contact
+  const homeCategory = result.request.categories.find(c => c.name.toLowerCase() === "home")
+  const contactCategory = result.request.categories.find(c => c.name.toLowerCase() === "contact")
+  const otherCategories = result.request.categories.filter(
+    c => c.name.toLowerCase() !== "home" && c.name.toLowerCase() !== "contact"
+  )
+  const orderedCategories = [
+    ...(homeCategory ? [homeCategory] : []),
+    ...otherCategories,
+    ...(contactCategory ? [contactCategory] : []),
   ]
+
+  const sectionIds = [
+    ...(homeCategory ? [`category-${homeCategory.id}`] : []),
+    "navigation",
+    ...otherCategories.map(c => `category-${c.id}`),
+    ...(contactCategory ? [`category-${contactCategory.id}`] : []),
+  ]
+
+  function renderCategory(cat: typeof result.request.categories[number]) {
+    const classifiedUrls = classify[cat.id] ?? []
+    const contentPages = contentMap[cat.id]?.pages ?? []
+    const extractedRecords = extractMap[cat.id]?.records ?? []
+    const tech = techMap[cat.id] ?? undefined
+    const lighthouse = lighthouseMap[cat.id] ?? undefined
+    const progress = progressMap[cat.id] ?? undefined
+    if (
+      classifiedUrls.length === 0 &&
+      contentPages.length === 0 &&
+      extractedRecords.length === 0 &&
+      !tech &&
+      !lighthouse
+    ) {
+      return null
+    }
+    const categoryQueries = siteQueries.filter(q => q.categoryId === cat.id)
+    return (
+      <CategoryBlock
+        key={cat.id}
+        categoryId={cat.id}
+        categoryName={cat.name}
+        extraInfo={cat.extraInfo}
+        classifiedUrls={classifiedUrls}
+        contentPages={contentPages}
+        extractedRecords={extractedRecords}
+        queries={categoryQueries}
+        tech={tech}
+        lighthouse={lighthouse}
+        progress={progress}
+      />
+    )
+  }
 
   return (
     <>
@@ -135,45 +183,17 @@ export default async function SiteDetailPage({ params }: Params) {
             </div>
           </div>
 
+          {homeCategory && renderCategory(homeCategory)}
+
           <NavigationCard
             nav={nav}
             classify={classify ? { byCategory: classify } : undefined}
             categories={result.request.categories.map(c => ({ id: c.id, name: c.name }))}
           />
 
-          {result.request.categories.map(cat => {
-            const classifiedUrls = classify[cat.id] ?? []
-            const contentPages = contentMap[cat.id]?.pages ?? []
-            const extractedRecords = extractMap[cat.id]?.records ?? []
-            const tech = techMap[cat.id] ?? undefined
-            const lighthouse = lighthouseMap[cat.id] ?? undefined
-            const progress = progressMap[cat.id] ?? undefined
-            if (
-              classifiedUrls.length === 0 &&
-              contentPages.length === 0 &&
-              extractedRecords.length === 0 &&
-              !tech &&
-              !lighthouse
-            ) {
-              return null
-            }
-            const categoryQueries = siteQueries.filter(q => q.categoryId === cat.id)
-            return (
-              <CategoryBlock
-                key={cat.id}
-                categoryId={cat.id}
-                categoryName={cat.name}
-                extraInfo={cat.extraInfo}
-                classifiedUrls={classifiedUrls}
-                contentPages={contentPages}
-                extractedRecords={extractedRecords}
-                queries={categoryQueries}
-                tech={tech}
-                lighthouse={lighthouse}
-                progress={progress}
-              />
-            )
-          })}
+          {otherCategories.map(cat => renderCategory(cat))}
+
+          {contactCategory && renderCategory(contactCategory)}
         </div>
       </main>
 
