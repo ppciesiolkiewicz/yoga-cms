@@ -1,5 +1,5 @@
-import { ScoreBadge } from "./TechCard"
-import { TechCard } from "./TechCard"
+import { TechCard, LighthouseCard } from "./TechCard"
+import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 
 interface PageAssessment {
   url: string
@@ -48,48 +48,68 @@ interface Props {
   progress?: Record<string, TaskStatus>
 }
 
-function StatusBadge({ status }: { status: TaskStatus }) {
-  const styles: Record<TaskStatus, string> = {
-    pending: "bg-gray-100 text-gray-600",
-    running: "bg-blue-100 text-blue-700",
-    completed: "bg-green-100 text-green-700",
-    failed: "bg-red-100 text-red-700",
-    "not-requested": "bg-gray-50 text-gray-400",
-  }
+
+function progressSummaryIcon(progress: Record<string, TaskStatus>): { icon: string; color: string } {
+  const statuses = Object.values(progress)
+  if (statuses.some(s => s === "failed")) return { icon: "\u2716", color: "text-red-500" }
+  if (statuses.some(s => s === "running")) return { icon: "\u25CB", color: "text-blue-500 animate-pulse" }
+  if (statuses.every(s => s === "completed" || s === "not-requested")) return { icon: "\u2714", color: "text-green-500" }
+  return { icon: "\u25CB", color: "text-gray-400" }
+}
+
+function ProgressIcon({ progress }: { progress: Record<string, TaskStatus> }) {
+  const { icon, color } = progressSummaryIcon(progress)
+  const tooltipContent = (
+    <div className="space-y-1">
+      {Object.entries(progress).map(([task, status]) => (
+        <div key={task} className="flex items-center gap-2">
+          <StatusBadge status={status as TaskStatus} />
+          <span>{task.replace(/-/g, " ")}</span>
+        </div>
+      ))}
+    </div>
+  )
+
   return (
-    <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${styles[status]}`}>
-      {status}
-    </span>
+    <Tooltip content={tooltipContent} side="left">
+      <span className={`cursor-default text-lg ${color}`} aria-label="Pipeline progress">
+        {icon}
+      </span>
+    </Tooltip>
   )
 }
 
 function QueryDetails({ query }: { query: QueryInfo }) {
   return (
-    <details className="mt-2 text-xs">
-      <summary className="cursor-pointer text-blue-600 hover:underline">View AI query</summary>
-      <div className="mt-2 space-y-2 rounded border border-gray-200 bg-gray-50 p-3">
-        <div>
-          <span className="font-semibold text-gray-700">Model:</span> {query.model}
-        </div>
-        <div>
-          <span className="font-semibold text-gray-700">Prompt:</span>
-          <pre className="mt-1 whitespace-pre-wrap text-gray-600">{query.prompt}</pre>
-        </div>
-        {query.dataRefs.length > 0 && (
+    <Accordion className="mt-2 text-xs">
+      <AccordionItem value="query">
+        <AccordionTrigger className="text-xs text-blue-600 hover:underline py-1">
+          <span>View AI query</span>
+        </AccordionTrigger>
+        <AccordionContent className="mt-2 space-y-2 rounded border border-gray-200 bg-gray-50 p-3">
           <div>
-            <span className="font-semibold text-gray-700">Data ({query.dataRefs.length} pages):</span>
-            <ul className="mt-1 text-gray-600">
-              {query.dataRefs.map(ref => <li key={ref} className="truncate">{ref}</li>)}
-            </ul>
+            <span className="font-semibold text-gray-700">Model:</span> {query.model}
           </div>
-        )}
-      </div>
-    </details>
+          <div>
+            <span className="font-semibold text-gray-700">Prompt:</span>
+            <pre className="mt-1 whitespace-pre-wrap text-gray-600">{query.prompt}</pre>
+          </div>
+          {query.dataRefs.length > 0 && (
+            <div>
+              <span className="font-semibold text-gray-700">Data ({query.dataRefs.length} pages):</span>
+              <ul className="mt-1 text-gray-600">
+                {query.dataRefs.map(ref => <li key={ref} className="truncate">{ref}</li>)}
+              </ul>
+            </div>
+          )}
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
   )
 }
 
-function getRecordSummary(record: unknown, index: number): { title: string; subtitle: string; badges: string[] } {
-  if (typeof record !== "object" || record === null) return { title: `Record ${index + 1}`, subtitle: "", badges: [] }
+function getRecordSummary(record: unknown, index: number): { title: string; url: string; pageLabel: string; badges: string[] } {
+  if (typeof record !== "object" || record === null) return { title: `Record ${index + 1}`, url: "", pageLabel: "", badges: [] }
   const obj = record as Record<string, unknown>
 
   // Find a good title from common keys
@@ -98,15 +118,14 @@ function getRecordSummary(record: unknown, index: number): { title: string; subt
     if (typeof obj[key] === "string" && obj[key]) { title = obj[key] as string; break }
   }
 
-  // Subtitle: url or first short string that isn't the title
-  let subtitle = ""
-  if (typeof obj.url === "string") {
-    subtitle = obj.url
-  } else {
-    for (const [, val] of Object.entries(obj)) {
-      if (typeof val === "string" && val !== title && val.length > 0 && val.length < 100) {
-        subtitle = val; break
-      }
+  const url = typeof obj.url === "string" ? obj.url : ""
+
+  // Page label from pageType or pageName, capitalized
+  let pageLabel = ""
+  for (const key of ["pageType", "pageName", "type"]) {
+    if (typeof obj[key] === "string" && obj[key]) {
+      pageLabel = (obj[key] as string).replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase())
+      break
     }
   }
 
@@ -119,24 +138,20 @@ function getRecordSummary(record: unknown, index: number): { title: string; subt
     }
   }
 
-  return { title, subtitle, badges: badges.slice(0, 5) }
+  return { title, url, pageLabel, badges: badges.slice(0, 5) }
 }
 
 function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { record: unknown; index: number; categoryName: string; extraInfo: string }) {
-  const { title, subtitle, badges } = getRecordSummary(record, index)
+  const { title, url, pageLabel, badges } = getRecordSummary(record, index)
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white">
       <div className="px-4 py-3">
         <div className="text-base font-semibold text-gray-900">{title}</div>
-        {subtitle && (
-          subtitle.startsWith("http") ? (
-            <a href={subtitle} target="_blank" rel="noopener noreferrer" className="mt-0.5 block text-sm text-blue-600 hover:underline truncate">
-              {subtitle}
-            </a>
-          ) : (
-            <p className="mt-0.5 text-sm text-gray-600">{subtitle}</p>
-          )
+        {url && (
+          <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-blue-600 hover:underline truncate">
+            {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
+          </a>
         )}
         <div className="mt-2 text-xs text-gray-500">
           <span className="font-medium text-gray-600">category:</span> {categoryName.toLowerCase()}
@@ -152,14 +167,18 @@ function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { recor
           </div>
         )}
       </div>
-      <details className="border-t border-gray-100">
-        <summary className="cursor-pointer select-none px-4 py-2 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-700">
-          View raw JSON
-        </summary>
-        <pre className="overflow-x-auto border-t border-gray-100 bg-gray-50 px-4 py-3 text-xs text-gray-700">
-          {JSON.stringify(record, null, 2)}
-        </pre>
-      </details>
+      <Accordion className="border-t border-gray-100">
+        <AccordionItem value="json">
+          <AccordionTrigger className="px-4 py-2 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+            <span>View raw JSON</span>
+          </AccordionTrigger>
+          <AccordionContent>
+            <pre className="overflow-x-auto border-t border-gray-100 bg-gray-50 px-4 py-3 text-xs text-gray-700">
+              {JSON.stringify(record, null, 2)}
+            </pre>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
     </div>
   )
 }
@@ -180,41 +199,12 @@ export default function CategoryBlock(props: Props) {
             <p className="mt-1 text-sm text-gray-500">{props.extraInfo}</p>
           )}
         </div>
-        {props.progress && (
-          <div className="flex flex-wrap gap-1">
-            {Object.entries(props.progress).map(([task, status]) => (
-              <div key={task} className="flex items-center gap-1 text-xs text-gray-500">
-                <span>{task.replace(/-/g, " ")}:</span>
-                <StatusBadge status={status as TaskStatus} />
-              </div>
-            ))}
-          </div>
-        )}
+        {props.progress && <ProgressIcon progress={props.progress} />}
       </div>
 
-      <TechCard tech={props.tech} lighthouse={props.lighthouse} />
+      <TechCard tech={props.tech} />
+      <LighthouseCard lighthouse={props.lighthouse} />
 
-      {props.classifiedUrls.length > 0 && (
-        <div className="mb-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Classified URLs
-          </div>
-          <ul className="space-y-1">
-            {props.classifiedUrls.map(u => (
-              <li key={u}>
-                <a
-                  href={u}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm text-blue-600 hover:underline truncate block"
-                >
-                  {u}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
 
       {props.contentPages.length > 0 && (
         <div className="mb-4">

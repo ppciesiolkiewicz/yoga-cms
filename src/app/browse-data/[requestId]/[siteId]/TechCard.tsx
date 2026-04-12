@@ -1,3 +1,5 @@
+import { ScoreBadge } from "@/components/ui"
+
 interface DetectedTechnology {
   name: string
   categories: string[]
@@ -25,21 +27,6 @@ interface LighthouseArtifact {
   bestPractices: number
 }
 
-function ScoreBadge({ score, max = 10 }: { score: number; max?: number }) {
-  const pct = max === 100 ? score : score * 10
-  const color =
-    pct >= 70
-      ? "bg-green-100 text-green-800"
-      : pct >= 40
-        ? "bg-yellow-100 text-yellow-800"
-        : "bg-red-100 text-red-800"
-  return (
-    <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${color}`}>
-      {score}{max === 100 ? "" : "/10"}
-    </span>
-  )
-}
-
 function LighthouseScore({ label, value }: { label: string; value: number }) {
   const color =
     value >= 90
@@ -55,16 +42,8 @@ function LighthouseScore({ label, value }: { label: string; value: number }) {
   )
 }
 
-export { ScoreBadge }
-
-export function TechCard({
-  tech,
-  lighthouse,
-}: {
-  tech?: TechArtifact
-  lighthouse?: LighthouseArtifact
-}) {
-  if (!tech && !lighthouse) return null
+export function TechCard({ tech }: { tech?: TechArtifact }) {
+  if (!tech) return null
 
   return (
     <section id="detect-tech" className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
@@ -138,19 +117,25 @@ export function TechCard({
         </>
       )}
 
-      {lighthouse && (
-        <div>
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Lighthouse Scores
-          </div>
-          <div className="grid grid-cols-4 gap-2">
-            <LighthouseScore label="Performance" value={lighthouse.performance} />
-            <LighthouseScore label="Accessibility" value={lighthouse.accessibility} />
-            <LighthouseScore label="SEO" value={lighthouse.seo} />
-            <LighthouseScore label="Best Practices" value={lighthouse.bestPractices} />
-          </div>
-        </div>
+    </section>
+  )
+}
+
+export function LighthouseCard({ lighthouse }: { lighthouse?: LighthouseArtifact }) {
+  if (!lighthouse) return null
+
+  return (
+    <section className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+      <h2 className="mb-4 text-xl font-semibold text-gray-900">Lighthouse</h2>
+      {lighthouse.url && (
+        <p className="mb-3 text-xs text-gray-500 truncate">{lighthouse.url}</p>
       )}
+      <div className="grid grid-cols-4 gap-2">
+        <LighthouseScore label="Performance" value={lighthouse.performance} />
+        <LighthouseScore label="Accessibility" value={lighthouse.accessibility} />
+        <LighthouseScore label="SEO" value={lighthouse.seo} />
+        <LighthouseScore label="Best Practices" value={lighthouse.bestPractices} />
+      </div>
     </section>
   )
 }
