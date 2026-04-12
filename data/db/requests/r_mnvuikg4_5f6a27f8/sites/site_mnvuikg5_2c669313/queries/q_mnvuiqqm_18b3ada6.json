@@ -1,0 +1,28 @@
+{
+  "id": "q_mnvuiqqm_18b3ada6",
+  "requestId": "r_mnvuikg4_5f6a27f8",
+  "siteId": "site_mnvuikg5_2c669313",
+  "stage": "classify-nav",
+  "model": "claude-haiku-4-5",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"home\": the homepage of the website\n- \"drop in\": single-session classes, schedules, timetables, class prices, walk-in classes, book a class\n- \"training\": multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs, academy\n- \"retreat\": multi-day immersive stays away from the studio (abroad, in nature, residential retreats)\n- \"contact\": contact page, about-with-contact, location page\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "https://www.shalastudios.com/schedule",
+    "https://www.shalastudios.com/book-class",
+    "https://www.shalastudios.com/studios",
+    "https://www.shalastudios.com/wellbeing-treatments",
+    "https://www.shalastudios.com/academy",
+    "https://www.shalastudios.com/events-kreuzberg",
+    "https://www.shalastudios.com/events-kreuzberg-1",
+    "https://www.shalastudios.com/academy-1",
+    "https://www.shalastudios.com/team",
+    "https://www.shalastudios.com/about",
+    "https://www.shalastudios.com/contact",
+    "https://www.shalastudios.com/events",
+    "https://www.shalastudios.com/shala",
+    "https://www.shalastudios.com/apprenticeship",
+    "https://www.shalastudios.com/datenschutz",
+    "https://www.shalastudios.com/agb"
+  ],
+  "response": "{\n  \"home\": [\"https://www.shalastudios.com/about\"],\n  \"drop in\": [\n    \"https://www.shalastudios.com/schedule\",\n    \"https://www.shalastudios.com/book-class\",\n    \"https://www.shalastudios.com/wellbeing-treatments\"\n  ],\n  \"training\": [\n    \"https://www.shalastudios.com/academy\",\n    \"https://www.shalastudios.com/apprenticeship\"\n  ],\n  \"retreat\": [\"https://www.shalastudios.com/academy-1\"],\n  \"contact\": [\"https://www.shalastudios.com/contact\"]\n}",
+  "createdAt": "2026-04-12T14:15:18.238Z"
+}

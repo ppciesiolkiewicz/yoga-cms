@@ -1,0 +1,13 @@
+{
+  "categoryId": "cat_mnvuikg5_5cbfd899",
+  "categoryName": "contact",
+  "pages": [
+    {
+      "url": "https://www.shalastudios.com/contact",
+      "pageName": "Contact & FAQ",
+      "conversionScore": 4,
+      "seoScore": 3,
+      "notes": "The page lacks a physical address, phone number, map, and opening hours above the fold, and shows no LocalBusiness schema or NAP data, severely limiting both conversion and local SEO value."
+    }
+  ]
+}

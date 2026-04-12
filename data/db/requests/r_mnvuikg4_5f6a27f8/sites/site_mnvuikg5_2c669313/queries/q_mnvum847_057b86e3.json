@@ -1,0 +1,14 @@
+{
+  "id": "q_mnvum847_057b86e3",
+  "requestId": "r_mnvuikg4_5f6a27f8",
+  "siteId": "site_mnvuikg5_2c669313",
+  "categoryId": "cat_mnvuikg5_5cbfd899",
+  "stage": "assess-pages",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold. Score each page 1-10 for conversionScore (clear path to reach the business) and seoScore (LocalBusiness schema, unique copy, correct NAP).\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.shalastudios.com/contact"
+  ],
+  "response": "{\"pages\":[{\"url\":\"https://www.shalastudios.com/contact\",\"pageName\":\"Contact & FAQ\",\"conversionScore\":4,\"seoScore\":3,\"notes\":\"The page lacks a physical address, phone number, map, and opening hours above the fold, and shows no LocalBusiness schema or NAP data, severely limiting both conversion and local SEO value.\"}]}",
+  "createdAt": "2026-04-12T14:18:00.727Z"
+}

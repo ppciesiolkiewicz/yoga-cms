@@ -1,0 +1,15 @@
+{
+  "id": "q_mnvujrtn_8ca1dcb0",
+  "requestId": "r_mnvuikg4_5f6a27f8",
+  "siteId": "site_mnvuikg5_2c669313",
+  "categoryId": "cat_mnvuikg5_7c9cd86a",
+  "stage": "assess-pages",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You judge a business homepage. A visitor lands here first. Good homepage: clear value proposition above the fold, easy navigation to key pages (classes, pricing, contact), professional look, fast loading. Bad homepage: wall of text, unclear what the business does, buried navigation. Score each page 1-10 twice: conversionScore (does the homepage make a visitor want to stay and explore?) and seoScore (title, H1, meta description, schema). Return only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.shalastudios.com",
+    "https://www.shalastudios.com/about"
+  ],
+  "response": "{\"pages\":[{\"url\":\"https://www.shalastudios.com\",\"pageName\":\"Homepage\",\"conversionScore\":7,\"seoScore\":5,\"notes\":\"Strong visual identity and clear CTAs for classes, treatments, and trainings, but the hero H1 is poetic rather than keyword-rich, there's no visible meta description or schema markup, and image alt texts are inconsistent, limiting organic discoverability.\"},{\"url\":\"https://www.shalastudios.com/about\",\"pageName\":\"About\",\"conversionScore\":5,\"seoScore\":4,\"notes\":\"Warm brand storytelling and founder bios build trust, but the H1 is just 'ABOUT' with no keywords, there are no structured CTAs to book or enroll, and schema/meta signals appear absent.\"}]}",
+  "createdAt": "2026-04-12T14:16:06.299Z"
+}

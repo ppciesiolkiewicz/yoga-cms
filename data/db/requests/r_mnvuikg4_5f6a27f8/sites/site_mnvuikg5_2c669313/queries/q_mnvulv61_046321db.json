@@ -1,0 +1,14 @@
+{
+  "id": "q_mnvulv61_046321db",
+  "requestId": "r_mnvuikg4_5f6a27f8",
+  "siteId": "site_mnvuikg5_2c669313",
+  "categoryId": "cat_mnvuikg5_0f755ebb",
+  "stage": "assess-pages",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You judge yoga retreat pages.\n\nA visitor wants to answer: \"Can I go? When? Where? How much? What happens each day?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE and what it includes\n- WHAT — yoga style, activities\n- HOW LONG — days\n\nGood page:\n- All 5 facts visible before the story\n- Real location — town, venue, not just \"paradise\"\n- What is included: room, food, yoga, transfers\n- Daily schedule\n- Clear way to book\n\nBad page:\n- Dates or price hidden\n- Long philosophy before facts\n- Stock photos with no real place info\n- Several different retreats mixed on one page\n\nSEO (Google) — check:\n- Title names the retreat type, place, and month (e.g. \"Yoga retreat in Bali, November\")\n- Clear H1 matching the title\n- Event or TouristTrip schema if possible\n- Real itinerary text, not filler\n- Images with alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and book?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.shalastudios.com/academy-1"
+  ],
+  "response": "{\n  \"pages\": [\n    {\n      \"url\": \"https://www.shalastudios.com/academy-1\",\n      \"pageName\": \"Retreats Listing Page\",\n      \"conversionScore\": 4,\n      \"seoScore\": 3,\n      \"notes\": \"Dates and location are present but price is missing or offsite for one retreat, no daily schedule or included amenities are shown, multiple retreats are mixed on one listing page without individual detail, the page title and H1 are unclear, no schema markup is evident, and booking sends users to an external Google Form rather than an on-site flow.\"\n    }\n  ]\n}",
+  "createdAt": "2026-04-12T14:17:43.945Z"
+}

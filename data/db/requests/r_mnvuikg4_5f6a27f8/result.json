@@ -1,0 +1,2022 @@
+{
+  "request": {
+    "id": "r_mnvuikg4_5f6a27f8",
+    "createdAt": "2026-04-12T14:15:10.085Z",
+    "displayName": "Yoga studios (single test)",
+    "categories": [
+      {
+        "name": "home",
+        "extraInfo": "the homepage of the website",
+        "prompt": "You judge a business homepage. A visitor lands here first. Good homepage: clear value proposition above the fold, easy navigation to key pages (classes, pricing, contact), professional look, fast loading. Bad homepage: wall of text, unclear what the business does, buried navigation. Score each page 1-10 twice: conversionScore (does the homepage make a visitor want to stay and explore?) and seoScore (title, H1, meta description, schema). Return only valid JSON. No markdown, no code fences.",
+        "lighthouse": true,
+        "wappalyzer": true,
+        "id": "cat_mnvuikg5_7c9cd86a"
+      },
+      {
+        "name": "drop in",
+        "extraInfo": "single-session classes, schedules, timetables, class prices, walk-in classes, book a class",
+        "prompt": "You judge yoga drop-in class pages.\n\nA visitor wants to answer: \"When can I come? How much? Where? What styles?\"\n\nGood page:\n- Class schedule visible near the top — day, time, style\n- Prices clear (single class, class packs, first-time deals)\n- Studio address and how to get there\n- Easy way to book or just show up\n- Short class descriptions, not long philosophy\n\nBad page:\n- Schedule hidden below a long story\n- \"What is yoga\" text on a commercial class page\n- Prices missing or \"contact us for prices\"\n- Training and retreat offers mixed in with drop-in classes\n\nSEO (Google) — check:\n- Page title names the city and class type (e.g. \"Hatha classes in Barcelona\")\n- Clear H1 matching the title\n- LocalBusiness schema with address, phone, hours\n- Unique copy, not generic boilerplate\n- Images have alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor book?\n- seoScore: how well can Google find and rank the page?\n\nReturn only valid JSON. No markdown, no code fences.",
+        "id": "cat_mnvuikg5_2f0ab3da"
+      },
+      {
+        "name": "training",
+        "extraInfo": "multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs, academy",
+        "prompt": "You judge yoga teacher training (YTT) pages.\n\nA visitor is deciding: \"Should I enroll here, or keep looking?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE\n- WHAT — what you will learn, hours, style\n- HOW LONG — days or weeks\n\nGood page:\n- All 5 facts visible before any philosophy\n- Real curriculum with topics listed\n- Teacher names and short bios\n- Reviews or past student outcomes\n- Clear way to apply or book\n\nBad page:\n- \"What is yoga\" or philosophy before the price\n- \"Why choose us\" filler sections\n- Price or dates hidden far down\n- Many different training offers mixed on one page\n\nSEO (Google) — check:\n- Title names the course, hours, and city (e.g. \"200hr YTT Rishikesh\")\n- Clear H1 matching the title\n- Course schema, FAQ schema if there is a FAQ\n- Real curriculum depth — Google rewards this on training pages\n- Images with alt text, unique photos\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and enroll?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.",
+        "id": "cat_mnvuikg5_1fe7a2f0"
+      },
+      {
+        "name": "retreat",
+        "extraInfo": "multi-day immersive stays away from the studio (abroad, in nature, residential retreats)",
+        "prompt": "You judge yoga retreat pages.\n\nA visitor wants to answer: \"Can I go? When? Where? How much? What happens each day?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE and what it includes\n- WHAT — yoga style, activities\n- HOW LONG — days\n\nGood page:\n- All 5 facts visible before the story\n- Real location — town, venue, not just \"paradise\"\n- What is included: room, food, yoga, transfers\n- Daily schedule\n- Clear way to book\n\nBad page:\n- Dates or price hidden\n- Long philosophy before facts\n- Stock photos with no real place info\n- Several different retreats mixed on one page\n\nSEO (Google) — check:\n- Title names the retreat type, place, and month (e.g. \"Yoga retreat in Bali, November\")\n- Clear H1 matching the title\n- Event or TouristTrip schema if possible\n- Real itinerary text, not filler\n- Images with alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and book?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.",
+        "id": "cat_mnvuikg5_0f755ebb"
+      },
+      {
+        "name": "contact",
+        "extraInfo": "contact page, about-with-contact, location page",
+        "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold. Score each page 1-10 for conversionScore (clear path to reach the business) and seoScore (LocalBusiness schema, unique copy, correct NAP).",
+        "id": "cat_mnvuikg5_5cbfd899"
+      }
+    ],
+    "sites": [
+      {
+        "url": "https://www.shalastudios.com",
+        "meta": {
+          "name": "SHA-LA Studios",
+          "city": "Berlin"
+        },
+        "id": "site_mnvuikg5_2c669313"
+      }
+    ]
+  },
+  "sites": [
+    {
+      "siteId": "site_mnvuikg5_2c669313",
+      "url": "https://www.shalastudios.com",
+      "artifacts": {
+        "assess-pages": {
+          "cat_mnvuikg5_7c9cd86a": {
+            "categoryId": "cat_mnvuikg5_7c9cd86a",
+            "categoryName": "home",
+            "pages": [
+              {
+                "url": "https://www.shalastudios.com",
+                "pageName": "Homepage",
+                "conversionScore": 7,
+                "seoScore": 5,
+                "notes": "Strong visual identity and clear CTAs for classes, treatments, and trainings, but the hero H1 is poetic rather than keyword-rich, there's no visible meta description or schema markup, and image alt texts are inconsistent, limiting organic discoverability."
+              },
+              {
+                "url": "https://www.shalastudios.com/about",
+                "pageName": "About",
+                "conversionScore": 5,
+                "seoScore": 4,
+                "notes": "Warm brand storytelling and founder bios build trust, but the H1 is just 'ABOUT' with no keywords, there are no structured CTAs to book or enroll, and schema/meta signals appear absent."
+              }
+            ]
+          },
+          "cat_mnvuikg5_2f0ab3da": {
+            "categoryId": "cat_mnvuikg5_2f0ab3da",
+            "categoryName": "drop in",
+            "pages": [
+              {
+                "url": "https://www.shalastudios.com/schedule",
+                "pageName": "Schedule",
+                "conversionScore": 5,
+                "seoScore": 4,
+                "notes": "The schedule widget is present but the actual class slots aren't rendered in the scraped content, prices are absent from this page, and there's no city/style in the H1 or visible LocalBusiness schema to help Google rank it for Berlin yoga searches."
+              },
+              {
+                "url": "https://www.shalastudios.com/book-class",
+                "pageName": "Book a Class / Pricing",
+                "conversionScore": 7,
+                "seoScore": 4,
+                "notes": "Pricing is clear and well-structured with good first-timer and drop-in options, but the page title and H1 lack city or style keywords, there's no address or schema markup visible, and the booking flow redirects off-site without explanation."
+              },
+              {
+                "url": "https://www.shalastudios.com/wellbeing-treatments",
+                "pageName": "Wellbeing Treatments",
+                "conversionScore": 4,
+                "seoScore": 5,
+                "notes": "Treatment descriptions and pricing are detailed, but all booking CTAs are marked 'available soon', making conversion impossible right now, and the page mixes drop-in yoga content with 1:1 therapy in a way that dilutes both audiences."
+              }
+            ]
+          },
+          "cat_mnvuikg5_1fe7a2f0": {
+            "categoryId": "cat_mnvuikg5_1fe7a2f0",
+            "categoryName": "training",
+            "pages": [
+              {
+                "url": "https://www.shalastudios.com/academy",
+                "pageName": "SHA-LA Academy – Training Hub",
+                "conversionScore": 6,
+                "seoScore": 4,
+                "notes": "The page shows dates, prices, and links for all trainings up front which aids decisions, but mixing 12+ unrelated programmes on one page dilutes focus, the flagship 200h YTT is buried after philosophy copy, there is no course schema, no teacher bios inline, no student reviews, several images lack meaningful alt text, and the H1 is a brand name rather than a keyword-rich title like '200hr Yoga Teacher Training Berlin'."
+              },
+              {
+                "url": "https://www.shalastudios.com/apprenticeship",
+                "pageName": "Yoga Apprenticeship – 404",
+                "conversionScore": 1,
+                "seoScore": 1,
+                "notes": "Page returns a 404 error, making conversion and ranking impossible; the academy hub links to it and the correct URL appears to be /yogateacherapprenticeship, so this broken link actively loses potential enrollments."
+              }
+            ]
+          },
+          "cat_mnvuikg5_0f755ebb": {
+            "categoryId": "cat_mnvuikg5_0f755ebb",
+            "categoryName": "retreat",
+            "pages": [
+              {
+                "url": "https://www.shalastudios.com/academy-1",
+                "pageName": "Retreats Listing Page",
+                "conversionScore": 4,
+                "seoScore": 3,
+                "notes": "Dates and location are present but price is missing or offsite for one retreat, no daily schedule or included amenities are shown, multiple retreats are mixed on one listing page without individual detail, the page title and H1 are unclear, no schema markup is evident, and booking sends users to an external Google Form rather than an on-site flow."
+              }
+            ]
+          },
+          "cat_mnvuikg5_5cbfd899": {
+            "categoryId": "cat_mnvuikg5_5cbfd899",
+            "categoryName": "contact",
+            "pages": [
+              {
+                "url": "https://www.shalastudios.com/contact",
+                "pageName": "Contact & FAQ",
+                "conversionScore": 4,
+                "seoScore": 3,
+                "notes": "The page lacks a physical address, phone number, map, and opening hours above the fold, and shows no LocalBusiness schema or NAP data, severely limiting both conversion and local SEO value."
+              }
+            ]
+          }
+        },
+        "build-report": {
+          "siteId": "site_mnvuikg5_2c669313",
+          "url": "https://www.shalastudios.com",
+          "meta": {
+            "name": "SHA-LA Studios",
+            "city": "Berlin"
+          },
+          "scrapedAt": "2026-04-12T14:18:07.339Z",
+          "navigation": {
+            "links": [
+              {
+                "label": "SCHEDULE",
+                "href": "https://www.shalastudios.com/schedule"
+              },
+              {
+                "label": "BOOK CLASS",
+                "href": "https://www.shalastudios.com/book-class"
+              },
+              {
+                "label": "STUDIOS",
+                "href": "https://www.shalastudios.com/studios"
+              },
+              {
+                "label": "WELLBEING TREATMENTS",
+                "href": "https://www.shalastudios.com/wellbeing-treatments"
+              },
+              {
+                "label": "ACADEMY",
+                "href": "https://www.shalastudios.com/academy"
+              },
+              {
+                "label": "KREUZBERG – WATERFRONT",
+                "href": "https://www.shalastudios.com/events-kreuzberg"
+              },
+              {
+                "label": "PRENZLAUER BERG - KASTANIENALLEE",
+                "href": "https://www.shalastudios.com/events-kreuzberg-1"
+              },
+              {
+                "label": "RETREATS",
+                "href": "https://www.shalastudios.com/academy-1"
+              },
+              {
+                "label": "TEAM",
+                "href": "https://www.shalastudios.com/team"
+              },
+              {
+                "label": "SHA-LA",
+                "href": "https://www.shalastudios.com/about"
+              },
+              {
+                "label": "CONTACT",
+                "href": "https://www.shalastudios.com/contact"
+              },
+              {
+                "label": "Folder: EVENTS",
+                "href": "https://www.shalastudios.com/events"
+              },
+              {
+                "label": "Folder: ABOUT",
+                "href": "https://www.shalastudios.com/shala"
+              },
+              {
+                "label": "Yoga apprenticeship program",
+                "href": "https://www.shalastudios.com/apprenticeship"
+              },
+              {
+                "label": "Datenschutz",
+                "href": "https://www.shalastudios.com/datenschutz"
+              },
+              {
+                "label": "AGB",
+                "href": "https://www.shalastudios.com/agb"
+              }
+            ]
+          },
+          "classification": {
+            "byCategory": {
+              "cat_mnvuikg5_7c9cd86a": [
+                "https://www.shalastudios.com",
+                "https://www.shalastudios.com/about"
+              ],
+              "cat_mnvuikg5_2f0ab3da": [
+                "https://www.shalastudios.com/schedule",
+                "https://www.shalastudios.com/book-class",
+                "https://www.shalastudios.com/wellbeing-treatments"
+              ],
+              "cat_mnvuikg5_1fe7a2f0": [
+                "https://www.shalastudios.com/academy",
+                "https://www.shalastudios.com/apprenticeship"
+              ],
+              "cat_mnvuikg5_0f755ebb": [
+                "https://www.shalastudios.com/academy-1"
+              ],
+              "cat_mnvuikg5_5cbfd899": [
+                "https://www.shalastudios.com/contact"
+              ]
+            }
+          },
+          "tech": {
+            "cat_mnvuikg5_7c9cd86a": {
+              "platform": "Squarespace",
+              "detectedTechnologies": [
+                {
+                  "name": "Squarespace Commerce",
+                  "categories": [
+                    "Ecommerce"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Squarespace",
+                  "categories": [
+                    "CMS"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Stimulus",
+                  "categories": [
+                    "JavaScript frameworks"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Sendinblue",
+                  "categories": [
+                    "Marketing automation",
+                    "Email"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "parallax.js",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "HSTS",
+                  "categories": [
+                    "Security"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Tag Manager",
+                  "categories": [
+                    "Tag managers"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Facebook Pixel",
+                  "categories": [
+                    "Analytics"
+                  ],
+                  "confidence": 100
+                }
+              ],
+              "costBreakdown": [
+                {
+                  "item": "Squarespace subscription",
+                  "min": 16,
+                  "max": 65
+                },
+                {
+                  "item": "Domain registration",
+                  "min": 1,
+                  "max": 2
+                }
+              ],
+              "totalEstimatedMonthlyCost": {
+                "min": 17,
+                "max": 67,
+                "currency": "USD"
+              }
+            }
+          },
+          "lighthouse": {
+            "cat_mnvuikg5_7c9cd86a": {
+              "url": "https://www.shalastudios.com",
+              "performance": 35,
+              "accessibility": 91,
+              "seo": 92,
+              "bestPractices": 79
+            }
+          },
+          "content": {
+            "cat_mnvuikg5_7c9cd86a": {
+              "categoryId": "cat_mnvuikg5_7c9cd86a",
+              "categoryName": "home",
+              "pages": [
+                {
+                  "url": "https://www.shalastudios.com",
+                  "pageName": "Homepage",
+                  "conversionScore": 7,
+                  "seoScore": 5,
+                  "notes": "Strong visual identity and clear CTAs for classes, treatments, and trainings, but the hero H1 is poetic rather than keyword-rich, there's no visible meta description or schema markup, and image alt texts are inconsistent, limiting organic discoverability."
+                },
+                {
+                  "url": "https://www.shalastudios.com/about",
+                  "pageName": "About",
+                  "conversionScore": 5,
+                  "seoScore": 4,
+                  "notes": "Warm brand storytelling and founder bios build trust, but the H1 is just 'ABOUT' with no keywords, there are no structured CTAs to book or enroll, and schema/meta signals appear absent."
+                }
+              ]
+            },
+            "cat_mnvuikg5_2f0ab3da": {
+              "categoryId": "cat_mnvuikg5_2f0ab3da",
+              "categoryName": "drop in",
+              "pages": [
+                {
+                  "url": "https://www.shalastudios.com/schedule",
+                  "pageName": "Schedule",
+                  "conversionScore": 5,
+                  "seoScore": 4,
+                  "notes": "The schedule widget is present but the actual class slots aren't rendered in the scraped content, prices are absent from this page, and there's no city/style in the H1 or visible LocalBusiness schema to help Google rank it for Berlin yoga searches."
+                },
+                {
+                  "url": "https://www.shalastudios.com/book-class",
+                  "pageName": "Book a Class / Pricing",
+                  "conversionScore": 7,
+                  "seoScore": 4,
+                  "notes": "Pricing is clear and well-structured with good first-timer and drop-in options, but the page title and H1 lack city or style keywords, there's no address or schema markup visible, and the booking flow redirects off-site without explanation."
+                },
+                {
+                  "url": "https://www.shalastudios.com/wellbeing-treatments",
+                  "pageName": "Wellbeing Treatments",
+                  "conversionScore": 4,
+                  "seoScore": 5,
+                  "notes": "Treatment descriptions and pricing are detailed, but all booking CTAs are marked 'available soon', making conversion impossible right now, and the page mixes drop-in yoga content with 1:1 therapy in a way that dilutes both audiences."
+                }
+              ]
+            },
+            "cat_mnvuikg5_1fe7a2f0": {
+              "categoryId": "cat_mnvuikg5_1fe7a2f0",
+              "categoryName": "training",
+              "pages": [
+                {
+                  "url": "https://www.shalastudios.com/academy",
+                  "pageName": "SHA-LA Academy – Training Hub",
+                  "conversionScore": 6,
+                  "seoScore": 4,
+                  "notes": "The page shows dates, prices, and links for all trainings up front which aids decisions, but mixing 12+ unrelated programmes on one page dilutes focus, the flagship 200h YTT is buried after philosophy copy, there is no course schema, no teacher bios inline, no student reviews, several images lack meaningful alt text, and the H1 is a brand name rather than a keyword-rich title like '200hr Yoga Teacher Training Berlin'."
+                },
+                {
+                  "url": "https://www.shalastudios.com/apprenticeship",
+                  "pageName": "Yoga Apprenticeship – 404",
+                  "conversionScore": 1,
+                  "seoScore": 1,
+                  "notes": "Page returns a 404 error, making conversion and ranking impossible; the academy hub links to it and the correct URL appears to be /yogateacherapprenticeship, so this broken link actively loses potential enrollments."
+                }
+              ]
+            },
+            "cat_mnvuikg5_0f755ebb": {
+              "categoryId": "cat_mnvuikg5_0f755ebb",
+              "categoryName": "retreat",
+              "pages": [
+                {
+                  "url": "https://www.shalastudios.com/academy-1",
+                  "pageName": "Retreats Listing Page",
+                  "conversionScore": 4,
+                  "seoScore": 3,
+                  "notes": "Dates and location are present but price is missing or offsite for one retreat, no daily schedule or included amenities are shown, multiple retreats are mixed on one listing page without individual detail, the page title and H1 are unclear, no schema markup is evident, and booking sends users to an external Google Form rather than an on-site flow."
+                }
+              ]
+            },
+            "cat_mnvuikg5_5cbfd899": {
+              "categoryId": "cat_mnvuikg5_5cbfd899",
+              "categoryName": "contact",
+              "pages": [
+                {
+                  "url": "https://www.shalastudios.com/contact",
+                  "pageName": "Contact & FAQ",
+                  "conversionScore": 4,
+                  "seoScore": 3,
+                  "notes": "The page lacks a physical address, phone number, map, and opening hours above the fold, and shows no LocalBusiness schema or NAP data, severely limiting both conversion and local SEO value."
+                }
+              ]
+            }
+          },
+          "extract": {
+            "cat_mnvuikg5_7c9cd86a": {
+              "categoryId": "cat_mnvuikg5_7c9cd86a",
+              "records": [
+                {
+                  "url": "https://www.shalastudios.com",
+                  "pageType": "homepage",
+                  "businessName": "SHA-LA Studios",
+                  "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+                  "location": "Berlin, Germany",
+                  "valueProposition": "Berlin's leading Hub for Yoga, Wellbeing & Teacher Trainings",
+                  "keyOfferings": [
+                    "Yoga classes",
+                    "Pilates classes",
+                    "Sound healing",
+                    "Breathwork",
+                    "1:1 treatments",
+                    "Massage",
+                    "Bodywork",
+                    "Red light therapy",
+                    "Teacher trainings",
+                    "Advanced education"
+                  ],
+                  "ctaButtons": [
+                    "explore classes",
+                    "DISCOVER OUR STUDIOS",
+                    "Book Treatment",
+                    "Learn more",
+                    "Book your first class",
+                    "View all offerings"
+                  ],
+                  "navigationClarity": "Clear links to schedule, studios, wellbeing treatments, and academy",
+                  "aboveTheFoldClarity": "Strong headline, clear value proposition, animated hero image, prominent CTAs",
+                  "locations": [
+                    {
+                      "name": "Sha-La Prenzlauer Berg",
+                      "address": "Kastanienallee 63, 10119 Berlin",
+                      "size": "175 sqm"
+                    },
+                    {
+                      "name": "Sha-La Kreuzberg Waterfront",
+                      "address": "Falckensteinstr. 47, Backyard left, 10997 Berlin",
+                      "size": "300 sqm",
+                      "status": "Opening January 2026"
+                    }
+                  ],
+                  "communityFeatures": [
+                    "Newsletter signup",
+                    "Community hub"
+                  ],
+                  "conversionScore": 8,
+                  "seoScore": 5
+                },
+                {
+                  "url": "https://www.shalastudios.com/about",
+                  "pageType": "about",
+                  "businessName": "SHA-LA Studios",
+                  "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+                  "location": "Prenzlauer Berg and Kreuzberg, Berlin",
+                  "teamSize": "90+ teachers",
+                  "founders": [
+                    "Joana Reicherts",
+                    "Shahed Naji"
+                  ],
+                  "founderBackground": "Experienced yoga practitioners passionate about community-focused wellness",
+                  "studioAmenities": [
+                    "Mats",
+                    "Props",
+                    "Lockers (bring your own lock)",
+                    "Security doors"
+                  ],
+                  "brandPhilosophy": "Community-focused space; empowers individuals rather than centering teachers; honors traditional yoga while embracing diverse styles",
+                  "ctaButtons": [
+                    "EXPLORE OUR SHA-LA'S",
+                    "MEET THE TEACHERS"
+                  ],
+                  "conversionScore": 6,
+                  "seoScore": 4
+                }
+              ]
+            },
+            "cat_mnvuikg5_2f0ab3da": {
+              "categoryId": "cat_mnvuikg5_2f0ab3da",
+              "records": [
+                {
+                  "url": "https://www.shalastudios.com/schedule",
+                  "pageType": "schedule",
+                  "studioName": "SHA-LA Studios",
+                  "city": "Berlin",
+                  "locations": [
+                    "Waterfront",
+                    "Prenzlauer Berg"
+                  ],
+                  "scheduleVisible": true,
+                  "scheduleDetail": "Weekly calendar with day/date filters visible, but actual class times and specific sessions are not rendered in the page text — only filter UI and class type/teacher lists are shown",
+                  "classStyles": [
+                    "Vinyasa",
+                    "Power Vinyasa",
+                    "Hatha",
+                    "Yin Yoga",
+                    "Pilates",
+                    "Jivamukti",
+                    "Pilates Barre Mat Fusion",
+                    "Deep Stretch Vinyasa",
+                    "Restorative",
+                    "Sound Bath",
+                    "Breathwork",
+                    "Hypnosis",
+                    "Kundalini",
+                    "Prenatal Yoga",
+                    "Postnatal Yoga",
+                    "Handstand & Inversions",
+                    "Body Mobility Flow",
+                    "Red Light Therapy classes",
+                    "Somatic Yin",
+                    "Neurosonic Meditation"
+                  ],
+                  "pricesOnPage": false,
+                  "addressOnPage": false,
+                  "bookingCTA": false,
+                  "thirdPartyPartners": [
+                    "Wellbub",
+                    "Wellpass",
+                    "Urban Sports Club",
+                    "ClassPass",
+                    "Studio Lietz"
+                  ],
+                  "mixedOfferings": true,
+                  "mixedOfferingsNote": "Specials, retreats, sound journeys, and training-related classes mixed in with regular drop-in classes",
+                  "shortClassDescriptions": false,
+                  "longPhilosophyText": false,
+                  "pageTitleIncludesCityAndType": false,
+                  "clearH1": true,
+                  "h1Text": "SCHEDULE",
+                  "localBusinessSchema": "not confirmed",
+                  "uniqueCopy": true,
+                  "imageAltText": true,
+                  "conversionScore": 4,
+                  "conversionScoreNotes": "Schedule UI is present but actual class times/details are not rendered in page text. No prices, no address, no direct booking button visible on this page.",
+                  "seoScore": 4,
+                  "seoScoreNotes": "H1 is just 'SCHEDULE' — no city or class type. Page title not confirmed to include Berlin or yoga. No address visible. Schedule content likely loaded via Yogo widget so may not be crawlable."
+                },
+                {
+                  "url": "https://www.shalastudios.com/book-class",
+                  "pageType": "booking/pricing",
+                  "studioName": "SHA-LA Studios",
+                  "city": "Berlin",
+                  "locations": [
+                    "Kastnaienallee (mentioned in Trial Pass)"
+                  ],
+                  "scheduleVisible": false,
+                  "pricesOnPage": true,
+                  "pricingOptions": [
+                    {
+                      "name": "Drop-In",
+                      "price": "€20",
+                      "validity": "1 month",
+                      "notes": "Single class from regular schedule"
+                    },
+                    {
+                      "name": "High Five (5 Credit Bundle)",
+                      "price": "€85",
+                      "validity": "3 months"
+                    },
+                    {
+                      "name": "A Ten Out Of Ten (10 Credit Bundle)",
+                      "price": "€149",
+                      "validity": "6 months"
+                    },
+                    {
+                      "name": "Berlin Lover (Week Pass)",
+                      "price": "€48",
+                      "validity": "1 week",
+                      "notes": "Unlimited classes, max 1/day"
+                    },
+                    {
+                      "name": "Trial Pass (2 weeks)",
+                      "price": "€49",
+                      "validity": "2 weeks",
+                      "notes": "First-timers only, unlimited classes max 1/day"
+                    },
+                    {
+                      "name": "Monthly Membership",
+                      "price": "€85",
+                      "validity": "monthly"
+                    },
+                    {
+                      "name": "SHA-LA Waterfront Opening Special (5 classes)",
+                      "price": "€50"
+                    },
+                    {
+                      "name": "Wellpass Members",
+                      "price": "€0",
+                      "notes": "Must also book via SHA-LA platform"
+                    },
+                    {
+                      "name": "Wellhub/Gympass Members",
+                      "price": "€0",
+                      "notes": "Must also book via SHA-LA platform"
+                    }
+                  ],
+                  "firstTimeDeal": true,
+                  "firstTimeDealDetails": "Trial Pass: 2 weeks unlimited for €49, first-timers only",
+                  "noShowPolicy": "€5 fine for no-shows",
+                  "addressOnPage": false,
+                  "bookingCTA": true,
+                  "bookingCTANotes": "Buy buttons present for each pass type, linking to Yogo booking system",
+                  "mixedOfferings": false,
+                  "longPhilosophyText": false,
+                  "pageTitleIncludesCityAndType": false,
+                  "clearH1": true,
+                  "h1Text": "BOOK YOUR CLASS",
+                  "localBusinessSchema": "not confirmed",
+                  "uniqueCopy": true,
+                  "imageAltText": true,
+                  "conversionScore": 7,
+                  "conversionScoreNotes": "Prices are clear and well structured, first-timer deal is prominent, booking buttons are present. Loses points for no address, no schedule link to cross-reference, and no class style descriptions to help visitors choose.",
+                  "seoScore": 4,
+                  "seoScoreNotes": "H1 is generic 'BOOK YOUR CLASS' with no city or style mention. No address. Pricing content is good for users but page lacks geo/type signals for SEO."
+                },
+                {
+                  "url": "https://www.shalastudios.com/wellbeing-treatments",
+                  "pageType": "wellbeing/treatments",
+                  "studioName": "SHA-LA Studios",
+                  "city": "Berlin",
+                  "locations": [
+                    "not specified on this page"
+                  ],
+                  "scheduleVisible": false,
+                  "pricesOnPage": true,
+                  "pricingOptions": [
+                    {
+                      "name": "Body Work / Hands-on Massage",
+                      "price": "€85 (60 min) / €120 (90 min)"
+                    },
+                    {
+                      "name": "Breathwork (1:1)",
+                      "price": "€90 (60 min) / €130 (90 min)"
+                    },
+                    {
+                      "name": "Clinical Hypnotherapy",
+                      "price": "€140 (90 min)"
+                    },
+                    {
+                      "name": "1:1 Sound Therapy",
+                      "price": "€80 (60 min)"
+                    },
+                    {
+                      "name": "Red Light Therapy Group Classes",
+                      "price": "€20 drop-in or included in class passes"
+                    }
+                  ],
+                  "bookingCTA": true,
+                  "bookingCTANotes": "Book links present but most labelled '*available soon', limiting actual conversion",
+                  "mixedOfferings": true,
+                  "mixedOfferingsNote": "This page is entirely wellbeing/treatment focused — not a drop-in yoga class page. Relevant only for red light therapy group classes.",
+                  "addressOnPage": false,
+                  "longPhilosophyText": true,
+                  "longPhilosophyTextNotes": "Detailed explanation of red light therapy science (wavelengths, ATP production) which adds length without aiding quick booking decisions",
+                  "shortClassDescriptions": true,
+                  "pageTitleIncludesCityAndType": false,
+                  "clearH1": true,
+                  "h1Text": "WELLBEING treatments",
+                  "localBusinessSchema": "not confirmed",
+                  "uniqueCopy": true,
+                  "imageAltText": true,
+                  "conversionScore": 4,
+                  "conversionScoreNotes": "Prices are listed clearly but most 1:1 booking links say 'available soon'. Red light class info is good but no schedule embed. Page mixes treatments with group classes making it harder to navigate for drop-in visitors.",
+                  "seoScore": 5,
+                  "seoScoreNotes": "Specific treatment names like 'Clinical Hypnotherapy Berlin' and 'Red Light Therapy Berlin' could rank well. H1 is descriptive. However no address, no LocalBusiness schema confirmed, and city name only appears in image alt text and practitioner context."
+                }
+              ]
+            },
+            "cat_mnvuikg5_1fe7a2f0": {
+              "categoryId": "cat_mnvuikg5_1fe7a2f0",
+              "records": [
+                {
+                  "url": "https://www.shalastudios.com/academy",
+                  "pageTitle": "The Sha-La Academy",
+                  "pageType": "academy_index",
+                  "location": "Berlin, Germany",
+                  "trainings": [
+                    {
+                      "name": "200h Multi-Style Yoga Teacher Training",
+                      "hours": 200,
+                      "dates": "February–June 2027",
+                      "instructor": "Sha & Chris",
+                      "price_regular": "€3,500",
+                      "price_early_bird": "€2,900 (until Nov 15, 2026)",
+                      "style": "Multi-style",
+                      "detailsUrl": "https://www.shalastudios.com/200hteachertraining",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "25H Group Hypnosis & Sound Facilitator Training",
+                      "hours": 25,
+                      "dates": "15–17 May 2026",
+                      "instructor": "Rawad",
+                      "price_regular": "€415",
+                      "price_early_bird": "€365 (until Mar 31, 2026)",
+                      "style": "Hypnosis & Sound",
+                      "detailsUrl": "https://www.shalastudios.com/hypnosisntrainingwrawad",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23277#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "Flexibility Weekend w/ Rebecca Hannah",
+                      "hours": null,
+                      "dates": "30–31 May 2026",
+                      "instructor": "Rebecca Hannah",
+                      "price_regular": null,
+                      "price_early_bird": null,
+                      "style": "Flexibility",
+                      "location_note": "SHA-LA Studios Pberg & Waterfront",
+                      "detailsUrl": "https://www.shalastudios.com/flexibilityweekendwithrebeccahannah",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/admin/index.html#/events",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "25H Essence of Kundalini",
+                      "hours": 25,
+                      "dates": "29–31 May 2026",
+                      "instructor": "Il'il Sat Prem",
+                      "price_regular": "€345",
+                      "price_early_bird": "€295 (until Mar 15, 2026)",
+                      "style": "Kundalini",
+                      "detailsUrl": "https://www.shalastudios.com/kundaliniteachertraining",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=20681#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "20H Katonah Yoga® & Philosophy Immersion",
+                      "hours": 20,
+                      "dates": "05–07 June 2026",
+                      "instructor": "Ben Kalra",
+                      "price_regular": "€345",
+                      "price_early_bird": "€295 (until Mar 15, 2026)",
+                      "style": "Katonah Yoga",
+                      "detailsUrl": "https://www.shalastudios.com/katonahteachertraining",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "Diving Deeper into Yin Yoga – A Weekend Immersion",
+                      "hours": null,
+                      "dates": "05–06 September 2026",
+                      "instructor": "Sarah Powers",
+                      "price_regular": "€150",
+                      "price_early_bird": null,
+                      "style": "Yin Yoga",
+                      "detailsUrl": "https://www.shalastudios.com/yin-yoga-immersion-with-sarah-powers",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23282#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "20H The Inverted State",
+                      "hours": 20,
+                      "dates": "25–27 September 2026",
+                      "instructor": "Miles Mortensen",
+                      "price_regular": "€450",
+                      "price_early_bird": "€400 (until May 15, 2026)",
+                      "style": "Inversions",
+                      "detailsUrl": "https://www.shalastudios.com/20h-milesmortensen",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23401#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "30H Advanced Multi-Lineage Intensive",
+                      "hours": 30,
+                      "dates": "02–04 October 2026",
+                      "instructor": "Ambra Vallo",
+                      "price_regular": "€550",
+                      "price_early_bird": "€490 (until Aug 15, 2026)",
+                      "style": "Multi-Lineage",
+                      "detailsUrl": "https://www.shalastudios.com/30hmulti-lineage-training",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "10H Yin Yoga Hip Anatomy",
+                      "hours": 10,
+                      "dates": "10–11 October 2026",
+                      "instructor": "Franziska Gottschlich",
+                      "price_regular": "€250",
+                      "price_early_bird": "€210 (until Aug 15, 2026)",
+                      "style": "Yin Yoga / Anatomy",
+                      "detailsUrl": "https://www.shalastudios.com/10h-hip-anatomy-training",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23278#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "20H Private Teaching 1-on-1",
+                      "hours": 20,
+                      "dates": "16–18 October 2026",
+                      "instructor": "Felicia and Christiane Walker",
+                      "price_regular": "€375",
+                      "price_early_bird": "€320 (until Jul 15, 2026)",
+                      "style": "Private Teaching",
+                      "detailsUrl": "https://www.shalastudios.com/20h-private-teaching",
+                      "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23518#/login-with-cart",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "15H Yin Yoga – Refined Yin Teaching and Hands-On Assists",
+                      "hours": 15,
+                      "dates": "24–25 October 2026",
+                      "instructor": "Matthäa",
+                      "price_regular": "€250",
+                      "price_early_bird": null,
+                      "style": "Yin Yoga",
+                      "detailsUrl": "https://www.shalastudios.com/yinyogateachertraining",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "50H Yin Yoga Teacher Training (YACEP)",
+                      "hours": 50,
+                      "dates": "06–08 Nov & 20–22 Nov 2026",
+                      "instructor": "Matthäa",
+                      "price_regular": "€900",
+                      "price_early_bird": "€800 (until June 15, 2026)",
+                      "style": "Yin Yoga",
+                      "accreditation": "YACEP",
+                      "detailsUrl": "https://www.shalastudios.com/yinteachertraining",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "25H Hands-On Assists",
+                      "hours": 25,
+                      "dates": "13–15 November 2026",
+                      "instructor": "Alex Perez",
+                      "price_regular": "€440",
+                      "price_early_bird": "€390 (until Aug 15, 2026)",
+                      "style": "Hands-On Assists",
+                      "detailsUrl": "https://www.shalastudios.com/handson-alex",
+                      "bookUrl": "https://www.shalastudios.com/ttshop",
+                      "curriculumOnPage": false
+                    },
+                    {
+                      "name": "Yoga Apprenticeship Program",
+                      "hours": null,
+                      "dates": null,
+                      "instructor": null,
+                      "price_regular": "€1,200",
+                      "price_early_bird": null,
+                      "style": "Mentorship / Apprenticeship",
+                      "payment_note": "Payment in installments available",
+                      "detailsUrl": "https://www.shalastudios.com/yogateacherapprenticeship",
+                      "bookUrl": "mailto:hello@shalastudios.com?subject=Yoga%20Apprenticeship%20Program",
+                      "curriculumOnPage": false
+                    }
+                  ],
+                  "teacherBiosOnPage": false,
+                  "reviewsOnPage": false,
+                  "fiveFacts_visible_before_philosophy": {
+                    "dates": true,
+                    "location": "partial — Berlin mentioned in intro, not per-training",
+                    "price": true,
+                    "what": "partial — names only, no curriculum detail",
+                    "howLong": "partial — hours listed, days listed per training"
+                  },
+                  "curriculumDepth": "none on this page — all curriculum behind links",
+                  "seo": {
+                    "pageTitleIncludesHoursAndCity": false,
+                    "h1": "The Sha-La Academy",
+                    "h1MatchesTitle": true,
+                    "courseSchema": false,
+                    "faqSchema": false,
+                    "imageAltText": "partial — some images have alt text, some do not",
+                    "uniquePhotos": true
+                  },
+                  "issues": [
+                    "No teacher bios on page",
+                    "No student reviews or outcomes",
+                    "No curriculum detail — all behind clicks",
+                    "Flexibility Weekend missing price",
+                    "Multiple unrelated trainings mixed on one index page",
+                    "Page title does not include hours or city for SEO",
+                    "No course or FAQ schema evident",
+                    "Some images missing alt text",
+                    "Apprenticeship has no dates listed"
+                  ],
+                  "conversionScore": 5,
+                  "seoScore": 3
+                },
+                {
+                  "url": "https://www.shalastudios.com/apprenticeship",
+                  "pageTitle": null,
+                  "pageType": "404_error",
+                  "error": "Page not found — URL appears broken or deleted",
+                  "conversionScore": 1,
+                  "seoScore": 1
+                }
+              ]
+            },
+            "cat_mnvuikg5_0f755ebb": {
+              "categoryId": "cat_mnvuikg5_0f755ebb",
+              "records": [
+                {
+                  "retreatName": "Be the Leaf - Spring Retreat",
+                  "when": "March 12–15, 2026",
+                  "where": "Haven Havelland, 90 min from Berlin",
+                  "price": "Not stated on this page",
+                  "what": "Yoga retreat (style not specified)",
+                  "howLong": "4 days",
+                  "teachers": [
+                    "Dariia",
+                    "Ilayda"
+                  ],
+                  "includes": "Not specified",
+                  "dailySchedule": "Not provided",
+                  "bookingMethod": "Google Form",
+                  "detailsLink": "https://www.shalastudios.com/retreats-1/be-the-leaf",
+                  "bookLink": "https://docs.google.com/forms/d/e/1FAIpQLSdpXk-yz09o7ln-g3WEX43tYZON8ZUOkXCQZLB_0uykTKq50g/viewform",
+                  "imageAltText": "Two women practicing yoga indoors, one in a bridge pose against a brick wall and the other sitting cross-legged on the floor touching her foot with her hand.",
+                  "conversionScore": 4,
+                  "seoScore": 3,
+                  "conversionNotes": "Dates and location are visible near the top, which is good. However, price, yoga style, inclusions, and daily schedule are all missing from this listing. Visitor must click away to get basic facts.",
+                  "seoNotes": "No dedicated page title or H1 visible for this retreat. No schema markup evident. Location is vague ('90 min from Berlin' rather than a town name). Retreat is mixed with another retreat on the same page, diluting relevance signals."
+                },
+                {
+                  "retreatName": "Where We Bloom Retreat",
+                  "when": "April 30 – May 3 (year not stated)",
+                  "where": "Haus Erlengrund, Buckow (Märkische Schweiz)",
+                  "price": "See external link (early bird available until Feb 14)",
+                  "what": "Yoga retreat (style not specified)",
+                  "howLong": "4 days",
+                  "teachers": [
+                    "Habiba Jaziri",
+                    "Sebastian Lifka"
+                  ],
+                  "includes": "Not specified",
+                  "dailySchedule": "Not provided",
+                  "bookingMethod": "Google Form",
+                  "detailsLink": "https://www.shalastudios.com/retreat-where-we-bloom",
+                  "bookLink": "https://docs.google.com/forms/d/e/1FAIpQLSc0N8ok7ISY44h-YFFanUk8P003mUa_2-PrboI1crS2EJxvfg/viewform",
+                  "pricingExternalLink": "https://www.hej-elements.com/spring-retreat",
+                  "imageAltText": "A cozy bedroom with a bed near a large window showing trees outside, combined with an outdoor scene of a lush, green forest path at sunset.",
+                  "conversionScore": 3,
+                  "seoScore": 3,
+                  "conversionNotes": "Location is more specific (Buckow, named venue), which is positive. However, price is hidden behind an external link, year is missing from dates, yoga style and inclusions are absent, and no schedule is provided. Visitors must visit two other sites to get basic facts.",
+                  "seoNotes": "Same issues as the first retreat: no clear title or H1 for this specific retreat, no schema, and being listed alongside another retreat on one page splits topical focus. External pricing link may confuse crawlers about canonical content."
+                }
+              ]
+            },
+            "cat_mnvuikg5_5cbfd899": {
+              "categoryId": "cat_mnvuikg5_5cbfd899",
+              "records": [
+                {
+                  "url": "https://www.shalastudios.com/contact",
+                  "businessName": "SHA-LA Studios",
+                  "locations": [
+                    "SHA-LA XBerg",
+                    "SHA-LA PBerg"
+                  ],
+                  "address": null,
+                  "phone": null,
+                  "email": "hello@shalastudios.com",
+                  "map": false,
+                  "openingHours": null,
+                  "contactFormPresent": true,
+                  "napConsistency": "incomplete – no street address or phone number found",
+                  "localBusinessSchema": false,
+                  "uniqueCopy": true,
+                  "aboveFoldElements": {
+                    "address": false,
+                    "phone": false,
+                    "email": false,
+                    "map": false,
+                    "openingHours": false
+                  },
+                  "conversionScore": 3,
+                  "seoScore": 2,
+                  "notes": "Contact page includes a contact form and email address but lacks a physical address, phone number, map embed, and opening hours. Two studio locations are mentioned (Kreuzberg and Prenzlauer Berg) but no NAP details are provided for either. No LocalBusiness schema detected. Conversion path is limited to a form submission or email; visitors cannot quickly find or navigate to the studio."
+                }
+              ]
+            }
+          },
+          "progress": {
+            "cat_mnvuikg5_7c9cd86a": {
+              "detect-tech": "completed",
+              "run-lighthouse": "completed",
+              "assess-pages": "completed",
+              "extract-pages-content": "completed"
+            },
+            "cat_mnvuikg5_2f0ab3da": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "assess-pages": "completed",
+              "extract-pages-content": "completed"
+            },
+            "cat_mnvuikg5_1fe7a2f0": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "assess-pages": "completed",
+              "extract-pages-content": "completed"
+            },
+            "cat_mnvuikg5_0f755ebb": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "assess-pages": "completed",
+              "extract-pages-content": "completed"
+            },
+            "cat_mnvuikg5_5cbfd899": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "assess-pages": "completed",
+              "extract-pages-content": "completed"
+            }
+          }
+        },
+        "classify-nav": {
+          "byCategory": {
+            "cat_mnvuikg5_7c9cd86a": [
+              "https://www.shalastudios.com",
+              "https://www.shalastudios.com/about"
+            ],
+            "cat_mnvuikg5_2f0ab3da": [
+              "https://www.shalastudios.com/schedule",
+              "https://www.shalastudios.com/book-class",
+              "https://www.shalastudios.com/wellbeing-treatments"
+            ],
+            "cat_mnvuikg5_1fe7a2f0": [
+              "https://www.shalastudios.com/academy",
+              "https://www.shalastudios.com/apprenticeship"
+            ],
+            "cat_mnvuikg5_0f755ebb": [
+              "https://www.shalastudios.com/academy-1"
+            ],
+            "cat_mnvuikg5_5cbfd899": [
+              "https://www.shalastudios.com/contact"
+            ]
+          }
+        },
+        "detect-tech": {
+          "cat_mnvuikg5_7c9cd86a": {
+            "platform": "Squarespace",
+            "detectedTechnologies": [
+              {
+                "name": "Squarespace Commerce",
+                "categories": [
+                  "Ecommerce"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Squarespace",
+                "categories": [
+                  "CMS"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Stimulus",
+                "categories": [
+                  "JavaScript frameworks"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Sendinblue",
+                "categories": [
+                  "Marketing automation",
+                  "Email"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "parallax.js",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "HSTS",
+                "categories": [
+                  "Security"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Google Tag Manager",
+                "categories": [
+                  "Tag managers"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Facebook Pixel",
+                "categories": [
+                  "Analytics"
+                ],
+                "confidence": 100
+              }
+            ],
+            "costBreakdown": [
+              {
+                "item": "Squarespace subscription",
+                "min": 16,
+                "max": 65
+              },
+              {
+                "item": "Domain registration",
+                "min": 1,
+                "max": 2
+              }
+            ],
+            "totalEstimatedMonthlyCost": {
+              "min": 17,
+              "max": 67,
+              "currency": "USD"
+            }
+          }
+        },
+        "extract-pages-content": {
+          "cat_mnvuikg5_7c9cd86a": {
+            "categoryId": "cat_mnvuikg5_7c9cd86a",
+            "records": [
+              {
+                "url": "https://www.shalastudios.com",
+                "pageType": "homepage",
+                "businessName": "SHA-LA Studios",
+                "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+                "location": "Berlin, Germany",
+                "valueProposition": "Berlin's leading Hub for Yoga, Wellbeing & Teacher Trainings",
+                "keyOfferings": [
+                  "Yoga classes",
+                  "Pilates classes",
+                  "Sound healing",
+                  "Breathwork",
+                  "1:1 treatments",
+                  "Massage",
+                  "Bodywork",
+                  "Red light therapy",
+                  "Teacher trainings",
+                  "Advanced education"
+                ],
+                "ctaButtons": [
+                  "explore classes",
+                  "DISCOVER OUR STUDIOS",
+                  "Book Treatment",
+                  "Learn more",
+                  "Book your first class",
+                  "View all offerings"
+                ],
+                "navigationClarity": "Clear links to schedule, studios, wellbeing treatments, and academy",
+                "aboveTheFoldClarity": "Strong headline, clear value proposition, animated hero image, prominent CTAs",
+                "locations": [
+                  {
+                    "name": "Sha-La Prenzlauer Berg",
+                    "address": "Kastanienallee 63, 10119 Berlin",
+                    "size": "175 sqm"
+                  },
+                  {
+                    "name": "Sha-La Kreuzberg Waterfront",
+                    "address": "Falckensteinstr. 47, Backyard left, 10997 Berlin",
+                    "size": "300 sqm",
+                    "status": "Opening January 2026"
+                  }
+                ],
+                "communityFeatures": [
+                  "Newsletter signup",
+                  "Community hub"
+                ],
+                "conversionScore": 8,
+                "seoScore": 5
+              },
+              {
+                "url": "https://www.shalastudios.com/about",
+                "pageType": "about",
+                "businessName": "SHA-LA Studios",
+                "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+                "location": "Prenzlauer Berg and Kreuzberg, Berlin",
+                "teamSize": "90+ teachers",
+                "founders": [
+                  "Joana Reicherts",
+                  "Shahed Naji"
+                ],
+                "founderBackground": "Experienced yoga practitioners passionate about community-focused wellness",
+                "studioAmenities": [
+                  "Mats",
+                  "Props",
+                  "Lockers (bring your own lock)",
+                  "Security doors"
+                ],
+                "brandPhilosophy": "Community-focused space; empowers individuals rather than centering teachers; honors traditional yoga while embracing diverse styles",
+                "ctaButtons": [
+                  "EXPLORE OUR SHA-LA'S",
+                  "MEET THE TEACHERS"
+                ],
+                "conversionScore": 6,
+                "seoScore": 4
+              }
+            ]
+          },
+          "cat_mnvuikg5_2f0ab3da": {
+            "categoryId": "cat_mnvuikg5_2f0ab3da",
+            "records": [
+              {
+                "url": "https://www.shalastudios.com/schedule",
+                "pageType": "schedule",
+                "studioName": "SHA-LA Studios",
+                "city": "Berlin",
+                "locations": [
+                  "Waterfront",
+                  "Prenzlauer Berg"
+                ],
+                "scheduleVisible": true,
+                "scheduleDetail": "Weekly calendar with day/date filters visible, but actual class times and specific sessions are not rendered in the page text — only filter UI and class type/teacher lists are shown",
+                "classStyles": [
+                  "Vinyasa",
+                  "Power Vinyasa",
+                  "Hatha",
+                  "Yin Yoga",
+                  "Pilates",
+                  "Jivamukti",
+                  "Pilates Barre Mat Fusion",
+                  "Deep Stretch Vinyasa",
+                  "Restorative",
+                  "Sound Bath",
+                  "Breathwork",
+                  "Hypnosis",
+                  "Kundalini",
+                  "Prenatal Yoga",
+                  "Postnatal Yoga",
+                  "Handstand & Inversions",
+                  "Body Mobility Flow",
+                  "Red Light Therapy classes",
+                  "Somatic Yin",
+                  "Neurosonic Meditation"
+                ],
+                "pricesOnPage": false,
+                "addressOnPage": false,
+                "bookingCTA": false,
+                "thirdPartyPartners": [
+                  "Wellbub",
+                  "Wellpass",
+                  "Urban Sports Club",
+                  "ClassPass",
+                  "Studio Lietz"
+                ],
+                "mixedOfferings": true,
+                "mixedOfferingsNote": "Specials, retreats, sound journeys, and training-related classes mixed in with regular drop-in classes",
+                "shortClassDescriptions": false,
+                "longPhilosophyText": false,
+                "pageTitleIncludesCityAndType": false,
+                "clearH1": true,
+                "h1Text": "SCHEDULE",
+                "localBusinessSchema": "not confirmed",
+                "uniqueCopy": true,
+                "imageAltText": true,
+                "conversionScore": 4,
+                "conversionScoreNotes": "Schedule UI is present but actual class times/details are not rendered in page text. No prices, no address, no direct booking button visible on this page.",
+                "seoScore": 4,
+                "seoScoreNotes": "H1 is just 'SCHEDULE' — no city or class type. Page title not confirmed to include Berlin or yoga. No address visible. Schedule content likely loaded via Yogo widget so may not be crawlable."
+              },
+              {
+                "url": "https://www.shalastudios.com/book-class",
+                "pageType": "booking/pricing",
+                "studioName": "SHA-LA Studios",
+                "city": "Berlin",
+                "locations": [
+                  "Kastnaienallee (mentioned in Trial Pass)"
+                ],
+                "scheduleVisible": false,
+                "pricesOnPage": true,
+                "pricingOptions": [
+                  {
+                    "name": "Drop-In",
+                    "price": "€20",
+                    "validity": "1 month",
+                    "notes": "Single class from regular schedule"
+                  },
+                  {
+                    "name": "High Five (5 Credit Bundle)",
+                    "price": "€85",
+                    "validity": "3 months"
+                  },
+                  {
+                    "name": "A Ten Out Of Ten (10 Credit Bundle)",
+                    "price": "€149",
+                    "validity": "6 months"
+                  },
+                  {
+                    "name": "Berlin Lover (Week Pass)",
+                    "price": "€48",
+                    "validity": "1 week",
+                    "notes": "Unlimited classes, max 1/day"
+                  },
+                  {
+                    "name": "Trial Pass (2 weeks)",
+                    "price": "€49",
+                    "validity": "2 weeks",
+                    "notes": "First-timers only, unlimited classes max 1/day"
+                  },
+                  {
+                    "name": "Monthly Membership",
+                    "price": "€85",
+                    "validity": "monthly"
+                  },
+                  {
+                    "name": "SHA-LA Waterfront Opening Special (5 classes)",
+                    "price": "€50"
+                  },
+                  {
+                    "name": "Wellpass Members",
+                    "price": "€0",
+                    "notes": "Must also book via SHA-LA platform"
+                  },
+                  {
+                    "name": "Wellhub/Gympass Members",
+                    "price": "€0",
+                    "notes": "Must also book via SHA-LA platform"
+                  }
+                ],
+                "firstTimeDeal": true,
+                "firstTimeDealDetails": "Trial Pass: 2 weeks unlimited for €49, first-timers only",
+                "noShowPolicy": "€5 fine for no-shows",
+                "addressOnPage": false,
+                "bookingCTA": true,
+                "bookingCTANotes": "Buy buttons present for each pass type, linking to Yogo booking system",
+                "mixedOfferings": false,
+                "longPhilosophyText": false,
+                "pageTitleIncludesCityAndType": false,
+                "clearH1": true,
+                "h1Text": "BOOK YOUR CLASS",
+                "localBusinessSchema": "not confirmed",
+                "uniqueCopy": true,
+                "imageAltText": true,
+                "conversionScore": 7,
+                "conversionScoreNotes": "Prices are clear and well structured, first-timer deal is prominent, booking buttons are present. Loses points for no address, no schedule link to cross-reference, and no class style descriptions to help visitors choose.",
+                "seoScore": 4,
+                "seoScoreNotes": "H1 is generic 'BOOK YOUR CLASS' with no city or style mention. No address. Pricing content is good for users but page lacks geo/type signals for SEO."
+              },
+              {
+                "url": "https://www.shalastudios.com/wellbeing-treatments",
+                "pageType": "wellbeing/treatments",
+                "studioName": "SHA-LA Studios",
+                "city": "Berlin",
+                "locations": [
+                  "not specified on this page"
+                ],
+                "scheduleVisible": false,
+                "pricesOnPage": true,
+                "pricingOptions": [
+                  {
+                    "name": "Body Work / Hands-on Massage",
+                    "price": "€85 (60 min) / €120 (90 min)"
+                  },
+                  {
+                    "name": "Breathwork (1:1)",
+                    "price": "€90 (60 min) / €130 (90 min)"
+                  },
+                  {
+                    "name": "Clinical Hypnotherapy",
+                    "price": "€140 (90 min)"
+                  },
+                  {
+                    "name": "1:1 Sound Therapy",
+                    "price": "€80 (60 min)"
+                  },
+                  {
+                    "name": "Red Light Therapy Group Classes",
+                    "price": "€20 drop-in or included in class passes"
+                  }
+                ],
+                "bookingCTA": true,
+                "bookingCTANotes": "Book links present but most labelled '*available soon', limiting actual conversion",
+                "mixedOfferings": true,
+                "mixedOfferingsNote": "This page is entirely wellbeing/treatment focused — not a drop-in yoga class page. Relevant only for red light therapy group classes.",
+                "addressOnPage": false,
+                "longPhilosophyText": true,
+                "longPhilosophyTextNotes": "Detailed explanation of red light therapy science (wavelengths, ATP production) which adds length without aiding quick booking decisions",
+                "shortClassDescriptions": true,
+                "pageTitleIncludesCityAndType": false,
+                "clearH1": true,
+                "h1Text": "WELLBEING treatments",
+                "localBusinessSchema": "not confirmed",
+                "uniqueCopy": true,
+                "imageAltText": true,
+                "conversionScore": 4,
+                "conversionScoreNotes": "Prices are listed clearly but most 1:1 booking links say 'available soon'. Red light class info is good but no schedule embed. Page mixes treatments with group classes making it harder to navigate for drop-in visitors.",
+                "seoScore": 5,
+                "seoScoreNotes": "Specific treatment names like 'Clinical Hypnotherapy Berlin' and 'Red Light Therapy Berlin' could rank well. H1 is descriptive. However no address, no LocalBusiness schema confirmed, and city name only appears in image alt text and practitioner context."
+              }
+            ]
+          },
+          "cat_mnvuikg5_1fe7a2f0": {
+            "categoryId": "cat_mnvuikg5_1fe7a2f0",
+            "records": [
+              {
+                "url": "https://www.shalastudios.com/academy",
+                "pageTitle": "The Sha-La Academy",
+                "pageType": "academy_index",
+                "location": "Berlin, Germany",
+                "trainings": [
+                  {
+                    "name": "200h Multi-Style Yoga Teacher Training",
+                    "hours": 200,
+                    "dates": "February–June 2027",
+                    "instructor": "Sha & Chris",
+                    "price_regular": "€3,500",
+                    "price_early_bird": "€2,900 (until Nov 15, 2026)",
+                    "style": "Multi-style",
+                    "detailsUrl": "https://www.shalastudios.com/200hteachertraining",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "25H Group Hypnosis & Sound Facilitator Training",
+                    "hours": 25,
+                    "dates": "15–17 May 2026",
+                    "instructor": "Rawad",
+                    "price_regular": "€415",
+                    "price_early_bird": "€365 (until Mar 31, 2026)",
+                    "style": "Hypnosis & Sound",
+                    "detailsUrl": "https://www.shalastudios.com/hypnosisntrainingwrawad",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23277#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "Flexibility Weekend w/ Rebecca Hannah",
+                    "hours": null,
+                    "dates": "30–31 May 2026",
+                    "instructor": "Rebecca Hannah",
+                    "price_regular": null,
+                    "price_early_bird": null,
+                    "style": "Flexibility",
+                    "location_note": "SHA-LA Studios Pberg & Waterfront",
+                    "detailsUrl": "https://www.shalastudios.com/flexibilityweekendwithrebeccahannah",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/admin/index.html#/events",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "25H Essence of Kundalini",
+                    "hours": 25,
+                    "dates": "29–31 May 2026",
+                    "instructor": "Il'il Sat Prem",
+                    "price_regular": "€345",
+                    "price_early_bird": "€295 (until Mar 15, 2026)",
+                    "style": "Kundalini",
+                    "detailsUrl": "https://www.shalastudios.com/kundaliniteachertraining",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=20681#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "20H Katonah Yoga® & Philosophy Immersion",
+                    "hours": 20,
+                    "dates": "05–07 June 2026",
+                    "instructor": "Ben Kalra",
+                    "price_regular": "€345",
+                    "price_early_bird": "€295 (until Mar 15, 2026)",
+                    "style": "Katonah Yoga",
+                    "detailsUrl": "https://www.shalastudios.com/katonahteachertraining",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "Diving Deeper into Yin Yoga – A Weekend Immersion",
+                    "hours": null,
+                    "dates": "05–06 September 2026",
+                    "instructor": "Sarah Powers",
+                    "price_regular": "€150",
+                    "price_early_bird": null,
+                    "style": "Yin Yoga",
+                    "detailsUrl": "https://www.shalastudios.com/yin-yoga-immersion-with-sarah-powers",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23282#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "20H The Inverted State",
+                    "hours": 20,
+                    "dates": "25–27 September 2026",
+                    "instructor": "Miles Mortensen",
+                    "price_regular": "€450",
+                    "price_early_bird": "€400 (until May 15, 2026)",
+                    "style": "Inversions",
+                    "detailsUrl": "https://www.shalastudios.com/20h-milesmortensen",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23401#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "30H Advanced Multi-Lineage Intensive",
+                    "hours": 30,
+                    "dates": "02–04 October 2026",
+                    "instructor": "Ambra Vallo",
+                    "price_regular": "€550",
+                    "price_early_bird": "€490 (until Aug 15, 2026)",
+                    "style": "Multi-Lineage",
+                    "detailsUrl": "https://www.shalastudios.com/30hmulti-lineage-training",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "10H Yin Yoga Hip Anatomy",
+                    "hours": 10,
+                    "dates": "10–11 October 2026",
+                    "instructor": "Franziska Gottschlich",
+                    "price_regular": "€250",
+                    "price_early_bird": "€210 (until Aug 15, 2026)",
+                    "style": "Yin Yoga / Anatomy",
+                    "detailsUrl": "https://www.shalastudios.com/10h-hip-anatomy-training",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23278#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "20H Private Teaching 1-on-1",
+                    "hours": 20,
+                    "dates": "16–18 October 2026",
+                    "instructor": "Felicia and Christiane Walker",
+                    "price_regular": "€375",
+                    "price_early_bird": "€320 (until Jul 15, 2026)",
+                    "style": "Private Teaching",
+                    "detailsUrl": "https://www.shalastudios.com/20h-private-teaching",
+                    "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23518#/login-with-cart",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "15H Yin Yoga – Refined Yin Teaching and Hands-On Assists",
+                    "hours": 15,
+                    "dates": "24–25 October 2026",
+                    "instructor": "Matthäa",
+                    "price_regular": "€250",
+                    "price_early_bird": null,
+                    "style": "Yin Yoga",
+                    "detailsUrl": "https://www.shalastudios.com/yinyogateachertraining",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "50H Yin Yoga Teacher Training (YACEP)",
+                    "hours": 50,
+                    "dates": "06–08 Nov & 20–22 Nov 2026",
+                    "instructor": "Matthäa",
+                    "price_regular": "€900",
+                    "price_early_bird": "€800 (until June 15, 2026)",
+                    "style": "Yin Yoga",
+                    "accreditation": "YACEP",
+                    "detailsUrl": "https://www.shalastudios.com/yinteachertraining",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "25H Hands-On Assists",
+                    "hours": 25,
+                    "dates": "13–15 November 2026",
+                    "instructor": "Alex Perez",
+                    "price_regular": "€440",
+                    "price_early_bird": "€390 (until Aug 15, 2026)",
+                    "style": "Hands-On Assists",
+                    "detailsUrl": "https://www.shalastudios.com/handson-alex",
+                    "bookUrl": "https://www.shalastudios.com/ttshop",
+                    "curriculumOnPage": false
+                  },
+                  {
+                    "name": "Yoga Apprenticeship Program",
+                    "hours": null,
+                    "dates": null,
+                    "instructor": null,
+                    "price_regular": "€1,200",
+                    "price_early_bird": null,
+                    "style": "Mentorship / Apprenticeship",
+                    "payment_note": "Payment in installments available",
+                    "detailsUrl": "https://www.shalastudios.com/yogateacherapprenticeship",
+                    "bookUrl": "mailto:hello@shalastudios.com?subject=Yoga%20Apprenticeship%20Program",
+                    "curriculumOnPage": false
+                  }
+                ],
+                "teacherBiosOnPage": false,
+                "reviewsOnPage": false,
+                "fiveFacts_visible_before_philosophy": {
+                  "dates": true,
+                  "location": "partial — Berlin mentioned in intro, not per-training",
+                  "price": true,
+                  "what": "partial — names only, no curriculum detail",
+                  "howLong": "partial — hours listed, days listed per training"
+                },
+                "curriculumDepth": "none on this page — all curriculum behind links",
+                "seo": {
+                  "pageTitleIncludesHoursAndCity": false,
+                  "h1": "The Sha-La Academy",
+                  "h1MatchesTitle": true,
+                  "courseSchema": false,
+                  "faqSchema": false,
+                  "imageAltText": "partial — some images have alt text, some do not",
+                  "uniquePhotos": true
+                },
+                "issues": [
+                  "No teacher bios on page",
+                  "No student reviews or outcomes",
+                  "No curriculum detail — all behind clicks",
+                  "Flexibility Weekend missing price",
+                  "Multiple unrelated trainings mixed on one index page",
+                  "Page title does not include hours or city for SEO",
+                  "No course or FAQ schema evident",
+                  "Some images missing alt text",
+                  "Apprenticeship has no dates listed"
+                ],
+                "conversionScore": 5,
+                "seoScore": 3
+              },
+              {
+                "url": "https://www.shalastudios.com/apprenticeship",
+                "pageTitle": null,
+                "pageType": "404_error",
+                "error": "Page not found — URL appears broken or deleted",
+                "conversionScore": 1,
+                "seoScore": 1
+              }
+            ]
+          },
+          "cat_mnvuikg5_0f755ebb": {
+            "categoryId": "cat_mnvuikg5_0f755ebb",
+            "records": [
+              {
+                "retreatName": "Be the Leaf - Spring Retreat",
+                "when": "March 12–15, 2026",
+                "where": "Haven Havelland, 90 min from Berlin",
+                "price": "Not stated on this page",
+                "what": "Yoga retreat (style not specified)",
+                "howLong": "4 days",
+                "teachers": [
+                  "Dariia",
+                  "Ilayda"
+                ],
+                "includes": "Not specified",
+                "dailySchedule": "Not provided",
+                "bookingMethod": "Google Form",
+                "detailsLink": "https://www.shalastudios.com/retreats-1/be-the-leaf",
+                "bookLink": "https://docs.google.com/forms/d/e/1FAIpQLSdpXk-yz09o7ln-g3WEX43tYZON8ZUOkXCQZLB_0uykTKq50g/viewform",
+                "imageAltText": "Two women practicing yoga indoors, one in a bridge pose against a brick wall and the other sitting cross-legged on the floor touching her foot with her hand.",
+                "conversionScore": 4,
+                "seoScore": 3,
+                "conversionNotes": "Dates and location are visible near the top, which is good. However, price, yoga style, inclusions, and daily schedule are all missing from this listing. Visitor must click away to get basic facts.",
+                "seoNotes": "No dedicated page title or H1 visible for this retreat. No schema markup evident. Location is vague ('90 min from Berlin' rather than a town name). Retreat is mixed with another retreat on the same page, diluting relevance signals."
+              },
+              {
+                "retreatName": "Where We Bloom Retreat",
+                "when": "April 30 – May 3 (year not stated)",
+                "where": "Haus Erlengrund, Buckow (Märkische Schweiz)",
+                "price": "See external link (early bird available until Feb 14)",
+                "what": "Yoga retreat (style not specified)",
+                "howLong": "4 days",
+                "teachers": [
+                  "Habiba Jaziri",
+                  "Sebastian Lifka"
+                ],
+                "includes": "Not specified",
+                "dailySchedule": "Not provided",
+                "bookingMethod": "Google Form",
+                "detailsLink": "https://www.shalastudios.com/retreat-where-we-bloom",
+                "bookLink": "https://docs.google.com/forms/d/e/1FAIpQLSc0N8ok7ISY44h-YFFanUk8P003mUa_2-PrboI1crS2EJxvfg/viewform",
+                "pricingExternalLink": "https://www.hej-elements.com/spring-retreat",
+                "imageAltText": "A cozy bedroom with a bed near a large window showing trees outside, combined with an outdoor scene of a lush, green forest path at sunset.",
+                "conversionScore": 3,
+                "seoScore": 3,
+                "conversionNotes": "Location is more specific (Buckow, named venue), which is positive. However, price is hidden behind an external link, year is missing from dates, yoga style and inclusions are absent, and no schedule is provided. Visitors must visit two other sites to get basic facts.",
+                "seoNotes": "Same issues as the first retreat: no clear title or H1 for this specific retreat, no schema, and being listed alongside another retreat on one page splits topical focus. External pricing link may confuse crawlers about canonical content."
+              }
+            ]
+          },
+          "cat_mnvuikg5_5cbfd899": {
+            "categoryId": "cat_mnvuikg5_5cbfd899",
+            "records": [
+              {
+                "url": "https://www.shalastudios.com/contact",
+                "businessName": "SHA-LA Studios",
+                "locations": [
+                  "SHA-LA XBerg",
+                  "SHA-LA PBerg"
+                ],
+                "address": null,
+                "phone": null,
+                "email": "hello@shalastudios.com",
+                "map": false,
+                "openingHours": null,
+                "contactFormPresent": true,
+                "napConsistency": "incomplete – no street address or phone number found",
+                "localBusinessSchema": false,
+                "uniqueCopy": true,
+                "aboveFoldElements": {
+                  "address": false,
+                  "phone": false,
+                  "email": false,
+                  "map": false,
+                  "openingHours": false
+                },
+                "conversionScore": 3,
+                "seoScore": 2,
+                "notes": "Contact page includes a contact form and email address but lacks a physical address, phone number, map embed, and opening hours. Two studio locations are mentioned (Kreuzberg and Prenzlauer Berg) but no NAP details are provided for either. No LocalBusiness schema detected. Conversion path is limited to a form submission or email; visitors cannot quickly find or navigate to the studio."
+              }
+            ]
+          }
+        },
+        "parse-links": {
+          "links": [
+            {
+              "label": "SCHEDULE",
+              "href": "https://www.shalastudios.com/schedule"
+            },
+            {
+              "label": "BOOK CLASS",
+              "href": "https://www.shalastudios.com/book-class"
+            },
+            {
+              "label": "STUDIOS",
+              "href": "https://www.shalastudios.com/studios"
+            },
+            {
+              "label": "WELLBEING TREATMENTS",
+              "href": "https://www.shalastudios.com/wellbeing-treatments"
+            },
+            {
+              "label": "ACADEMY",
+              "href": "https://www.shalastudios.com/academy"
+            },
+            {
+              "label": "KREUZBERG – WATERFRONT",
+              "href": "https://www.shalastudios.com/events-kreuzberg"
+            },
+            {
+              "label": "PRENZLAUER BERG - KASTANIENALLEE",
+              "href": "https://www.shalastudios.com/events-kreuzberg-1"
+            },
+            {
+              "label": "RETREATS",
+              "href": "https://www.shalastudios.com/academy-1"
+            },
+            {
+              "label": "TEAM",
+              "href": "https://www.shalastudios.com/team"
+            },
+            {
+              "label": "SHA-LA",
+              "href": "https://www.shalastudios.com/about"
+            },
+            {
+              "label": "CONTACT",
+              "href": "https://www.shalastudios.com/contact"
+            },
+            {
+              "label": "Folder: EVENTS",
+              "href": "https://www.shalastudios.com/events"
+            },
+            {
+              "label": "Folder: ABOUT",
+              "href": "https://www.shalastudios.com/shala"
+            },
+            {
+              "label": "Yoga apprenticeship program",
+              "href": "https://www.shalastudios.com/apprenticeship"
+            },
+            {
+              "label": "Datenschutz",
+              "href": "https://www.shalastudios.com/datenschutz"
+            },
+            {
+              "label": "AGB",
+              "href": "https://www.shalastudios.com/agb"
+            }
+          ]
+        },
+        "run-lighthouse": {
+          "cat_mnvuikg5_7c9cd86a": {
+            "url": "https://www.shalastudios.com",
+            "performance": 35,
+            "accessibility": 91,
+            "seo": 92,
+            "bestPractices": 79
+          }
+        },
+        "progress": {
+          "cat_mnvuikg5_7c9cd86a": {
+            "detect-tech": "completed",
+            "run-lighthouse": "completed",
+            "assess-pages": "completed",
+            "extract-pages-content": "completed"
+          },
+          "cat_mnvuikg5_2f0ab3da": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "assess-pages": "completed",
+            "extract-pages-content": "completed"
+          },
+          "cat_mnvuikg5_1fe7a2f0": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "assess-pages": "completed",
+            "extract-pages-content": "completed"
+          },
+          "cat_mnvuikg5_0f755ebb": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "assess-pages": "completed",
+            "extract-pages-content": "completed"
+          },
+          "cat_mnvuikg5_5cbfd899": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "assess-pages": "completed",
+            "extract-pages-content": "completed"
+          }
+        }
+      },
+      "queries": [
+        {
+          "id": "q_mnvuiqqm_18b3ada6",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "stage": "classify-nav",
+          "model": "claude-haiku-4-5",
+          "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"home\": the homepage of the website\n- \"drop in\": single-session classes, schedules, timetables, class prices, walk-in classes, book a class\n- \"training\": multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs, academy\n- \"retreat\": multi-day immersive stays away from the studio (abroad, in nature, residential retreats)\n- \"contact\": contact page, about-with-contact, location page\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+          "dataRefs": [
+            "https://www.shalastudios.com/schedule",
+            "https://www.shalastudios.com/book-class",
+            "https://www.shalastudios.com/studios",
+            "https://www.shalastudios.com/wellbeing-treatments",
+            "https://www.shalastudios.com/academy",
+            "https://www.shalastudios.com/events-kreuzberg",
+            "https://www.shalastudios.com/events-kreuzberg-1",
+            "https://www.shalastudios.com/academy-1",
+            "https://www.shalastudios.com/team",
+            "https://www.shalastudios.com/about",
+            "https://www.shalastudios.com/contact",
+            "https://www.shalastudios.com/events",
+            "https://www.shalastudios.com/shala",
+            "https://www.shalastudios.com/apprenticeship",
+            "https://www.shalastudios.com/datenschutz",
+            "https://www.shalastudios.com/agb"
+          ],
+          "response": "{\n  \"home\": [\"https://www.shalastudios.com/about\"],\n  \"drop in\": [\n    \"https://www.shalastudios.com/schedule\",\n    \"https://www.shalastudios.com/book-class\",\n    \"https://www.shalastudios.com/wellbeing-treatments\"\n  ],\n  \"training\": [\n    \"https://www.shalastudios.com/academy\",\n    \"https://www.shalastudios.com/apprenticeship\"\n  ],\n  \"retreat\": [\"https://www.shalastudios.com/academy-1\"],\n  \"contact\": [\"https://www.shalastudios.com/contact\"]\n}",
+          "createdAt": "2026-04-12T14:15:18.238Z"
+        },
+        {
+          "id": "q_mnvujrtn_8ca1dcb0",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_7c9cd86a",
+          "stage": "assess-pages",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge a business homepage. A visitor lands here first. Good homepage: clear value proposition above the fold, easy navigation to key pages (classes, pricing, contact), professional look, fast loading. Bad homepage: wall of text, unclear what the business does, buried navigation. Score each page 1-10 twice: conversionScore (does the homepage make a visitor want to stay and explore?) and seoScore (title, H1, meta description, schema). Return only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com",
+            "https://www.shalastudios.com/about"
+          ],
+          "response": "{\"pages\":[{\"url\":\"https://www.shalastudios.com\",\"pageName\":\"Homepage\",\"conversionScore\":7,\"seoScore\":5,\"notes\":\"Strong visual identity and clear CTAs for classes, treatments, and trainings, but the hero H1 is poetic rather than keyword-rich, there's no visible meta description or schema markup, and image alt texts are inconsistent, limiting organic discoverability.\"},{\"url\":\"https://www.shalastudios.com/about\",\"pageName\":\"About\",\"conversionScore\":5,\"seoScore\":4,\"notes\":\"Warm brand storytelling and founder bios build trust, but the H1 is just 'ABOUT' with no keywords, there are no structured CTAs to book or enroll, and schema/meta signals appear absent.\"}]}",
+          "createdAt": "2026-04-12T14:16:06.299Z"
+        },
+        {
+          "id": "q_mnvujz8j_a1401d7e",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_7c9cd86a",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge a business homepage. A visitor lands here first. Good homepage: clear value proposition above the fold, easy navigation to key pages (classes, pricing, contact), professional look, fast loading. Bad homepage: wall of text, unclear what the business does, buried navigation. Score each page 1-10 twice: conversionScore (does the homepage make a visitor want to stay and explore?) and seoScore (title, H1, meta description, schema). Return only valid JSON. No markdown, no code fences.\n\n---\nUsing the category description above, extract structured records from the page text below.\nReturn ONLY a JSON object with a \"records\" key holding an array of objects.\nEach object's fields are up to you based on the category description, but keep field names consistent across records within this response.\nIf no records are found, return { \"records\": [] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com",
+            "https://www.shalastudios.com/about"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.shalastudios.com\",\n      \"pageType\": \"homepage\",\n      \"businessName\": \"SHA-LA Studios\",\n      \"businessCategory\": \"Yoga, Wellbeing & Teacher Trainings Studio\",\n      \"location\": \"Berlin, Germany\",\n      \"valueProposition\": \"Berlin's leading Hub for Yoga, Wellbeing & Teacher Trainings\",\n      \"keyOfferings\": [\"Yoga classes\", \"Pilates classes\", \"Sound healing\", \"Breathwork\", \"1:1 treatments\", \"Massage\", \"Bodywork\", \"Red light therapy\", \"Teacher trainings\", \"Advanced education\"],\n      \"ctaButtons\": [\"explore classes\", \"DISCOVER OUR STUDIOS\", \"Book Treatment\", \"Learn more\", \"Book your first class\", \"View all offerings\"],\n      \"navigationClarity\": \"Clear links to schedule, studios, wellbeing treatments, and academy\",\n      \"aboveTheFoldClarity\": \"Strong headline, clear value proposition, animated hero image, prominent CTAs\",\n      \"locations\": [\n        {\n          \"name\": \"Sha-La Prenzlauer Berg\",\n          \"address\": \"Kastanienallee 63, 10119 Berlin\",\n          \"size\": \"175 sqm\"\n        },\n        {\n          \"name\": \"Sha-La Kreuzberg Waterfront\",\n          \"address\": \"Falckensteinstr. 47, Backyard left, 10997 Berlin\",\n          \"size\": \"300 sqm\",\n          \"status\": \"Opening January 2026\"\n        }\n      ],\n      \"communityFeatures\": [\"Newsletter signup\", \"Community hub\"],\n      \"conversionScore\": 8,\n      \"seoScore\": 5\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/about\",\n      \"pageType\": \"about\",\n      \"businessName\": \"SHA-LA Studios\",\n      \"businessCategory\": \"Yoga, Wellbeing & Teacher Trainings Studio\",\n      \"location\": \"Prenzlauer Berg and Kreuzberg, Berlin\",\n      \"teamSize\": \"90+ teachers\",\n      \"founders\": [\"Joana Reicherts\", \"Shahed Naji\"],\n      \"founderBackground\": \"Experienced yoga practitioners passionate about community-focused wellness\",\n      \"studioAmenities\": [\"Mats\", \"Props\", \"Lockers (bring your own lock)\", \"Security doors\"],\n      \"brandPhilosophy\": \"Community-focused space; empowers individuals rather than centering teachers; honors traditional yoga while embracing diverse styles\",\n      \"ctaButtons\": [\"EXPLORE OUR SHA-LA'S\", \"MEET THE TEACHERS\"],\n      \"conversionScore\": 6,\n      \"seoScore\": 4\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:16:15.907Z"
+        },
+        {
+          "id": "q_mnvuk6ea_8ce8d79c",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_2f0ab3da",
+          "stage": "assess-pages",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga drop-in class pages.\n\nA visitor wants to answer: \"When can I come? How much? Where? What styles?\"\n\nGood page:\n- Class schedule visible near the top — day, time, style\n- Prices clear (single class, class packs, first-time deals)\n- Studio address and how to get there\n- Easy way to book or just show up\n- Short class descriptions, not long philosophy\n\nBad page:\n- Schedule hidden below a long story\n- \"What is yoga\" text on a commercial class page\n- Prices missing or \"contact us for prices\"\n- Training and retreat offers mixed in with drop-in classes\n\nSEO (Google) — check:\n- Page title names the city and class type (e.g. \"Hatha classes in Barcelona\")\n- Clear H1 matching the title\n- LocalBusiness schema with address, phone, hours\n- Unique copy, not generic boilerplate\n- Images have alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor book?\n- seoScore: how well can Google find and rank the page?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/schedule",
+            "https://www.shalastudios.com/book-class",
+            "https://www.shalastudios.com/wellbeing-treatments"
+          ],
+          "response": "{\n  \"pages\": [\n    {\n      \"url\": \"https://www.shalastudios.com/schedule\",\n      \"pageName\": \"Schedule\",\n      \"conversionScore\": 5,\n      \"seoScore\": 4,\n      \"notes\": \"The schedule widget is present but the actual class slots aren't rendered in the scraped content, prices are absent from this page, and there's no city/style in the H1 or visible LocalBusiness schema to help Google rank it for Berlin yoga searches.\"\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/book-class\",\n      \"pageName\": \"Book a Class / Pricing\",\n      \"conversionScore\": 7,\n      \"seoScore\": 4,\n      \"notes\": \"Pricing is clear and well-structured with good first-timer and drop-in options, but the page title and H1 lack city or style keywords, there's no address or schema markup visible, and the booking flow redirects off-site without explanation.\"\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/wellbeing-treatments\",\n      \"pageName\": \"Wellbeing Treatments\",\n      \"conversionScore\": 4,\n      \"seoScore\": 5,\n      \"notes\": \"Treatment descriptions and pricing are detailed, but all booking CTAs are marked 'available soon', making conversion impossible right now, and the page mixes drop-in yoga content with 1:1 therapy in a way that dilutes both audiences.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:16:25.187Z"
+        },
+        {
+          "id": "q_mnvukxg2_1fd9bd85",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_2f0ab3da",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga drop-in class pages.\n\nA visitor wants to answer: \"When can I come? How much? Where? What styles?\"\n\nGood page:\n- Class schedule visible near the top — day, time, style\n- Prices clear (single class, class packs, first-time deals)\n- Studio address and how to get there\n- Easy way to book or just show up\n- Short class descriptions, not long philosophy\n\nBad page:\n- Schedule hidden below a long story\n- \"What is yoga\" text on a commercial class page\n- Prices missing or \"contact us for prices\"\n- Training and retreat offers mixed in with drop-in classes\n\nSEO (Google) — check:\n- Page title names the city and class type (e.g. \"Hatha classes in Barcelona\")\n- Clear H1 matching the title\n- LocalBusiness schema with address, phone, hours\n- Unique copy, not generic boilerplate\n- Images have alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor book?\n- seoScore: how well can Google find and rank the page?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nUsing the category description above, extract structured records from the page text below.\nReturn ONLY a JSON object with a \"records\" key holding an array of objects.\nEach object's fields are up to you based on the category description, but keep field names consistent across records within this response.\nIf no records are found, return { \"records\": [] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/schedule",
+            "https://www.shalastudios.com/book-class",
+            "https://www.shalastudios.com/wellbeing-treatments"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.shalastudios.com/schedule\",\n      \"pageType\": \"schedule\",\n      \"studioName\": \"SHA-LA Studios\",\n      \"city\": \"Berlin\",\n      \"locations\": [\"Waterfront\", \"Prenzlauer Berg\"],\n      \"scheduleVisible\": true,\n      \"scheduleDetail\": \"Weekly calendar with day/date filters visible, but actual class times and specific sessions are not rendered in the page text — only filter UI and class type/teacher lists are shown\",\n      \"classStyles\": [\n        \"Vinyasa\", \"Power Vinyasa\", \"Hatha\", \"Yin Yoga\", \"Pilates\", \"Jivamukti\",\n        \"Pilates Barre Mat Fusion\", \"Deep Stretch Vinyasa\", \"Restorative\",\n        \"Sound Bath\", \"Breathwork\", \"Hypnosis\", \"Kundalini\", \"Prenatal Yoga\",\n        \"Postnatal Yoga\", \"Handstand & Inversions\", \"Body Mobility Flow\",\n        \"Red Light Therapy classes\", \"Somatic Yin\", \"Neurosonic Meditation\"\n      ],\n      \"pricesOnPage\": false,\n      \"addressOnPage\": false,\n      \"bookingCTA\": false,\n      \"thirdPartyPartners\": [\"Wellbub\", \"Wellpass\", \"Urban Sports Club\", \"ClassPass\", \"Studio Lietz\"],\n      \"mixedOfferings\": true,\n      \"mixedOfferingsNote\": \"Specials, retreats, sound journeys, and training-related classes mixed in with regular drop-in classes\",\n      \"shortClassDescriptions\": false,\n      \"longPhilosophyText\": false,\n      \"pageTitleIncludesCityAndType\": false,\n      \"clearH1\": true,\n      \"h1Text\": \"SCHEDULE\",\n      \"localBusinessSchema\": \"not confirmed\",\n      \"uniqueCopy\": true,\n      \"imageAltText\": true,\n      \"conversionScore\": 4,\n      \"conversionScoreNotes\": \"Schedule UI is present but actual class times/details are not rendered in page text. No prices, no address, no direct booking button visible on this page.\",\n      \"seoScore\": 4,\n      \"seoScoreNotes\": \"H1 is just 'SCHEDULE' — no city or class type. Page title not confirmed to include Berlin or yoga. No address visible. Schedule content likely loaded via Yogo widget so may not be crawlable.\"\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/book-class\",\n      \"pageType\": \"booking/pricing\",\n      \"studioName\": \"SHA-LA Studios\",\n      \"city\": \"Berlin\",\n      \"locations\": [\"Kastnaienallee (mentioned in Trial Pass)\"],\n      \"scheduleVisible\": false,\n      \"pricesOnPage\": true,\n      \"pricingOptions\": [\n        {\"name\": \"Drop-In\", \"price\": \"€20\", \"validity\": \"1 month\", \"notes\": \"Single class from regular schedule\"},\n        {\"name\": \"High Five (5 Credit Bundle)\", \"price\": \"€85\", \"validity\": \"3 months\"},\n        {\"name\": \"A Ten Out Of Ten (10 Credit Bundle)\", \"price\": \"€149\", \"validity\": \"6 months\"},\n        {\"name\": \"Berlin Lover (Week Pass)\", \"price\": \"€48\", \"validity\": \"1 week\", \"notes\": \"Unlimited classes, max 1/day\"},\n        {\"name\": \"Trial Pass (2 weeks)\", \"price\": \"€49\", \"validity\": \"2 weeks\", \"notes\": \"First-timers only, unlimited classes max 1/day\"},\n        {\"name\": \"Monthly Membership\", \"price\": \"€85\", \"validity\": \"monthly\"},\n        {\"name\": \"SHA-LA Waterfront Opening Special (5 classes)\", \"price\": \"€50\"},\n        {\"name\": \"Wellpass Members\", \"price\": \"€0\", \"notes\": \"Must also book via SHA-LA platform\"},\n        {\"name\": \"Wellhub/Gympass Members\", \"price\": \"€0\", \"notes\": \"Must also book via SHA-LA platform\"}\n      ],\n      \"firstTimeDeal\": true,\n      \"firstTimeDealDetails\": \"Trial Pass: 2 weeks unlimited for €49, first-timers only\",\n      \"noShowPolicy\": \"€5 fine for no-shows\",\n      \"addressOnPage\": false,\n      \"bookingCTA\": true,\n      \"bookingCTANotes\": \"Buy buttons present for each pass type, linking to Yogo booking system\",\n      \"mixedOfferings\": false,\n      \"longPhilosophyText\": false,\n      \"pageTitleIncludesCityAndType\": false,\n      \"clearH1\": true,\n      \"h1Text\": \"BOOK YOUR CLASS\",\n      \"localBusinessSchema\": \"not confirmed\",\n      \"uniqueCopy\": true,\n      \"imageAltText\": true,\n      \"conversionScore\": 7,\n      \"conversionScoreNotes\": \"Prices are clear and well structured, first-timer deal is prominent, booking buttons are present. Loses points for no address, no schedule link to cross-reference, and no class style descriptions to help visitors choose.\",\n      \"seoScore\": 4,\n      \"seoScoreNotes\": \"H1 is generic 'BOOK YOUR CLASS' with no city or style mention. No address. Pricing content is good for users but page lacks geo/type signals for SEO.\"\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/wellbeing-treatments\",\n      \"pageType\": \"wellbeing/treatments\",\n      \"studioName\": \"SHA-LA Studios\",\n      \"city\": \"Berlin\",\n      \"locations\": [\"not specified on this page\"],\n      \"scheduleVisible\": false,\n      \"pricesOnPage\": true,\n      \"pricingOptions\": [\n        {\"name\": \"Body Work / Hands-on Massage\", \"price\": \"€85 (60 min) / €120 (90 min)\"},\n        {\"name\": \"Breathwork (1:1)\", \"price\": \"€90 (60 min) / €130 (90 min)\"},\n        {\"name\": \"Clinical Hypnotherapy\", \"price\": \"€140 (90 min)\"},\n        {\"name\": \"1:1 Sound Therapy\", \"price\": \"€80 (60 min)\"},\n        {\"name\": \"Red Light Therapy Group Classes\", \"price\": \"€20 drop-in or included in class passes\"}\n      ],\n      \"bookingCTA\": true,\n      \"bookingCTANotes\": \"Book links present but most labelled '*available soon', limiting actual conversion\",\n      \"mixedOfferings\": true,\n      \"mixedOfferingsNote\": \"This page is entirely wellbeing/treatment focused — not a drop-in yoga class page. Relevant only for red light therapy group classes.\",\n      \"addressOnPage\": false,\n      \"longPhilosophyText\": true,\n      \"longPhilosophyTextNotes\": \"Detailed explanation of red light therapy science (wavelengths, ATP production) which adds length without aiding quick booking decisions\",\n      \"shortClassDescriptions\": true,\n      \"pageTitleIncludesCityAndType\": false,\n      \"clearH1\": true,\n      \"h1Text\": \"WELLBEING treatments\",\n      \"localBusinessSchema\": \"not confirmed\",\n      \"uniqueCopy\": true,\n      \"imageAltText\": true,\n      \"conversionScore\": 4,\n      \"conversionScoreNotes\": \"Prices are listed clearly but most 1:1 booking links say 'available soon'. Red light class info is good but no schedule embed. Page mixes treatments with group classes making it harder to navigate for drop-in visitors.\",\n      \"seoScore\": 5,\n      \"seoScoreNotes\": \"Specific treatment names like 'Clinical Hypnotherapy Berlin' and 'Red Light Therapy Berlin' could rank well. H1 is descriptive. However no address, no LocalBusiness schema confirmed, and city name only appears in image alt text and practitioner context.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:17:00.243Z"
+        },
+        {
+          "id": "q_mnvul3at_2969ffe8",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_1fe7a2f0",
+          "stage": "assess-pages",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga teacher training (YTT) pages.\n\nA visitor is deciding: \"Should I enroll here, or keep looking?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE\n- WHAT — what you will learn, hours, style\n- HOW LONG — days or weeks\n\nGood page:\n- All 5 facts visible before any philosophy\n- Real curriculum with topics listed\n- Teacher names and short bios\n- Reviews or past student outcomes\n- Clear way to apply or book\n\nBad page:\n- \"What is yoga\" or philosophy before the price\n- \"Why choose us\" filler sections\n- Price or dates hidden far down\n- Many different training offers mixed on one page\n\nSEO (Google) — check:\n- Title names the course, hours, and city (e.g. \"200hr YTT Rishikesh\")\n- Clear H1 matching the title\n- Course schema, FAQ schema if there is a FAQ\n- Real curriculum depth — Google rewards this on training pages\n- Images with alt text, unique photos\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and enroll?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/academy",
+            "https://www.shalastudios.com/apprenticeship"
+          ],
+          "response": "{\n  \"pages\": [\n    {\n      \"url\": \"https://www.shalastudios.com/academy\",\n      \"pageName\": \"SHA-LA Academy – Training Hub\",\n      \"conversionScore\": 6,\n      \"seoScore\": 4,\n      \"notes\": \"The page shows dates, prices, and links for all trainings up front which aids decisions, but mixing 12+ unrelated programmes on one page dilutes focus, the flagship 200h YTT is buried after philosophy copy, there is no course schema, no teacher bios inline, no student reviews, several images lack meaningful alt text, and the H1 is a brand name rather than a keyword-rich title like '200hr Yoga Teacher Training Berlin'.\"\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/apprenticeship\",\n      \"pageName\": \"Yoga Apprenticeship – 404\",\n      \"conversionScore\": 1,\n      \"seoScore\": 1,\n      \"notes\": \"Page returns a 404 error, making conversion and ranking impossible; the academy hub links to it and the correct URL appears to be /yogateacherapprenticeship, so this broken link actively loses potential enrollments.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:17:07.829Z"
+        },
+        {
+          "id": "q_mnvulrpd_c7df53e4",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_1fe7a2f0",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga teacher training (YTT) pages.\n\nA visitor is deciding: \"Should I enroll here, or keep looking?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE\n- WHAT — what you will learn, hours, style\n- HOW LONG — days or weeks\n\nGood page:\n- All 5 facts visible before any philosophy\n- Real curriculum with topics listed\n- Teacher names and short bios\n- Reviews or past student outcomes\n- Clear way to apply or book\n\nBad page:\n- \"What is yoga\" or philosophy before the price\n- \"Why choose us\" filler sections\n- Price or dates hidden far down\n- Many different training offers mixed on one page\n\nSEO (Google) — check:\n- Title names the course, hours, and city (e.g. \"200hr YTT Rishikesh\")\n- Clear H1 matching the title\n- Course schema, FAQ schema if there is a FAQ\n- Real curriculum depth — Google rewards this on training pages\n- Images with alt text, unique photos\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and enroll?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nUsing the category description above, extract structured records from the page text below.\nReturn ONLY a JSON object with a \"records\" key holding an array of objects.\nEach object's fields are up to you based on the category description, but keep field names consistent across records within this response.\nIf no records are found, return { \"records\": [] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/academy",
+            "https://www.shalastudios.com/apprenticeship"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.shalastudios.com/academy\",\n      \"pageTitle\": \"The Sha-La Academy\",\n      \"pageType\": \"academy_index\",\n      \"location\": \"Berlin, Germany\",\n      \"trainings\": [\n        {\n          \"name\": \"200h Multi-Style Yoga Teacher Training\",\n          \"hours\": 200,\n          \"dates\": \"February–June 2027\",\n          \"instructor\": \"Sha & Chris\",\n          \"price_regular\": \"€3,500\",\n          \"price_early_bird\": \"€2,900 (until Nov 15, 2026)\",\n          \"style\": \"Multi-style\",\n          \"detailsUrl\": \"https://www.shalastudios.com/200hteachertraining\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"25H Group Hypnosis & Sound Facilitator Training\",\n          \"hours\": 25,\n          \"dates\": \"15–17 May 2026\",\n          \"instructor\": \"Rawad\",\n          \"price_regular\": \"€415\",\n          \"price_early_bird\": \"€365 (until Mar 31, 2026)\",\n          \"style\": \"Hypnosis & Sound\",\n          \"detailsUrl\": \"https://www.shalastudios.com/hypnosisntrainingwrawad\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23277#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"Flexibility Weekend w/ Rebecca Hannah\",\n          \"hours\": null,\n          \"dates\": \"30–31 May 2026\",\n          \"instructor\": \"Rebecca Hannah\",\n          \"price_regular\": null,\n          \"price_early_bird\": null,\n          \"style\": \"Flexibility\",\n          \"location_note\": \"SHA-LA Studios Pberg & Waterfront\",\n          \"detailsUrl\": \"https://www.shalastudios.com/flexibilityweekendwithrebeccahannah\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/admin/index.html#/events\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"25H Essence of Kundalini\",\n          \"hours\": 25,\n          \"dates\": \"29–31 May 2026\",\n          \"instructor\": \"Il'il Sat Prem\",\n          \"price_regular\": \"€345\",\n          \"price_early_bird\": \"€295 (until Mar 15, 2026)\",\n          \"style\": \"Kundalini\",\n          \"detailsUrl\": \"https://www.shalastudios.com/kundaliniteachertraining\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=20681#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"20H Katonah Yoga® & Philosophy Immersion\",\n          \"hours\": 20,\n          \"dates\": \"05–07 June 2026\",\n          \"instructor\": \"Ben Kalra\",\n          \"price_regular\": \"€345\",\n          \"price_early_bird\": \"€295 (until Mar 15, 2026)\",\n          \"style\": \"Katonah Yoga\",\n          \"detailsUrl\": \"https://www.shalastudios.com/katonahteachertraining\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"Diving Deeper into Yin Yoga – A Weekend Immersion\",\n          \"hours\": null,\n          \"dates\": \"05–06 September 2026\",\n          \"instructor\": \"Sarah Powers\",\n          \"price_regular\": \"€150\",\n          \"price_early_bird\": null,\n          \"style\": \"Yin Yoga\",\n          \"detailsUrl\": \"https://www.shalastudios.com/yin-yoga-immersion-with-sarah-powers\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23282#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"20H The Inverted State\",\n          \"hours\": 20,\n          \"dates\": \"25–27 September 2026\",\n          \"instructor\": \"Miles Mortensen\",\n          \"price_regular\": \"€450\",\n          \"price_early_bird\": \"€400 (until May 15, 2026)\",\n          \"style\": \"Inversions\",\n          \"detailsUrl\": \"https://www.shalastudios.com/20h-milesmortensen\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23401#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"30H Advanced Multi-Lineage Intensive\",\n          \"hours\": 30,\n          \"dates\": \"02–04 October 2026\",\n          \"instructor\": \"Ambra Vallo\",\n          \"price_regular\": \"€550\",\n          \"price_early_bird\": \"€490 (until Aug 15, 2026)\",\n          \"style\": \"Multi-Lineage\",\n          \"detailsUrl\": \"https://www.shalastudios.com/30hmulti-lineage-training\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"10H Yin Yoga Hip Anatomy\",\n          \"hours\": 10,\n          \"dates\": \"10–11 October 2026\",\n          \"instructor\": \"Franziska Gottschlich\",\n          \"price_regular\": \"€250\",\n          \"price_early_bird\": \"€210 (until Aug 15, 2026)\",\n          \"style\": \"Yin Yoga / Anatomy\",\n          \"detailsUrl\": \"https://www.shalastudios.com/10h-hip-anatomy-training\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23278#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"20H Private Teaching 1-on-1\",\n          \"hours\": 20,\n          \"dates\": \"16–18 October 2026\",\n          \"instructor\": \"Felicia and Christiane Walker\",\n          \"price_regular\": \"€375\",\n          \"price_early_bird\": \"€320 (until Jul 15, 2026)\",\n          \"style\": \"Private Teaching\",\n          \"detailsUrl\": \"https://www.shalastudios.com/20h-private-teaching\",\n          \"bookUrl\": \"https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23518#/login-with-cart\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"15H Yin Yoga – Refined Yin Teaching and Hands-On Assists\",\n          \"hours\": 15,\n          \"dates\": \"24–25 October 2026\",\n          \"instructor\": \"Matthäa\",\n          \"price_regular\": \"€250\",\n          \"price_early_bird\": null,\n          \"style\": \"Yin Yoga\",\n          \"detailsUrl\": \"https://www.shalastudios.com/yinyogateachertraining\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"50H Yin Yoga Teacher Training (YACEP)\",\n          \"hours\": 50,\n          \"dates\": \"06–08 Nov & 20–22 Nov 2026\",\n          \"instructor\": \"Matthäa\",\n          \"price_regular\": \"€900\",\n          \"price_early_bird\": \"€800 (until June 15, 2026)\",\n          \"style\": \"Yin Yoga\",\n          \"accreditation\": \"YACEP\",\n          \"detailsUrl\": \"https://www.shalastudios.com/yinteachertraining\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"25H Hands-On Assists\",\n          \"hours\": 25,\n          \"dates\": \"13–15 November 2026\",\n          \"instructor\": \"Alex Perez\",\n          \"price_regular\": \"€440\",\n          \"price_early_bird\": \"€390 (until Aug 15, 2026)\",\n          \"style\": \"Hands-On Assists\",\n          \"detailsUrl\": \"https://www.shalastudios.com/handson-alex\",\n          \"bookUrl\": \"https://www.shalastudios.com/ttshop\",\n          \"curriculumOnPage\": false\n        },\n        {\n          \"name\": \"Yoga Apprenticeship Program\",\n          \"hours\": null,\n          \"dates\": null,\n          \"instructor\": null,\n          \"price_regular\": \"€1,200\",\n          \"price_early_bird\": null,\n          \"style\": \"Mentorship / Apprenticeship\",\n          \"payment_note\": \"Payment in installments available\",\n          \"detailsUrl\": \"https://www.shalastudios.com/yogateacherapprenticeship\",\n          \"bookUrl\": \"mailto:hello@shalastudios.com?subject=Yoga%20Apprenticeship%20Program\",\n          \"curriculumOnPage\": false\n        }\n      ],\n      \"teacherBiosOnPage\": false,\n      \"reviewsOnPage\": false,\n      \"fiveFacts_visible_before_philosophy\": {\n        \"dates\": true,\n        \"location\": \"partial — Berlin mentioned in intro, not per-training\",\n        \"price\": true,\n        \"what\": \"partial — names only, no curriculum detail\",\n        \"howLong\": \"partial — hours listed, days listed per training\"\n      },\n      \"curriculumDepth\": \"none on this page — all curriculum behind links\",\n      \"seo\": {\n        \"pageTitleIncludesHoursAndCity\": false,\n        \"h1\": \"The Sha-La Academy\",\n        \"h1MatchesTitle\": true,\n        \"courseSchema\": false,\n        \"faqSchema\": false,\n        \"imageAltText\": \"partial — some images have alt text, some do not\",\n        \"uniquePhotos\": true\n      },\n      \"issues\": [\n        \"No teacher bios on page\",\n        \"No student reviews or outcomes\",\n        \"No curriculum detail — all behind clicks\",\n        \"Flexibility Weekend missing price\",\n        \"Multiple unrelated trainings mixed on one index page\",\n        \"Page title does not include hours or city for SEO\",\n        \"No course or FAQ schema evident\",\n        \"Some images missing alt text\",\n        \"Apprenticeship has no dates listed\"\n      ],\n      \"conversionScore\": 5,\n      \"seoScore\": 3\n    },\n    {\n      \"url\": \"https://www.shalastudios.com/apprenticeship\",\n      \"pageTitle\": null,\n      \"pageType\": \"404_error\",\n      \"error\": \"Page not found — URL appears broken or deleted\",\n      \"conversionScore\": 1,\n      \"seoScore\": 1\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:17:39.457Z"
+        },
+        {
+          "id": "q_mnvulv61_046321db",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_0f755ebb",
+          "stage": "assess-pages",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga retreat pages.\n\nA visitor wants to answer: \"Can I go? When? Where? How much? What happens each day?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE and what it includes\n- WHAT — yoga style, activities\n- HOW LONG — days\n\nGood page:\n- All 5 facts visible before the story\n- Real location — town, venue, not just \"paradise\"\n- What is included: room, food, yoga, transfers\n- Daily schedule\n- Clear way to book\n\nBad page:\n- Dates or price hidden\n- Long philosophy before facts\n- Stock photos with no real place info\n- Several different retreats mixed on one page\n\nSEO (Google) — check:\n- Title names the retreat type, place, and month (e.g. \"Yoga retreat in Bali, November\")\n- Clear H1 matching the title\n- Event or TouristTrip schema if possible\n- Real itinerary text, not filler\n- Images with alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and book?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/academy-1"
+          ],
+          "response": "{\n  \"pages\": [\n    {\n      \"url\": \"https://www.shalastudios.com/academy-1\",\n      \"pageName\": \"Retreats Listing Page\",\n      \"conversionScore\": 4,\n      \"seoScore\": 3,\n      \"notes\": \"Dates and location are present but price is missing or offsite for one retreat, no daily schedule or included amenities are shown, multiple retreats are mixed on one listing page without individual detail, the page title and H1 are unclear, no schema markup is evident, and booking sends users to an external Google Form rather than an on-site flow.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:17:43.945Z"
+        },
+        {
+          "id": "q_mnvum5oy_1d1cd7f8",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_0f755ebb",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge yoga retreat pages.\n\nA visitor wants to answer: \"Can I go? When? Where? How much? What happens each day?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE and what it includes\n- WHAT — yoga style, activities\n- HOW LONG — days\n\nGood page:\n- All 5 facts visible before the story\n- Real location — town, venue, not just \"paradise\"\n- What is included: room, food, yoga, transfers\n- Daily schedule\n- Clear way to book\n\nBad page:\n- Dates or price hidden\n- Long philosophy before facts\n- Stock photos with no real place info\n- Several different retreats mixed on one page\n\nSEO (Google) — check:\n- Title names the retreat type, place, and month (e.g. \"Yoga retreat in Bali, November\")\n- Clear H1 matching the title\n- Event or TouristTrip schema if possible\n- Real itinerary text, not filler\n- Images with alt text\n\nScore each page 1-10 twice:\n- conversionScore: how well does it help a visitor decide and book?\n- seoScore: how well can Google find and rank it?\n\nReturn only valid JSON. No markdown, no code fences.\n\n---\nUsing the category description above, extract structured records from the page text below.\nReturn ONLY a JSON object with a \"records\" key holding an array of objects.\nEach object's fields are up to you based on the category description, but keep field names consistent across records within this response.\nIf no records are found, return { \"records\": [] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/academy-1"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"retreatName\": \"Be the Leaf - Spring Retreat\",\n      \"when\": \"March 12–15, 2026\",\n      \"where\": \"Haven Havelland, 90 min from Berlin\",\n      \"price\": \"Not stated on this page\",\n      \"what\": \"Yoga retreat (style not specified)\",\n      \"howLong\": \"4 days\",\n      \"teachers\": [\"Dariia\", \"Ilayda\"],\n      \"includes\": \"Not specified\",\n      \"dailySchedule\": \"Not provided\",\n      \"bookingMethod\": \"Google Form\",\n      \"detailsLink\": \"https://www.shalastudios.com/retreats-1/be-the-leaf\",\n      \"bookLink\": \"https://docs.google.com/forms/d/e/1FAIpQLSdpXk-yz09o7ln-g3WEX43tYZON8ZUOkXCQZLB_0uykTKq50g/viewform\",\n      \"imageAltText\": \"Two women practicing yoga indoors, one in a bridge pose against a brick wall and the other sitting cross-legged on the floor touching her foot with her hand.\",\n      \"conversionScore\": 4,\n      \"seoScore\": 3,\n      \"conversionNotes\": \"Dates and location are visible near the top, which is good. However, price, yoga style, inclusions, and daily schedule are all missing from this listing. Visitor must click away to get basic facts.\",\n      \"seoNotes\": \"No dedicated page title or H1 visible for this retreat. No schema markup evident. Location is vague ('90 min from Berlin' rather than a town name). Retreat is mixed with another retreat on the same page, diluting relevance signals.\"\n    },\n    {\n      \"retreatName\": \"Where We Bloom Retreat\",\n      \"when\": \"April 30 – May 3 (year not stated)\",\n      \"where\": \"Haus Erlengrund, Buckow (Märkische Schweiz)\",\n      \"price\": \"See external link (early bird available until Feb 14)\",\n      \"what\": \"Yoga retreat (style not specified)\",\n      \"howLong\": \"4 days\",\n      \"teachers\": [\"Habiba Jaziri\", \"Sebastian Lifka\"],\n      \"includes\": \"Not specified\",\n      \"dailySchedule\": \"Not provided\",\n      \"bookingMethod\": \"Google Form\",\n      \"detailsLink\": \"https://www.shalastudios.com/retreat-where-we-bloom\",\n      \"bookLink\": \"https://docs.google.com/forms/d/e/1FAIpQLSc0N8ok7ISY44h-YFFanUk8P003mUa_2-PrboI1crS2EJxvfg/viewform\",\n      \"pricingExternalLink\": \"https://www.hej-elements.com/spring-retreat\",\n      \"imageAltText\": \"A cozy bedroom with a bed near a large window showing trees outside, combined with an outdoor scene of a lush, green forest path at sunset.\",\n      \"conversionScore\": 3,\n      \"seoScore\": 3,\n      \"conversionNotes\": \"Location is more specific (Buckow, named venue), which is positive. However, price is hidden behind an external link, year is missing from dates, yoga style and inclusions are absent, and no schedule is provided. Visitors must visit two other sites to get basic facts.\",\n      \"seoNotes\": \"Same issues as the first retreat: no clear title or H1 for this specific retreat, no schema, and being listed alongside another retreat on one page splits topical focus. External pricing link may confuse crawlers about canonical content.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:17:57.586Z"
+        },
+        {
+          "id": "q_mnvum847_057b86e3",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_5cbfd899",
+          "stage": "assess-pages",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold. Score each page 1-10 for conversionScore (clear path to reach the business) and seoScore (LocalBusiness schema, unique copy, correct NAP).\n\n---\nYou judge web pages for a business website in the category described below.\n\nScore each page 1-10 twice:\n- conversionScore: how well does the page help a visitor take the next step (book, buy, contact, enroll)?\n- seoScore: how well can a search engine find and rank the page? Check title, H1, schema, image alt text, unique copy.\n\nReturn only valid JSON with this shape:\n{\n  \"pages\": [\n    { \"url\": \"<url>\", \"pageName\": \"<short name>\", \"conversionScore\": <1-10>, \"seoScore\": <1-10>, \"notes\": \"<one sentence>\" }\n  ]\n}\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/contact"
+          ],
+          "response": "{\"pages\":[{\"url\":\"https://www.shalastudios.com/contact\",\"pageName\":\"Contact & FAQ\",\"conversionScore\":4,\"seoScore\":3,\"notes\":\"The page lacks a physical address, phone number, map, and opening hours above the fold, and shows no LocalBusiness schema or NAP data, severely limiting both conversion and local SEO value.\"}]}",
+          "createdAt": "2026-04-12T14:18:00.727Z"
+        },
+        {
+          "id": "q_mnvumd7d_ef0a6d73",
+          "requestId": "r_mnvuikg4_5f6a27f8",
+          "siteId": "site_mnvuikg5_2c669313",
+          "categoryId": "cat_mnvuikg5_5cbfd899",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold. Score each page 1-10 for conversionScore (clear path to reach the business) and seoScore (LocalBusiness schema, unique copy, correct NAP).\n\n---\nUsing the category description above, extract structured records from the page text below.\nReturn ONLY a JSON object with a \"records\" key holding an array of objects.\nEach object's fields are up to you based on the category description, but keep field names consistent across records within this response.\nIf no records are found, return { \"records\": [] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.shalastudios.com/contact"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.shalastudios.com/contact\",\n      \"businessName\": \"SHA-LA Studios\",\n      \"locations\": [\n        \"SHA-LA XBerg\",\n        \"SHA-LA PBerg\"\n      ],\n      \"address\": null,\n      \"phone\": null,\n      \"email\": \"hello@shalastudios.com\",\n      \"map\": false,\n      \"openingHours\": null,\n      \"contactFormPresent\": true,\n      \"napConsistency\": \"incomplete – no street address or phone number found\",\n      \"localBusinessSchema\": false,\n      \"uniqueCopy\": true,\n      \"aboveFoldElements\": {\n        \"address\": false,\n        \"phone\": false,\n        \"email\": false,\n        \"map\": false,\n        \"openingHours\": false\n      },\n      \"conversionScore\": 3,\n      \"seoScore\": 2,\n      \"notes\": \"Contact page includes a contact form and email address but lacks a physical address, phone number, map embed, and opening hours. Two studio locations are mentioned (Kreuzberg and Prenzlauer Berg) but no NAP details are provided for either. No LocalBusiness schema detected. Conversion path is limited to a form submission or email; visitors cannot quickly find or navigate to the studio.\"\n    }\n  ]\n}",
+          "createdAt": "2026-04-12T14:18:07.321Z"
+        }
+      ]
+    }
+  ]
+}

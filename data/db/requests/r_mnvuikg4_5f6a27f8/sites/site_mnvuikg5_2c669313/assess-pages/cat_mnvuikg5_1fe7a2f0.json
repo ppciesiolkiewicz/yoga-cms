@@ -1,0 +1,20 @@
+{
+  "categoryId": "cat_mnvuikg5_1fe7a2f0",
+  "categoryName": "training",
+  "pages": [
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "pageName": "SHA-LA Academy – Training Hub",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "notes": "The page shows dates, prices, and links for all trainings up front which aids decisions, but mixing 12+ unrelated programmes on one page dilutes focus, the flagship 200h YTT is buried after philosophy copy, there is no course schema, no teacher bios inline, no student reviews, several images lack meaningful alt text, and the H1 is a brand name rather than a keyword-rich title like '200hr Yoga Teacher Training Berlin'."
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "pageName": "Yoga Apprenticeship – 404",
+      "conversionScore": 1,
+      "seoScore": 1,
+      "notes": "Page returns a 404 error, making conversion and ranking impossible; the academy hub links to it and the correct URL appears to be /yogateacherapprenticeship, so this broken link actively loses potential enrollments."
+    }
+  ]
+}

@@ -1,0 +1,224 @@
+{
+  "categoryId": "cat_mnvuikg5_1fe7a2f0",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "pageTitle": "The Sha-La Academy",
+      "pageType": "academy_index",
+      "location": "Berlin, Germany",
+      "trainings": [
+        {
+          "name": "200h Multi-Style Yoga Teacher Training",
+          "hours": 200,
+          "dates": "February–June 2027",
+          "instructor": "Sha & Chris",
+          "price_regular": "€3,500",
+          "price_early_bird": "€2,900 (until Nov 15, 2026)",
+          "style": "Multi-style",
+          "detailsUrl": "https://www.shalastudios.com/200hteachertraining",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "25H Group Hypnosis & Sound Facilitator Training",
+          "hours": 25,
+          "dates": "15–17 May 2026",
+          "instructor": "Rawad",
+          "price_regular": "€415",
+          "price_early_bird": "€365 (until Mar 31, 2026)",
+          "style": "Hypnosis & Sound",
+          "detailsUrl": "https://www.shalastudios.com/hypnosisntrainingwrawad",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23277#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "Flexibility Weekend w/ Rebecca Hannah",
+          "hours": null,
+          "dates": "30–31 May 2026",
+          "instructor": "Rebecca Hannah",
+          "price_regular": null,
+          "price_early_bird": null,
+          "style": "Flexibility",
+          "location_note": "SHA-LA Studios Pberg & Waterfront",
+          "detailsUrl": "https://www.shalastudios.com/flexibilityweekendwithrebeccahannah",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/admin/index.html#/events",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "25H Essence of Kundalini",
+          "hours": 25,
+          "dates": "29–31 May 2026",
+          "instructor": "Il'il Sat Prem",
+          "price_regular": "€345",
+          "price_early_bird": "€295 (until Mar 15, 2026)",
+          "style": "Kundalini",
+          "detailsUrl": "https://www.shalastudios.com/kundaliniteachertraining",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=20681#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "20H Katonah Yoga® & Philosophy Immersion",
+          "hours": 20,
+          "dates": "05–07 June 2026",
+          "instructor": "Ben Kalra",
+          "price_regular": "€345",
+          "price_early_bird": "€295 (until Mar 15, 2026)",
+          "style": "Katonah Yoga",
+          "detailsUrl": "https://www.shalastudios.com/katonahteachertraining",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "Diving Deeper into Yin Yoga – A Weekend Immersion",
+          "hours": null,
+          "dates": "05–06 September 2026",
+          "instructor": "Sarah Powers",
+          "price_regular": "€150",
+          "price_early_bird": null,
+          "style": "Yin Yoga",
+          "detailsUrl": "https://www.shalastudios.com/yin-yoga-immersion-with-sarah-powers",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23282#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "20H The Inverted State",
+          "hours": 20,
+          "dates": "25–27 September 2026",
+          "instructor": "Miles Mortensen",
+          "price_regular": "€450",
+          "price_early_bird": "€400 (until May 15, 2026)",
+          "style": "Inversions",
+          "detailsUrl": "https://www.shalastudios.com/20h-milesmortensen",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23401#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "30H Advanced Multi-Lineage Intensive",
+          "hours": 30,
+          "dates": "02–04 October 2026",
+          "instructor": "Ambra Vallo",
+          "price_regular": "€550",
+          "price_early_bird": "€490 (until Aug 15, 2026)",
+          "style": "Multi-Lineage",
+          "detailsUrl": "https://www.shalastudios.com/30hmulti-lineage-training",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "10H Yin Yoga Hip Anatomy",
+          "hours": 10,
+          "dates": "10–11 October 2026",
+          "instructor": "Franziska Gottschlich",
+          "price_regular": "€250",
+          "price_early_bird": "€210 (until Aug 15, 2026)",
+          "style": "Yin Yoga / Anatomy",
+          "detailsUrl": "https://www.shalastudios.com/10h-hip-anatomy-training",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23278#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "20H Private Teaching 1-on-1",
+          "hours": 20,
+          "dates": "16–18 October 2026",
+          "instructor": "Felicia and Christiane Walker",
+          "price_regular": "€375",
+          "price_early_bird": "€320 (until Jul 15, 2026)",
+          "style": "Private Teaching",
+          "detailsUrl": "https://www.shalastudios.com/20h-private-teaching",
+          "bookUrl": "https://sha-lastudios.yogobooking.de/frontend/index.html?itemType=event&itemId=23518#/login-with-cart",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "15H Yin Yoga – Refined Yin Teaching and Hands-On Assists",
+          "hours": 15,
+          "dates": "24–25 October 2026",
+          "instructor": "Matthäa",
+          "price_regular": "€250",
+          "price_early_bird": null,
+          "style": "Yin Yoga",
+          "detailsUrl": "https://www.shalastudios.com/yinyogateachertraining",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "50H Yin Yoga Teacher Training (YACEP)",
+          "hours": 50,
+          "dates": "06–08 Nov & 20–22 Nov 2026",
+          "instructor": "Matthäa",
+          "price_regular": "€900",
+          "price_early_bird": "€800 (until June 15, 2026)",
+          "style": "Yin Yoga",
+          "accreditation": "YACEP",
+          "detailsUrl": "https://www.shalastudios.com/yinteachertraining",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "25H Hands-On Assists",
+          "hours": 25,
+          "dates": "13–15 November 2026",
+          "instructor": "Alex Perez",
+          "price_regular": "€440",
+          "price_early_bird": "€390 (until Aug 15, 2026)",
+          "style": "Hands-On Assists",
+          "detailsUrl": "https://www.shalastudios.com/handson-alex",
+          "bookUrl": "https://www.shalastudios.com/ttshop",
+          "curriculumOnPage": false
+        },
+        {
+          "name": "Yoga Apprenticeship Program",
+          "hours": null,
+          "dates": null,
+          "instructor": null,
+          "price_regular": "€1,200",
+          "price_early_bird": null,
+          "style": "Mentorship / Apprenticeship",
+          "payment_note": "Payment in installments available",
+          "detailsUrl": "https://www.shalastudios.com/yogateacherapprenticeship",
+          "bookUrl": "mailto:hello@shalastudios.com?subject=Yoga%20Apprenticeship%20Program",
+          "curriculumOnPage": false
+        }
+      ],
+      "teacherBiosOnPage": false,
+      "reviewsOnPage": false,
+      "fiveFacts_visible_before_philosophy": {
+        "dates": true,
+        "location": "partial — Berlin mentioned in intro, not per-training",
+        "price": true,
+        "what": "partial — names only, no curriculum detail",
+        "howLong": "partial — hours listed, days listed per training"
+      },
+      "curriculumDepth": "none on this page — all curriculum behind links",
+      "seo": {
+        "pageTitleIncludesHoursAndCity": false,
+        "h1": "The Sha-La Academy",
+        "h1MatchesTitle": true,
+        "courseSchema": false,
+        "faqSchema": false,
+        "imageAltText": "partial — some images have alt text, some do not",
+        "uniquePhotos": true
+      },
+      "issues": [
+        "No teacher bios on page",
+        "No student reviews or outcomes",
+        "No curriculum detail — all behind clicks",
+        "Flexibility Weekend missing price",
+        "Multiple unrelated trainings mixed on one index page",
+        "Page title does not include hours or city for SEO",
+        "No course or FAQ schema evident",
+        "Some images missing alt text",
+        "Apprenticeship has no dates listed"
+      ],
+      "conversionScore": 5,
+      "seoScore": 3
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "pageTitle": null,
+      "pageType": "404_error",
+      "error": "Page not found — URL appears broken or deleted",
+      "conversionScore": 1,
+      "seoScore": 1
+    }
+  ]
+}

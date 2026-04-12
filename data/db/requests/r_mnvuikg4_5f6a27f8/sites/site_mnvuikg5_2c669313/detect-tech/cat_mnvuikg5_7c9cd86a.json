@@ -1,0 +1,79 @@
+{
+  "platform": "Squarespace",
+  "detectedTechnologies": [
+    {
+      "name": "Squarespace Commerce",
+      "categories": [
+        "Ecommerce"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Squarespace",
+      "categories": [
+        "CMS"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Stimulus",
+      "categories": [
+        "JavaScript frameworks"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Sendinblue",
+      "categories": [
+        "Marketing automation",
+        "Email"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "parallax.js",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "HSTS",
+      "categories": [
+        "Security"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Tag Manager",
+      "categories": [
+        "Tag managers"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Facebook Pixel",
+      "categories": [
+        "Analytics"
+      ],
+      "confidence": 100
+    }
+  ],
+  "costBreakdown": [
+    {
+      "item": "Squarespace subscription",
+      "min": 16,
+      "max": 65
+    },
+    {
+      "item": "Domain registration",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "totalEstimatedMonthlyCost": {
+    "min": 17,
+    "max": 67,
+    "currency": "USD"
+  }
+}

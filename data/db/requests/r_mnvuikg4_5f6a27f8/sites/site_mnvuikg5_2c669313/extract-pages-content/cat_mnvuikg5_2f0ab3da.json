@@ -1,0 +1,192 @@
+{
+  "categoryId": "cat_mnvuikg5_2f0ab3da",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/schedule",
+      "pageType": "schedule",
+      "studioName": "SHA-LA Studios",
+      "city": "Berlin",
+      "locations": [
+        "Waterfront",
+        "Prenzlauer Berg"
+      ],
+      "scheduleVisible": true,
+      "scheduleDetail": "Weekly calendar with day/date filters visible, but actual class times and specific sessions are not rendered in the page text — only filter UI and class type/teacher lists are shown",
+      "classStyles": [
+        "Vinyasa",
+        "Power Vinyasa",
+        "Hatha",
+        "Yin Yoga",
+        "Pilates",
+        "Jivamukti",
+        "Pilates Barre Mat Fusion",
+        "Deep Stretch Vinyasa",
+        "Restorative",
+        "Sound Bath",
+        "Breathwork",
+        "Hypnosis",
+        "Kundalini",
+        "Prenatal Yoga",
+        "Postnatal Yoga",
+        "Handstand & Inversions",
+        "Body Mobility Flow",
+        "Red Light Therapy classes",
+        "Somatic Yin",
+        "Neurosonic Meditation"
+      ],
+      "pricesOnPage": false,
+      "addressOnPage": false,
+      "bookingCTA": false,
+      "thirdPartyPartners": [
+        "Wellbub",
+        "Wellpass",
+        "Urban Sports Club",
+        "ClassPass",
+        "Studio Lietz"
+      ],
+      "mixedOfferings": true,
+      "mixedOfferingsNote": "Specials, retreats, sound journeys, and training-related classes mixed in with regular drop-in classes",
+      "shortClassDescriptions": false,
+      "longPhilosophyText": false,
+      "pageTitleIncludesCityAndType": false,
+      "clearH1": true,
+      "h1Text": "SCHEDULE",
+      "localBusinessSchema": "not confirmed",
+      "uniqueCopy": true,
+      "imageAltText": true,
+      "conversionScore": 4,
+      "conversionScoreNotes": "Schedule UI is present but actual class times/details are not rendered in page text. No prices, no address, no direct booking button visible on this page.",
+      "seoScore": 4,
+      "seoScoreNotes": "H1 is just 'SCHEDULE' — no city or class type. Page title not confirmed to include Berlin or yoga. No address visible. Schedule content likely loaded via Yogo widget so may not be crawlable."
+    },
+    {
+      "url": "https://www.shalastudios.com/book-class",
+      "pageType": "booking/pricing",
+      "studioName": "SHA-LA Studios",
+      "city": "Berlin",
+      "locations": [
+        "Kastnaienallee (mentioned in Trial Pass)"
+      ],
+      "scheduleVisible": false,
+      "pricesOnPage": true,
+      "pricingOptions": [
+        {
+          "name": "Drop-In",
+          "price": "€20",
+          "validity": "1 month",
+          "notes": "Single class from regular schedule"
+        },
+        {
+          "name": "High Five (5 Credit Bundle)",
+          "price": "€85",
+          "validity": "3 months"
+        },
+        {
+          "name": "A Ten Out Of Ten (10 Credit Bundle)",
+          "price": "€149",
+          "validity": "6 months"
+        },
+        {
+          "name": "Berlin Lover (Week Pass)",
+          "price": "€48",
+          "validity": "1 week",
+          "notes": "Unlimited classes, max 1/day"
+        },
+        {
+          "name": "Trial Pass (2 weeks)",
+          "price": "€49",
+          "validity": "2 weeks",
+          "notes": "First-timers only, unlimited classes max 1/day"
+        },
+        {
+          "name": "Monthly Membership",
+          "price": "€85",
+          "validity": "monthly"
+        },
+        {
+          "name": "SHA-LA Waterfront Opening Special (5 classes)",
+          "price": "€50"
+        },
+        {
+          "name": "Wellpass Members",
+          "price": "€0",
+          "notes": "Must also book via SHA-LA platform"
+        },
+        {
+          "name": "Wellhub/Gympass Members",
+          "price": "€0",
+          "notes": "Must also book via SHA-LA platform"
+        }
+      ],
+      "firstTimeDeal": true,
+      "firstTimeDealDetails": "Trial Pass: 2 weeks unlimited for €49, first-timers only",
+      "noShowPolicy": "€5 fine for no-shows",
+      "addressOnPage": false,
+      "bookingCTA": true,
+      "bookingCTANotes": "Buy buttons present for each pass type, linking to Yogo booking system",
+      "mixedOfferings": false,
+      "longPhilosophyText": false,
+      "pageTitleIncludesCityAndType": false,
+      "clearH1": true,
+      "h1Text": "BOOK YOUR CLASS",
+      "localBusinessSchema": "not confirmed",
+      "uniqueCopy": true,
+      "imageAltText": true,
+      "conversionScore": 7,
+      "conversionScoreNotes": "Prices are clear and well structured, first-timer deal is prominent, booking buttons are present. Loses points for no address, no schedule link to cross-reference, and no class style descriptions to help visitors choose.",
+      "seoScore": 4,
+      "seoScoreNotes": "H1 is generic 'BOOK YOUR CLASS' with no city or style mention. No address. Pricing content is good for users but page lacks geo/type signals for SEO."
+    },
+    {
+      "url": "https://www.shalastudios.com/wellbeing-treatments",
+      "pageType": "wellbeing/treatments",
+      "studioName": "SHA-LA Studios",
+      "city": "Berlin",
+      "locations": [
+        "not specified on this page"
+      ],
+      "scheduleVisible": false,
+      "pricesOnPage": true,
+      "pricingOptions": [
+        {
+          "name": "Body Work / Hands-on Massage",
+          "price": "€85 (60 min) / €120 (90 min)"
+        },
+        {
+          "name": "Breathwork (1:1)",
+          "price": "€90 (60 min) / €130 (90 min)"
+        },
+        {
+          "name": "Clinical Hypnotherapy",
+          "price": "€140 (90 min)"
+        },
+        {
+          "name": "1:1 Sound Therapy",
+          "price": "€80 (60 min)"
+        },
+        {
+          "name": "Red Light Therapy Group Classes",
+          "price": "€20 drop-in or included in class passes"
+        }
+      ],
+      "bookingCTA": true,
+      "bookingCTANotes": "Book links present but most labelled '*available soon', limiting actual conversion",
+      "mixedOfferings": true,
+      "mixedOfferingsNote": "This page is entirely wellbeing/treatment focused — not a drop-in yoga class page. Relevant only for red light therapy group classes.",
+      "addressOnPage": false,
+      "longPhilosophyText": true,
+      "longPhilosophyTextNotes": "Detailed explanation of red light therapy science (wavelengths, ATP production) which adds length without aiding quick booking decisions",
+      "shortClassDescriptions": true,
+      "pageTitleIncludesCityAndType": false,
+      "clearH1": true,
+      "h1Text": "WELLBEING treatments",
+      "localBusinessSchema": "not confirmed",
+      "uniqueCopy": true,
+      "imageAltText": true,
+      "conversionScore": 4,
+      "conversionScoreNotes": "Prices are listed clearly but most 1:1 booking links say 'available soon'. Red light class info is good but no schedule embed. Page mixes treatments with group classes making it harder to navigate for drop-in visitors.",
+      "seoScore": 5,
+      "seoScoreNotes": "Specific treatment names like 'Clinical Hypnotherapy Berlin' and 'Red Light Therapy Berlin' could rank well. H1 is descriptive. However no address, no LocalBusiness schema confirmed, and city name only appears in image alt text and practitioner context."
+    }
+  ]
+}

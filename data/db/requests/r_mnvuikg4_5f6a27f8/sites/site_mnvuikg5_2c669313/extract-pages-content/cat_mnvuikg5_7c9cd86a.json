@@ -1,0 +1,80 @@
+{
+  "categoryId": "cat_mnvuikg5_7c9cd86a",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com",
+      "pageType": "homepage",
+      "businessName": "SHA-LA Studios",
+      "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+      "location": "Berlin, Germany",
+      "valueProposition": "Berlin's leading Hub for Yoga, Wellbeing & Teacher Trainings",
+      "keyOfferings": [
+        "Yoga classes",
+        "Pilates classes",
+        "Sound healing",
+        "Breathwork",
+        "1:1 treatments",
+        "Massage",
+        "Bodywork",
+        "Red light therapy",
+        "Teacher trainings",
+        "Advanced education"
+      ],
+      "ctaButtons": [
+        "explore classes",
+        "DISCOVER OUR STUDIOS",
+        "Book Treatment",
+        "Learn more",
+        "Book your first class",
+        "View all offerings"
+      ],
+      "navigationClarity": "Clear links to schedule, studios, wellbeing treatments, and academy",
+      "aboveTheFoldClarity": "Strong headline, clear value proposition, animated hero image, prominent CTAs",
+      "locations": [
+        {
+          "name": "Sha-La Prenzlauer Berg",
+          "address": "Kastanienallee 63, 10119 Berlin",
+          "size": "175 sqm"
+        },
+        {
+          "name": "Sha-La Kreuzberg Waterfront",
+          "address": "Falckensteinstr. 47, Backyard left, 10997 Berlin",
+          "size": "300 sqm",
+          "status": "Opening January 2026"
+        }
+      ],
+      "communityFeatures": [
+        "Newsletter signup",
+        "Community hub"
+      ],
+      "conversionScore": 8,
+      "seoScore": 5
+    },
+    {
+      "url": "https://www.shalastudios.com/about",
+      "pageType": "about",
+      "businessName": "SHA-LA Studios",
+      "businessCategory": "Yoga, Wellbeing & Teacher Trainings Studio",
+      "location": "Prenzlauer Berg and Kreuzberg, Berlin",
+      "teamSize": "90+ teachers",
+      "founders": [
+        "Joana Reicherts",
+        "Shahed Naji"
+      ],
+      "founderBackground": "Experienced yoga practitioners passionate about community-focused wellness",
+      "studioAmenities": [
+        "Mats",
+        "Props",
+        "Lockers (bring your own lock)",
+        "Security doors"
+      ],
+      "brandPhilosophy": "Community-focused space; empowers individuals rather than centering teachers; honors traditional yoga while embracing diverse styles",
+      "ctaButtons": [
+        "EXPLORE OUR SHA-LA'S",
+        "MEET THE TEACHERS"
+      ],
+      "conversionScore": 6,
+      "seoScore": 4
+    }
+  ]
+}
