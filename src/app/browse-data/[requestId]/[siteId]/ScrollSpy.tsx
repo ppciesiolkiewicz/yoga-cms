@@ -2,9 +2,7 @@
 
 import { useEffect } from "react"
 
-const SECTION_IDS = ["tech", "features", "navigation", "content-assessment", "contact", "extracted-data"]
-
-export function ScrollSpy() {
+export function ScrollSpy({ sectionIds }: { sectionIds: string[] }) {
   useEffect(() => {
     const html = document.documentElement
     html.style.scrollBehavior = "auto"
@@ -17,14 +15,11 @@ export function ScrollSpy() {
       html.style.scrollBehavior = "smooth"
     })
 
-    const sections = SECTION_IDS
+    const sections = sectionIds
       .map(id => document.getElementById(id))
       .filter((el): el is HTMLElement => el !== null)
     if (sections.length === 0) {
-      return () => {
-        cancelAnimationFrame(raf)
-        html.style.scrollBehavior = ""
-      }
+      return () => { cancelAnimationFrame(raf); html.style.scrollBehavior = "" }
     }
 
     let ticking = false
@@ -44,20 +39,11 @@ export function ScrollSpy() {
       }
     }
 
-    const onScroll = () => {
-      if (ticking) return
-      ticking = true
-      requestAnimationFrame(update)
-    }
-
     update()
     window.addEventListener("scroll", onScroll, { passive: true })
-    return () => {
-      cancelAnimationFrame(raf)
-      window.removeEventListener("scroll", onScroll)
-      html.style.scrollBehavior = ""
-    }
-  }, [])
+    function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update) } }
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("scroll", onScroll); html.style.scrollBehavior = "" }
+  }, [sectionIds])
 
   return null
 }
