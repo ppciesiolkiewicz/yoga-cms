@@ -80,4 +80,28 @@ describe("Repo", () => {
       name: "content.json",
     })).toBe(false)
   })
+
+  it("consolidateRequest aggregates artifacts into result.json", async () => {
+    const req = await repo.createRequest(sampleInput())
+    const siteId = req.sites[0].id
+
+    await repo.putJson({ requestId: req.id, siteId, stage: "tech", name: "tech.json" }, { platform: "WordPress" })
+    await repo.putJson(
+      { requestId: req.id, siteId, stage: "content", name: "content.json" },
+      { pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
+    )
+
+    await repo.consolidateRequest(req.id)
+
+    const result = await repo.getJson<{
+      request: { id: string }
+      sites: Array<{ siteId: string; artifacts: Record<string, unknown> }>
+    }>({ requestId: req.id, stage: "", name: "result.json" })
+
+    expect(result.request.id).toBe(req.id)
+    expect(result.sites).toHaveLength(1)
+    expect(result.sites[0].siteId).toBe(siteId)
+    expect(result.sites[0].artifacts["tech"]).toEqual({ platform: "WordPress" })
+    expect(result.sites[0].artifacts["content"]).toMatchObject({ pages: expect.any(Array) })
+  })
 })

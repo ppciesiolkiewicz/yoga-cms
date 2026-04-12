@@ -9,7 +9,7 @@ import type {
   Site,
 } from "../core/types"
 import { Store } from "./store"
-import { dbRoot, requestDir, refToPath } from "./paths"
+import { dbRoot, requestDir, siteDir, refToPath } from "./paths"
 
 export class Repo {
   readonly root: string
@@ -86,6 +86,43 @@ export class Repo {
 
   async artifactExists(ref: ArtifactRef): Promise<boolean> {
     return await this.store.exists(refToPath(this.root, ref))
+  }
+
+  async consolidateRequest(id: string): Promise<void> {
+    const request = await this.getRequest(id)
+    const sites: Array<{ siteId: string; url: string; artifacts: Record<string, unknown> }> = []
+
+    for (const site of request.sites) {
+      const stages = await this.store.listDirs(
+        join(requestDir(this.root, id), "sites", site.id),
+      )
+      const artifacts: Record<string, unknown> = {}
+      for (const stage of stages) {
+        const candidates = [
+          `${stage}.json`,
+          "classify.json", "tech.json", "lighthouse.json",
+          "content.json", "extract.json", "report.json",
+        ]
+        for (const name of candidates) {
+          const ref = { requestId: id, siteId: site.id, stage, name }
+          if (await this.artifactExists(ref)) {
+            try {
+              artifacts[stage] = await this.getJson(ref)
+            } catch {
+              // not json, skip in result.json (raw files still on disk)
+            }
+            break
+          }
+        }
+      }
+      sites.push({ siteId: site.id, url: site.url, artifacts })
+    }
+
+    const result = { request, sites }
+    await this.putJson(
+      { requestId: id, stage: "", name: "result.json" },
+      result,
+    )
   }
 }
 

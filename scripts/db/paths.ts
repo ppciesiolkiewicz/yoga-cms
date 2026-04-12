@@ -17,5 +17,5 @@ export function refToPath(root: string, ref: ArtifactRef): string {
   const base = ref.siteId
     ? siteDir(root, ref.requestId, ref.siteId)
     : requestDir(root, ref.requestId)
-  return join(base, ref.stage, ref.name)
+  return ref.stage ? join(base, ref.stage, ref.name) : join(base, ref.name)
 }

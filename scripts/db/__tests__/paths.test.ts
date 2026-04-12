@@ -24,4 +24,9 @@ describe("paths", () => {
   it("derives dbRoot from an absolute data dir", () => {
     expect(dbRoot("/abs/data")).toBe("/abs/data/db")
   })
+
+  it("builds request-scoped artifact path with empty stage", () => {
+    expect(refToPath("/tmp/db", { requestId: "r1", stage: "", name: "result.json" }))
+      .toBe("/tmp/db/requests/r1/result.json")
+  })
 })
