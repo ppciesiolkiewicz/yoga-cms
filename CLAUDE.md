@@ -13,14 +13,14 @@ Next.js 16 project — a generic site-analysis pipeline with a browse UI. The yo
 - `scripts/core/base-prompt.ts` — `BASE_PROMPT` + `generatePrompt` utility (opt-in, not called by the pipeline)
 - `scripts/db/repo.ts` — `Repo` class, the only code that touches `data/db/`
 - `scripts/db/store.ts`, `scripts/db/paths.ts` — fs primitives + ref-to-path
-- `scripts/pipeline/*` — one file per stage (fetch-home, parse-links, classify-nav, fetch-pages, detect-tech, lighthouse, assess, extract, report)
+- `scripts/pipeline/*` — one file per stage (fetch-home, parse-links, classify-nav, fetch-pages, detect-tech, run-lighthouse, assess-pages, extract-pages-content, build-report)
 - `scripts/cli/analyze.ts` — thin CLI wrapping `runAnalysis`
 - `data/db/` — request store (created on first run)
 - `data/inputs/` — sample input files
 - `src/app/browse-data/` — request list + detail pages, all data-driven from `Repo`
 
 ## Pipeline
-fetch-home → parse-links → classify-nav (haiku, uses request.categories) → fetch-pages → {detect-tech, lighthouse, assess, extract} → report. `Repo.consolidateRequest` aggregates into `result.json`.
+fetch-home → parse-links → classify-nav (haiku, uses request.categories) → fetch-pages → {detect-tech, run-lighthouse, assess-pages, extract-pages-content} → build-report. `Repo.consolidateRequest` aggregates into `result.json`.
 
 ## Key notes
 - Uses cheerio + Playwright + Firecrawl for fetching, wappalyzer-core for tech detection, Claude sonnet for content/extract and haiku for classify.

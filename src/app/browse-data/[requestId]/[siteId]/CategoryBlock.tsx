@@ -52,6 +52,82 @@ function QueryDetails({ query }: { query: QueryInfo }) {
   )
 }
 
+function getRecordSummary(record: unknown, index: number): { title: string; subtitle: string; badges: string[] } {
+  if (typeof record !== "object" || record === null) return { title: `Record ${index + 1}`, subtitle: "", badges: [] }
+  const obj = record as Record<string, unknown>
+
+  // Find a good title from common keys
+  let title = `Record ${index + 1}`
+  for (const key of ["name", "title", "studioName", "pageName", "label"]) {
+    if (typeof obj[key] === "string" && obj[key]) { title = obj[key] as string; break }
+  }
+
+  // Subtitle: url or first short string that isn't the title
+  let subtitle = ""
+  if (typeof obj.url === "string") {
+    subtitle = obj.url
+  } else {
+    for (const [, val] of Object.entries(obj)) {
+      if (typeof val === "string" && val !== title && val.length > 0 && val.length < 100) {
+        subtitle = val; break
+      }
+    }
+  }
+
+  // Collect tags from short arrays of strings
+  const badges: string[] = []
+  for (const [, val] of Object.entries(obj)) {
+    if (Array.isArray(val) && val.length > 0 && val.length <= 8 && val.every(v => typeof v === "string")) {
+      badges.push(...(val as string[]).slice(0, 5))
+      if (badges.length >= 5) break
+    }
+  }
+
+  return { title, subtitle, badges: badges.slice(0, 5) }
+}
+
+function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { record: unknown; index: number; categoryName: string; extraInfo: string }) {
+  const { title, subtitle, badges } = getRecordSummary(record, index)
+
+  return (
+    <div className="rounded-lg border border-gray-200 bg-white">
+      <div className="px-4 py-3">
+        <div className="text-base font-semibold text-gray-900">{title}</div>
+        {subtitle && (
+          subtitle.startsWith("http") ? (
+            <a href={subtitle} target="_blank" rel="noopener noreferrer" className="mt-0.5 block text-sm text-blue-600 hover:underline truncate">
+              {subtitle}
+            </a>
+          ) : (
+            <p className="mt-0.5 text-sm text-gray-600">{subtitle}</p>
+          )
+        )}
+        <div className="mt-2 text-xs text-gray-500">
+          <span className="font-medium text-gray-600">category:</span> {categoryName.toLowerCase()}
+        </div>
+        {extraInfo && (
+          <div className="text-xs text-gray-400">{extraInfo}</div>
+        )}
+        {badges.length > 0 && (
+          <div className="mt-2 flex flex-wrap gap-1">
+            {badges.map((b, i) => (
+              <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">{b}</span>
+            ))}
+          </div>
+        )}
+      </div>
+      <details className="border-t border-gray-100">
+        <summary className="cursor-pointer select-none px-4 py-2 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+          View raw JSON
+        </summary>
+        <pre className="overflow-x-auto border-t border-gray-100 bg-gray-50 px-4 py-3 text-xs text-gray-700">
+          {JSON.stringify(record, null, 2)}
+        </pre>
+      </details>
+    </div>
+  )
+}
+
 export default function CategoryBlock(props: Props) {
   const contentQuery = props.queries?.find(q => q.stage === "content") ?? null
   const extractQuery = props.queries?.find(q => q.stage === "extract") ?? null
@@ -131,9 +207,11 @@ export default function CategoryBlock(props: Props) {
             Extracted Data ({props.extractedRecords.length})
           </div>
           {extractQuery && <QueryDetails query={extractQuery} />}
-          <pre className="mt-2 overflow-x-auto rounded-lg border border-gray-100 bg-gray-50 p-4 text-xs text-gray-800">
-            {JSON.stringify(props.extractedRecords, null, 2)}
-          </pre>
+          <div className="mt-2 space-y-2">
+            {props.extractedRecords.map((record, i) => (
+              <ExtractedRecordCard key={i} record={record} index={i} categoryName={props.categoryName} extraInfo={props.extraInfo} />
+            ))}
+          </div>
         </div>
       )}
     </section>

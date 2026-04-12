@@ -46,7 +46,7 @@ async function callExtract(categoryPrompt: string, body: string): Promise<Extrac
   return { records: [], queryInfo: null }
 }
 
-export async function extractStage(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function extractPagesContentStage(repo: Repo, request: Request, site: Site): Promise<void> {
   const byCategory: Record<string, unknown[]> = {}
   for (const category of request.categories) {
     const pages = await loadCategoryPages(repo, request, site, category)
@@ -64,7 +64,7 @@ ${pages.map(p => `URL: ${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n
         requestId: request.id,
         siteId: site.id,
         categoryId: category.id,
-        stage: "extract",
+        stage: "extract-pages-content",
         model: "claude-sonnet-4-6",
         prompt: result.queryInfo.prompt,
         dataRefs: pages.map(p => p.url),
@@ -76,7 +76,7 @@ ${pages.map(p => `URL: ${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n
     byCategory[category.id] = result.records
   }
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "extract", name: "extract.json" },
+    { requestId: request.id, siteId: site.id, stage: "extract-pages-content", name: "extract-pages-content.json" },
     { byCategory },
   )
 }

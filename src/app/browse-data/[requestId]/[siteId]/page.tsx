@@ -60,7 +60,7 @@ export default async function SiteDetailPage({ params }: Params) {
       }
     | undefined
 
-  const lighthouse = site.artifacts["lighthouse"] as
+  const lighthouse = site.artifacts["run-lighthouse"] as
     | { performance: number; accessibility: number; seo: number; bestPractices: number }
     | undefined
 
@@ -73,16 +73,16 @@ export default async function SiteDetailPage({ params }: Params) {
   )?.byCategory ?? {}
 
   const content = (
-    site.artifacts["assess"] as {
+    site.artifacts["assess-pages"] as {
       categories: Array<{ categoryId: string; categoryName: string; pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }> }>
     } | undefined
   )?.categories ?? []
 
   const extract = (
-    site.artifacts["extract"] as { byCategory: Record<string, unknown[]> } | undefined
+    site.artifacts["extract-pages-content"] as { byCategory: Record<string, unknown[]> } | undefined
   )?.byCategory ?? {}
 
-  const report = site.artifacts["report"] as { scrapedAt?: string } | undefined
+  const report = site.artifacts["build-report"] as { scrapedAt?: string } | undefined
   const displayName = result.request.displayName ?? requestId
   const siteName = String(siteMeta.meta?.name ?? siteMeta.url)
 

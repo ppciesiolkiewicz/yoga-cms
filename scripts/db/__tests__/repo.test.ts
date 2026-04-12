@@ -76,8 +76,8 @@ describe("Repo", () => {
     expect(await repo.artifactExists({
       requestId: req.id,
       siteId: req.sites[0].id,
-      stage: "assess",
-      name: "assess.json",
+      stage: "assess-pages",
+      name: "assess-pages.json",
     })).toBe(false)
   })
 
@@ -87,7 +87,7 @@ describe("Repo", () => {
 
     await repo.putJson({ requestId: req.id, siteId, stage: "detect-tech", name: "detect-tech.json" }, { platform: "WordPress" })
     await repo.putJson(
-      { requestId: req.id, siteId, stage: "assess", name: "assess.json" },
+      { requestId: req.id, siteId, stage: "assess-pages", name: "assess-pages.json" },
       { pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
     )
 
@@ -102,7 +102,7 @@ describe("Repo", () => {
     expect(result.sites).toHaveLength(1)
     expect(result.sites[0].siteId).toBe(siteId)
     expect(result.sites[0].artifacts["detect-tech"]).toEqual({ platform: "WordPress" })
-    expect(result.sites[0].artifacts["assess"]).toMatchObject({ pages: expect.any(Array) })
+    expect(result.sites[0].artifacts["assess-pages"]).toMatchObject({ pages: expect.any(Array) })
     expect(result.sites[0].queries).toEqual([])
   })
 })

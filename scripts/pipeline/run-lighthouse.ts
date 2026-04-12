@@ -42,10 +42,10 @@ async function runLighthouse(url: string): Promise<LighthouseScores> {
   }
 }
 
-export async function lighthouseStage(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function runLighthouseStage(repo: Repo, request: Request, site: Site): Promise<void> {
   const scores = await runLighthouse(site.url)
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "lighthouse", name: "lighthouse.json" },
+    { requestId: request.id, siteId: site.id, stage: "run-lighthouse", name: "run-lighthouse.json" },
     scores,
   )
 }

@@ -45,10 +45,10 @@ export type StageName =
   | "classify-nav"
   | "fetch-pages"
   | "detect-tech"
-  | "lighthouse"
-  | "assess"
-  | "extract"
-  | "report"
+  | "run-lighthouse"
+  | "assess-pages"
+  | "extract-pages-content"
+  | "build-report"
 
 export interface RunOptions {
   concurrency?: number
