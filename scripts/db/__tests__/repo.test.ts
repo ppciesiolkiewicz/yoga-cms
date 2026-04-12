@@ -65,7 +65,7 @@ describe("Repo", () => {
   it("putJson/getJson round-trip typed objects", async () => {
     const req = await repo.createRequest(sampleInput())
     const siteId = req.sites[0].id
-    const ref = { requestId: req.id, siteId, stage: "tech", name: "tech.json" }
+    const ref = { requestId: req.id, siteId, stage: "detect-tech", name: "detect-tech.json" }
     await repo.putJson(ref, { platform: "WordPress", count: 3 })
     const back = await repo.getJson<{ platform: string; count: number }>(ref)
     expect(back).toEqual({ platform: "WordPress", count: 3 })
@@ -76,8 +76,8 @@ describe("Repo", () => {
     expect(await repo.artifactExists({
       requestId: req.id,
       siteId: req.sites[0].id,
-      stage: "content",
-      name: "content.json",
+      stage: "assess",
+      name: "assess.json",
     })).toBe(false)
   })
 
@@ -85,9 +85,9 @@ describe("Repo", () => {
     const req = await repo.createRequest(sampleInput())
     const siteId = req.sites[0].id
 
-    await repo.putJson({ requestId: req.id, siteId, stage: "tech", name: "tech.json" }, { platform: "WordPress" })
+    await repo.putJson({ requestId: req.id, siteId, stage: "detect-tech", name: "detect-tech.json" }, { platform: "WordPress" })
     await repo.putJson(
-      { requestId: req.id, siteId, stage: "content", name: "content.json" },
+      { requestId: req.id, siteId, stage: "assess", name: "assess.json" },
       { pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
     )
 
@@ -101,8 +101,8 @@ describe("Repo", () => {
     expect(result.request.id).toBe(req.id)
     expect(result.sites).toHaveLength(1)
     expect(result.sites[0].siteId).toBe(siteId)
-    expect(result.sites[0].artifacts["tech"]).toEqual({ platform: "WordPress" })
-    expect(result.sites[0].artifacts["content"]).toMatchObject({ pages: expect.any(Array) })
+    expect(result.sites[0].artifacts["detect-tech"]).toEqual({ platform: "WordPress" })
+    expect(result.sites[0].artifacts["assess"]).toMatchObject({ pages: expect.any(Array) })
     expect(result.sites[0].queries).toEqual([])
   })
 })

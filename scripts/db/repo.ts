@@ -123,8 +123,8 @@ export class Repo {
       for (const stage of stages) {
         const candidates = [
           `${stage}.json`,
-          "classify.json", "tech.json", "lighthouse.json",
-          "content.json", "extract.json", "report.json",
+          "classify-nav.json", "detect-tech.json", "lighthouse.json",
+          "assess.json", "extract.json", "report.json",
         ]
         for (const name of candidates) {
           const ref = { requestId: id, siteId: site.id, stage, name }

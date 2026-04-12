@@ -8,7 +8,7 @@ export async function loadCategoryPages(
   category: Category,
 ): Promise<Array<{ url: string; markdown: string }>> {
   const classify = await repo.getJson<{ byCategory: Record<string, string[]> }>({
-    requestId: request.id, siteId: site.id, stage: "classify", name: "classify.json",
+    requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json",
   })
   const index = await repo.getJson<{ pages: Array<{ id: string; url: string; status: string }> }>({
     requestId: request.id, siteId: site.id, stage: "fetch-pages", name: "index.json",

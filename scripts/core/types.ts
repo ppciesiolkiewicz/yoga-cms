@@ -41,12 +41,12 @@ export interface RequestIndexEntry {
 
 export type StageName =
   | "fetch-home"
-  | "extract-nav"
-  | "classify"
+  | "parse-links"
+  | "classify-nav"
   | "fetch-pages"
-  | "tech"
+  | "detect-tech"
   | "lighthouse"
-  | "content"
+  | "assess"
   | "extract"
   | "report"
 

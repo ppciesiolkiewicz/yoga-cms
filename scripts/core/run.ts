@@ -1,12 +1,12 @@
 import type { AnalyzeInput, RunOptions, StageName, Request, Site } from "./types"
 import { Repo } from "../db/repo"
 import { fetchHome } from "../pipeline/fetch-home"
-import { extractNav } from "../pipeline/extract-nav"
-import { classify } from "../pipeline/classify"
+import { parseLinks } from "../pipeline/parse-links"
+import { classifyNav } from "../pipeline/classify-nav"
 import { fetchPages } from "../pipeline/fetch-pages"
-import { techStage } from "../pipeline/tech"
+import { detectTechStage } from "../pipeline/detect-tech"
 import { lighthouseStage } from "../pipeline/lighthouse"
-import { contentStage } from "../pipeline/content"
+import { assessStage } from "../pipeline/assess"
 import { extractStage } from "../pipeline/extract"
 import { reportStage } from "../pipeline/report"
 
@@ -14,12 +14,12 @@ type Stage = (repo: Repo, request: Request, site: Site) => Promise<void>
 
 const STAGES: Array<{ name: StageName; fn: Stage }> = [
   { name: "fetch-home", fn: fetchHome },
-  { name: "extract-nav", fn: extractNav },
-  { name: "classify", fn: classify },
+  { name: "parse-links", fn: parseLinks },
+  { name: "classify-nav", fn: classifyNav },
   { name: "fetch-pages", fn: fetchPages },
-  { name: "tech", fn: techStage },
+  { name: "detect-tech", fn: detectTechStage },
   { name: "lighthouse", fn: lighthouseStage },
-  { name: "content", fn: contentStage },
+  { name: "assess", fn: assessStage },
   { name: "extract", fn: extractStage },
   { name: "report", fn: reportStage },
 ]
@@ -38,7 +38,7 @@ async function runSite(repo: Repo, request: Request, site: Site, opts: RunOption
       console.log(`  ✓ ${name}`)
     } catch (err) {
       console.warn(`  ✗ ${name} failed: ${err instanceof Error ? err.message : err}`)
-      if (name === "fetch-home" || name === "classify") return
+      if (name === "fetch-home" || name === "classify-nav") return
     }
   }
 }

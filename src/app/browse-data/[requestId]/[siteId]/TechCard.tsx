@@ -67,7 +67,7 @@ export function TechCard({
   if (!tech && !lighthouse) return null
 
   return (
-    <section id="tech" className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
+    <section id="detect-tech" className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
       <h2 className="mb-4 text-xl font-semibold text-gray-900">Tech</h2>
 
       {tech && (

@@ -2,7 +2,7 @@ import Anthropic from "@anthropic-ai/sdk"
 import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
 import type { Request, Site, Category, AIQuery } from "../core/types"
-import type { NavLink } from "./extract-nav"
+import type { NavLink } from "./parse-links"
 
 let _client: Anthropic | null = null
 function client(): Anthropic {
@@ -26,9 +26,9 @@ Cap each named bucket at ${PER_CATEGORY_CAP} URLs. Prefer the most informative U
 when forced to choose. Use labels as the primary signal, URLs as fallback.`
 }
 
-export async function classify(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function classifyNav(repo: Repo, request: Request, site: Site): Promise<void> {
   const navBuf = await repo.getArtifact({
-    requestId: request.id, siteId: site.id, stage: "extract-nav", name: "nav-links.json",
+    requestId: request.id, siteId: site.id, stage: "parse-links", name: "nav-links.json",
   })
   const nav = JSON.parse(navBuf.toString("utf8")) as { links: NavLink[] }
 
@@ -37,7 +37,7 @@ export async function classify(repo: Repo, request: Request, site: Site): Promis
 
   if (nav.links.length === 0) {
     await repo.putJson(
-      { requestId: request.id, siteId: site.id, stage: "classify", name: "classify.json" },
+      { requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json" },
       { byCategory },
     )
     return
@@ -64,7 +64,7 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
     id: newId("q"),
     requestId: request.id,
     siteId: site.id,
-    stage: "classify",
+    stage: "classify-nav",
     model: "claude-haiku-4-5",
     prompt: system,
     dataRefs: nav.links.map(l => l.href),
@@ -84,7 +84,7 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
   }
 
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "classify", name: "classify.json" },
+    { requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json" },
     { byCategory },
   )
 }

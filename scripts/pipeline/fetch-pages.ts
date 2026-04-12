@@ -18,7 +18,7 @@ function pageId(url: string): string {
 
 export async function fetchPages(repo: Repo, request: Request, site: Site): Promise<void> {
   const classifyBuf = await repo.getArtifact({
-    requestId: request.id, siteId: site.id, stage: "classify", name: "classify.json",
+    requestId: request.id, siteId: site.id, stage: "classify-nav", name: "classify-nav.json",
   })
   const classify = JSON.parse(classifyBuf.toString("utf8")) as {
     byCategory: Record<string, string[]>

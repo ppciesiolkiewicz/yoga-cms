@@ -115,7 +115,7 @@ function estimateCosts(technologies: DetectedTechnology[]): {
   return { costBreakdown: breakdown, total: { min, max, currency: "USD" } }
 }
 
-export async function techStage(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function detectTechStage(repo: Repo, request: Request, site: Site): Promise<void> {
   const htmlBuf = await repo.getArtifact({
     requestId: request.id, siteId: site.id, stage: "fetch-home", name: "home.html",
   })
@@ -134,7 +134,7 @@ export async function techStage(repo: Repo, request: Request, site: Site): Promi
   const { costBreakdown, total } = estimateCosts(technologies)
 
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "tech", name: "tech.json" },
+    { requestId: request.id, siteId: site.id, stage: "detect-tech", name: "detect-tech.json" },
     { platform, detectedTechnologies: technologies, costBreakdown, totalEstimatedMonthlyCost: total },
   )
 }

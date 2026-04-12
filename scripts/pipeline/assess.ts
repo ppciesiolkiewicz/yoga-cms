@@ -68,7 +68,7 @@ async function callAssess(categoryPrompt: string, body: string): Promise<AssessR
   return { pages: [], queryInfo: null }
 }
 
-export async function contentStage(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function assessStage(repo: Repo, request: Request, site: Site): Promise<void> {
   const results: CategoryAssessment[] = []
   for (const category of request.categories) {
     const pages = await loadCategoryPages(repo, request, site, category)
@@ -86,7 +86,7 @@ ${pages.map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}
         requestId: request.id,
         siteId: site.id,
         categoryId: category.id,
-        stage: "content",
+        stage: "assess",
         model: "claude-sonnet-4-6",
         prompt: result.queryInfo.prompt,
         dataRefs: pages.map(p => p.url),
@@ -98,7 +98,7 @@ ${pages.map(p => `${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}
     results.push({ categoryId: category.id, categoryName: category.name, pages: result.pages })
   }
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "content", name: "content.json" },
+    { requestId: request.id, siteId: site.id, stage: "assess", name: "assess.json" },
     { categories: results },
   )
 }

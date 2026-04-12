@@ -10,12 +10,12 @@ export async function reportStage(repo: Repo, request: Request, site: Site): Pro
     return await repo.getJson<T>(ref)
   }
 
-  const tech = await safe<unknown>("tech", "tech.json")
+  const tech = await safe<unknown>("detect-tech", "detect-tech.json")
   const lighthouse = await safe<unknown>("lighthouse", "lighthouse.json")
-  const content = await safe<unknown>("content", "content.json")
+  const content = await safe<unknown>("assess", "assess.json")
   const extract = await safe<unknown>("extract", "extract.json")
-  const classify = await safe<unknown>("classify", "classify.json")
-  const nav = await safe<unknown>("extract-nav", "nav-links.json")
+  const classify = await safe<unknown>("classify-nav", "classify-nav.json")
+  const nav = await safe<unknown>("parse-links", "nav-links.json")
 
   const siteReport = {
     siteId: site.id,

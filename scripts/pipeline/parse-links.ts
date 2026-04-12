@@ -21,7 +21,7 @@ function labelFromPath(u: URL): string {
 
 export interface NavLink { label: string; href: string }
 
-export async function extractNav(repo: Repo, request: Request, site: Site): Promise<void> {
+export async function parseLinks(repo: Repo, request: Request, site: Site): Promise<void> {
   const homeHtmlBuf = await repo.getArtifact({
     requestId: request.id, siteId: site.id, stage: "fetch-home", name: "home.html",
   })
@@ -46,7 +46,7 @@ export async function extractNav(repo: Repo, request: Request, site: Site): Prom
   })
 
   await repo.putJson(
-    { requestId: request.id, siteId: site.id, stage: "extract-nav", name: "nav-links.json" },
+    { requestId: request.id, siteId: site.id, stage: "parse-links", name: "nav-links.json" },
     { links },
   )
 }

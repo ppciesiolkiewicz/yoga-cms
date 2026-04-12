@@ -51,7 +51,7 @@ export default async function SiteDetailPage({ params }: Params) {
   const siteMeta = result.request.sites.find(s => s.id === siteId)
   if (!site || !siteMeta) notFound()
 
-  const tech = site.artifacts["tech"] as
+  const tech = site.artifacts["detect-tech"] as
     | {
         platform: string
         detectedTechnologies: Array<{ name: string; categories: string[]; version?: string; confidence?: number }>
@@ -64,16 +64,16 @@ export default async function SiteDetailPage({ params }: Params) {
     | { performance: number; accessibility: number; seo: number; bestPractices: number }
     | undefined
 
-  const nav = site.artifacts["extract-nav"] as
+  const nav = site.artifacts["parse-links"] as
     | { links: Array<{ label: string; href: string }> }
     | undefined
 
   const classify = (
-    site.artifacts["classify"] as { byCategory: Record<string, string[]> } | undefined
+    site.artifacts["classify-nav"] as { byCategory: Record<string, string[]> } | undefined
   )?.byCategory ?? {}
 
   const content = (
-    site.artifacts["content"] as {
+    site.artifacts["assess"] as {
       categories: Array<{ categoryId: string; categoryName: string; pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }> }>
     } | undefined
   )?.categories ?? []
@@ -95,7 +95,7 @@ export default async function SiteDetailPage({ params }: Params) {
   }))
 
   const sectionIds = [
-    "tech",
+    "detect-tech",
     "navigation",
     ...result.request.categories.map(c => `category-${c.id}`),
   ]
