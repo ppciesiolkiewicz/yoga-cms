@@ -1,6 +1,7 @@
 "use client"
 
 import { type ChangeEvent, useState } from "react"
+import { Globe, Plus } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import { Input } from "@/components/ui/Input"
 
@@ -20,6 +21,77 @@ function normalizeUrl(raw: string): string | null {
   } catch {
     return null
   }
+}
+
+function SiteCard({
+  url,
+  site,
+  onUpdateMeta,
+  onRemove,
+}: {
+  url: string
+  site: SelectedSite
+  onUpdateMeta: (url: string, field: "name", value: string) => void
+  onRemove: (url: string) => void
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-border-subtle bg-surface-alt/50 p-3">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-accent-subtle text-accent-fg">
+        <Globe className="h-4 w-4" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <Input
+          value={site.meta.name}
+          onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdateMeta(url, "name", e.target.value)}
+          className="h-7 w-40 text-xs"
+        />
+        <div className="mt-1 truncate text-xs text-accent-fg">{url}</div>
+        {site.title && (
+          <div className="truncate text-xs text-foreground-faint">{site.title}</div>
+        )}
+      </div>
+      <Button variant="ghost" onClick={() => onRemove(url)} className="text-foreground-faint hover:text-error">
+        &times;
+      </Button>
+    </div>
+  )
+}
+
+function AddSiteRow({
+  manualUrl,
+  setManualUrl,
+  onAdd,
+  disabled,
+}: {
+  manualUrl: string
+  setManualUrl: (v: string) => void
+  onAdd: () => void
+  disabled: boolean
+}) {
+  return (
+    <div className="flex items-center gap-3 rounded-xl border border-dashed border-border-subtle p-3">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-surface-alt text-foreground-faint">
+        <Plus className="h-4 w-4" />
+      </div>
+      <Input
+        value={manualUrl}
+        onChange={(e: ChangeEvent<HTMLInputElement>) => setManualUrl(e.target.value)}
+        onKeyDown={(e: React.KeyboardEvent) => {
+          if (e.key === "Enter") { e.preventDefault(); onAdd() }
+        }}
+        placeholder="Enter a URL, e.g. example.com"
+        className="flex-1"
+      />
+      <Button
+        variant="ghost"
+        onClick={onAdd}
+        disabled={disabled}
+        className="font-medium text-accent-fg hover:text-accent-fg"
+      >
+        Add +
+      </Button>
+    </div>
+  )
 }
 
 export function SitesSection({
@@ -45,62 +117,32 @@ export function SitesSection({
 
   return (
     <section>
-      <h2 className="mb-3 text-lg font-semibold">Selected Sites{entries.length > 0 ? ` (${entries.length})` : ""}</h2>
+      <h2 className="mb-3 text-base font-semibold">
+        Selected Sites{entries.length > 0 ? ` (${entries.length})` : ""}
+      </h2>
 
-      <div className="overflow-x-auto rounded-lg border border-border-default">
-        <table className="w-full text-left text-sm">
-          <thead className="bg-surface-alt text-xs uppercase text-foreground-muted">
-            <tr>
-              <th className="px-3 py-2">URL</th>
-              <th className="px-3 py-2">Name</th>
-              <th className="px-3 py-2 w-12"></th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-divide-default">
-            {entries.map(([url, site]) => (
-              <tr key={url}>
-                <td className="px-3 py-2">
-                  <div className="max-w-xs truncate text-accent-fg">{url}</div>
-                  <div className="truncate text-xs text-foreground-faint">{site.title}</div>
-                </td>
-                <td className="px-3 py-2">
-                  <Input
-                    value={site.meta.name}
-                    onChange={(e: ChangeEvent<HTMLInputElement>) => onUpdateMeta(url, "name", e.target.value)}
-                    className="w-40"
-                  />
-                </td>
-                <td className="px-3 py-2">
-                  <Button variant="ghost" onClick={() => onRemove(url)} className="text-error hover:text-error">
-                    &times;
-                  </Button>
-                </td>
-              </tr>
-            ))}
-            <tr className="bg-surface-alt/50">
-              <td className="px-3 py-2" colSpan={2}>
-                <Input
-                  value={manualUrl}
-                  onChange={(e: ChangeEvent<HTMLInputElement>) => setManualUrl(e.target.value)}
-                  onKeyDown={(e: React.KeyboardEvent) => { if (e.key === "Enter") { e.preventDefault(); handleAddManual() } }}
-                  placeholder="Enter a URL, e.g. example.com"
-                  className="w-full"
-                />
-              </td>
-              <td className="px-3 py-2">
-                <Button
-                  variant="ghost"
-                  onClick={handleAddManual}
-                  disabled={!manualUrl.trim()}
-                  className="text-accent-fg hover:text-accent-fg font-medium"
-                >
-                  Add +
-                </Button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div className="space-y-2">
+        {entries.map(([url, site]) => (
+          <SiteCard
+            key={url}
+            url={url}
+            site={site}
+            onUpdateMeta={onUpdateMeta}
+            onRemove={onRemove}
+          />
+        ))}
+
+        <AddSiteRow
+          manualUrl={manualUrl}
+          setManualUrl={setManualUrl}
+          onAdd={handleAddManual}
+          disabled={!manualUrl.trim()}
+        />
       </div>
+
+      <p className="mt-1 text-xs text-foreground-faint">
+        Or search above and select from results
+      </p>
     </section>
   )
 }
