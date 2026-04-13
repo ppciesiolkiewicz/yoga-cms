@@ -55,12 +55,6 @@ interface LighthouseArtifact {
   bestPractices: number
 }
 
-interface ContentAssessment {
-  categoryId: string
-  categoryName: string
-  pages: Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }>
-}
-
 interface ExtractArtifact {
   categoryId: string
   records: unknown[]
@@ -84,7 +78,6 @@ export default async function SiteDetailPage({ params }: Params) {
   // Per-category artifact maps
   const techMap = (site.artifacts["detect-tech"] ?? {}) as Record<string, TechArtifact>
   const lighthouseMap = (site.artifacts["run-lighthouse"] ?? {}) as Record<string, LighthouseArtifact>
-  const contentMap = (site.artifacts["assess-pages"] ?? {}) as Record<string, ContentAssessment>
   const extractMap = (site.artifacts["extract-pages-content"] ?? {}) as Record<string, ExtractArtifact>
   const progressMap = (site.artifacts["progress"] ?? {}) as Record<string, CategoryProgress>
 
@@ -129,14 +122,12 @@ export default async function SiteDetailPage({ params }: Params) {
 
   function renderCategory(cat: typeof result.request.categories[number]) {
     const classifiedUrls = classify[cat.id] ?? []
-    const contentPages = contentMap[cat.id]?.pages ?? []
     const extractedRecords = extractMap[cat.id]?.records ?? []
     const tech = techMap[cat.id] ?? undefined
     const lighthouse = lighthouseMap[cat.id] ?? undefined
     const progress = progressMap[cat.id] ?? undefined
     if (
       classifiedUrls.length === 0 &&
-      contentPages.length === 0 &&
       extractedRecords.length === 0 &&
       !tech &&
       !lighthouse
@@ -151,7 +142,6 @@ export default async function SiteDetailPage({ params }: Params) {
         categoryName={cat.name}
         extraInfo={cat.extraInfo}
         classifiedUrls={classifiedUrls}
-        contentPages={contentPages}
         extractedRecords={extractedRecords}
         queries={categoryQueries}
         tech={tech}

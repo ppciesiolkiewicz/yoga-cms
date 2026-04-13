@@ -1,13 +1,6 @@
 import { TechCard, LighthouseCard } from "./TechCard"
-import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
-
-interface PageAssessment {
-  url: string
-  pageName: string
-  conversionScore: number
-  seoScore: number
-  notes: string
-}
+import { RecordRenderer } from "@/components/RecordRenderer"
+import { Tooltip, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 
 interface QueryInfo {
   id: string
@@ -40,7 +33,6 @@ interface Props {
   categoryName: string
   extraInfo: string
   classifiedUrls: string[]
-  contentPages: PageAssessment[]
   extractedRecords: unknown[]
   queries?: QueryInfo[]
   tech?: TechArtifact
@@ -108,64 +100,39 @@ function QueryDetails({ query }: { query: QueryInfo }) {
   )
 }
 
-function getRecordSummary(record: unknown, index: number): { title: string; url: string; pageLabel: string; badges: string[] } {
-  if (typeof record !== "object" || record === null) return { title: `Record ${index + 1}`, url: "", pageLabel: "", badges: [] }
+function getRecordHeader(record: unknown, index: number): { title: string; url: string } {
+  if (typeof record !== "object" || record === null) return { title: `Record ${index + 1}`, url: "" }
   const obj = record as Record<string, unknown>
 
-  // Find a good title from common keys
   let title = `Record ${index + 1}`
-  for (const key of ["name", "title", "studioName", "pageName", "label"]) {
+  for (const key of ["pageName", "name", "title", "studioName", "label"]) {
     if (typeof obj[key] === "string" && obj[key]) { title = obj[key] as string; break }
   }
 
   const url = typeof obj.url === "string" ? obj.url : ""
-
-  // Page label from pageType or pageName, capitalized
-  let pageLabel = ""
-  for (const key of ["pageType", "pageName", "type"]) {
-    if (typeof obj[key] === "string" && obj[key]) {
-      pageLabel = (obj[key] as string).replace(/[-_]/g, " ").replace(/\b\w/g, c => c.toUpperCase())
-      break
-    }
-  }
-
-  // Collect tags from short arrays of strings
-  const badges: string[] = []
-  for (const [, val] of Object.entries(obj)) {
-    if (Array.isArray(val) && val.length > 0 && val.length <= 8 && val.every(v => typeof v === "string")) {
-      badges.push(...(val as string[]).slice(0, 5))
-      if (badges.length >= 5) break
-    }
-  }
-
-  return { title, url, pageLabel, badges: badges.slice(0, 5) }
+  return { title, url }
 }
 
-function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { record: unknown; index: number; categoryName: string; extraInfo: string }) {
-  const { title, url, pageLabel, badges } = getRecordSummary(record, index)
+function ExtractedRecordCard({ record, index }: { record: unknown; index: number }) {
+  const { title, url } = getRecordHeader(record, index)
+  const recordObj = (typeof record === "object" && record !== null) ? record as Record<string, unknown> : {}
 
   return (
     <div className="rounded-lg border border-gray-200 bg-white">
       <div className="px-4 py-3">
-        <div className="text-base font-semibold text-gray-900">{title}</div>
-        {url && (
-          <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-blue-600 hover:underline truncate">
-            {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
-          </a>
-        )}
-        <div className="mt-2 text-xs text-gray-500">
-          <span className="font-medium text-gray-600">category:</span> {categoryName.toLowerCase()}
-        </div>
-        {extraInfo && (
-          <div className="text-xs text-gray-400">{extraInfo}</div>
-        )}
-        {badges.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {badges.map((b, i) => (
-              <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">{b}</span>
-            ))}
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <div className="text-base font-semibold text-gray-900">{title}</div>
+            {url && (
+              <a href={url} target="_blank" rel="noopener noreferrer" className="mt-0.5 block text-sm text-blue-600 hover:underline truncate">
+                {url}
+              </a>
+            )}
           </div>
-        )}
+        </div>
+        <div className="mt-3">
+          <RecordRenderer record={recordObj} />
+        </div>
       </div>
       <Accordion className="border-t border-gray-100">
         <AccordionItem value="json">
@@ -184,7 +151,6 @@ function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { recor
 }
 
 export default function CategoryBlock(props: Props) {
-  const contentQuery = props.queries?.find(q => q.stage === "assess-pages") ?? null
   const extractQuery = props.queries?.find(q => q.stage === "extract-pages-content") ?? null
 
   return (
@@ -205,60 +171,20 @@ export default function CategoryBlock(props: Props) {
       <TechCard tech={props.tech} />
       <LighthouseCard lighthouse={props.lighthouse} />
 
-
-      {props.contentPages.length > 0 && (
+      {props.extractedRecords.length > 0 && (
         <div className="mb-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
-            Content Assessment
+          <div className="mb-2 flex items-center justify-between">
+            <div className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+              Page Analysis ({props.extractedRecords.length})
+            </div>
           </div>
-          {contentQuery && <QueryDetails query={contentQuery} />}
-          <div className="space-y-3">
-            {props.contentPages.map(p => (
-              <div
-                key={p.url}
-                className="rounded-lg border border-gray-100 bg-gray-50 p-3"
-              >
-                <div className="mb-1 flex items-start justify-between gap-2">
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-gray-900 hover:underline text-sm"
-                  >
-                    {p.pageName}
-                  </a>
-                  <div className="flex shrink-0 items-center gap-1.5">
-                    <span className="text-xs text-gray-500">Conv</span>
-                    <ScoreBadge score={p.conversionScore} />
-                    <span className="ml-1 text-xs text-gray-500">SEO</span>
-                    <ScoreBadge score={p.seoScore} />
-                  </div>
-                </div>
-                {p.notes && (
-                  <p className="mt-1 text-xs text-gray-600">{p.notes}</p>
-                )}
-              </div>
+          {extractQuery && <QueryDetails query={extractQuery} />}
+          <div className="mt-2 space-y-3">
+            {props.extractedRecords.map((record, i) => (
+              <ExtractedRecordCard key={i} record={record} index={i} />
             ))}
           </div>
         </div>
-      )}
-
-      {props.extractedRecords.length > 0 && (
-        <Accordion>
-          <AccordionItem value="extracted-data">
-            <AccordionTrigger className="text-xs font-semibold uppercase tracking-wide text-gray-500">
-              <span>Extracted Data ({props.extractedRecords.length})</span>
-            </AccordionTrigger>
-            <AccordionContent>
-              {extractQuery && <QueryDetails query={extractQuery} />}
-              <div className="mt-2 space-y-2">
-                {props.extractedRecords.map((record, i) => (
-                  <ExtractedRecordCard key={i} record={record} index={i} categoryName={props.categoryName} extraInfo={props.extraInfo} />
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
       )}
     </section>
   )
