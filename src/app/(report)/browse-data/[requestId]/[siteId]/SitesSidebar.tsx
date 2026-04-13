@@ -32,21 +32,21 @@ export function SitesSidebar({
   }, [currentSiteId])
 
   return (
-    <aside className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-gray-200 bg-white shadow-sm">
-      <div className="sticky top-0 border-b border-gray-200 bg-white px-3 py-3">
+    <aside className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-border-default bg-surface shadow-sm">
+      <div className="sticky top-0 border-b border-border-default bg-surface px-3 py-3">
         <Link
           href={`/browse-data/${requestId}`}
-          className="flex items-center gap-2 rounded-md bg-gray-100 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-200 transition-colors"
+          className="flex items-center gap-2 rounded-md bg-surface-raised px-3 py-2 text-sm font-medium text-foreground-secondary hover:bg-surface-sunken transition-colors"
         >
           <span className="text-lg leading-none">&larr;</span>
           <span className="truncate">{displayName}</span>
         </Link>
-        <span className="mt-2 block text-xs font-semibold uppercase tracking-wide text-gray-500">
+        <span className="mt-2 block text-xs font-semibold uppercase tracking-wide text-foreground-muted">
           Sites · {sites.length}
         </span>
       </div>
       <div ref={scrollRef} className="flex-1 overflow-y-auto">
-        <ul className="divide-y divide-gray-100">
+        <ul className="divide-y divide-divide-default">
           {sites.map(s => {
             const isCurrent = s.id === currentSiteId
             return (
@@ -55,13 +55,13 @@ export function SitesSidebar({
                   ref={isCurrent ? currentRef : undefined}
                   href={`/browse-data/${requestId}/${s.id}`}
                   className={`block px-3 py-2 text-sm transition-colors ${
-                    isCurrent ? "bg-blue-50 ring-1 ring-inset ring-blue-200" : "hover:bg-gray-50"
+                    isCurrent ? "bg-accent-subtle ring-1 ring-inset ring-accent-muted" : "hover:bg-surface-alt"
                   }`}
                 >
-                  <div className={`truncate font-medium ${isCurrent ? "text-blue-900" : "text-gray-900"}`}>
+                  <div className={`truncate font-medium ${isCurrent ? "text-foreground" : "text-foreground"}`}>
                     {s.name}
                   </div>
-                  <div className="mt-0.5 text-xs text-gray-500 truncate">{s.url}</div>
+                  <div className="mt-0.5 text-xs text-foreground-muted truncate">{s.url}</div>
                 </Link>
               </li>
             )

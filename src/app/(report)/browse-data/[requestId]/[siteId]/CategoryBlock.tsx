@@ -51,10 +51,10 @@ interface Props {
 
 function progressSummaryIcon(progress: Record<string, TaskStatus>): { icon: string; color: string } {
   const statuses = Object.values(progress)
-  if (statuses.some(s => s === "failed")) return { icon: "\u2716", color: "text-red-500" }
-  if (statuses.some(s => s === "running")) return { icon: "\u25CB", color: "text-blue-500 animate-pulse" }
-  if (statuses.every(s => s === "completed" || s === "not-requested")) return { icon: "\u2714", color: "text-green-500" }
-  return { icon: "\u25CB", color: "text-gray-400" }
+  if (statuses.some(s => s === "failed")) return { icon: "\u2716", color: "text-error" }
+  if (statuses.some(s => s === "running")) return { icon: "\u25CB", color: "text-accent-fg animate-pulse" }
+  if (statuses.every(s => s === "completed" || s === "not-requested")) return { icon: "\u2714", color: "text-success" }
+  return { icon: "\u25CB", color: "text-foreground-faint" }
 }
 
 function ProgressIcon({ progress }: { progress: Record<string, TaskStatus> }) {
@@ -83,21 +83,21 @@ function QueryDetails({ query }: { query: QueryInfo }) {
   return (
     <Accordion className="mt-2 text-xs">
       <AccordionItem value="query">
-        <AccordionTrigger className="text-xs text-blue-600 hover:underline py-1">
+        <AccordionTrigger className="text-xs text-accent-fg hover:underline py-1">
           <span>View AI query</span>
         </AccordionTrigger>
-        <AccordionContent className="mt-2 space-y-2 rounded border border-gray-200 bg-gray-50 p-3">
+        <AccordionContent className="mt-2 space-y-2 rounded border border-border-default bg-surface-alt p-3">
           <div>
-            <span className="font-semibold text-gray-700">Model:</span> {query.model}
+            <span className="font-semibold text-foreground-secondary">Model:</span> {query.model}
           </div>
           <div>
-            <span className="font-semibold text-gray-700">Prompt:</span>
-            <pre className="mt-1 whitespace-pre-wrap text-gray-600">{query.prompt}</pre>
+            <span className="font-semibold text-foreground-secondary">Prompt:</span>
+            <pre className="mt-1 whitespace-pre-wrap text-foreground-secondary">{query.prompt}</pre>
           </div>
           {query.dataRefs.length > 0 && (
             <div>
-              <span className="font-semibold text-gray-700">Data ({query.dataRefs.length} pages):</span>
-              <ul className="mt-1 text-gray-600">
+              <span className="font-semibold text-foreground-secondary">Data ({query.dataRefs.length} pages):</span>
+              <ul className="mt-1 text-foreground-secondary">
                 {query.dataRefs.map(ref => <li key={ref} className="truncate">{ref}</li>)}
               </ul>
             </div>
@@ -145,35 +145,35 @@ function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { recor
   const { title, url, pageLabel, badges } = getRecordSummary(record, index)
 
   return (
-    <div className="rounded-lg border border-gray-200 bg-white">
+    <div className="rounded-lg border border-border-default bg-surface">
       <div className="px-4 py-3">
-        <div className="text-base font-semibold text-gray-900">{title}</div>
+        <div className="text-base font-semibold text-foreground">{title}</div>
         {url && (
-          <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-blue-600 hover:underline truncate">
+          <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-accent-fg hover:underline truncate">
             {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
           </a>
         )}
-        <div className="mt-2 text-xs text-gray-500">
-          <span className="font-medium text-gray-600">category:</span> {categoryName.toLowerCase()}
+        <div className="mt-2 text-xs text-foreground-muted">
+          <span className="font-medium text-foreground-secondary">category:</span> {categoryName.toLowerCase()}
         </div>
         {extraInfo && (
-          <div className="text-xs text-gray-400">{extraInfo}</div>
+          <div className="text-xs text-foreground-faint">{extraInfo}</div>
         )}
         {badges.length > 0 && (
           <div className="mt-2 flex flex-wrap gap-1">
             {badges.map((b, i) => (
-              <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">{b}</span>
+              <span key={i} className="rounded-full bg-accent-subtle px-2 py-0.5 text-xs text-accent-fg">{b}</span>
             ))}
           </div>
         )}
       </div>
-      <Accordion className="border-t border-gray-100">
+      <Accordion className="border-t border-border-subtle">
         <AccordionItem value="json">
-          <AccordionTrigger className="px-4 py-2 text-xs text-gray-500 hover:bg-gray-50 hover:text-gray-700">
+          <AccordionTrigger className="px-4 py-2 text-xs text-foreground-muted hover:bg-surface-alt hover:text-foreground-secondary">
             <span>View raw JSON</span>
           </AccordionTrigger>
           <AccordionContent>
-            <pre className="overflow-x-auto border-t border-gray-100 bg-gray-50 px-4 py-3 text-xs text-gray-700">
+            <pre className="overflow-x-auto border-t border-border-subtle bg-surface-alt px-4 py-3 text-xs text-foreground-secondary">
               {JSON.stringify(record, null, 2)}
             </pre>
           </AccordionContent>
@@ -190,13 +190,13 @@ export default function CategoryBlock(props: Props) {
   return (
     <section
       id={`category-${props.categoryId}`}
-      className="mb-6 rounded-lg border border-gray-200 bg-white p-6"
+      className="mb-6 rounded-lg border border-border-default bg-surface p-6"
     >
       <div className="mb-4 flex items-start justify-between">
         <div>
-          <h2 className="text-xl font-semibold text-gray-900">{props.categoryName}</h2>
+          <h2 className="text-xl font-semibold text-foreground">{props.categoryName}</h2>
           {props.extraInfo && (
-            <p className="mt-1 text-sm text-gray-500">{props.extraInfo}</p>
+            <p className="mt-1 text-sm text-foreground-muted">{props.extraInfo}</p>
           )}
         </div>
         {props.progress && <ProgressIcon progress={props.progress} />}
@@ -208,7 +208,7 @@ export default function CategoryBlock(props: Props) {
 
       {props.contentPages.length > 0 && (
         <div className="mb-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-muted">
             Content Assessment
           </div>
           {contentQuery && <QueryDetails query={contentQuery} />}
@@ -216,26 +216,26 @@ export default function CategoryBlock(props: Props) {
             {props.contentPages.map(p => (
               <div
                 key={p.url}
-                className="rounded-lg border border-gray-100 bg-gray-50 p-3"
+                className="rounded-lg border border-border-subtle bg-surface-alt p-3"
               >
                 <div className="mb-1 flex items-start justify-between gap-2">
                   <a
                     href={p.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-medium text-gray-900 hover:underline text-sm"
+                    className="font-medium text-foreground hover:underline text-sm"
                   >
                     {p.pageName}
                   </a>
                   <div className="flex shrink-0 items-center gap-1.5">
-                    <span className="text-xs text-gray-500">Conv</span>
+                    <span className="text-xs text-foreground-muted">Conv</span>
                     <ScoreBadge score={p.conversionScore} />
-                    <span className="ml-1 text-xs text-gray-500">SEO</span>
+                    <span className="ml-1 text-xs text-foreground-muted">SEO</span>
                     <ScoreBadge score={p.seoScore} />
                   </div>
                 </div>
                 {p.notes && (
-                  <p className="mt-1 text-xs text-gray-600">{p.notes}</p>
+                  <p className="mt-1 text-xs text-foreground-secondary">{p.notes}</p>
                 )}
               </div>
             ))}
@@ -246,7 +246,7 @@ export default function CategoryBlock(props: Props) {
       {props.extractedRecords.length > 0 && (
         <Accordion>
           <AccordionItem value="extracted-data">
-            <AccordionTrigger className="text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <AccordionTrigger className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
               <span>Extracted Data ({props.extractedRecords.length})</span>
             </AccordionTrigger>
             <AccordionContent>

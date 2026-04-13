@@ -69,7 +69,7 @@ export function PageNav({ sections }: { sections: Section[] }) {
   }
 
   return (
-    <nav className="fixed top-0 right-0 z-30 w-40 rounded-bl-lg border-b border-l border-gray-200 bg-white/95 py-1.5 shadow-sm backdrop-blur-sm">
+    <nav className="fixed top-0 right-0 z-30 w-40 rounded-bl-lg border-b border-l border-border-default bg-surface/95 py-1.5 shadow-sm backdrop-blur-sm">
       {sections.map(s => {
         const isActive = activeId === s.id
         return (
@@ -78,8 +78,8 @@ export function PageNav({ sections }: { sections: Section[] }) {
             onClick={() => scrollTo(s.id)}
             className={`block w-full truncate px-3 py-1 text-left text-xs transition-colors ${
               isActive
-                ? "border-l-2 border-blue-500 bg-blue-50 font-medium text-blue-700"
-                : "border-l-2 border-transparent text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                ? "border-l-2 border-focus bg-accent-subtle font-medium text-accent-fg"
+                : "border-l-2 border-transparent text-foreground-muted hover:bg-surface-alt hover:text-foreground-secondary"
             }`}
           >
             {s.label}

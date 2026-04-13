@@ -120,7 +120,7 @@ export default function CreatePage() {
     <main className="mx-auto max-w-5xl px-4 py-8">
       <div className="mb-6">
         <h1 className="text-2xl font-bold">Create Analysis</h1>
-        <p className="mt-1 text-sm text-gray-500">
+        <p className="mt-1 text-sm text-foreground-muted">
           Find sites, pick the ones to analyze, then choose what to look for.
         </p>
         <Input
@@ -136,23 +136,23 @@ export default function CreatePage() {
         <button
           type="button"
           onClick={() => setStep("search")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "search" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-gray-300"}`}
+          className={`rounded-full px-3 py-1 font-medium ${step === "search" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
         >
           1. Search &amp; Select Sites
         </button>
-        <span className="text-gray-300">&rarr;</span>
+        <span className="text-foreground-faint">&rarr;</span>
         <button
           type="button"
           onClick={() => setStep("categories")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "categories" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-gray-300"}`}
+          className={`rounded-full px-3 py-1 font-medium ${step === "categories" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
         >
           2. Categories
         </button>
-        <span className="text-gray-300">&rarr;</span>
+        <span className="text-foreground-faint">&rarr;</span>
         <button
           type="button"
           onClick={() => setStep("review")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "review" ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-gray-300"}`}
+          className={`rounded-full px-3 py-1 font-medium ${step === "review" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
         >
           3. Review
         </button>

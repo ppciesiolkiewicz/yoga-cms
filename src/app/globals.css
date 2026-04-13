@@ -1,1 +1,158 @@
 @import "tailwindcss";
+
+@theme inline {
+  /* Surface / background */
+  --color-surface: var(--surface);
+  --color-surface-alt: var(--surface-alt);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-sunken: var(--surface-sunken);
+
+  /* Foreground / text */
+  --color-foreground: var(--foreground);
+  --color-foreground-secondary: var(--foreground-secondary);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-faint: var(--foreground-faint);
+  --color-foreground-on-accent: var(--foreground-on-accent);
+
+  /* Border */
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-subtle: var(--border-subtle);
+  --color-divide-default: var(--divide-default);
+
+  /* Accent */
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-muted: var(--accent-muted);
+  --color-accent-subtle: var(--accent-subtle);
+
+  /* Focus */
+  --color-focus: var(--focus);
+
+  /* Status */
+  --color-success: var(--success);
+  --color-success-subtle: var(--success-subtle);
+  --color-success-border: var(--success-border);
+  --color-error: var(--error);
+  --color-error-subtle: var(--error-subtle);
+  --color-warning: var(--warning);
+  --color-warning-subtle: var(--warning-subtle);
+
+  /* Category badges */
+  --color-badge-purple: var(--badge-purple);
+  --color-badge-purple-fg: var(--badge-purple-fg);
+  --color-badge-purple-border: var(--badge-purple-border);
+  --color-badge-orange: var(--badge-orange);
+  --color-badge-orange-fg: var(--badge-orange-fg);
+  --color-badge-orange-border: var(--badge-orange-border);
+  --color-badge-pink: var(--badge-pink);
+  --color-badge-pink-fg: var(--badge-pink-fg);
+  --color-badge-pink-border: var(--badge-pink-border);
+  --color-badge-cyan: var(--badge-cyan);
+  --color-badge-cyan-fg: var(--badge-cyan-fg);
+  --color-badge-cyan-border: var(--badge-cyan-border);
+  --color-badge-yellow: var(--badge-yellow);
+  --color-badge-yellow-fg: var(--badge-yellow-fg);
+  --color-badge-yellow-border: var(--badge-yellow-border);
+}
+
+:root {
+  --surface: #ffffff;
+  --surface-alt: #f9fafb;
+  --surface-raised: #f3f4f6;
+  --surface-sunken: #e5e7eb;
+
+  --foreground: #111827;
+  --foreground-secondary: #4b5563;
+  --foreground-muted: #6b7280;
+  --foreground-faint: #9ca3af;
+  --foreground-on-accent: #ffffff;
+
+  --border-default: #e5e7eb;
+  --border-strong: #d1d5db;
+  --border-subtle: #f3f4f6;
+  --divide-default: #f3f4f6;
+
+  --accent: #2563eb;
+  --accent-hover: #1d4ed8;
+  --accent-fg: #2563eb;
+  --accent-muted: #1d4ed8;
+  --accent-subtle: #eff6ff;
+
+  --focus: #3b82f6;
+
+  --success: #15803d;
+  --success-subtle: #dcfce7;
+  --success-border: #bbf7d0;
+  --error: #b91c1c;
+  --error-subtle: #fee2e2;
+  --warning: #a16207;
+  --warning-subtle: #fef3c7;
+
+  --badge-purple: #f3e8ff;
+  --badge-purple-fg: #7e22ce;
+  --badge-purple-border: #e9d5ff;
+  --badge-orange: #ffedd5;
+  --badge-orange-fg: #c2410c;
+  --badge-orange-border: #fed7aa;
+  --badge-pink: #fce7f3;
+  --badge-pink-fg: #be185d;
+  --badge-pink-border: #fbcfe8;
+  --badge-cyan: #cffafe;
+  --badge-cyan-fg: #0e7490;
+  --badge-cyan-border: #a5f3fc;
+  --badge-yellow: #fef9c3;
+  --badge-yellow-fg: #a16207;
+  --badge-yellow-border: #fef08a;
+}
+
+.dark {
+  --surface: #030712;
+  --surface-alt: #111827;
+  --surface-raised: #1f2937;
+  --surface-sunken: #374151;
+
+  --foreground: #f3f4f6;
+  --foreground-secondary: #9ca3af;
+  --foreground-muted: #9ca3af;
+  --foreground-faint: #6b7280;
+  --foreground-on-accent: #ffffff;
+
+  --border-default: #374151;
+  --border-strong: #4b5563;
+  --border-subtle: #1f2937;
+  --divide-default: #1f2937;
+
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --accent-fg: #60a5fa;
+  --accent-muted: #60a5fa;
+  --accent-subtle: rgba(59, 130, 246, 0.15);
+
+  --focus: #3b82f6;
+
+  --success: #86efac;
+  --success-subtle: rgba(34, 197, 94, 0.15);
+  --success-border: rgba(34, 197, 94, 0.3);
+  --error: #fca5a5;
+  --error-subtle: rgba(239, 68, 68, 0.15);
+  --warning: #fde047;
+  --warning-subtle: rgba(245, 158, 11, 0.15);
+
+  --badge-purple: rgba(168, 85, 247, 0.2);
+  --badge-purple-fg: #c4b5fd;
+  --badge-purple-border: rgba(168, 85, 247, 0.3);
+  --badge-orange: rgba(249, 115, 22, 0.2);
+  --badge-orange-fg: #fdba74;
+  --badge-orange-border: rgba(249, 115, 22, 0.3);
+  --badge-pink: rgba(236, 72, 153, 0.15);
+  --badge-pink-fg: #f9a8d4;
+  --badge-pink-border: rgba(236, 72, 153, 0.3);
+  --badge-cyan: rgba(6, 182, 212, 0.15);
+  --badge-cyan-fg: #67e8f9;
+  --badge-cyan-border: rgba(6, 182, 212, 0.3);
+  --badge-yellow: rgba(234, 179, 8, 0.15);
+  --badge-yellow-fg: #fde047;
+  --badge-yellow-border: rgba(234, 179, 8, 0.3);
+}

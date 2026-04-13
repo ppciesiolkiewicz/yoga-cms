@@ -464,12 +464,12 @@ const software: Software[] = [
 export default function ResearchPage() {
   return (
     <main className="mx-auto max-w-5xl px-4 py-16">
-      <Link href="/" className="text-sm text-blue-600 hover:underline">
+      <Link href="/" className="text-sm text-accent-fg hover:underline">
         &larr; Home
       </Link>
 
       <h1 className="mt-6 text-3xl font-bold">Yoga Studio Software Research</h1>
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 text-foreground-secondary">
         Comparison of {software.length} yoga &amp; fitness studio management platforms.
         Last updated: April 2026.
       </p>
@@ -480,7 +480,7 @@ export default function ResearchPage() {
         <div className="mt-4 overflow-x-auto">
           <table className="w-full text-left text-sm border-collapse">
             <thead>
-              <tr className="border-b-2 border-gray-300">
+              <tr className="border-b-2 border-border-strong">
                 <th className="py-2 pr-4 font-semibold">Platform</th>
                 <th className="py-2 pr-4 font-semibold">Starting Price</th>
                 <th className="py-2 pr-4 font-semibold">Focus</th>
@@ -489,24 +489,24 @@ export default function ResearchPage() {
             </thead>
             <tbody>
               {software.map((s) => (
-                <tr key={s.name} className="border-b border-gray-200">
+                <tr key={s.name} className="border-b border-border-default">
                   <td className="py-2 pr-4 font-medium">
                     <a
                       href={s.website}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
+                      className="text-accent-fg hover:underline"
                     >
                       {s.name}
                     </a>
                     {s.badge && (
-                      <span className="ml-2 rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-800">
+                      <span className="ml-2 rounded bg-warning-subtle px-1.5 py-0.5 text-xs font-medium text-warning">
                         {s.badge}
                       </span>
                     )}
                   </td>
-                  <td className="py-2 pr-4 text-gray-700">{s.pricing.split(".")[0]}</td>
-                  <td className="py-2 pr-4 text-gray-600">{s.focus}</td>
+                  <td className="py-2 pr-4 text-foreground-secondary">{s.pricing.split(".")[0]}</td>
+                  <td className="py-2 pr-4 text-foreground-secondary">{s.focus}</td>
                   <td className="py-2 pr-4">
                     {s.pricing.toLowerCase().includes("free plan") ||
                     s.pricing.toLowerCase().includes("free plan")
@@ -529,7 +529,7 @@ export default function ResearchPage() {
         {software.map((s) => (
           <article
             key={s.name}
-            className="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"
+            className="rounded-lg border border-border-default bg-surface p-6 shadow-sm"
           >
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -538,17 +538,17 @@ export default function ResearchPage() {
                     href={s.website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
+                    className="text-accent-fg hover:underline"
                   >
                     {s.name}
                   </a>
                   {s.badge && (
-                    <span className="ml-2 rounded bg-amber-100 px-2 py-0.5 text-sm font-medium text-amber-800">
+                    <span className="ml-2 rounded bg-warning-subtle px-2 py-0.5 text-sm font-medium text-warning">
                       {s.badge}
                     </span>
                   )}
                 </h3>
-                <p className="mt-1 text-gray-600">{s.tagline}</p>
+                <p className="mt-1 text-foreground-secondary">{s.tagline}</p>
               </div>
             </div>
 
@@ -558,34 +558,34 @@ export default function ResearchPage() {
 
             <div className="mt-4 grid gap-4 md:grid-cols-3">
               <div>
-                <h4 className="text-sm font-semibold text-gray-500 uppercase tracking-wide">
+                <h4 className="text-sm font-semibold text-foreground-muted uppercase tracking-wide">
                   Features
                 </h4>
-                <ul className="mt-1 space-y-1 text-sm text-gray-700">
+                <ul className="mt-1 space-y-1 text-sm text-foreground-secondary">
                   {s.features.map((f) => (
                     <li key={f}>- {f}</li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-green-700 uppercase tracking-wide">
+                <h4 className="text-sm font-semibold text-success uppercase tracking-wide">
                   Pros
                 </h4>
-                <ul className="mt-1 space-y-1 text-sm text-gray-700">
+                <ul className="mt-1 space-y-1 text-sm text-foreground-secondary">
                   {s.pros.map((p) => (
-                    <li key={p} className="text-green-800">
+                    <li key={p} className="text-success">
                       + {p}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-sm font-semibold text-red-700 uppercase tracking-wide">
+                <h4 className="text-sm font-semibold text-error uppercase tracking-wide">
                   Cons
                 </h4>
-                <ul className="mt-1 space-y-1 text-sm text-gray-700">
+                <ul className="mt-1 space-y-1 text-sm text-foreground-secondary">
                   {s.cons.map((c) => (
-                    <li key={c} className="text-red-800">
+                    <li key={c} className="text-error">
                       - {c}
                     </li>
                   ))}
@@ -597,26 +597,26 @@ export default function ResearchPage() {
       </section>
 
       {/* Sources */}
-      <section className="mt-12 border-t border-gray-200 pt-6">
+      <section className="mt-12 border-t border-border-default pt-6">
         <h2 className="text-lg font-semibold">Sources</h2>
-        <ul className="mt-2 space-y-1 text-sm text-gray-600">
+        <ul className="mt-2 space-y-1 text-sm text-foreground-secondary">
           <li>
-            <a href="https://www.capterra.com/yoga-studio-software/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <a href="https://www.capterra.com/yoga-studio-software/" target="_blank" rel="noopener noreferrer" className="text-accent-fg hover:underline">
               Capterra \u2014 Best Yoga Studio Software 2026
             </a>
           </li>
           <li>
-            <a href="https://www.getapp.com/recreation-wellness-software/yoga-studio/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <a href="https://www.getapp.com/recreation-wellness-software/yoga-studio/" target="_blank" rel="noopener noreferrer" className="text-accent-fg hover:underline">
               GetApp \u2014 Yoga Studio Software Reviews & Pricing
             </a>
           </li>
           <li>
-            <a href="https://www.softwareadvice.com/yoga-studio/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <a href="https://www.softwareadvice.com/yoga-studio/" target="_blank" rel="noopener noreferrer" className="text-accent-fg hover:underline">
               Software Advice \u2014 Yoga Studio Software Reviews & Pricing
             </a>
           </li>
           <li>
-            <a href="https://studiogrowth.com/best-yoga-studio-software/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+            <a href="https://studiogrowth.com/best-yoga-studio-software/" target="_blank" rel="noopener noreferrer" className="text-accent-fg hover:underline">
               StudioGrowth \u2014 10 Yoga Studio Software For 2026
             </a>
           </li>

@@ -25,7 +25,7 @@ export function Carousel({
       <button
         type="button"
         onClick={() => scroll("left")}
-        className="absolute -left-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
+        className="absolute -left-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-default bg-surface p-2 shadow-md hover:bg-surface-alt"
         aria-label="Scroll left"
       >
         &#8249;
@@ -39,7 +39,7 @@ export function Carousel({
       <button
         type="button"
         onClick={() => scroll("right")}
-        className="absolute -right-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-gray-200 bg-white p-2 shadow-md hover:bg-gray-50"
+        className="absolute -right-5 top-1/2 z-10 -translate-y-1/2 rounded-full border border-border-default bg-surface p-2 shadow-md hover:bg-surface-alt"
         aria-label="Scroll right"
       >
         &#8250;

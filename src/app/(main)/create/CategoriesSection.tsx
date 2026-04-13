@@ -122,12 +122,12 @@ function BuiltInCategory({
                 disabled
                 className="w-32"
               />
-              <span className="text-xs text-gray-400">{description}</span>
+              <span className="text-xs text-foreground-faint">{description}</span>
             </div>
             {features.length > 0 && (
               <div className="flex gap-1">
                 {features.map((f) => (
-                  <span key={f} className="rounded bg-gray-100 px-1.5 py-0.5 text-xs text-gray-500">{f}</span>
+                  <span key={f} className="rounded bg-surface-raised px-1.5 py-0.5 text-xs text-foreground-muted">{f}</span>
                 ))}
               </div>
             )}
@@ -135,7 +135,7 @@ function BuiltInCategory({
         }
         className="w-full"
       >
-        <div className="space-y-2 border-t border-gray-100 px-4 py-3">
+        <div className="space-y-2 border-t border-border-subtle px-4 py-3">
           {cat.name.toLowerCase() !== "home" && (
             <div>
               <Input
@@ -144,7 +144,7 @@ function BuiltInCategory({
                 placeholder="Keywords to help classify pages into this category"
                 className="w-full"
               />
-              <span className="mt-0.5 block text-xs text-gray-400">
+              <span className="mt-0.5 block text-xs text-foreground-faint">
                 Used to match navigation links to this category
               </span>
             </div>
@@ -157,7 +157,7 @@ function BuiltInCategory({
               rows={3}
               className="w-full"
             />
-            <span className="mt-0.5 block text-xs text-gray-400">
+            <span className="mt-0.5 block text-xs text-foreground-faint">
               Tell the AI what to look for and how to summarize the page content
             </span>
           </div>
@@ -172,7 +172,7 @@ function BuiltInCategory({
               checked={cat.lighthouse}
               onCheckedChange={(v: boolean) => onUpdate(cat.id, { lighthouse: v })}
             />
-            <span className="text-xs text-gray-400 self-center">Run tech detection / performance audit for this category</span>
+            <span className="text-xs text-foreground-faint self-center">Run tech detection / performance audit for this category</span>
           </div>
         </div>
       </Collapsible>
@@ -201,7 +201,7 @@ function CustomCategory({
                 placeholder="Category name"
                 className="w-full"
               />
-              <span className="mt-0.5 block text-xs text-gray-400">
+              <span className="mt-0.5 block text-xs text-foreground-faint">
                 Short label (e.g. &quot;Pricing&quot;, &quot;Services&quot;)
               </span>
             </div>
@@ -212,7 +212,7 @@ function CustomCategory({
                 placeholder="Keywords to help classify pages into this category"
                 className="w-full"
               />
-              <span className="mt-0.5 block text-xs text-gray-400">
+              <span className="mt-0.5 block text-xs text-foreground-faint">
                 Used to match navigation links to this category
               </span>
             </div>
@@ -225,7 +225,7 @@ function CustomCategory({
               rows={3}
               className="w-full"
             />
-            <span className="mt-0.5 block text-xs text-gray-400">
+            <span className="mt-0.5 block text-xs text-foreground-faint">
               Tell the AI what to look for and how to summarize the page content
             </span>
           </div>
@@ -240,10 +240,10 @@ function CustomCategory({
               checked={cat.lighthouse}
               onCheckedChange={(v: boolean) => onUpdate(cat.id, { lighthouse: v })}
             />
-            <span className="text-xs text-gray-400 self-center">Run tech detection / performance audit for this category</span>
+            <span className="text-xs text-foreground-faint self-center">Run tech detection / performance audit for this category</span>
           </div>
         </div>
-        <Button variant="ghost" onClick={() => onRemove(cat.id)} className="text-red-500 hover:text-red-700">
+        <Button variant="ghost" onClick={() => onRemove(cat.id)} className="text-error hover:text-error">
           &times;
         </Button>
       </div>
@@ -278,7 +278,7 @@ export function CategoriesSection({
         <h2 className="text-lg font-semibold">Categories</h2>
         <Button variant="secondary" onClick={() => setModalOpen(true)}>Add category</Button>
       </div>
-      <p className="mb-4 text-sm text-gray-500">
+      <p className="mb-4 text-sm text-foreground-muted">
         What types of pages to look for on each site.
       </p>
 
@@ -307,10 +307,10 @@ export function CategoriesSection({
             <button
               type="button"
               onClick={() => handleSelect()}
-              className="rounded-lg border-2 border-blue-400 bg-blue-50 p-3 text-left transition-colors hover:border-blue-500 hover:bg-blue-100"
+              className="rounded-lg border-2 border-accent-muted bg-accent-subtle p-3 text-left transition-colors hover:border-focus hover:bg-surface-raised"
             >
-              <div className="text-sm font-medium text-blue-700">Blank category</div>
-              <div className="mt-0.5 text-xs text-blue-500">Start from scratch with your own settings</div>
+              <div className="text-sm font-medium text-accent-fg">Blank category</div>
+              <div className="mt-0.5 text-xs text-accent-fg">Start from scratch with your own settings</div>
             </button>
             {categoryTemplates
               .slice()
@@ -329,21 +329,21 @@ export function CategoriesSection({
                     onClick={() => handleSelect(t)}
                     className={`rounded-lg border p-3 text-left transition-colors ${
                       alreadyAdded
-                        ? "cursor-not-allowed border-gray-100 bg-gray-50/60 text-gray-300"
-                        : "border-gray-200 bg-white shadow-sm hover:border-blue-300 hover:bg-blue-50 hover:shadow"
+                        ? "cursor-not-allowed border-border-subtle bg-surface-alt/60 text-foreground-faint"
+                        : "border-border-default bg-surface shadow-sm hover:border-accent-muted hover:bg-accent-subtle hover:shadow"
                     }`}
                   >
-                    <div className={`text-sm font-medium ${alreadyAdded ? "text-gray-300" : "text-gray-900"}`}>
+                    <div className={`text-sm font-medium ${alreadyAdded ? "text-foreground-faint" : "text-foreground"}`}>
                       {t.name}
-                      {alreadyAdded && <span className="ml-1.5 text-xs font-normal text-gray-300">added</span>}
+                      {alreadyAdded && <span className="ml-1.5 text-xs font-normal text-foreground-faint">added</span>}
                     </div>
-                    <div className={`mt-0.5 text-xs ${alreadyAdded ? "text-gray-200" : "text-gray-500"}`}>{t.description}</div>
+                    <div className={`mt-0.5 text-xs ${alreadyAdded ? "text-foreground-faint" : "text-foreground-muted"}`}>{t.description}</div>
                   </button>
                 )
               })}
           </div>
 
-          <div className="mt-4 flex justify-end border-t border-gray-100 pt-4">
+          <div className="mt-4 flex justify-end border-t border-border-subtle pt-4">
             <ModalClose>
               <Button variant="ghost">Cancel</Button>
             </ModalClose>

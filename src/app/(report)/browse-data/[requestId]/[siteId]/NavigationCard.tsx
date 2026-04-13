@@ -15,12 +15,12 @@ interface Props {
 }
 
 const CATEGORY_COLORS = [
-  "bg-purple-100 text-purple-700 border-purple-200",
-  "bg-green-100 text-green-700 border-green-200",
-  "bg-orange-100 text-orange-700 border-orange-200",
-  "bg-pink-100 text-pink-700 border-pink-200",
-  "bg-cyan-100 text-cyan-700 border-cyan-200",
-  "bg-yellow-100 text-yellow-700 border-yellow-200",
+  "bg-badge-purple text-badge-purple-fg border-badge-purple-border",
+  "bg-success-subtle text-success border-success-border",
+  "bg-badge-orange text-badge-orange-fg border-badge-orange-border",
+  "bg-badge-pink text-badge-pink-fg border-badge-pink-border",
+  "bg-badge-cyan text-badge-cyan-fg border-badge-cyan-border",
+  "bg-badge-yellow text-warning border-badge-yellow-border",
 ]
 
 function normalizeUrl(url: string): string {
@@ -65,14 +65,14 @@ export function NavigationCard({ nav, classify, categories }: Props) {
   }
 
   return (
-    <section id="navigation" className="mb-6 rounded-lg border border-gray-200 bg-white p-6">
-      <h2 className="mb-4 text-xl font-semibold text-gray-900">
+    <section id="navigation" className="mb-6 rounded-lg border border-border-default bg-surface p-6">
+      <h2 className="mb-4 text-xl font-semibold text-foreground">
         Navigation ({nav.links.length})
       </h2>
 
       {categorized.length > 0 && (
         <div className="mb-4">
-          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+          <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-muted">
             Categorized
           </div>
           <div className="flex flex-wrap gap-2">
@@ -99,7 +99,7 @@ export function NavigationCard({ nav, classify, categories }: Props) {
       {uncategorized.length > 0 && (
         <div>
           {categorized.length > 0 && (
-            <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-gray-500">
+            <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-muted">
               Other
             </div>
           )}
@@ -110,7 +110,7 @@ export function NavigationCard({ nav, classify, categories }: Props) {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="rounded-full border border-gray-200 bg-gray-50 px-3 py-1 text-xs font-medium text-gray-600 transition-colors hover:bg-gray-100"
+                className="rounded-full border border-border-default bg-surface-alt px-3 py-1 text-xs font-medium text-foreground-secondary transition-colors hover:bg-surface-raised"
               >
                 {link.label}
               </a>
