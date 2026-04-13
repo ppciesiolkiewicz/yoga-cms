@@ -38,7 +38,7 @@ export default function Home() {
           <span className="text-accent-fg">site by site</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground-secondary">
-          Site Analyzer crawls and evaluates multiple websites in a domain so you
+          Web Analyzer crawls and evaluates multiple websites in a domain so you
           can compare competitors, spot trends, and research an entire industry
           — all from a single input file.
         </p>
@@ -50,7 +50,7 @@ export default function Home() {
             Start a new analysis
           </Link>
           <Link
-            href="/browse-data"
+            href="/analyses"
             className="rounded-lg border border-border-strong bg-surface px-5 py-2.5 text-sm font-medium text-foreground-secondary shadow-sm hover:bg-surface-alt transition-colors"
           >
             Browse past analyses
@@ -74,7 +74,9 @@ export default function Home() {
                 <h3 className="mt-3 text-lg font-medium text-foreground">
                   {f.title}
                 </h3>
-                <p className="mt-1 text-sm text-foreground-secondary">{f.description}</p>
+                <p className="mt-1 text-sm text-foreground-secondary">
+                  {f.description}
+                </p>
               </div>
             ))}
           </div>

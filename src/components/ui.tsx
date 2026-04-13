@@ -1,6 +1,8 @@
 "use client"
 
-import { useState, createContext, useContext, type ReactNode } from "react"
+import { type ReactNode } from "react"
+import * as AccordionPrimitive from "@radix-ui/react-accordion"
+import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 // --- ScoreBadge ---
 
@@ -36,80 +38,81 @@ export function StatusBadge({ status }: { status: string }) {
   )
 }
 
-// --- Tooltip ---
+// --- Tooltip (Radix) ---
 
 export function Tooltip({ content, side = "top", children }: { content: ReactNode; side?: "top" | "bottom" | "left" | "right"; children: ReactNode }) {
-  const [open, setOpen] = useState(false)
-
-  const positionClass: Record<string, string> = {
-    top: "bottom-full left-1/2 -translate-x-1/2 mb-2",
-    bottom: "top-full left-1/2 -translate-x-1/2 mt-2",
-    left: "right-full top-1/2 -translate-y-1/2 mr-2",
-    right: "left-full top-1/2 -translate-y-1/2 ml-2",
-  }
-
   return (
-    <span
-      className="relative inline-flex"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
-    >
-      {children}
-      {open && (
-        <span className={`absolute z-50 w-max max-w-xs rounded-md border border-border-default bg-surface px-3 py-2 text-xs shadow-lg ${positionClass[side]}`}>
-          {content}
-        </span>
-      )}
-    </span>
+    <TooltipPrimitive.Provider delayDuration={200}>
+      <TooltipPrimitive.Root>
+        <TooltipPrimitive.Trigger asChild>
+          {children}
+        </TooltipPrimitive.Trigger>
+        <TooltipPrimitive.Portal>
+          <TooltipPrimitive.Content
+            side={side}
+            sideOffset={6}
+            className="z-50 max-w-xs rounded-md border border-border-default bg-surface px-3 py-2 text-xs text-foreground shadow-lg animate-in fade-in-0 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
+          >
+            {content}
+            <TooltipPrimitive.Arrow className="fill-surface stroke-border-default" />
+          </TooltipPrimitive.Content>
+        </TooltipPrimitive.Portal>
+      </TooltipPrimitive.Root>
+    </TooltipPrimitive.Provider>
   )
 }
 
-// --- Accordion ---
-
-const AccordionItemContext = createContext<{ value: string }>({ value: "" })
-const AccordionContext = createContext<{ openValue: string | null; toggle: (v: string) => void }>({
-  openValue: null,
-  toggle: () => {},
-})
+// --- Accordion (Radix) ---
 
 export function Accordion({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const [openValue, setOpenValue] = useState<string | null>(null)
-  const toggle = (v: string) => setOpenValue(prev => (prev === v ? null : v))
   return (
-    <AccordionContext.Provider value={{ openValue, toggle }}>
-      <div className={className}>{children}</div>
-    </AccordionContext.Provider>
+    <AccordionPrimitive.Root type="single" collapsible className={className}>
+      {children}
+    </AccordionPrimitive.Root>
   )
 }
 
 export function AccordionItem({ value, children }: { value: string; children: ReactNode }) {
   return (
-    <AccordionItemContext.Provider value={{ value }}>
-      <div data-value={value}>{children}</div>
-    </AccordionItemContext.Provider>
+    <AccordionPrimitive.Item value={value}>
+      {children}
+    </AccordionPrimitive.Item>
   )
 }
 
 export function AccordionTrigger({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const { value } = useContext(AccordionItemContext)
-  const { openValue, toggle } = useContext(AccordionContext)
-  const isOpen = openValue === value
   return (
-    <button
-      type="button"
-      onClick={() => toggle(value)}
-      className={`flex w-full items-center justify-between ${className}`}
-      aria-expanded={isOpen}
-    >
-      {children}
-      <span className={`ml-2 transition-transform ${isOpen ? "rotate-180" : ""}`}>&#9662;</span>
-    </button>
+    <AccordionPrimitive.Header asChild>
+      <AccordionPrimitive.Trigger
+        className={`group flex w-full items-center justify-between ${className}`}
+      >
+        {children}
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="ml-2 shrink-0 text-foreground-muted transition-transform duration-200 group-data-[state=open]:rotate-180"
+          aria-hidden
+        >
+          <polyline points="6 9 12 15 18 9" />
+        </svg>
+      </AccordionPrimitive.Trigger>
+    </AccordionPrimitive.Header>
   )
 }
 
 export function AccordionContent({ children, className = "" }: { children: ReactNode; className?: string }) {
-  const { value } = useContext(AccordionItemContext)
-  const { openValue } = useContext(AccordionContext)
-  if (openValue !== value) return null
-  return <div className={className}>{children}</div>
+  return (
+    <AccordionPrimitive.Content
+      className="overflow-hidden data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up"
+    >
+      <div className={className}>{children}</div>
+    </AccordionPrimitive.Content>
+  )
 }

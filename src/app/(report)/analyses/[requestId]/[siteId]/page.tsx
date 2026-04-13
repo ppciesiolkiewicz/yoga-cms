@@ -95,11 +95,46 @@ export default async function SiteDetailPage({ params }: Params) {
 
   const siteQueries: AIQueryInfo[] = site.queries ?? []
 
-  const sidebarSites = result.request.sites.map(s => ({
-    id: s.id,
-    url: s.url,
-    name: String(s.meta?.name ?? s.url),
-  }))
+  const sidebarSites = result.request.sites.map(s => {
+    const siteData = result.sites.find(rs => rs.siteId === s.id)
+    const siteTechMap = (siteData?.artifacts["detect-tech"] ?? {}) as Record<string, TechArtifact>
+    const siteLhMap = (siteData?.artifacts["run-lighthouse"] ?? {}) as Record<string, LighthouseArtifact>
+    const siteProgressMap = (siteData?.artifacts["progress"] ?? {}) as Record<string, CategoryProgress>
+
+    const firstTech = Object.values(siteTechMap)[0]
+    const platform = firstTech?.platform
+
+    const firstLh = Object.values(siteLhMap)[0]
+
+    const allStatuses = Object.values(siteProgressMap).flatMap(cp => Object.values(cp))
+    const hasFailed = allStatuses.some(st => st === "failed")
+    const hasRunning = allStatuses.some(st => st === "running")
+    const allDone = allStatuses.length > 0 && allStatuses.every(st => st === "completed" || st === "not-requested")
+    const overallStatus = hasFailed ? "failed" as const
+      : hasRunning ? "running" as const
+      : allDone ? "completed" as const
+      : "pending" as const
+
+    const siteExtractMap = (siteData?.artifacts["extract-pages-content"] ?? {}) as Record<string, ExtractArtifact>
+    const recordCount = Object.values(siteExtractMap).reduce((sum, e) => sum + (e.records?.length ?? 0), 0)
+
+    const meta = s.meta ?? {}
+
+    return {
+      id: s.id,
+      url: s.url,
+      name: String(s.meta?.name ?? s.url),
+      platform,
+      lighthouse: firstLh ? {
+        performance: firstLh.performance,
+        accessibility: firstLh.accessibility,
+        seo: firstLh.seo,
+      } : undefined,
+      overallStatus,
+      recordCount,
+      meta: Object.fromEntries(Object.entries(meta).filter(([k]) => k !== "name")),
+    }
+  })
 
   // Order: home → navigation → other categories → contact
   const homeCategory = result.request.categories.find(c => c.name.toLowerCase() === "home")
@@ -135,6 +170,8 @@ export default async function SiteDetailPage({ params }: Params) {
       return null
     }
     const categoryQueries = siteQueries.filter(q => q.categoryId === cat.id)
+    const assessMap = (site.artifacts["assess-pages"] ?? {}) as Record<string, { pages?: unknown[] }>
+    const contentPages = (assessMap[cat.id]?.pages ?? []) as Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }>
     return (
       <CategoryBlock
         key={cat.id}
@@ -142,6 +179,7 @@ export default async function SiteDetailPage({ params }: Params) {
         categoryName={cat.name}
         extraInfo={cat.extraInfo}
         classifiedUrls={classifiedUrls}
+        contentPages={contentPages}
         extractedRecords={extractedRecords}
         queries={categoryQueries}
         tech={tech}

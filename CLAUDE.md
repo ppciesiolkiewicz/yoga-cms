@@ -47,12 +47,13 @@ Components can have nested sub-components in a `components/` folder:
 ```
 src/components/ui/
   Input/
-    index.ts
+    index.ts          # re-exports Input only
     Input.tsx
-    components/
+    components/        # private sub-components
       Label.tsx
       ...
 ```
+Sub-components inside a `components/` folder are **private** — they must not be re-exported through `index.ts` and are considered internal implementation details of their parent component. Only the parent component should import them.
 
 ### Component Rules
 - New UI primitives go in `src/components/ui/` and must be exported from `src/components/ui/index.ts`.

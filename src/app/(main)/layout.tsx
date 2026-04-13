@@ -11,15 +11,24 @@ export default function MainLayout({
       <nav className="fixed top-0 left-0 right-0 z-40 border-b border-border-default bg-surface px-6 py-3">
         <div className="mx-auto flex max-w-6xl items-center gap-6">
           <Link href="/" className="text-lg font-semibold text-foreground">
-            Site Analyzer
+            Web Analyzer
           </Link>
-          <Link href="/browse-data" className="text-sm text-foreground-secondary hover:text-foreground">
+          <Link
+            href="/analyses"
+            className="text-sm text-foreground-secondary hover:text-foreground"
+          >
             Analyses
           </Link>
-          <Link href="/create" className="text-sm text-foreground-secondary hover:text-foreground">
+          <Link
+            href="/create"
+            className="text-sm text-foreground-secondary hover:text-foreground"
+          >
             Create
           </Link>
-          <Link href="/faq" className="text-sm text-foreground-secondary hover:text-foreground">
+          <Link
+            href="/faq"
+            className="text-sm text-foreground-secondary hover:text-foreground"
+          >
             FAQ
           </Link>
           <div className="ml-auto">
@@ -27,9 +36,7 @@ export default function MainLayout({
           </div>
         </div>
       </nav>
-      <div className="pt-12.25">
-        {children}
-      </div>
+      <div className="pt-12.25">{children}</div>
     </>
   );
 }

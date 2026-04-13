@@ -91,6 +91,12 @@ export class Repo {
     )
   }
 
+  async getOrder(requestId: string): Promise<Order | null> {
+    const ref = { requestId, stage: "order", name: "order.json" }
+    if (!(await this.artifactExists(ref))) return null
+    return this.getJson<Order>(ref)
+  }
+
   // ── artifacts ──
 
   async putArtifact(ref: ArtifactRef, content: string | Buffer): Promise<void> {
