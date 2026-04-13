@@ -188,9 +188,15 @@ export default function CategoryBlock(props: Props) {
     >
       <div className="mb-4 flex items-start justify-between">
         <div>
-          <h2 className="text-xl font-semibold text-foreground">{props.categoryName}</h2>
+          <div className="flex items-center gap-2">
+            <h2 className="text-xl font-semibold text-foreground">{props.categoryName}</h2>
+            <span className="rounded-full bg-surface-alt px-2 py-0.5 text-xs font-medium text-foreground-muted">Category</span>
+          </div>
           {props.extraInfo && (
-            <p className="mt-1 text-sm text-foreground-muted">{props.extraInfo}</p>
+            <>
+              <p className="mt-1 text-xs font-semibold text-foreground-muted">Classification prompt:</p>
+              <p className="mt-0.5 text-sm text-foreground-muted">{props.extraInfo}</p>
+            </>
           )}
         </div>
         {props.progress && <ProgressIcon progress={props.progress} />}
@@ -205,6 +211,7 @@ export default function CategoryBlock(props: Props) {
           <div className="mb-2 text-xs font-semibold uppercase tracking-wide text-foreground-muted">
             Content Assessment
           </div>
+          <h3 className="mb-2 text-sm font-semibold text-foreground">Analyzed pages</h3>
           {contentQuery && <QueryDetails query={contentQuery} />}
           <div className="space-y-3">
             {props.contentPages.map(p => (
@@ -221,6 +228,7 @@ export default function CategoryBlock(props: Props) {
                   >
                     {p.pageName}
                   </a>
+                  <span className="rounded-full bg-surface-alt px-2 py-0.5 text-xs font-medium text-foreground-muted">Page</span>
                   <div className="flex shrink-0 items-center gap-1.5">
                     <span className="text-xs text-foreground-muted">Conv</span>
                     <ScoreBadge score={p.conversionScore} />
