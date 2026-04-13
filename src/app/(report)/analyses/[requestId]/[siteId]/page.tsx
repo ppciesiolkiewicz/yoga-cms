@@ -149,8 +149,8 @@ export default async function SiteDetailPage({ params }: Params) {
   ]
 
   const sections = [
+    { id: "navigation", label: "Page Navigation" },
     ...(homeCategory ? [{ id: `category-${homeCategory.id}`, label: homeCategory.name }] : []),
-    { id: "navigation", label: "Navigation" },
     ...otherCategories.map(c => ({ id: `category-${c.id}`, label: c.name })),
     ...(contactCategory ? [{ id: `category-${contactCategory.id}`, label: contactCategory.name }] : []),
   ]
@@ -212,15 +212,18 @@ export default async function SiteDetailPage({ params }: Params) {
             </div>
           </div>
 
-          {homeCategory && renderCategory(homeCategory)}
-
-          <SectionDivider />
-
           <NavigationCard
             nav={nav}
             classify={classify ? { byCategory: classify } : undefined}
             categories={result.request.categories.map(c => ({ id: c.id, name: c.name }))}
           />
+
+          {homeCategory && (
+            <>
+              <SectionDivider />
+              {renderCategory(homeCategory)}
+            </>
+          )}
 
           {otherCategories.map(cat => (
             <div key={cat.id}>

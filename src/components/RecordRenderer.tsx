@@ -6,24 +6,34 @@ interface RecordRendererProps {
   record: Record<string, unknown>
 }
 
+/** Fields rendered separately in the card header — skip in the body */
 const HEADER_FIELDS = new Set(["url", "pageName", "categoryId", "categoryName"])
+
+function isScoreField(key: string): boolean {
+  return key.endsWith("Score")
+}
+
+function isProseField(key: string): boolean {
+  return key === "summary" || key === "notes" || key === "description"
+}
+
+function isBooleanField(key: string, value: unknown): boolean {
+  return typeof value === "boolean"
+}
 
 function isUrl(value: string): boolean {
   return /^https?:\/\//.test(value)
 }
 
-function isScoreField(key: string): boolean {
-  return key.endsWith("Score") && key !== "score"
-}
-
 function labelFromKey(key: string): string {
-  // "conversionScore" -> "Conversion", "pricingVisible" -> "Pricing Visible"
   const withoutScore = key.replace(/Score$/, "")
   return withoutScore
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, c => c.toUpperCase())
     .trim()
 }
+
+/* ── Sub-renderers ─────────────────────────────────────── */
 
 function ScoreRow({ record }: { record: Record<string, unknown> }) {
   const scores = Object.entries(record).filter(
@@ -35,7 +45,7 @@ function ScoreRow({ record }: { record: Record<string, unknown> }) {
     <div className="flex flex-wrap items-center gap-2">
       {scores.map(([key, val]) => (
         <div key={key} className="flex items-center gap-1">
-          <span className="text-xs text-gray-500">{labelFromKey(key)}</span>
+          <span className="text-xs text-foreground-muted">{labelFromKey(key)}</span>
           <ScoreBadge score={val as number} />
         </div>
       ))}
@@ -46,9 +56,18 @@ function ScoreRow({ record }: { record: Record<string, unknown> }) {
 function BooleanField({ label, value }: { label: string; value: boolean }) {
   return (
     <span className="inline-flex items-center gap-1 text-xs">
-      <span className={value ? "text-green-600" : "text-red-400"}>{value ? "\u2714" : "\u2716"}</span>
-      <span className="text-gray-600">{label}</span>
+      <span className={value ? "text-success" : "text-error"}>{value ? "\u2714" : "\u2716"}</span>
+      <span className="text-foreground-secondary">{label}</span>
     </span>
+  )
+}
+
+function ProseField({ label, text }: { label: string; text: string }) {
+  return (
+    <div>
+      <div className="mb-0.5 text-xs font-medium text-foreground-muted">{label}</div>
+      <p className="text-sm text-foreground-secondary">{text}</p>
+    </div>
   )
 }
 
@@ -56,7 +75,7 @@ function StringArrayBadges({ items }: { items: string[] }) {
   return (
     <div className="flex flex-wrap gap-1">
       {items.slice(0, 8).map((item, i) => (
-        <span key={i} className="rounded-full bg-blue-50 px-2 py-0.5 text-xs text-blue-700">
+        <span key={i} className="rounded-full bg-accent-subtle px-2 py-0.5 text-xs text-accent-fg">
           {item}
         </span>
       ))}
@@ -74,12 +93,12 @@ function FieldValue({ fieldKey, value }: { fieldKey: string; value: unknown }) {
     return <BooleanField label={label} value={value} />
   }
 
-  // Number (non-score)
+  // Number (non-score — scores rendered separately)
   if (typeof value === "number") {
     return (
       <div className="text-sm">
-        <span className="font-medium text-gray-500">{label}:</span>{" "}
-        <span className="text-gray-900">{value}</span>
+        <span className="font-medium text-foreground-muted">{label}:</span>{" "}
+        <span className="text-foreground">{value}</span>
       </div>
     )
   }
@@ -89,8 +108,8 @@ function FieldValue({ fieldKey, value }: { fieldKey: string; value: unknown }) {
     if (isUrl(value)) {
       return (
         <div className="text-sm">
-          <span className="font-medium text-gray-500">{label}:</span>{" "}
-          <a href={value} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline truncate">
+          <span className="font-medium text-foreground-muted">{label}:</span>{" "}
+          <a href={value} target="_blank" rel="noopener noreferrer" className="text-accent-fg hover:underline truncate">
             {value}
           </a>
         </div>
@@ -98,33 +117,33 @@ function FieldValue({ fieldKey, value }: { fieldKey: string; value: unknown }) {
     }
     return (
       <div className="text-sm">
-        <span className="font-medium text-gray-500">{label}:</span>{" "}
-        <span className="text-gray-900">{value}</span>
+        <span className="font-medium text-foreground-muted">{label}:</span>{" "}
+        <span className="text-foreground">{value}</span>
       </div>
     )
   }
 
-  // Array of strings
+  // Array of strings → badges
   if (Array.isArray(value) && value.length > 0 && value.every(v => typeof v === "string")) {
     return (
       <div>
-        <div className="mb-1 text-sm font-medium text-gray-500">{label}</div>
+        <div className="mb-1 text-xs font-medium text-foreground-muted">{label}</div>
         <StringArrayBadges items={value as string[]} />
       </div>
     )
   }
 
-  // Array of objects
+  // Array of objects → compact rows
   if (Array.isArray(value) && value.length > 0 && value.every(v => typeof v === "object" && v !== null)) {
     return (
       <div>
-        <div className="mb-1 text-sm font-medium text-gray-500">{label}</div>
-        <div className="space-y-1 pl-3 border-l-2 border-gray-100">
+        <div className="mb-1 text-xs font-medium text-foreground-muted">{label}</div>
+        <div className="space-y-1 pl-3 border-l-2 border-border-subtle">
           {(value as Record<string, unknown>[]).map((item, i) => (
-            <div key={i} className="text-xs text-gray-700">
+            <div key={i} className="text-xs text-foreground-secondary">
               {Object.entries(item)
                 .filter(([, v]) => v !== null && v !== undefined)
-                .map(([k, v]) => `${k}: ${v}`)
+                .map(([k, v]) => `${labelFromKey(k)}: ${v}`)
                 .join(" · ")}
             </div>
           ))}
@@ -133,18 +152,18 @@ function FieldValue({ fieldKey, value }: { fieldKey: string; value: unknown }) {
     )
   }
 
-  // Nested object
+  // Nested object → indented key/value
   if (typeof value === "object" && value !== null && !Array.isArray(value)) {
     return (
       <div>
-        <div className="mb-1 text-sm font-medium text-gray-500">{label}</div>
-        <div className="space-y-0.5 pl-3 border-l-2 border-gray-100">
+        <div className="mb-1 text-xs font-medium text-foreground-muted">{label}</div>
+        <div className="space-y-0.5 pl-3 border-l-2 border-border-subtle">
           {Object.entries(value as Record<string, unknown>)
             .filter(([, v]) => v !== null && v !== undefined)
             .map(([k, v]) => (
               <div key={k} className="text-xs">
-                <span className="text-gray-500">{labelFromKey(k)}:</span>{" "}
-                <span className="text-gray-700">{String(v)}</span>
+                <span className="text-foreground-muted">{labelFromKey(k)}:</span>{" "}
+                <span className="text-foreground-secondary">{String(v)}</span>
               </div>
             ))}
         </div>
@@ -155,26 +174,31 @@ function FieldValue({ fieldKey, value }: { fieldKey: string; value: unknown }) {
   return null
 }
 
-export function RecordRenderer({ record }: RecordRendererProps) {
-  const summary = typeof record.summary === "string" ? record.summary : null
+/* ── Main component ────────────────────────────────────── */
 
-  // Collect remaining fields in order, excluding header fields, summary, and scores
-  const remainingFields = Object.entries(record).filter(
-    ([key]) => !HEADER_FIELDS.has(key) && key !== "summary" && !isScoreField(key)
+export function RecordRenderer({ record }: RecordRendererProps) {
+  // Partition fields by type for structured layout
+  const remaining = Object.entries(record).filter(
+    ([key]) => !HEADER_FIELDS.has(key) && !isScoreField(key) && !isProseField(key)
   )
 
-  // Separate booleans from other fields for compact rendering
-  const booleanFields = remainingFields.filter(([, val]) => typeof val === "boolean")
-  const otherFields = remainingFields.filter(([, val]) => typeof val !== "boolean")
+  const proseFields = Object.entries(record).filter(
+    ([key, val]) => isProseField(key) && typeof val === "string" && val
+  )
+  const booleanFields = remaining.filter(([, val]) => isBooleanField("", val))
+  const otherFields = remaining.filter(([, val]) => !isBooleanField("", val))
 
   return (
     <div className="space-y-2">
-      {summary && (
-        <p className="text-sm text-gray-700">{summary}</p>
-      )}
+      {/* Summary / notes / description — prose first */}
+      {proseFields.map(([key, val]) => (
+        <ProseField key={key} label={labelFromKey(key)} text={val as string} />
+      ))}
 
+      {/* Score badges row */}
       <ScoreRow record={record} />
 
+      {/* Boolean flags — compact row */}
       {booleanFields.length > 0 && (
         <div className="flex flex-wrap gap-x-3 gap-y-1">
           {booleanFields.map(([key, val]) => (
@@ -183,6 +207,7 @@ export function RecordRenderer({ record }: RecordRendererProps) {
         </div>
       )}
 
+      {/* Everything else */}
       {otherFields.map(([key, val]) => (
         <FieldValue key={key} fieldKey={key} value={val} />
       ))}

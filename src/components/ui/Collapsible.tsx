@@ -1,7 +1,12 @@
 "use client"
 
-import * as CollapsiblePrimitive from "@radix-ui/react-collapsible"
-import { useState, type ReactNode } from "react"
+import { type ReactNode } from "react"
+import {
+  Collapsible as ShadcnCollapsible,
+  CollapsibleTrigger,
+  CollapsibleContent,
+} from "./shadcn/collapsible"
+import { ChevronDownIcon } from "lucide-react"
 
 export function Collapsible({
   trigger,
@@ -12,18 +17,17 @@ export function Collapsible({
   children: ReactNode
   className?: string
 }) {
-  const [open, setOpen] = useState(false)
   return (
-    <CollapsiblePrimitive.Root open={open} onOpenChange={setOpen} className={className}>
-      <CollapsiblePrimitive.Trigger asChild>
-        <button type="button" className="flex w-full items-center justify-between text-left text-sm">
+    <ShadcnCollapsible className={className}>
+      <CollapsibleTrigger asChild>
+        <button type="button" className="group flex w-full items-center justify-between text-left text-sm">
           {trigger}
-          <span className={`ml-2 transition-transform ${open ? "rotate-180" : ""}`}>&#9662;</span>
+          <ChevronDownIcon className="ml-2 size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180" />
         </button>
-      </CollapsiblePrimitive.Trigger>
-      <CollapsiblePrimitive.Content>
+      </CollapsibleTrigger>
+      <CollapsibleContent>
         {children}
-      </CollapsiblePrimitive.Content>
-    </CollapsiblePrimitive.Root>
+      </CollapsibleContent>
+    </ShadcnCollapsible>
   )
 }

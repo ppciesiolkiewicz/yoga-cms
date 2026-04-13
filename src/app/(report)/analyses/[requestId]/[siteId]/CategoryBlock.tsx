@@ -1,5 +1,6 @@
 import { TechCard, LighthouseCard } from "./TechCard"
 import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
+import { RecordRenderer } from "@/components/RecordRenderer"
 
 interface PageAssessment {
   url: string
@@ -141,39 +142,32 @@ function getRecordSummary(record: unknown, index: number): { title: string; url:
   return { title, url, pageLabel, badges: badges.slice(0, 5) }
 }
 
-function ExtractedRecordCard({ record, index, categoryName, extraInfo }: { record: unknown; index: number; categoryName: string; extraInfo: string }) {
-  const { title, url, pageLabel, badges } = getRecordSummary(record, index)
+function ExtractedRecordCard({ record, index }: { record: unknown; index: number }) {
+  const { title, url, pageLabel } = getRecordSummary(record, index)
+  const isObject = typeof record === "object" && record !== null
 
   return (
-    <div className="rounded-lg border border-border-default bg-surface">
-      <div className="px-4 py-3">
-        <div className="text-base font-semibold text-foreground">{title}</div>
-        {url && (
-          <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-accent-fg hover:underline truncate">
-            {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
-          </a>
-        )}
-        <div className="mt-2 text-xs text-foreground-muted">
-          <span className="font-medium text-foreground-secondary">category:</span> {categoryName.toLowerCase()}
+    <div className="rounded-lg border border-border-default bg-surface px-4 py-3">
+      <div className="text-base font-semibold text-foreground">{title}</div>
+      {url && (
+        <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-accent-fg hover:underline truncate">
+          {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
+        </a>
+      )}
+
+      {isObject && (
+        <div className="mt-3">
+          <RecordRenderer record={record as Record<string, unknown>} />
         </div>
-        {extraInfo && (
-          <div className="text-xs text-foreground-faint">{extraInfo}</div>
-        )}
-        {badges.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {badges.map((b, i) => (
-              <span key={i} className="rounded-full bg-accent-subtle px-2 py-0.5 text-xs text-accent-fg">{b}</span>
-            ))}
-          </div>
-        )}
-      </div>
-      <Accordion className="border-t border-border-subtle">
+      )}
+
+      <Accordion className="mt-3 border-t border-border-subtle">
         <AccordionItem value="json">
-          <AccordionTrigger className="px-4 py-2 text-xs text-foreground-muted hover:bg-surface-alt hover:text-foreground-secondary">
+          <AccordionTrigger className="py-2 text-xs text-foreground-muted hover:text-foreground-secondary">
             <span>View raw JSON</span>
           </AccordionTrigger>
           <AccordionContent>
-            <pre className="overflow-x-auto border-t border-border-subtle bg-surface-alt px-4 py-3 text-xs text-foreground-secondary">
+            <pre className="overflow-x-auto rounded bg-surface-alt px-3 py-2 text-xs text-foreground-secondary">
               {JSON.stringify(record, null, 2)}
             </pre>
           </AccordionContent>
@@ -244,21 +238,14 @@ export default function CategoryBlock(props: Props) {
       )}
 
       {props.extractedRecords.length > 0 && (
-        <Accordion>
-          <AccordionItem value="extracted-data">
-            <AccordionTrigger className="text-xs font-semibold uppercase tracking-wide text-foreground-muted">
-              <span>Extracted Data ({props.extractedRecords.length})</span>
-            </AccordionTrigger>
-            <AccordionContent>
-              {extractQuery && <QueryDetails query={extractQuery} />}
-              <div className="mt-2 space-y-2">
-                {props.extractedRecords.map((record, i) => (
-                  <ExtractedRecordCard key={i} record={record} index={i} categoryName={props.categoryName} extraInfo={props.extraInfo} />
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
+        <div>
+          {extractQuery && <QueryDetails query={extractQuery} />}
+          <div className="mt-2 space-y-3">
+            {props.extractedRecords.map((record, i) => (
+              <ExtractedRecordCard key={i} record={record} index={i} />
+            ))}
+          </div>
+        </div>
       )}
     </section>
   )

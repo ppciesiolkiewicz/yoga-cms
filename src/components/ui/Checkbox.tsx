@@ -1,6 +1,6 @@
 "use client"
 
-import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { Checkbox as ShadcnCheckbox } from "./shadcn/checkbox"
 
 export function Checkbox({
   label,
@@ -15,17 +15,10 @@ export function Checkbox({
 }) {
   return (
     <label className={`flex items-center gap-2 text-sm ${className}`}>
-      <CheckboxPrimitive.Root
+      <ShadcnCheckbox
         checked={checked}
         onCheckedChange={(v) => onCheckedChange(v === true)}
-        className="flex h-4 w-4 items-center justify-center rounded border border-border-strong bg-surface data-[state=checked]:border-accent data-[state=checked]:bg-accent"
-      >
-        <CheckboxPrimitive.Indicator>
-          <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-            <path d="M2.5 6L5 8.5L9.5 3.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-          </svg>
-        </CheckboxPrimitive.Indicator>
-      </CheckboxPrimitive.Root>
+      />
       {label}
     </label>
   )

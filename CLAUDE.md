@@ -17,7 +17,8 @@ Next.js 16 project — a generic site-analysis pipeline with a browse UI. The yo
 - `scripts/cli/analyze.ts` — thin CLI wrapping `runAnalysis`
 - `data/db/` — request store (created on first run)
 - `data/inputs/` — sample input files
-- `src/app/browse-data/` — request list + detail pages, all data-driven from `Repo`
+- `src/app/(main)/analyses/` — request list + detail pages, all data-driven from `Repo`
+- `src/app/(report)/analyses/` — site-level report pages
 
 ## Pipeline
 fetch-home → parse-links → classify-nav → fetch-pages (shared) → FOR EACH CATEGORY { detect-tech?, run-lighthouse?, assess-pages, extract-pages-content } → build-report.
@@ -38,16 +39,24 @@ Categories can opt into `wappalyzer: true` and/or `lighthouse: true` in the inpu
 ### Atomic Design
 Follow atomic design methodology for component organization:
 - **Atoms** (`src/components/ui/`) — smallest primitives: Button, Input, Textarea, Card, Checkbox, Chip, Collapsible, Carousel. Built on Radix UI where applicable. These are generic, reusable, and have no domain knowledge.
-- **Molecules** (`src/components/`) — small compositions of atoms for a specific purpose (e.g. SearchBar = Input + Button, ScoreBadge, StatusBadge). May contain light layout logic.
+- **Molecules** (`src/components/`) — small compositions of atoms for a specific purpose (e.g. SearchBar = Input + Button, ScoreBadge, StatusBadge). May contain light layout logic. `src/components/ui.tsx` provides convenience wrappers (Tooltip, Accordion, etc.) that compose shadcn primitives with app-level defaults.
 - **Organisms** (`src/app/**/` colocated) — feature-level compositions (e.g. SitesSidebar, CategoryBlock). Live next to the route that uses them. Can import atoms and molecules.
 - **Pages** (`src/app/**/page.tsx`) — route entry points. Compose organisms, handle data fetching.
+
+### shadcn/ui
+Generated shadcn components live in `src/components/ui/shadcn/`. Configured via `components.json` (radix-nova style, lucide icons).
+- **Generate new components:** `npx shadcn@latest add <component>` — outputs to `src/components/ui/shadcn/`
+- **Customize freely** — shadcn files are owned by this project, not a library. Edit them directly.
+- **App-level wrappers** in `src/components/ui.tsx` compose shadcn primitives with project defaults (e.g. `Tooltip` wraps `TooltipProvider` + `TooltipTrigger` + `TooltipContent` into a single convenience component; `Accordion` defaults to `type="single" collapsible`).
+- Consumers import from `@/components/ui` (the barrel `ui.tsx`) for convenience wrappers, or directly from `@/components/ui/shadcn/<component>` when they need full control over the shadcn API.
 
 ### Component Structure
 Components can have nested sub-components in a `components/` folder:
 ```
 src/components/ui/
+  shadcn/              # shadcn-generated primitives (accordion.tsx, tooltip.tsx, …)
   Input/
-    index.ts          # re-exports Input only
+    index.ts           # re-exports Input only
     Input.tsx
     components/        # private sub-components
       Label.tsx
@@ -57,7 +66,7 @@ Sub-components inside a `components/` folder are **private** — they must not b
 
 ### Component Rules
 - New UI primitives go in `src/components/ui/` and must be exported from `src/components/ui/index.ts`.
-- Use Radix UI for any interactive primitive (dialogs, dropdowns, tooltips, tabs, etc.). Don't build custom implementations.
+- Use shadcn/Radix for any interactive primitive (dialogs, dropdowns, tooltips, tabs, accordions, etc.). Generate with `npx shadcn@latest add <component>`, then customize.
 - Style with Tailwind classes. No CSS modules, no styled-components.
 - All interactive components must be keyboard-accessible and include proper ARIA attributes.
 - Prefer composition over prop sprawl — use children/slots instead of dozens of config props.
