@@ -1,14 +1,13 @@
 import type { Repo } from "../db/repo"
-import type { Request, Order, AIQuery } from "../core/types"
+import type { Request, Order } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
 
 function tokenCost(
-  promptChars: number,
-  responseChars: number,
+  query: AIQuery,
   config: { inputPer1kTokens: number; outputPer1kTokens: number },
 ): { inputTokens: number; outputTokens: number; cost: number } {
-  const inputTokens = Math.ceil(promptChars / 4)
-  const outputTokens = Math.ceil(responseChars / 4)
+  const inputTokens = query.usage?.inputTokens ?? Math.ceil(query.prompt.length / 4)
+  const outputTokens = query.usage?.outputTokens ?? Math.ceil(query.response.length / 4)
   const cost =
     (inputTokens / 1000) * config.inputPer1kTokens +
     (outputTokens / 1000) * config.outputPer1kTokens
@@ -60,7 +59,7 @@ export async function finalizeOrder(
           const cat = request.categories.find(c => c.id === q.categoryId)
           const tier = cat?.model ?? "sonnet"
           const aiConfig = pricing.ai.extractPagesContent[tier]
-          const result = tokenCost(q.prompt.length, q.response.length, aiConfig)
+          const result = tokenCost(q, aiConfig)
           totalInputTokens += result.inputTokens + result.outputTokens
           totalCost += result.cost
         }

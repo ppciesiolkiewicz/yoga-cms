@@ -44,6 +44,24 @@
       "meta": {
         "name": "Hot Yoga Barcelona"
       }
+    },
+    {
+      "url": "https://www.shalastudios.com",
+      "meta": {
+        "name": "SHA-LA Studios"
+      }
+    },
+    {
+      "url": "https://www.threeboonsyoga.de",
+      "meta": {
+        "name": "Three Boons Yoga"
+      }
+    },
+    {
+      "url": "https://www.yoga-lotos.de",
+      "meta": {
+        "name": "Lotos Yoga Berlin"
+      }
     }
   ]
 }

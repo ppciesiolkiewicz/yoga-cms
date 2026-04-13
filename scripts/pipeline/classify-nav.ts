@@ -69,6 +69,7 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
     prompt: system,
     dataRefs: nav.links.map(l => l.href),
     response: text,
+    usage: { inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens },
     createdAt: new Date().toISOString(),
   }
   await repo.putQuery(query)

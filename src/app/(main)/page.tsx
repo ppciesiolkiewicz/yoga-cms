@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Button } from "@/components/ui/Button";
 
 const features = [
   {
@@ -38,23 +39,17 @@ export default function Home() {
           <span className="text-accent-fg">site by site</span>
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-foreground-secondary">
-          Web Analyzer crawls and evaluates multiple websites in a domain so you
+          WebAnalyzer crawls and evaluates multiple websites in a domain so you
           can compare competitors, spot trends, and research an entire industry
-          — all from a single input file.
+          — all from a single place.
         </p>
         <div className="mt-8 flex items-center justify-center gap-4">
-          <Link
-            href="/create"
-            className="rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-foreground-on-accent shadow hover:bg-accent-hover transition-colors"
-          >
-            Start a new analysis
-          </Link>
-          <Link
-            href="/analyses"
-            className="rounded-lg border border-border-strong bg-surface px-5 py-2.5 text-sm font-medium text-foreground-secondary shadow-sm hover:bg-surface-alt transition-colors"
-          >
-            Browse past analyses
-          </Link>
+          <Button asChild size="lg">
+            <Link href="/create">Start a new analysis</Link>
+          </Button>
+          <Button asChild variant="secondary" size="lg">
+            <Link href="/analyses">Browse past analyses</Link>
+          </Button>
         </div>
       </section>
 
@@ -93,12 +88,9 @@ export default function Home() {
             Create an input file with your target sites and categories, then let
             the pipeline do the rest.
           </p>
-          <Link
-            href="/create"
-            className="mt-6 inline-block rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-foreground-on-accent shadow hover:bg-accent-hover transition-colors"
-          >
-            Get started
-          </Link>
+          <Button asChild size="lg" className="mt-6">
+            <Link href="/create">Get started</Link>
+          </Button>
         </div>
       </section>
     </main>

@@ -1,3 +1,5 @@
+import { slugify } from "@/lib/utils"
+
 interface NavLink {
   label: string
   href: string
@@ -79,17 +81,26 @@ export function NavigationCard({ nav, classify, categories }: Props) {
             {categorized.map((link, i) => {
               const color = colorMap.get(link.category.id) ?? CATEGORY_COLORS[0]
               return (
-                <a
+                <span
                   key={i}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium transition-colors hover:opacity-80 ${color}`}
+                  className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-medium ${color}`}
                 >
-                  <span className="opacity-60">{link.category.name}</span>
+                  <a
+                    href={`#category-${slugify(link.category.name)}`}
+                    className="opacity-60 hover:opacity-100 transition-opacity"
+                  >
+                    {link.category.name}
+                  </a>
                   <span className="opacity-40">·</span>
-                  {link.label}
-                </a>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:opacity-80 transition-opacity"
+                  >
+                    {link.label}
+                  </a>
+                </span>
               )
             })}
           </div>

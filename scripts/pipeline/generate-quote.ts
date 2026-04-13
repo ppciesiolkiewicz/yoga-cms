@@ -18,8 +18,8 @@ function computeSunkCosts(queries: AIQuery[], pricing: PricingConfig): SunkCosts
   let classifyNavCost = 0
   let classifyNavTokens = 0
   if (classifyQuery) {
-    const inputTokens = Math.ceil(classifyQuery.prompt.length / 4)
-    const outputTokens = Math.ceil(classifyQuery.response.length / 4)
+    const inputTokens = classifyQuery.usage?.inputTokens ?? Math.ceil(classifyQuery.prompt.length / 4)
+    const outputTokens = classifyQuery.usage?.outputTokens ?? Math.ceil(classifyQuery.response.length / 4)
     classifyNavTokens = inputTokens + outputTokens
     classifyNavCost =
       (inputTokens / 1000) * pricing.ai.classifyNav.inputPer1kTokens +

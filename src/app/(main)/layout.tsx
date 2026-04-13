@@ -11,7 +11,7 @@ export default function MainLayout({
       <nav className="fixed top-0 left-0 right-0 z-40 border-b border-border-default bg-surface px-6 py-3">
         <div className="mx-auto flex max-w-6xl items-center gap-6">
           <Link href="/" className="text-lg font-semibold text-foreground">
-            Web Analyzer
+            WebAnalyzer
           </Link>
           <Link
             href="/analyses"

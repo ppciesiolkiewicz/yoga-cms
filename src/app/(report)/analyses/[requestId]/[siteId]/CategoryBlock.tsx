@@ -3,6 +3,7 @@
 import { TechCard, LighthouseCard } from "./TechCard"
 import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 import { RecordRenderer } from "@/components/RecordRenderer"
+import { slugify } from "@/lib/utils"
 
 interface PageAssessment {
   url: string
@@ -188,13 +189,17 @@ export default function CategoryBlock(props: Props) {
 
   return (
     <section
-      id={`category-${props.categoryId}`}
+      id={`category-${slugify(props.categoryName)}`}
       className="mb-6 rounded-lg border border-border-default bg-surface p-6"
     >
       <div className="mb-4 flex items-start justify-between">
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-semibold text-foreground">{props.categoryName}</h2>
+            <h2 className="text-xl font-semibold text-foreground">
+              <a href={`#category-${slugify(props.categoryName)}`} className="hover:text-accent-fg transition-colors">
+                {props.categoryName}
+              </a>
+            </h2>
             <span className="rounded-full bg-surface-alt px-2 py-0.5 text-xs font-medium text-foreground-muted">Category</span>
           </div>
           {props.extraInfo && (

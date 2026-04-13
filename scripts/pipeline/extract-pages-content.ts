@@ -32,7 +32,7 @@ No markdown, no code fences.`;
 
 interface ExtractResult {
   records: unknown[];
-  queryInfo: { prompt: string; response: string } | null;
+  queryInfo: { prompt: string; response: string; usage: { inputTokens: number; outputTokens: number } } | null;
 }
 
 async function callExtract(
@@ -60,7 +60,11 @@ async function callExtract(
       const parsed = JSON.parse(text) as { records?: unknown[] };
       return {
         records: parsed.records ?? [],
-        queryInfo: { prompt: system, response: text },
+        queryInfo: {
+          prompt: system,
+          response: text,
+          usage: { inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens },
+        },
       };
     } catch (err) {
       lastError = err;
@@ -106,6 +110,7 @@ export async function extractPagesContentForCategory(
       prompt: result.queryInfo.prompt,
       dataRefs: pages.map((p) => p.url),
       response: result.queryInfo.response,
+      usage: result.queryInfo.usage,
       createdAt: new Date().toISOString(),
     };
     await repo.putQuery(query);

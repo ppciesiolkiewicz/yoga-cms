@@ -29,7 +29,13 @@ export class Repo {
   async createRequest(input: AnalyzeInput): Promise<Request> {
     const id = newId()
     const createdAt = new Date().toISOString()
-    const categories: Category[] = input.categories.map(c => ({ ...c, id: newId("cat") }))
+    const usedSlugs = new Set<string>()
+    const categories: Category[] = input.categories.map(c => {
+      let slug = slugify(c.name)
+      while (usedSlugs.has(slug)) slug += "-2"
+      usedSlugs.add(slug)
+      return { ...c, id: slug }
+    })
     const sites: Site[] = input.sites.map(s => ({ ...s, id: newId("site") }))
     const request: Request = { id, createdAt, displayName: input.displayName, categories, sites }
 
@@ -211,6 +217,16 @@ export class Repo {
       result,
     )
   }
+}
+
+export function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    || "category"
 }
 
 export function newId(prefix = "r"): string {

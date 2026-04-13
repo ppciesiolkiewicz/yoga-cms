@@ -44,7 +44,9 @@ export function PageNav({ sections }: { sections: Section[] }) {
       setActiveId(active)
       const idx = elements.findIndex(el => el.id === active)
       setActiveIndex(idx === -1 ? 0 : idx)
-      const nextHash = active ? `#${active}` : ""
+      // Only set hash if user has scrolled past the first section
+      const isAtTop = window.scrollY < 50
+      const nextHash = active && !isAtTop ? `#${active}` : ""
       if (nextHash !== window.location.hash) {
         const url = window.location.pathname + window.location.search + nextHash
         window.history.replaceState(null, "", url)

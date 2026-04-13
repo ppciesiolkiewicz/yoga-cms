@@ -89,6 +89,7 @@ export interface AIQuery {
   prompt: string          // full system message (category.prompt + stage framing)
   dataRefs: string[]      // page URLs fed as context
   response: string
+  usage?: { inputTokens: number; outputTokens: number }
   createdAt: string
 }
 

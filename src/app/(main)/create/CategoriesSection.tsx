@@ -164,11 +164,11 @@ function BuiltInCategory({
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1.5">
-              <span className="text-xs text-gray-500">Model</span>
+              <span className="text-xs text-foreground-faint">Model</span>
               <select
                 value={cat.model}
                 onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
-                className="h-7 rounded border border-gray-200 bg-white px-1.5 text-xs text-gray-700"
+                className="h-7 rounded border border-accent-fg/30 bg-surface px-1.5 text-xs text-foreground hover:border-accent-fg/50 focus:border-accent-fg focus:ring-1 focus:ring-accent-fg/30 focus:outline-none"
               >
                 <option value="haiku">Haiku</option>
                 <option value="sonnet">Sonnet</option>
@@ -222,13 +222,13 @@ function CustomCategory({
               <select
                 value={cat.model}
                 onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
-                className="h-9 w-full rounded-md border border-gray-200 bg-white px-2 text-sm text-gray-700"
+                className="h-9 w-full rounded-md border border-accent-fg/30 bg-surface px-2 text-sm text-foreground hover:border-accent-fg/50 focus:border-accent-fg focus:ring-1 focus:ring-accent-fg/30 focus:outline-none"
               >
                 <option value="haiku">Haiku</option>
                 <option value="sonnet">Sonnet</option>
                 <option value="opus">Opus</option>
               </select>
-              <span className="mt-0.5 block text-xs text-gray-400">
+              <span className="mt-0.5 block text-xs text-foreground-faint">
                 AI model
               </span>
             </div>
