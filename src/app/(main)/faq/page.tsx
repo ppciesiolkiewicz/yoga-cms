@@ -39,19 +39,19 @@ export default function FaqPage() {
   return (
     <main className="mx-auto max-w-3xl px-4 py-8">
       <h1 className="text-2xl font-bold">Frequently Asked Questions</h1>
-      <p className="mt-1 text-sm text-gray-500">
+      <p className="mt-1 text-sm text-foreground-muted">
         Common questions about creating and running analyses.
       </p>
 
       <div className="mt-6 space-y-2">
         {faqs.map((faq) => (
-          <div key={faq.question} className="rounded-lg border border-gray-200 bg-white px-4 py-3">
+          <div key={faq.question} className="rounded-lg border border-border-default bg-surface px-4 py-3">
             <Collapsible
               trigger={
-                <span className="font-medium text-gray-800">{faq.question}</span>
+                <span className="font-medium text-foreground">{faq.question}</span>
               }
             >
-              <p className="pb-1 pt-2 text-sm leading-relaxed text-gray-600">
+              <p className="pb-1 pt-2 text-sm leading-relaxed text-foreground-secondary">
                 {faq.answer}
               </p>
             </Collapsible>

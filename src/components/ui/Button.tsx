@@ -3,9 +3,9 @@ import { type ButtonHTMLAttributes } from "react"
 type Variant = "primary" | "secondary" | "ghost"
 
 const variantStyles: Record<Variant, string> = {
-  primary: "bg-blue-600 text-white hover:bg-blue-700",
-  secondary: "border border-gray-300 bg-white text-gray-700 hover:bg-gray-50",
-  ghost: "text-gray-600 hover:bg-gray-100",
+  primary: "bg-accent text-foreground-on-accent hover:bg-accent-hover",
+  secondary: "border border-border-strong bg-surface text-foreground-secondary hover:bg-surface-alt",
+  ghost: "text-foreground-secondary hover:bg-surface-raised",
 }
 
 export function Button({

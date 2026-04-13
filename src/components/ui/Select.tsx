@@ -25,16 +25,16 @@ export function Select({
   return (
     <SelectPrimitive.Root value={value} onValueChange={onChange} disabled={disabled}>
       <SelectPrimitive.Trigger
-        className={`inline-flex items-center justify-between rounded-md border border-gray-300 bg-white px-3 py-1.5 text-sm shadow-sm hover:bg-gray-50 focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500 disabled:cursor-not-allowed disabled:border-gray-200 disabled:bg-gray-50 disabled:text-gray-500 data-[placeholder]:text-gray-500 ${className}`}
+        className={`inline-flex items-center justify-between rounded-md border border-border-strong bg-surface px-3 py-1.5 text-sm shadow-sm hover:bg-surface-alt focus:border-focus focus:outline-none focus:ring-1 focus:ring-focus disabled:cursor-not-allowed disabled:border-border-default disabled:bg-surface-alt disabled:text-foreground-muted data-placeholder:text-foreground-muted ${className}`}
       >
         <SelectPrimitive.Value placeholder={placeholder} />
-        <SelectPrimitive.Icon className="ml-2 text-gray-400">
+        <SelectPrimitive.Icon className="ml-2 text-foreground-faint">
           &#9662;
         </SelectPrimitive.Icon>
       </SelectPrimitive.Trigger>
       <SelectPrimitive.Portal>
         <SelectPrimitive.Content
-          className="z-50 overflow-hidden rounded-lg border border-gray-200 bg-white shadow-lg"
+          className="z-50 overflow-hidden rounded-lg border border-border-default bg-surface shadow-lg"
           position="popper"
           sideOffset={4}
         >
@@ -43,7 +43,7 @@ export function Select({
               <SelectPrimitive.Item
                 key={opt.value}
                 value={opt.value}
-                className="relative flex cursor-pointer items-center rounded px-2 py-1.5 text-sm text-gray-700 outline-none hover:bg-gray-100 focus:bg-gray-100 data-[state=checked]:bg-blue-50 data-[state=checked]:text-blue-700"
+                className="relative flex cursor-pointer items-center rounded px-2 py-1.5 text-sm text-foreground-secondary outline-none hover:bg-surface-raised focus:bg-surface-raised data-[state=checked]:bg-accent-subtle data-[state=checked]:text-accent-fg"
               >
                 <SelectPrimitive.ItemText>{opt.label}</SelectPrimitive.ItemText>
               </SelectPrimitive.Item>

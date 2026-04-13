@@ -44,7 +44,7 @@ export function SearchSection({
   return (
     <section>
       <h2 className="mb-1 text-lg font-semibold">Add new search</h2>
-      <p className="mb-3 text-sm text-gray-500">Select web pages you want to analyze</p>
+      <p className="mb-3 text-sm text-foreground-muted">Select web pages you want to analyze</p>
       <form
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault()
@@ -78,7 +78,7 @@ export function SearchSection({
             />
           ))}
           <Card
-            className="flex min-w-50 shrink-0 cursor-pointer items-center justify-center p-4 text-gray-400 hover:bg-gray-50 hover:text-gray-600"
+            className="flex min-w-50 shrink-0 cursor-pointer items-center justify-center p-4 text-foreground-faint hover:bg-surface-alt hover:text-foreground-secondary"
             onClick={() => {
               inputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" })
               setTimeout(() => inputRef.current?.focus(), 300)

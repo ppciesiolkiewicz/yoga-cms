@@ -18,7 +18,7 @@ export function Checkbox({
       <CheckboxPrimitive.Root
         checked={checked}
         onCheckedChange={(v) => onCheckedChange(v === true)}
-        className="flex h-4 w-4 items-center justify-center rounded border border-gray-300 bg-white data-[state=checked]:border-blue-600 data-[state=checked]:bg-blue-600"
+        className="flex h-4 w-4 items-center justify-center rounded border border-border-strong bg-surface data-[state=checked]:border-accent data-[state=checked]:bg-accent"
       >
         <CheckboxPrimitive.Indicator>
           <svg width="12" height="12" viewBox="0 0 12 12" fill="none">

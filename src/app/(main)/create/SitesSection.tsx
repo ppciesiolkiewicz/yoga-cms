@@ -47,21 +47,21 @@ export function SitesSection({
     <section>
       <h2 className="mb-3 text-lg font-semibold">Selected Sites{entries.length > 0 ? ` (${entries.length})` : ""}</h2>
 
-      <div className="overflow-x-auto rounded-lg border border-gray-200">
+      <div className="overflow-x-auto rounded-lg border border-border-default">
         <table className="w-full text-left text-sm">
-          <thead className="bg-gray-50 text-xs uppercase text-gray-500">
+          <thead className="bg-surface-alt text-xs uppercase text-foreground-muted">
             <tr>
               <th className="px-3 py-2">URL</th>
               <th className="px-3 py-2">Name</th>
               <th className="px-3 py-2 w-12"></th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-100">
+          <tbody className="divide-y divide-divide-default">
             {entries.map(([url, site]) => (
               <tr key={url}>
                 <td className="px-3 py-2">
-                  <div className="max-w-xs truncate text-blue-700">{url}</div>
-                  <div className="truncate text-xs text-gray-400">{site.title}</div>
+                  <div className="max-w-xs truncate text-accent-fg">{url}</div>
+                  <div className="truncate text-xs text-foreground-faint">{site.title}</div>
                 </td>
                 <td className="px-3 py-2">
                   <Input
@@ -71,13 +71,13 @@ export function SitesSection({
                   />
                 </td>
                 <td className="px-3 py-2">
-                  <Button variant="ghost" onClick={() => onRemove(url)} className="text-red-500 hover:text-red-700">
+                  <Button variant="ghost" onClick={() => onRemove(url)} className="text-error hover:text-error">
                     &times;
                   </Button>
                 </td>
               </tr>
             ))}
-            <tr className="bg-gray-50/50">
+            <tr className="bg-surface-alt/50">
               <td className="px-3 py-2" colSpan={2}>
                 <Input
                   value={manualUrl}
@@ -92,7 +92,7 @@ export function SitesSection({
                   variant="ghost"
                   onClick={handleAddManual}
                   disabled={!manualUrl.trim()}
-                  className="text-blue-600 hover:text-blue-800 font-medium"
+                  className="text-accent-fg hover:text-accent-fg font-medium"
                 >
                   Add +
                 </Button>
