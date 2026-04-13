@@ -35,14 +35,29 @@
     }
   ],
   "sites": [
-    { "url": "https://www.wework.com/l/london", "meta": { "name": "WeWork London" } },
+    {
+      "url": "https://www.wework.com/l/london",
+      "meta": { "name": "WeWork London" }
+    },
     { "url": "https://thefamily.co", "meta": { "name": "The Family" } },
     { "url": "https://www.mindspace.me", "meta": { "name": "Mindspace" } },
-    { "url": "https://www.betahaus.com", "meta": { "name": "betahaus Berlin" } },
-    { "url": "https://www.factoryberlin.com", "meta": { "name": "Factory Berlin" } },
+    {
+      "url": "https://www.betahaus.com",
+      "meta": { "name": "betahaus Berlin" }
+    },
+    {
+      "url": "https://www.factoryberlin.com",
+      "meta": { "name": "Factory Berlin" }
+    },
     { "url": "https://www.spaces.works", "meta": { "name": "Spaces" } },
-    { "url": "https://www.rainmakingcowork.com", "meta": { "name": "Rainmaking Cowork" } },
-    { "url": "https://www.thecommons.co.th", "meta": { "name": "The Commons Bangkok" } },
+    {
+      "url": "https://www.rainmakingcowork.com",
+      "meta": { "name": "Rainmaking Cowork" }
+    },
+    {
+      "url": "https://www.thecommons.co.th",
+      "meta": { "name": "The Commons Bangkok" }
+    },
     { "url": "https://www.hubud.org", "meta": { "name": "Hubud Bali" } },
     { "url": "https://www.impacthub.net", "meta": { "name": "Impact Hub" } },
     { "url": "https://www.secondhome.io", "meta": { "name": "Second Home" } },
