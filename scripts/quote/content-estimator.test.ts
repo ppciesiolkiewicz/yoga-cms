@@ -10,8 +10,7 @@ describe("MockContentEstimator", () => {
     expect(results).toHaveLength(3)
     for (let i = 0; i < urls.length; i++) {
       expect(results[i].url).toBe(urls[i])
-      expect(results[i].charCount).toBeGreaterThanOrEqual(3000)
-      expect(results[i].charCount).toBeLessThanOrEqual(8000)
+      expect(results[i].charCount).toBe(5000)
     }
   })
 

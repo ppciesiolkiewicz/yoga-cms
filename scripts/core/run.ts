@@ -9,7 +9,7 @@ import { runLighthouseForCategory } from "../pipeline/run-lighthouse"
 import { extractPagesContentForCategory } from "../pipeline/extract-pages-content"
 import { buildReportStage } from "../pipeline/build-report"
 import { estimateContent } from "../pipeline/estimate-content"
-import { generateQuote, formatQuoteSummary } from "../pipeline/generate-quote"
+import { generateQuote, formatQuoteSummary, formatOrderComparison } from "../pipeline/generate-quote"
 import { finalizeOrder } from "../pipeline/finalize-order"
 import { loadPricingConfig } from "../quote/pricing"
 import { createInterface } from "readline"
@@ -212,6 +212,11 @@ export async function runAnalysis(
 
     const approved = await promptApproval("  Proceed with analysis? (y/n): ")
     if (!approved) {
+      order.status = "rejected"
+      await repo.putJson(
+        { requestId: request.id, stage: "order", name: "order.json" },
+        order,
+      )
       console.log("\n==> Quote rejected. Exiting.")
       return request.id
     }
@@ -245,7 +250,10 @@ export async function runAnalysis(
     try {
       const pricing = loadPricingConfig()
       await finalizeOrder(repo, request, pricing)
-      console.log(`\n==> Order finalized`)
+      const finalOrder = await repo.getJson<import("../core/types").Order>({
+        requestId: request.id, stage: "order", name: "order.json",
+      })
+      console.log(formatOrderComparison(finalOrder))
     } catch (err) {
       console.warn(`  ✗ finalize-order: ${err instanceof Error ? err.message : err}`)
     }

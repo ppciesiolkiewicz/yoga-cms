@@ -6,6 +6,9 @@ import type {
   ArtifactRef,
   Request,
   RequestIndexEntry,
+  StoredRequestIndexEntry,
+  RequestStatus,
+  Order,
   Category,
   Site,
 } from "../core/types"
@@ -44,21 +47,43 @@ export class Repo {
     return request
   }
 
-  async getRequest(id: string): Promise<Request> {
+  async getRequest(id: string): Promise<Request & { status: RequestStatus }> {
     const path = join(requestDir(this.root, id), "request.json")
     const buf = await this.store.readFile(path)
-    return JSON.parse(buf.toString("utf8")) as Request
+    const request = JSON.parse(buf.toString("utf8")) as Request
+    const status = await this.deriveStatus(id)
+    return { ...request, status }
+  }
+
+  private async deriveStatus(id: string): Promise<RequestStatus> {
+    const orderRef = { requestId: id, stage: "order", name: "order.json" }
+    if (!(await this.artifactExists(orderRef))) return "pending"
+
+    const order = await this.getJson<Order>(orderRef)
+    if (order.status === "quoted") return "pending"
+    if (order.status === "rejected") return "rejected"
+    if (order.status === "approved") return "processing"
+    if (order.status === "completed") return "complete"
+    return "pending"
   }
 
   async listRequests(): Promise<RequestIndexEntry[]> {
     const path = join(this.root, "index.json")
     if (!(await this.store.exists(path))) return []
     const buf = await this.store.readFile(path)
-    return JSON.parse(buf.toString("utf8")) as RequestIndexEntry[]
+    const entries = JSON.parse(buf.toString("utf8")) as StoredRequestIndexEntry[]
+    return Promise.all(
+      entries.map(async e => ({ ...e, status: await this.deriveStatus(e.id) }))
+    )
   }
 
-  private async appendIndex(entry: RequestIndexEntry): Promise<void> {
-    const list = await this.listRequests()
+  private async appendIndex(entry: StoredRequestIndexEntry): Promise<void> {
+    const path = join(this.root, "index.json")
+    let list: StoredRequestIndexEntry[] = []
+    if (await this.store.exists(path)) {
+      const buf = await this.store.readFile(path)
+      list = JSON.parse(buf.toString("utf8")) as StoredRequestIndexEntry[]
+    }
     const next = [...list.filter(e => e.id !== entry.id), entry]
     await this.store.writeFile(
       join(this.root, "index.json"),

@@ -39,7 +39,7 @@ describe("Repo", () => {
     expect(req.sites[0].id).toMatch(/\S/)
 
     const loaded = await repo.getRequest(req.id)
-    expect(loaded).toEqual(req)
+    expect(loaded).toEqual({ ...req, status: "pending" })
   })
 
   it("createRequest updates index.json", async () => {
@@ -88,10 +88,6 @@ describe("Repo", () => {
 
     // Per-category artifacts use <categoryId>.json
     await repo.putJson({ requestId: req.id, siteId, stage: "detect-tech", name: `${catId}.json` }, { platform: "WordPress" })
-    await repo.putJson(
-      { requestId: req.id, siteId, stage: "assess-pages", name: `${catId}.json` },
-      { categoryId: catId, categoryName: "menu", pages: [{ url: "https://example.com", conversionScore: 7, seoScore: 6 }] },
-    )
     // Single-file stage
     await repo.putJson(
       { requestId: req.id, siteId, stage: "classify-nav", name: "classify-nav.json" },
@@ -111,8 +107,6 @@ describe("Repo", () => {
     // Per-category stages are keyed by categoryId
     const tech = result.sites[0].artifacts["detect-tech"] as Record<string, unknown>
     expect(tech[catId]).toEqual({ platform: "WordPress" })
-    const assess = result.sites[0].artifacts["assess-pages"] as Record<string, unknown>
-    expect(assess[catId]).toMatchObject({ pages: expect.any(Array) })
     // Single-file stage
     expect(result.sites[0].artifacts["classify-nav"]).toEqual({ byCategory: {} })
     expect(result.sites[0].queries).toEqual([])

@@ -33,13 +33,19 @@ export interface Request {
   sites: Site[]
 }
 
+export type RequestStatus = "pending" | "processing" | "complete" | "rejected"
+
 export interface RequestIndexEntry {
   id: string
   displayName?: string
   createdAt: string
   siteCount: number
   categoryCount: number
+  status: RequestStatus
 }
+
+/** Shape stored on disk — status is derived at read time */
+export type StoredRequestIndexEntry = Omit<RequestIndexEntry, "status">
 
 export type StageName =
   | "fetch-home"
@@ -96,7 +102,7 @@ export interface SiteEstimate {
   totalEstimatedTokens: number
 }
 
-export type OrderStatus = "quoted" | "approved" | "completed"
+export type OrderStatus = "quoted" | "approved" | "completed" | "rejected"
 
 export interface OrderLineItem {
   stage: string
