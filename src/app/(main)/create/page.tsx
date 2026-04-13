@@ -120,7 +120,7 @@ export default function CreatePage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
-      <div className="mb-6">
+      <div className="mb-4">
         <h1 className="text-2xl font-bold">Create Analysis</h1>
         <p className="mt-1 text-sm text-foreground-muted">
           Find sites, pick the ones to analyze, then choose what to look for.
@@ -129,35 +129,31 @@ export default function CreatePage() {
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
           placeholder="Name (e.g. Coffee shops in Berlin)"
-          className="mt-3 w-80"
+          className="mt-2 w-80"
         />
       </div>
 
-      {/* Step indicator */}
-      <div className="mb-6 flex items-center gap-2 text-sm">
-        <button
-          type="button"
-          onClick={() => setStep("search")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "search" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
-        >
-          1. Search &amp; Select Sites
-        </button>
-        <span className="text-foreground-faint">&rarr;</span>
-        <button
-          type="button"
-          onClick={() => setStep("categories")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "categories" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
-        >
-          2. Categories
-        </button>
-        <span className="text-foreground-faint">&rarr;</span>
-        <button
-          type="button"
-          onClick={() => setStep("review")}
-          className={`rounded-full px-3 py-1 font-medium ${step === "review" ? "bg-accent text-foreground-on-accent" : "bg-surface-sunken text-foreground-secondary hover:bg-surface-sunken"}`}
-        >
-          3. Review
-        </button>
+      {/* Tab navigation */}
+      <div className="mb-6 mt-5 flex border-b-2 border-border-default">
+        {([
+          { key: "search" as const, label: "Sites", number: 1 },
+          { key: "categories" as const, label: "Categories", number: 2 },
+          { key: "review" as const, label: "Review", number: 3 },
+        ]).map((tab) => (
+          <button
+            key={tab.key}
+            type="button"
+            onClick={() => setStep(tab.key)}
+            className={`px-5 py-2.5 text-sm font-medium transition-colors ${
+              step === tab.key
+                ? "border-b-2 border-accent text-foreground -mb-0.5"
+                : "text-foreground-faint hover:text-foreground-secondary"
+            }`}
+          >
+            <span className={step === tab.key ? "text-accent-fg" : ""}>{tab.number}.</span>{" "}
+            {tab.label}
+          </button>
+        ))}
       </div>
 
       {step === "search" && (
