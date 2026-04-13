@@ -1,6 +1,5 @@
 import type { ScrapeResult } from "./firecrawl-client"
 import { scrapeWithPlaywright } from "./playwright-scraper"
-import { scrapeUrl } from "./firecrawl-client"
 
 type ScrapeOpts = { includeHtml?: boolean; includeRawHtml?: boolean; onlyMainContent?: boolean }
 
@@ -14,27 +13,13 @@ export async function scrape(
     result = await scrapeWithPlaywright(url, opts)
   } catch (err) {
     console.warn(`  ⚠ [playwright] threw for ${url}: ${err instanceof Error ? err.message : err}`)
-    result = { error: String(err) }
-  }
-
-  if (!("error" in result)) {
-    console.log(`  ✓ [playwright] ${url}`)
-    return result
-  }
-
-  console.warn(`  ⚠ [playwright] failed for ${url}: ${result.error} — falling back to Firecrawl`)
-
-  try {
-    result = await scrapeUrl(url, opts)
-  } catch (err) {
-    console.error(`  ✗ [firecrawl-fallback] threw for ${url}: ${err instanceof Error ? err.message : err}`)
     return { error: String(err) }
   }
 
   if ("error" in result) {
-    console.error(`  ✗ [firecrawl-fallback] also failed for ${url}: ${result.error}`)
+    console.warn(`  ⚠ [playwright] failed for ${url}: ${result.error} — skipping`)
   } else {
-    console.log(`  ✓ [firecrawl-fallback] ${url}`)
+    console.log(`  ✓ [playwright] ${url}`)
   }
 
   return result
