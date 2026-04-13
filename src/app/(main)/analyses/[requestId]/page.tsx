@@ -60,7 +60,7 @@ function CostBreakdown({ order }: { order: Order }) {
   const overBudget = diff > 0.00005;
 
   return (
-    <section className="mb-8 rounded-lg border border-border-default bg-surface">
+    <section className="rounded-lg border border-border-default bg-surface">
       <Accordion>
         <AccordionItem value="price-breakdown">
           <AccordionTrigger className="px-5 py-4 text-foreground">
@@ -180,89 +180,112 @@ export default async function RequestDetailPage({ params }: Params) {
         </p>
       </div>
 
-      <section className="mb-8 rounded-lg border border-border-default bg-surface">
-        <Accordion>
-          <AccordionItem value="configuration">
-            <AccordionTrigger className="px-4 py-3 text-lg font-semibold text-foreground">
-              <span>Analysis Configuration</span>
-            </AccordionTrigger>
-            <AccordionContent>
-              <div className="divide-y divide-divide-default px-4 pb-4">
-                {request.categories.map((c) => (
-                  <div key={c.id} className="py-3 first:pt-0">
-                    <div className="flex items-center gap-2">
-                      <span className="font-medium text-foreground">
-                        {c.name}
-                      </span>
-                      {c.wappalyzer && (
-                        <span className="rounded-full border border-badge-purple-border bg-badge-purple px-2 py-0.5 text-xs text-badge-purple-fg">
-                          wappalyzer
+      <div className="space-y-4">
+        <section className="rounded-lg border border-border-default bg-surface">
+          <Accordion>
+            <AccordionItem value="configuration">
+              <AccordionTrigger className="px-5 py-4 text-foreground">
+                <span className="text-lg font-semibold">Analysis Configuration</span>
+              </AccordionTrigger>
+              <AccordionContent>
+                <div className="divide-y divide-divide-default border-t border-border-default px-5 pb-4">
+                  {request.categories.map((c) => (
+                    <div key={c.id} className="py-3 first:pt-3">
+                      <div className="flex items-center gap-2">
+                        <span className="font-medium text-foreground">
+                          {c.name}
                         </span>
+                        {c.wappalyzer && (
+                          <span className="rounded-full border border-badge-purple-border bg-badge-purple px-2 py-0.5 text-xs text-badge-purple-fg">
+                            wappalyzer
+                          </span>
+                        )}
+                        {c.lighthouse && (
+                          <span className="rounded-full border border-badge-orange-border bg-badge-orange px-2 py-0.5 text-xs text-badge-orange-fg">
+                            lighthouse
+                          </span>
+                        )}
+                      </div>
+                      {c.extraInfo && (
+                        <p className="mt-1 text-sm text-foreground-secondary">
+                          {c.extraInfo}
+                        </p>
                       )}
-                      {c.lighthouse && (
-                        <span className="rounded-full border border-badge-orange-border bg-badge-orange px-2 py-0.5 text-xs text-badge-orange-fg">
-                          lighthouse
-                        </span>
-                      )}
+                      <Accordion className="mt-2">
+                        <AccordionItem value={`prompt-${c.id}`}>
+                          <AccordionTrigger className="text-xs text-accent-fg hover:underline py-1">
+                            <span>View prompt</span>
+                          </AccordionTrigger>
+                          <AccordionContent>
+                            <pre className="mt-1 whitespace-pre-wrap rounded border border-border-default bg-surface-alt p-3 text-xs text-foreground-secondary">
+                              {c.prompt}
+                            </pre>
+                          </AccordionContent>
+                        </AccordionItem>
+                      </Accordion>
                     </div>
-                    {c.extraInfo && (
-                      <p className="mt-1 text-sm text-foreground-secondary">
-                        {c.extraInfo}
-                      </p>
+                  ))}
+                </div>
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </section>
+
+        {order && <CostBreakdown order={order} />}
+
+        <section className="rounded-lg border border-border-default bg-surface">
+          <h2 className="px-5 py-4 text-lg font-semibold text-foreground">Analyzed Sites</h2>
+          <ul className="divide-y divide-border-default border-t border-border-default">
+            {request.sites.map((s) => {
+              const orderSite = order?.sites.find((os) => os.siteId === s.id);
+              return (
+                <li key={s.id} className="px-5 py-4 hover:bg-surface-alt transition-colors">
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="min-w-0 flex-1">
+                      <Link
+                        href={`/analyses/${request.id}/${s.id}`}
+                        className="font-medium text-accent-fg hover:underline"
+                      >
+                        {String(s.meta?.name ?? s.url)}
+                      </Link>
+                      <div className="mt-0.5 text-xs text-foreground-muted truncate">{s.url}</div>
+                    </div>
+                    {orderSite && (
+                      <div className="flex items-center gap-4 shrink-0 text-sm text-foreground-secondary">
+                        <Tooltip content={`${orderSite.pageCount} pages analyzed`}>
+                          <span className="tabular-nums cursor-default">
+                            {orderSite.pageCount} {orderSite.pageCount === 1 ? "page" : "pages"}
+                          </span>
+                        </Tooltip>
+                        <Tooltip content={`Cost for this site`}>
+                          <span className="tabular-nums cursor-default">
+                            {fmt(orderSite.lineItems.reduce((sum, li) => sum + (li.actualCost ?? li.estimatedCost), 0))}
+                          </span>
+                        </Tooltip>
+                      </div>
                     )}
-                    <Accordion className="mt-2">
-                      <AccordionItem value={`prompt-${c.id}`}>
-                        <AccordionTrigger className="text-xs text-accent-fg hover:underline py-1">
-                          <span>View prompt</span>
-                        </AccordionTrigger>
-                        <AccordionContent>
-                          <pre className="mt-1 whitespace-pre-wrap rounded border border-border-default bg-surface-alt p-3 text-xs text-foreground-secondary">
-                            {c.prompt}
-                          </pre>
-                        </AccordionContent>
-                      </AccordionItem>
-                    </Accordion>
                   </div>
-                ))}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      </section>
-
-      {order && <CostBreakdown order={order} />}
-
-      <section>
-        <h2 className="mb-2 text-lg font-semibold text-foreground">Analyzed Sites</h2>
-        <ul className="divide-y divide-divide-default rounded-lg border border-border-default bg-surface">
-          {request.sites.map((s) => (
-            <li key={s.id} className="px-4 py-3 hover:bg-surface-alt">
-              <Link
-                href={`/analyses/${request.id}/${s.id}`}
-                className="font-medium text-accent-fg hover:underline"
-              >
-                {String(s.meta?.name ?? s.url)}
-              </Link>
-              <div className="text-xs text-foreground-muted">{s.url}</div>
-              {s.meta &&
-                Object.keys(s.meta).filter((k) => k !== "name").length > 0 && (
-                  <div className="mt-1 flex flex-wrap gap-1">
-                    {Object.entries(s.meta)
-                      .filter(([k]) => k !== "name")
-                      .map(([k, v]) => (
-                        <span
-                          key={k}
-                          className="rounded-full bg-surface-raised px-2 py-0.5 text-xs text-foreground-secondary"
-                        >
-                          {k}: {String(v)}
-                        </span>
-                      ))}
-                  </div>
-                )}
-            </li>
-          ))}
-        </ul>
-      </section>
+                  {s.meta &&
+                    Object.keys(s.meta).filter((k) => k !== "name").length > 0 && (
+                      <div className="mt-2 flex flex-wrap gap-1">
+                        {Object.entries(s.meta)
+                          .filter(([k]) => k !== "name")
+                          .map(([k, v]) => (
+                            <span
+                              key={k}
+                              className="rounded-full bg-surface-raised px-2 py-0.5 text-xs text-foreground-secondary"
+                            >
+                              {k}: {String(v)}
+                            </span>
+                          ))}
+                      </div>
+                    )}
+                </li>
+              );
+            })}
+          </ul>
+        </section>
+      </div>
     </main>
   );
 }
