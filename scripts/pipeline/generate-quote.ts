@@ -98,11 +98,12 @@ function buildSiteLineItems(
     const inputTokens = estimate.totalEstimatedTokens
 
     // extract-pages-content
+    const extractPricing = pricing.ai.extractPagesContent[cat.model]
     const extractInput = inputTokens / 1000
-    const extractOutput = pricing.ai.extractPagesContent.estimatedOutputTokens / 1000
+    const extractOutput = extractPricing.estimatedOutputTokens / 1000
     const extractCost =
-      extractInput * pricing.ai.extractPagesContent.inputPer1kTokens +
-      extractOutput * pricing.ai.extractPagesContent.outputPer1kTokens
+      extractInput * extractPricing.inputPer1kTokens +
+      extractOutput * extractPricing.outputPer1kTokens
     items.push({
       stage: "extract-pages-content",
       description: `Extract content — ${cat.name}`,

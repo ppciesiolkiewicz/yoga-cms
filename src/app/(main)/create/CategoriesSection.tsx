@@ -14,6 +14,7 @@ export interface CategoryDraft {
   name: string
   extraInfo: string
   prompt: string
+  model: "haiku" | "sonnet" | "opus"
   wappalyzer: boolean
   lighthouse: boolean
   removable: boolean
@@ -161,7 +162,19 @@ function BuiltInCategory({
               Tell the AI what to look for and how to summarize the page content
             </span>
           </div>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1.5">
+              <span className="text-xs text-gray-500">Model</span>
+              <select
+                value={cat.model}
+                onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
+                className="h-7 rounded border border-gray-200 bg-white px-1.5 text-xs text-gray-700"
+              >
+                <option value="haiku">Haiku</option>
+                <option value="sonnet">Sonnet</option>
+                <option value="opus">Opus</option>
+              </select>
+            </div>
             <Checkbox
               label="Wappalyzer"
               checked={cat.wappalyzer}
@@ -203,6 +216,20 @@ function CustomCategory({
               />
               <span className="mt-0.5 block text-xs text-gray-400">
                 Short label (e.g. &quot;Pricing&quot;, &quot;Services&quot;)
+              </span>
+            </div>
+            <div className="w-28">
+              <select
+                value={cat.model}
+                onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
+                className="h-9 w-full rounded-md border border-gray-200 bg-white px-2 text-sm text-gray-700"
+              >
+                <option value="haiku">Haiku</option>
+                <option value="sonnet">Sonnet</option>
+                <option value="opus">Opus</option>
+              </select>
+              <span className="mt-0.5 block text-xs text-gray-400">
+                AI model
               </span>
             </div>
             <div className="flex-1">

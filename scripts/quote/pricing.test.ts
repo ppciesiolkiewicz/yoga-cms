@@ -10,7 +10,7 @@ describe("loadPricingConfig", () => {
     expect(config.serviceFee.perPage).toBe(0.01)
     expect(config.firecrawl.perScrape).toBeTypeOf("number")
     expect(config.ai.classifyNav.model).toBe("claude-haiku-4-5")
-    expect(config.ai.extractPagesContent.estimatedOutputTokens).toBeTypeOf("number")
+    expect(config.ai.extractPagesContent.sonnet.estimatedOutputTokens).toBeTypeOf("number")
   })
 
   it("throws on missing file", () => {

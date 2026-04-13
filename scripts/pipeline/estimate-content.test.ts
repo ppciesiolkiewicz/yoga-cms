@@ -18,8 +18,8 @@ const request: Request = {
   id: "r_1",
   createdAt: "2026-04-13T00:00:00Z",
   categories: [
-    { id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "..." },
-    { id: "cat_2", name: "classes", extraInfo: "Classes", prompt: "..." },
+    { id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "...", model: "sonnet" },
+    { id: "cat_2", name: "classes", extraInfo: "Classes", prompt: "...", model: "sonnet" },
   ],
   sites: [site],
 }

@@ -8,6 +8,8 @@ export interface AIStageConfig {
   estimatedOutputTokens: number
 }
 
+import type { ModelTier } from "../core/models"
+
 export interface PricingConfig {
   version: number
   currency: string
@@ -15,7 +17,7 @@ export interface PricingConfig {
   firecrawl: { perScrape: number }
   ai: {
     classifyNav: AIStageConfig
-    extractPagesContent: AIStageConfig
+    extractPagesContent: Record<ModelTier, Omit<AIStageConfig, "model">>
   }
   lighthouse: { perRun: number }
   wappalyzer: { perRun: number }

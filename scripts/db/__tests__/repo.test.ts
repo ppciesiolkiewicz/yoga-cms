@@ -9,8 +9,8 @@ function sampleInput(): AnalyzeInput {
   return {
     displayName: "Test run",
     categories: [
-      { name: "menu", extraInfo: "food menus", prompt: "describe menus" },
-      { name: "hours", extraInfo: "opening hours", prompt: "describe hours" },
+      { name: "menu", extraInfo: "food menus", prompt: "describe menus", model: "sonnet" },
+      { name: "hours", extraInfo: "opening hours", prompt: "describe hours", model: "sonnet" },
     ],
     sites: [{ url: "https://example.com", meta: { city: "Testville" } }],
   }

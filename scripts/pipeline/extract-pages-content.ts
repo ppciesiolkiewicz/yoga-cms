@@ -2,6 +2,7 @@ import Anthropic from "@anthropic-ai/sdk"
 import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
 import type { Request, Site, Category, AIQuery } from "../core/types"
+import { MODEL_MAP } from "../core/models"
 import { loadCategoryPages } from "./load-pages"
 
 let _client: Anthropic | null = null
@@ -24,14 +25,15 @@ interface ExtractResult {
   queryInfo: { prompt: string; response: string } | null
 }
 
-async function callExtract(categoryPrompt: string, body: string): Promise<ExtractResult> {
-  const system = `${categoryPrompt}\n\n---\n${EXTRACT_FRAMING}`
+async function callExtract(category: Category, body: string): Promise<ExtractResult> {
+  const system = `${category.prompt}\n\n---\n${EXTRACT_FRAMING}`
+  const modelId = MODEL_MAP[category.model]
   const maxAttempts = 3
   let lastError: unknown
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
       const response = await client().messages.create({
-        model: "claude-sonnet-4-6",
+        model: modelId,
         max_tokens: 4096,
         system,
         messages: [{ role: "user", content: body }],
@@ -60,7 +62,7 @@ export async function extractPagesContentForCategory(repo: Repo, request: Reques
   }
 
   const body = `Category: ${category.name}\n\n${pages.map(p => `URL: ${p.url}\n${p.markdown.slice(0, 12000)}`).join("\n\n---\n\n")}`
-  const result = await callExtract(category.prompt, body)
+  const result = await callExtract(category, body)
 
   if (result.queryInfo) {
     const query: AIQuery = {
@@ -69,7 +71,7 @@ export async function extractPagesContentForCategory(repo: Repo, request: Reques
       siteId: site.id,
       categoryId: category.id,
       stage: "extract-pages-content",
-      model: "claude-sonnet-4-6",
+      model: MODEL_MAP[category.model],
       prompt: result.queryInfo.prompt,
       dataRefs: pages.map(p => p.url),
       response: result.queryInfo.response,
