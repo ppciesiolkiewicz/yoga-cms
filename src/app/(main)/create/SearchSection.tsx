@@ -43,8 +43,8 @@ export function SearchSection({
 
   return (
     <section>
-      <h2 className="mb-1 text-lg font-semibold">Add new search</h2>
-      <p className="mb-3 text-sm text-foreground-muted">Select web pages you want to analyze</p>
+      <h2 className="mb-1 text-base font-semibold">Add new search</h2>
+      <p className="mb-3 text-xs text-foreground-muted">Select web pages you want to analyze</p>
       <form
         onSubmit={(e: React.FormEvent) => {
           e.preventDefault()
