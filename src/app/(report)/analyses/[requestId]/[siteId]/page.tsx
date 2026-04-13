@@ -68,32 +68,33 @@ export default async function SiteDetailPage({ params }: Params) {
   try {
     result = await repo.getJson<ResultFile>({ requestId, stage: "", name: "result.json" })
   } catch {
-    notFound()
+    return notFound()
   }
 
   const site = result.sites.find(s => s.siteId === siteId)
   const siteMeta = result.request.sites.find(s => s.id === siteId)
-  if (!site || !siteMeta) notFound()
+  if (!site || !siteMeta) return notFound()
+  const siteData = site
 
   // Per-category artifact maps
-  const techMap = (site.artifacts["detect-tech"] ?? {}) as Record<string, TechArtifact>
-  const lighthouseMap = (site.artifacts["run-lighthouse"] ?? {}) as Record<string, LighthouseArtifact>
-  const extractMap = (site.artifacts["extract-pages-content"] ?? {}) as Record<string, ExtractArtifact>
-  const progressMap = (site.artifacts["progress"] ?? {}) as Record<string, CategoryProgress>
+  const techMap = (siteData.artifacts["detect-tech"] ?? {}) as Record<string, TechArtifact>
+  const lighthouseMap = (siteData.artifacts["run-lighthouse"] ?? {}) as Record<string, LighthouseArtifact>
+  const extractMap = (siteData.artifacts["extract-pages-content"] ?? {}) as Record<string, ExtractArtifact>
+  const progressMap = (siteData.artifacts["progress"] ?? {}) as Record<string, CategoryProgress>
 
-  const nav = site.artifacts["parse-links"] as
+  const nav = siteData.artifacts["parse-links"] as
     | { links: Array<{ label: string; href: string }> }
     | undefined
 
   const classify = (
-    site.artifacts["classify-nav"] as { byCategory: Record<string, string[]> } | undefined
+    siteData.artifacts["classify-nav"] as { byCategory: Record<string, string[]> } | undefined
   )?.byCategory ?? {}
 
-  const report = site.artifacts["build-report"] as { scrapedAt?: string } | undefined
+  const report = siteData.artifacts["build-report"] as { scrapedAt?: string } | undefined
   const displayName = result.request.displayName ?? requestId
   const siteName = String(siteMeta.meta?.name ?? siteMeta.url)
 
-  const siteQueries: AIQueryInfo[] = site.queries ?? []
+  const siteQueries: AIQueryInfo[] = siteData.queries ?? []
 
   const sidebarSites = result.request.sites.map(s => {
     const siteData = result.sites.find(rs => rs.siteId === s.id)
@@ -170,7 +171,7 @@ export default async function SiteDetailPage({ params }: Params) {
       return null
     }
     const categoryQueries = siteQueries.filter(q => q.categoryId === cat.id)
-    const assessMap = (site.artifacts["assess-pages"] ?? {}) as Record<string, { pages?: unknown[] }>
+    const assessMap = (siteData.artifacts["assess-pages"] ?? {}) as Record<string, { pages?: unknown[] }>
     const contentPages = (assessMap[cat.id]?.pages ?? []) as Array<{ url: string; pageName: string; conversionScore: number; seoScore: number; notes: string }>
     return (
       <CategoryBlock
