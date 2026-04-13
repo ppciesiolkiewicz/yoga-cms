@@ -1,0 +1,27 @@
+{
+  "cat_mnwqz1ft_442d22f2": {
+    "detect-tech": "completed",
+    "run-lighthouse": "completed",
+    "extract-pages-content": "completed"
+  },
+  "cat_mnwqz1ft_57c21b97": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "cat_mnwqz1ft_5922e662": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "cat_mnwqz1ft_9d162999": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "cat_mnwqz1ft_70f60016": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  }
+}

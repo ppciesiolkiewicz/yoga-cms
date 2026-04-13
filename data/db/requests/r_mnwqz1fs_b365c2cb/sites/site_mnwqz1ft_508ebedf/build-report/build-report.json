@@ -1,0 +1,363 @@
+{
+  "siteId": "site_mnwqz1ft_508ebedf",
+  "url": "https://www.shalastudios.com",
+  "meta": {
+    "name": "SHA-LA Studios"
+  },
+  "scrapedAt": "2026-04-13T05:25:45.879Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "SCHEDULE",
+        "href": "https://www.shalastudios.com/schedule"
+      },
+      {
+        "label": "BOOK CLASS",
+        "href": "https://www.shalastudios.com/book-class"
+      },
+      {
+        "label": "STUDIOS",
+        "href": "https://www.shalastudios.com/studios"
+      },
+      {
+        "label": "WELLBEING TREATMENTS",
+        "href": "https://www.shalastudios.com/wellbeing-treatments"
+      },
+      {
+        "label": "ACADEMY",
+        "href": "https://www.shalastudios.com/academy"
+      },
+      {
+        "label": "KREUZBERG – WATERFRONT",
+        "href": "https://www.shalastudios.com/events-kreuzberg"
+      },
+      {
+        "label": "PRENZLAUER BERG - KASTANIENALLEE",
+        "href": "https://www.shalastudios.com/events-kreuzberg-1"
+      },
+      {
+        "label": "RETREATS",
+        "href": "https://www.shalastudios.com/academy-1"
+      },
+      {
+        "label": "TEAM",
+        "href": "https://www.shalastudios.com/team"
+      },
+      {
+        "label": "SHA-LA",
+        "href": "https://www.shalastudios.com/about"
+      },
+      {
+        "label": "CONTACT",
+        "href": "https://www.shalastudios.com/contact"
+      },
+      {
+        "label": "Folder: EVENTS",
+        "href": "https://www.shalastudios.com/events"
+      },
+      {
+        "label": "Folder: ABOUT",
+        "href": "https://www.shalastudios.com/shala"
+      },
+      {
+        "label": "Yoga apprenticeship program",
+        "href": "https://www.shalastudios.com/apprenticeship"
+      },
+      {
+        "label": "Datenschutz",
+        "href": "https://www.shalastudios.com/datenschutz"
+      },
+      {
+        "label": "AGB",
+        "href": "https://www.shalastudios.com/agb"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "cat_mnwqz1ft_442d22f2": [
+        "https://www.shalastudios.com",
+        "https://www.shalastudios.com/about"
+      ],
+      "cat_mnwqz1ft_57c21b97": [
+        "https://www.shalastudios.com/schedule",
+        "https://www.shalastudios.com/book-class",
+        "https://www.shalastudios.com/studios"
+      ],
+      "cat_mnwqz1ft_5922e662": [
+        "https://www.shalastudios.com/academy",
+        "https://www.shalastudios.com/apprenticeship"
+      ],
+      "cat_mnwqz1ft_9d162999": [
+        "https://www.shalastudios.com/academy-1"
+      ],
+      "cat_mnwqz1ft_70f60016": [
+        "https://www.shalastudios.com/contact"
+      ]
+    }
+  },
+  "tech": {
+    "cat_mnwqz1ft_442d22f2": {
+      "platform": "Squarespace",
+      "detectedTechnologies": [
+        {
+          "name": "Squarespace Commerce",
+          "categories": [
+            "Ecommerce"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Squarespace",
+          "categories": [
+            "CMS"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Stimulus",
+          "categories": [
+            "JavaScript frameworks"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Sendinblue",
+          "categories": [
+            "Marketing automation",
+            "Email"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "parallax.js",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "HSTS",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Facebook Pixel",
+          "categories": [
+            "Analytics"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "Squarespace subscription",
+          "min": 16,
+          "max": 65
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 17,
+        "max": 67,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "cat_mnwqz1ft_442d22f2": {
+      "url": "https://www.shalastudios.com",
+      "performance": 36,
+      "accessibility": 91,
+      "seo": 92,
+      "bestPractices": 79
+    }
+  },
+  "extract": {
+    "cat_mnwqz1ft_442d22f2": {
+      "categoryId": "cat_mnwqz1ft_442d22f2",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com",
+          "pageName": "SHA-LA Studios Homepage",
+          "summary": "SHA-LA Studios presents itself as Berlin's leading hub for yoga, wellbeing, and teacher trainings, with two studio locations in Prenzlauer Berg and Kreuzberg. The homepage clearly outlines three service pillars—Practice, Wellbeing & Treatments, and Trainings—with direct CTAs to book classes or explore offerings.",
+          "conversionScore": 8,
+          "seoScore": 6,
+          "valuePropositionClear": true,
+          "classTypesVisible": true,
+          "pricingMentioned": false,
+          "locationVisible": true,
+          "notes": "Strong visual identity and clear service structure, but the absence of any pricing information and limited SEO signals (no visible meta description or schema indicators) hold it back from top marks."
+        },
+        {
+          "url": "https://www.shalastudios.com/about",
+          "pageName": "SHA-LA Studios About Page",
+          "summary": "The About page introduces SHA-LA as a holistic wellness community in Berlin with over 90 teachers, covering the studio's philosophy and its two founders. It emphasizes community, diversity of practice, and a hands-on approach to well-being.",
+          "conversionScore": 6,
+          "seoScore": 5,
+          "valuePropositionClear": true,
+          "classTypesVisible": false,
+          "pricingMentioned": false,
+          "locationVisible": true,
+          "notes": "Warm and credible brand storytelling, but lacks pricing, class type details, and strong conversion CTAs that would guide a new visitor toward booking."
+        }
+      ]
+    },
+    "cat_mnwqz1ft_57c21b97": {
+      "categoryId": "cat_mnwqz1ft_57c21b97",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/schedule",
+          "pageName": "SHA-LA Schedule",
+          "summary": "Weekly class schedule page for SHA-LA Studios in Berlin with filters for location, teacher, and class type, but actual class listings appear to be loaded via an external widget (Yogo) that did not render in the crawl.",
+          "conversionScore": 4,
+          "seoScore": 4,
+          "classStyles": [],
+          "pricingVisible": false,
+          "scheduleVisible": false,
+          "firstTimeDeal": false,
+          "notes": "The schedule relies entirely on a third-party Yogo widget that didn't render, leaving no visible class times, styles, or prices — a visitor sees almost nothing useful without JavaScript fully loading."
+        },
+        {
+          "url": "https://www.shalastudios.com/book-class",
+          "pageName": "SHA-LA Book a Class / Pricing",
+          "summary": "Pricing and booking page for SHA-LA Studios Berlin listing all pass options — drop-in (€20), 5-class pack (€85), 10-class pack (€149), week pass (€48), and a 2-week trial pass (€49) for first-timers — with direct buy links.",
+          "conversionScore": 8,
+          "seoScore": 5,
+          "classStyles": [],
+          "pricingVisible": true,
+          "scheduleVisible": false,
+          "firstTimeDeal": true,
+          "notes": "Pricing is clear and well-structured with a visible first-timer trial deal, but class styles are never mentioned and the page title/H1 lacks city or style keywords that would help SEO."
+        },
+        {
+          "url": "https://www.shalastudios.com/studios",
+          "pageName": "SHA-LA Studios Locations",
+          "summary": "Location page describing SHA-LA's two Berlin studios — Prenzlauer Berg (Kastanienallee 63) and Kreuzberg Waterfront (Falckensteinstr 47) — with addresses, directions links, and studio amenities.",
+          "conversionScore": 6,
+          "seoScore": 6,
+          "classStyles": [],
+          "pricingVisible": false,
+          "scheduleVisible": false,
+          "firstTimeDeal": false,
+          "notes": "Addresses and directions are clearly provided which is helpful, but there are no class styles, prices, or schedule on this page, and the studio rental section adds noise for drop-in visitors."
+        }
+      ]
+    },
+    "cat_mnwqz1ft_5922e662": {
+      "categoryId": "cat_mnwqz1ft_5922e662",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/academy",
+          "pageName": "Sha-La Academy",
+          "summary": "The Sha-La Academy in Berlin offers a broad roster of yoga teacher trainings and continuing education programmes, ranging from a 200h multi-style YTT to short specialist intensives in Yin, Kundalini, Katonah, and more, with dates, prices, and links to details all visible on one hub page.",
+          "conversionScore": 7,
+          "seoScore": 5,
+          "trainingName": "Multiple programmes — flagship is 200h Multi-Style Yoga Teacher Training",
+          "hours": "Ranges from 10h to 200h depending on programme",
+          "price": "€150 – €3,500 (early bird discounts available across programmes)",
+          "dates": "May 2026 – Jun 2027 (various programmes)",
+          "style": "Multi-style (Vinyasa, Yin, Kundalini, Katonah, and more)",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "The hub page surfaces all five key facts (dates, location, price, style, duration) efficiently for each programme, but curriculum detail and teacher bios require clicking through to sub-pages, and mixing 12+ unrelated offerings on one page risks overwhelming visitors trying to evaluate a single training."
+        },
+        {
+          "url": "https://www.shalastudios.com/apprenticeship",
+          "pageName": "Yoga Apprenticeship Program (404)",
+          "summary": "This URL returns a 404 error — the Yoga Apprenticeship Program page has either been moved or deleted, leaving prospective students unable to access details or apply.",
+          "conversionScore": 1,
+          "seoScore": 1,
+          "trainingName": "Yoga Apprenticeship Program",
+          "hours": "Not available (page not found)",
+          "price": "Not available (page not found)",
+          "dates": "Not available (page not found)",
+          "style": "Not available (page not found)",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "Critical broken link — the academy hub page links to this URL but it returns a 404, meaning any visitor clicking through loses all momentum and the page passes no SEO value."
+        }
+      ]
+    },
+    "cat_mnwqz1ft_9d162999": {
+      "categoryId": "cat_mnwqz1ft_9d162999",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/academy-1",
+          "pageName": "Shala Studios Retreats Listing",
+          "summary": "A listing page for two upcoming yoga retreats near Berlin: 'Be the Leaf' (March 2026) and 'Where We Bloom' (April/May 2025), each led by different instructors at separate venues in the Brandenburg region.",
+          "conversionScore": 4,
+          "seoScore": 3,
+          "retreatName": "Multiple retreats: 'Be the Leaf' and 'Where We Bloom'",
+          "where": "Haven Havelland (90 min from Berlin) / Haus Erlengrund, Buckow (Märkische Schweiz)",
+          "when": "March 12–15, 2026 / April 30 – May 3 (year not explicitly stated, likely 2025)",
+          "price": "Not shown on page; 'Where We Bloom' links to external page for pricing; 'Be the Leaf' price not visible",
+          "includes": [
+            "Not specified on this page",
+            "Details require clicking through to separate pages or external sites"
+          ],
+          "dailyScheduleVisible": false,
+          "notes": "This is a mixed listing page with two different retreats, prices are hidden or offsite, no daily schedule or inclusions are shown, and the page URL ('academy-1') gives no SEO signal for yoga retreats — a visitor cannot answer all five key questions without leaving the page."
+        }
+      ]
+    },
+    "cat_mnwqz1ft_70f60016": {
+      "categoryId": "cat_mnwqz1ft_70f60016",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/contact",
+          "pageName": "SHA-LA Studios Contact & FAQ",
+          "summary": "The contact page for SHA-LA Studios features a contact form and an extensive FAQ section covering booking, equipment, and policies. It provides an email address but lacks a physical address, phone number, map, and opening hours.",
+          "conversionScore": 4,
+          "seoScore": 2,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": true,
+          "hasMap": false,
+          "hasOpeningHours": false,
+          "notes": "The page is missing most key contact elements — no physical address, phone number, map, or opening hours — making it difficult for visitors to locate or reach the business directly."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "cat_mnwqz1ft_442d22f2": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwqz1ft_57c21b97": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwqz1ft_5922e662": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwqz1ft_9d162999": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwqz1ft_70f60016": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "categoryId": "cat_mnwqz1ft_5922e662",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "pageName": "Sha-La Academy",
+      "summary": "The Sha-La Academy in Berlin offers a broad roster of yoga teacher trainings and continuing education programmes, ranging from a 200h multi-style YTT to short specialist intensives in Yin, Kundalini, Katonah, and more, with dates, prices, and links to details all visible on one hub page.",
+      "conversionScore": 7,
+      "seoScore": 5,
+      "trainingName": "Multiple programmes — flagship is 200h Multi-Style Yoga Teacher Training",
+      "hours": "Ranges from 10h to 200h depending on programme",
+      "price": "€150 – €3,500 (early bird discounts available across programmes)",
+      "dates": "May 2026 – Jun 2027 (various programmes)",
+      "style": "Multi-style (Vinyasa, Yin, Kundalini, Katonah, and more)",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "The hub page surfaces all five key facts (dates, location, price, style, duration) efficiently for each programme, but curriculum detail and teacher bios require clicking through to sub-pages, and mixing 12+ unrelated offerings on one page risks overwhelming visitors trying to evaluate a single training."
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "pageName": "Yoga Apprenticeship Program (404)",
+      "summary": "This URL returns a 404 error — the Yoga Apprenticeship Program page has either been moved or deleted, leaving prospective students unable to access details or apply.",
+      "conversionScore": 1,
+      "seoScore": 1,
+      "trainingName": "Yoga Apprenticeship Program",
+      "hours": "Not available (page not found)",
+      "price": "Not available (page not found)",
+      "dates": "Not available (page not found)",
+      "style": "Not available (page not found)",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "Critical broken link — the academy hub page links to this URL but it returns a 404, meaning any visitor clicking through loses all momentum and the page passes no SEO value."
+    }
+  ]
+}

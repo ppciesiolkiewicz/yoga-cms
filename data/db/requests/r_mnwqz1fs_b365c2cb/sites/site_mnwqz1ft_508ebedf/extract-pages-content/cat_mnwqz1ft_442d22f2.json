@@ -1,0 +1,29 @@
+{
+  "categoryId": "cat_mnwqz1ft_442d22f2",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com",
+      "pageName": "SHA-LA Studios Homepage",
+      "summary": "SHA-LA Studios presents itself as Berlin's leading hub for yoga, wellbeing, and teacher trainings, with two studio locations in Prenzlauer Berg and Kreuzberg. The homepage clearly outlines three service pillars—Practice, Wellbeing & Treatments, and Trainings—with direct CTAs to book classes or explore offerings.",
+      "conversionScore": 8,
+      "seoScore": 6,
+      "valuePropositionClear": true,
+      "classTypesVisible": true,
+      "pricingMentioned": false,
+      "locationVisible": true,
+      "notes": "Strong visual identity and clear service structure, but the absence of any pricing information and limited SEO signals (no visible meta description or schema indicators) hold it back from top marks."
+    },
+    {
+      "url": "https://www.shalastudios.com/about",
+      "pageName": "SHA-LA Studios About Page",
+      "summary": "The About page introduces SHA-LA as a holistic wellness community in Berlin with over 90 teachers, covering the studio's philosophy and its two founders. It emphasizes community, diversity of practice, and a hands-on approach to well-being.",
+      "conversionScore": 6,
+      "seoScore": 5,
+      "valuePropositionClear": true,
+      "classTypesVisible": false,
+      "pricingMentioned": false,
+      "locationVisible": true,
+      "notes": "Warm and credible brand storytelling, but lacks pricing, class type details, and strong conversion CTAs that would guide a new visitor toward booking."
+    }
+  ]
+}

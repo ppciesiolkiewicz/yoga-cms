@@ -1,0 +1,18 @@
+{
+  "categoryId": "cat_mnwqz1ft_70f60016",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/contact",
+      "pageName": "SHA-LA Studios Contact & FAQ",
+      "summary": "The contact page for SHA-LA Studios features a contact form and an extensive FAQ section covering booking, equipment, and policies. It provides an email address but lacks a physical address, phone number, map, and opening hours.",
+      "conversionScore": 4,
+      "seoScore": 2,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": true,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "notes": "The page is missing most key contact elements — no physical address, phone number, map, or opening hours — making it difficult for visitors to locate or reach the business directly."
+    }
+  ]
+}

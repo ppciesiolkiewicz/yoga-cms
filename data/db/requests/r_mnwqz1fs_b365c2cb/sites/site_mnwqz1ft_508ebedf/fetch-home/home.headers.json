@@ -1,0 +1,17 @@
+{
+  "accept-ranges": "bytes",
+  "age": "209135",
+  "content-encoding": "gzip",
+  "content-length": "44827",
+  "content-type": "text/html;charset=utf-8",
+  "date": "Fri, 10 Apr 2026 19:08:36 GMT",
+  "etag": "W/\"44f536a793cc90de996c12609b2b9f9a\"",
+  "expires": "Thu, 01 Jan 1970 00:00:00 GMT",
+  "server": "Squarespace",
+  "set-cookie": "crumb=BekFoRblr92HMGM4NTliYTgzM2ZhNjQ1N2ZmODBiZDVjMzAxZTIy;Secure;Path=/",
+  "strict-transport-security": "max-age=15552000",
+  "vary": "Accept-Encoding",
+  "x-content-type-options": "nosniff",
+  "x-contextid": "sebHtqfv/uLLI5zuc",
+  "x-frame-options": "SAMEORIGIN, SAMEORIGIN"
+}

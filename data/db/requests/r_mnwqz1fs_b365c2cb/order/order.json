@@ -1,0 +1,121 @@
+{
+  "id": "ord_mnwqz710_792244ac",
+  "requestId": "r_mnwqz1fs_b365c2cb",
+  "createdAt": "2026-04-13T05:23:53.556Z",
+  "status": "completed",
+  "sites": [
+    {
+      "siteId": "site_mnwqz1ft_508ebedf",
+      "url": "https://www.shalastudios.com",
+      "pageCount": 9,
+      "estimatedTokens": 11250,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.000754,
+          "estimatedCost": 0.000754,
+          "actualCost": 0.000754,
+          "actualQuantity": 318
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 9,
+          "unitCost": 0.01,
+          "estimatedCost": 0.09,
+          "actualQuantity": 9,
+          "actualCost": 0.09
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 9,
+          "unitCost": 0.002,
+          "estimatedCost": 0.018000000000000002,
+          "actualQuantity": 9,
+          "actualCost": 0.018000000000000002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 4032,
+          "actualCost": 0.035952000000000005
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 4032,
+          "actualCost": 0.035952000000000005
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 4032,
+          "actualCost": 0.035952000000000005
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 4032,
+          "actualCost": 0.035952000000000005
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 4032,
+          "actualCost": 0.035952000000000005
+        }
+      ],
+      "subtotal": 0.3920040000000001
+    }
+  ],
+  "totalEstimatedCost": 0.3920040000000001,
+  "approvedAt": "2026-04-13T05:23:56.994Z",
+  "completedAt": "2026-04-13T05:25:45.886Z",
+  "totalActualCost": 0.290514
+}

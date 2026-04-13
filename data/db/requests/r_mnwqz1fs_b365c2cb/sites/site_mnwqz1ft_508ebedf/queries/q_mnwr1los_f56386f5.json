@@ -1,0 +1,14 @@
+{
+  "id": "q_mnwr1los_f56386f5",
+  "requestId": "r_mnwqz1fs_b365c2cb",
+  "siteId": "site_mnwqz1ft_508ebedf",
+  "categoryId": "cat_mnwqz1ft_70f60016",
+  "stage": "extract-pages-content",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold.\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the page>\",\n  \"conversionScore\": \"<1-10, clear path to reach the business>\",\n  \"seoScore\": \"<1-10, LocalBusiness schema, unique copy, correct NAP>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nIf the category description specifies a JSON schema, follow it exactly.\nOtherwise, return fields you find relevant based on the category description.\nEvery record must always include \"url\" (the page URL) and \"summary\" (1-2 sentence plain-language overview of the page).\nFields ending in \"Score\" must be numbers from 1 to 10.\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.shalastudios.com/contact"
+  ],
+  "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.shalastudios.com/contact\",\n      \"pageName\": \"SHA-LA Studios Contact & FAQ\",\n      \"summary\": \"The contact page for SHA-LA Studios features a contact form and an extensive FAQ section covering booking, equipment, and policies. It provides an email address but lacks a physical address, phone number, map, and opening hours.\",\n      \"conversionScore\": 4,\n      \"seoScore\": 2,\n      \"hasAddress\": false,\n      \"hasPhone\": false,\n      \"hasEmail\": true,\n      \"hasMap\": false,\n      \"hasOpeningHours\": false,\n      \"notes\": \"The page is missing most key contact elements — no physical address, phone number, map, or opening hours — making it difficult for visitors to locate or reach the business directly.\"\n    }\n  ]\n}",
+  "createdAt": "2026-04-13T05:25:45.868Z"
+}
