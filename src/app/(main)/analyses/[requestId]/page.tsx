@@ -238,48 +238,55 @@ export default async function RequestDetailPage({ params }: Params) {
           <ul className="divide-y divide-border-default border-t border-border-default">
             {request.sites.map((s) => {
               const orderSite = order?.sites.find((os) => os.siteId === s.id);
+              const pageCount = orderSite?.pageCount;
+              const categoryNames = request.categories.map((c) => c.name);
+              const tooltipContent = (
+                <div className="space-y-1">
+                  {pageCount != null && <div>{pageCount} page{pageCount === 1 ? "" : "s"} analyzed</div>}
+                  <div>Categories: {categoryNames.join(", ")}</div>
+                </div>
+              );
               return (
-                <li key={s.id} className="px-5 py-4 hover:bg-surface-alt transition-colors">
-                  <div className="flex items-start justify-between gap-4">
-                    <div className="min-w-0 flex-1">
-                      <Link
-                        href={`/analyses/${request.id}/${s.id}`}
-                        className="font-medium text-accent-fg hover:underline"
-                      >
-                        {String(s.meta?.name ?? s.url)}
-                      </Link>
-                      <div className="mt-0.5 text-xs text-foreground-muted truncate">{s.url}</div>
-                    </div>
-                    {orderSite && (
-                      <div className="flex items-center gap-4 shrink-0 text-sm text-foreground-secondary">
-                        <Tooltip content={`${orderSite.pageCount} pages analyzed`}>
-                          <span className="tabular-nums cursor-default">
-                            {orderSite.pageCount} {orderSite.pageCount === 1 ? "page" : "pages"}
-                          </span>
-                        </Tooltip>
-                        <Tooltip content={`Cost for this site`}>
-                          <span className="tabular-nums cursor-default">
-                            {fmt(orderSite.lineItems.reduce((sum, li) => sum + (li.actualCost ?? li.estimatedCost), 0))}
-                          </span>
-                        </Tooltip>
+                <li key={s.id}>
+                  <Tooltip content={tooltipContent}>
+                    <Link
+                      href={`/analyses/${request.id}/${s.id}`}
+                      className="flex items-center justify-between gap-4 px-5 py-4 hover:bg-surface-alt transition-colors"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <span className="font-medium text-accent-fg">
+                          {String(s.meta?.name ?? s.url)}
+                        </span>
+                        <div className="mt-0.5 text-xs text-foreground-muted truncate">{s.url}</div>
+                        {s.meta &&
+                          Object.keys(s.meta).filter((k) => k !== "name").length > 0 && (
+                            <div className="mt-1.5 flex flex-wrap gap-1">
+                              {Object.entries(s.meta)
+                                .filter(([k]) => k !== "name")
+                                .map(([k, v]) => (
+                                  <span
+                                    key={k}
+                                    className="rounded-full bg-surface-raised px-2 py-0.5 text-xs text-foreground-secondary"
+                                  >
+                                    {k}: {String(v)}
+                                  </span>
+                                ))}
+                            </div>
+                          )}
                       </div>
-                    )}
-                  </div>
-                  {s.meta &&
-                    Object.keys(s.meta).filter((k) => k !== "name").length > 0 && (
-                      <div className="mt-2 flex flex-wrap gap-1">
-                        {Object.entries(s.meta)
-                          .filter(([k]) => k !== "name")
-                          .map(([k, v]) => (
-                            <span
-                              key={k}
-                              className="rounded-full bg-surface-raised px-2 py-0.5 text-xs text-foreground-secondary"
-                            >
-                              {k}: {String(v)}
-                            </span>
-                          ))}
+                      <div className="flex items-center gap-3 shrink-0 text-sm text-foreground-secondary">
+                        {pageCount != null && (
+                          <span className="tabular-nums">
+                            {pageCount} {pageCount === 1 ? "page" : "pages"}
+                          </span>
+                        )}
+                        <span className="tabular-nums">
+                          {categoryNames.length} {categoryNames.length === 1 ? "category" : "categories"}
+                        </span>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-foreground-muted"><polyline points="9 18 15 12 9 6" /></svg>
                       </div>
-                    )}
+                    </Link>
+                  </Tooltip>
                 </li>
               );
             })}
