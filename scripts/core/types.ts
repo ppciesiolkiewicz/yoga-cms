@@ -1,7 +1,10 @@
+import type { ModelTier } from "./models"
+
 export interface CategoryInput {
   name: string
   extraInfo: string
   prompt: string
+  model: ModelTier
   lighthouse?: boolean
   wappalyzer?: boolean
 }

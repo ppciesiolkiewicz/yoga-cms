@@ -4,6 +4,7 @@
     {
       "name": "Home",
       "extraInfo": "",
+      "model": "sonnet",
       "prompt": "You judge the homepage of a specialty coffee roaster.\n\nA visitor wants to answer: \"What do they sell? Are they legit? Should I buy here?\"\n\nGood page:\n- Hero shows the product (bags of coffee, roasting process)\n- Clear value proposition within 3 seconds\n- Navigation to shop, subscriptions, about\n- Social proof (reviews, press mentions, awards)\n- Fresh content signals (seasonal blends, recent roast dates)\n\nBad page:\n- Generic stock photos of coffee cups\n- Long brand story before showing any product\n- No clear call to action\n- Looks like a template with placeholder content\n\nSEO check:\n- Title includes brand + \"specialty coffee\" or \"coffee roasters\"\n- H1 matches\n- Product schema or Organization schema\n- Fast load, optimized images\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the homepage>\",\n  \"conversionScore\": \"<1-10, does the homepage make a visitor want to buy?>\",\n  \"seoScore\": \"<1-10, can Google find and rank this page?>\",\n  \"valuePropositionClear\": true/false,\n  \"shopLinkVisible\": true/false,\n  \"socialProofPresent\": true/false,\n  \"freshContentSignals\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}",
       "wappalyzer": true,
       "lighthouse": true
@@ -11,21 +12,25 @@
     {
       "name": "Shop",
       "extraInfo": "online store, buy coffee, coffee beans, blends, single origin, product catalog",
+      "model": "sonnet",
       "prompt": "You judge the online shop / product listing of a coffee roaster.\n\nA visitor wants to: browse, compare, and buy coffee beans.\n\nGood page:\n- Products visible with images, names, prices\n- Flavor notes or tasting profiles shown per product\n- Roast level, origin, process visible without clicking\n- Filter/sort by origin, roast, flavor, price\n- Clear add-to-cart flow\n- Roast date or freshness guarantee mentioned\n\nBad page:\n- Just names and prices, no tasting info\n- Must click into each product to see details\n- No filtering on a large catalog\n- Confusing subscription vs one-time options\n- Out of stock items shown without indication\n\nSEO check:\n- Category page titles include \"buy coffee beans online\" or similar\n- Product schema with price, availability, reviews\n- Breadcrumbs\n- Unique descriptions, not copy-pasted from importers\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the shop page>\",\n  \"conversionScore\": \"<1-10, how easy is it to find and buy the right coffee?>\",\n  \"seoScore\": \"<1-10, how well can Google index and rank these products?>\",\n  \"flavorNotesVisible\": true/false,\n  \"filteringAvailable\": true/false,\n  \"roastDateVisible\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}"
     },
     {
       "name": "Subscription",
       "extraInfo": "coffee subscription, recurring delivery, subscription box, monthly coffee",
+      "model": "sonnet",
       "prompt": "You judge coffee subscription pages.\n\nA visitor wants to answer: \"How much? How often? Can I customize? Can I cancel?\"\n\nGood page:\n- Pricing clear: per bag, per month\n- Frequency options visible (weekly, biweekly, monthly)\n- Customization: roast preference, grind, quantity\n- Easy cancellation policy stated\n- What makes this subscription special (curated, seasonal, single origin rotation)\n\nBad page:\n- Price hidden behind \"get started\"\n- No explanation of what you'll receive\n- Unclear commitment or cancellation terms\n- Just a generic \"subscribe and save\" with no personality\n\nSEO check:\n- Title includes \"coffee subscription\" + brand\n- FAQ schema for common questions\n- Reviews or testimonials\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the subscription page>\",\n  \"conversionScore\": \"<1-10, does it make subscribing easy and appealing?>\",\n  \"seoScore\": \"<1-10, can Google find this for coffee subscription queries?>\",\n  \"pricingClear\": true/false,\n  \"frequencyOptions\": true/false,\n  \"cancellationPolicyClear\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}"
     },
     {
       "name": "About",
       "extraInfo": "about us, our story, the roastery, team, sourcing, sustainability, direct trade",
+      "model": "sonnet",
       "prompt": "You judge the about / story page of a coffee roaster.\n\nA visitor wants to know: Who are these people? Where do they source? What's their approach?\n\nGood page:\n- Real people with names and photos\n- Sourcing philosophy (direct trade, relationships, transparency)\n- Roasting approach explained simply\n- Location and roastery shown\n- Sustainability or ethical practices mentioned with specifics\n\nBad page:\n- Generic \"we love coffee\" without substance\n- No real team info\n- Claims about quality with no evidence\n- Wall of text with no structure\n\nSEO check:\n- Title includes brand + \"about\" or \"our story\"\n- Structured content with headers\n- Images with alt text\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the about page>\",\n  \"conversionScore\": \"<1-10, does the story build trust and make you want to buy?>\",\n  \"seoScore\": \"<1-10, does the page rank for branded queries?>\",\n  \"teamVisible\": true/false,\n  \"sourcingPhilosophyVisible\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}"
     },
     {
       "name": "Contact",
       "extraInfo": "contact page, visit the roastery, location, cafe",
+      "model": "sonnet",
       "prompt": "You judge contact pages for a coffee roaster. A visitor needs: address, email, phone, cafe hours (if applicable), wholesale inquiry option. Good pages show all of this above the fold with a map.\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the page>\",\n  \"conversionScore\": \"<1-10, clear path to reach the business or visit>\",\n  \"seoScore\": \"<1-10, LocalBusiness schema, correct NAP, unique copy>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}"
     }
   ],

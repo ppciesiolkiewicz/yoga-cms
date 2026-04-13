@@ -56,7 +56,10 @@ export async function finalizeOrder(
         let totalInputTokens = 0
         let totalCost = 0
         for (const q of stageQueries) {
-          const aiConfig = pricing.ai.extractPagesContent
+          // Find category model for this query, default to sonnet pricing
+          const cat = request.categories.find(c => c.id === q.categoryId)
+          const tier = cat?.model ?? "sonnet"
+          const aiConfig = pricing.ai.extractPagesContent[tier]
           const result = tokenCost(q.prompt.length, q.response.length, aiConfig)
           totalInputTokens += result.inputTokens + result.outputTokens
           totalCost += result.cost

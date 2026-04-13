@@ -16,8 +16,8 @@ interface SearchEntry {
 }
 
 const defaultCategories: CategoryDraft[] = [
-  { id: crypto.randomUUID(), name: "Home", extraInfo: "", prompt: "Summarize the homepage: what the business does, main value proposition, key offerings or services listed, calls to action, and overall first impression. Note any trust signals (testimonials, certifications, partner logos) and whether the page clearly communicates who the business serves.", wappalyzer: true, lighthouse: true, removable: false, enabled: true },
-  { id: crypto.randomUUID(), name: "Contact", extraInfo: "contact page, about-with-contact, location page", prompt: "Extract all contact methods: phone numbers, email addresses, physical addresses, and contact form details. Note business hours, social media links, and any maps or directions provided. Summarize how easy it is for a visitor to get in touch and whether multiple contact channels are offered.", wappalyzer: false, lighthouse: false, removable: false, enabled: true },
+  { id: crypto.randomUUID(), name: "Home", extraInfo: "", prompt: "Summarize the homepage: what the business does, main value proposition, key offerings or services listed, calls to action, and overall first impression. Note any trust signals (testimonials, certifications, partner logos) and whether the page clearly communicates who the business serves.", model: "sonnet", wappalyzer: true, lighthouse: true, removable: false, enabled: true },
+  { id: crypto.randomUUID(), name: "Contact", extraInfo: "contact page, about-with-contact, location page", prompt: "Extract all contact methods: phone numbers, email addresses, physical addresses, and contact form details. Note business hours, social media links, and any maps or directions provided. Summarize how easy it is for a visitor to get in touch and whether multiple contact channels are offered.", model: "sonnet", wappalyzer: false, lighthouse: false, removable: false, enabled: true },
 ]
 
 type Step = "search" | "categories" | "review"
@@ -81,6 +81,7 @@ export default function CreatePage() {
         name: template?.name ?? "",
         extraInfo: template?.extraInfo ?? "",
         prompt: template?.prompt ?? "",
+        model: "sonnet" as const,
         wappalyzer: template?.wappalyzer ?? false,
         lighthouse: template?.lighthouse ?? false,
         removable: true,
@@ -105,6 +106,7 @@ export default function CreatePage() {
       name: c.name,
       extraInfo: c.extraInfo,
       prompt: c.prompt,
+      model: c.model,
       ...(c.lighthouse && { lighthouse: true }),
       ...(c.wappalyzer && { wappalyzer: true }),
     })),
