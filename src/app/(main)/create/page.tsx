@@ -22,6 +22,12 @@ const defaultCategories: CategoryDraft[] = [
 
 type Step = "search" | "categories" | "review"
 
+const TABS: { key: Step; label: string; number: number }[] = [
+  { key: "search", label: "Sites", number: 1 },
+  { key: "categories", label: "Categories", number: 2 },
+  { key: "review", label: "Review", number: 3 },
+]
+
 export default function CreatePage() {
   const [step, setStep] = useState<Step>("search")
   const [displayName, setDisplayName] = useState("")
@@ -134,19 +140,17 @@ export default function CreatePage() {
       </div>
 
       {/* Tab navigation */}
-      <div className="mb-6 mt-5 flex border-b-2 border-border-default">
-        {([
-          { key: "search" as const, label: "Sites", number: 1 },
-          { key: "categories" as const, label: "Categories", number: 2 },
-          { key: "review" as const, label: "Review", number: 3 },
-        ]).map((tab) => (
+      <div role="tablist" className="mb-6 mt-5 flex border-b-2 border-border-default">
+        {TABS.map((tab) => (
           <button
             key={tab.key}
             type="button"
+            role="tab"
+            aria-selected={step === tab.key}
             onClick={() => setStep(tab.key)}
             className={`px-5 py-2.5 text-sm font-medium transition-colors ${
               step === tab.key
-                ? "border-b-2 border-accent text-foreground -mb-0.5"
+                ? "border-b-2 border-accent-fg text-foreground -mb-0.5"
                 : "text-foreground-faint hover:text-foreground-secondary"
             }`}
           >
