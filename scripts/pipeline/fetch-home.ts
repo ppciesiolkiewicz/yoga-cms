@@ -1,7 +1,8 @@
 import * as cheerio from "cheerio"
 import type { Repo } from "../db/repo"
 import type { Request, Site } from "../core/types"
-import { scrapeUrl, ensureCredits, fetchResponseHeaders } from "./firecrawl-client"
+import { scrape } from "./scraper"
+import { fetchResponseHeaders } from "./firecrawl-client"
 
 function htmlToMarkdownLike(html: string): string {
   const $ = cheerio.load(html)
@@ -10,12 +11,8 @@ function htmlToMarkdownLike(html: string): string {
 }
 
 export async function fetchHome(repo: Repo, request: Request, site: Site): Promise<void> {
-  const credits = await ensureCredits()
-  if (!credits.ok) {
-    throw new Error(`Firecrawl credits below floor (remaining=${credits.remaining})`)
-  }
   const [scraped, headers] = await Promise.all([
-    scrapeUrl(site.url, { includeRawHtml: true, onlyMainContent: false }),
+    scrape(site.url, { includeRawHtml: true, onlyMainContent: false }),
     fetchResponseHeaders(site.url),
   ])
   if ("error" in scraped) {
