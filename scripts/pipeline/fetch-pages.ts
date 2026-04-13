@@ -1,7 +1,7 @@
 import { createHash } from "crypto"
 import type { Repo } from "../db/repo"
 import type { Request, Site } from "../core/types"
-import { scrapeUrl } from "./firecrawl-client"
+import { scrape } from "./scraper"
 
 const SCRAPE_CONCURRENCY = 2
 
@@ -37,7 +37,7 @@ export async function fetchPages(repo: Repo, request: Request, site: Site): Prom
     while (index < ordered.length) {
       const url = ordered[index++]
       const id = pageId(url)
-      const res = await scrapeUrl(url)
+      const res = await scrape(url)
       if ("error" in res) {
         records.push({ id, url, status: "failed", error: res.error })
         continue
