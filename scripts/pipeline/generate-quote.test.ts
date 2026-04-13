@@ -10,7 +10,6 @@ const pricing: PricingConfig = {
   firecrawl: { perScrape: 0.002 },
   ai: {
     classifyNav: { model: "claude-haiku-4-5", inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 500 },
-    assessPages: { model: "claude-sonnet-4-6", inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1000 },
     extractPagesContent: { model: "claude-sonnet-4-6", inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1500 },
   },
   lighthouse: { perRun: 0 },

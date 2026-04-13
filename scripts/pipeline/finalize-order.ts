@@ -51,14 +51,12 @@ export async function finalizeOrder(
       } else if (li.stage === "fetch-pages") {
         li.actualQuantity = actualPageCount
         li.actualCost = actualPageCount * li.unitCost
-      } else if (li.stage === "assess-pages" || li.stage === "extract-pages-content") {
+      } else if (li.stage === "extract-pages-content") {
         const stageQueries = queryByStage[li.stage] ?? []
         let totalInputTokens = 0
         let totalCost = 0
         for (const q of stageQueries) {
-          const aiConfig = li.stage === "assess-pages"
-            ? pricing.ai.assessPages
-            : pricing.ai.extractPagesContent
+          const aiConfig = pricing.ai.extractPagesContent
           const result = tokenCost(q.prompt.length, q.response.length, aiConfig)
           totalInputTokens += result.inputTokens + result.outputTokens
           totalCost += result.cost

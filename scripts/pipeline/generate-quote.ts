@@ -97,21 +97,6 @@ function buildSiteLineItems(
   for (const cat of request.categories) {
     const inputTokens = estimate.totalEstimatedTokens
 
-    // assess-pages
-    const assessInput = inputTokens / 1000
-    const assessOutput = pricing.ai.assessPages.estimatedOutputTokens / 1000
-    const assessCost =
-      assessInput * pricing.ai.assessPages.inputPer1kTokens +
-      assessOutput * pricing.ai.assessPages.outputPer1kTokens
-    items.push({
-      stage: "assess-pages",
-      description: `Assess pages — ${cat.name}`,
-      unit: "per-category",
-      quantity: 1,
-      unitCost: assessCost,
-      estimatedCost: assessCost,
-    })
-
     // extract-pages-content
     const extractInput = inputTokens / 1000
     const extractOutput = pricing.ai.extractPagesContent.estimatedOutputTokens / 1000
@@ -251,6 +236,61 @@ export function formatQuoteSummary(order: Order): string {
   lines.push(`    ${"Service fee".padEnd(35)} $${serviceFee.toFixed(4)}`)
   lines.push(`  ──────────────────────────────────────`)
   lines.push(`  ${"TOTAL ESTIMATED COST".padEnd(37)} $${order.totalEstimatedCost.toFixed(4)}`)
+  lines.push(``)
+  return lines.join("\n")
+}
+
+export function formatOrderComparison(order: Order): string {
+  const lines: string[] = []
+  lines.push(`\n╔══════════════════════════════════════════════════════════╗`)
+  lines.push(`║                  COST COMPARISON                        ║`)
+  lines.push(`╚══════════════════════════════════════════════════════════╝`)
+  lines.push(`  ${"".padEnd(35)} ${"Quoted".padStart(9)}  ${"Actual".padStart(9)}  ${"Diff".padStart(9)}`)
+  lines.push(``)
+
+  for (const site of order.sites) {
+    lines.push(`  ── ${site.url} ──`)
+    for (const li of site.lineItems) {
+      const est = li.estimatedCost
+      const act = li.actualCost ?? est
+      const diff = act - est
+      const sign = diff > 0 ? "+" : ""
+      lines.push(`    ${li.description.padEnd(35)} $${est.toFixed(4)}  $${act.toFixed(4)}  ${sign}$${diff.toFixed(4)}`)
+    }
+    lines.push(``)
+  }
+
+  // Aggregated comparison
+  let estScraping = 0, actScraping = 0
+  let estAi = 0, actAi = 0
+  let estFee = 0, actFee = 0
+  for (const site of order.sites) {
+    for (const li of site.lineItems) {
+      const est = li.estimatedCost
+      const act = li.actualCost ?? est
+      if (li.stage === "service-fee") { estFee += est; actFee += act }
+      else if (li.stage === "fetch-home" || li.stage === "fetch-pages" || li.stage === "estimate-content") { estScraping += est; actScraping += act }
+      else { estAi += est; actAi += act }
+    }
+  }
+
+  const fmtRow = (label: string, est: number, act: number) => {
+    const diff = act - est
+    const sign = diff > 0 ? "+" : ""
+    return `    ${label.padEnd(35)} $${est.toFixed(4)}  $${act.toFixed(4)}  ${sign}$${diff.toFixed(4)}`
+  }
+
+  lines.push(`  ──────────────────────────────────────────────────────────`)
+  lines.push(fmtRow("Scraping", estScraping, actScraping))
+  lines.push(fmtRow("AI", estAi, actAi))
+  lines.push(fmtRow("Service fee", estFee, actFee))
+  lines.push(`  ──────────────────────────────────────────────────────────`)
+
+  const totalEst = order.totalEstimatedCost
+  const totalAct = order.totalActualCost ?? totalEst
+  const totalDiff = totalAct - totalEst
+  const totalSign = totalDiff > 0 ? "+" : ""
+  lines.push(`  ${"TOTAL".padEnd(37)} $${totalEst.toFixed(4)}  $${totalAct.toFixed(4)}  ${totalSign}$${totalDiff.toFixed(4)}`)
   lines.push(``)
   return lines.join("\n")
 }

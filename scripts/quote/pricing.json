@@ -14,12 +14,6 @@
       "outputPer1kTokens": 0.005,
       "estimatedOutputTokens": 500
     },
-    "assessPages": {
-      "model": "claude-sonnet-4-6",
-      "inputPer1kTokens": 0.003,
-      "outputPer1kTokens": 0.015,
-      "estimatedOutputTokens": 1000
-    },
     "extractPagesContent": {
       "model": "claude-sonnet-4-6",
       "inputPer1kTokens": 0.003,

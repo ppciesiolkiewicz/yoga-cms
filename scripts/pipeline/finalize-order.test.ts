@@ -10,7 +10,6 @@ const pricing: PricingConfig = {
   firecrawl: { perScrape: 0.002 },
   ai: {
     classifyNav: { model: "claude-haiku-4-5", inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 500 },
-    assessPages: { model: "claude-sonnet-4-6", inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1000 },
     extractPagesContent: { model: "claude-sonnet-4-6", inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1500 },
   },
   lighthouse: { perRun: 0 },
@@ -31,7 +30,6 @@ const order: Order = {
     lineItems: [
       { stage: "service-fee", description: "Service fee", unit: "per-page", quantity: 2, unitCost: 0.01, estimatedCost: 0.02 },
       { stage: "fetch-pages", description: "Firecrawl", unit: "per-page", quantity: 2, unitCost: 0.002, estimatedCost: 0.004 },
-      { stage: "assess-pages", description: "Assess — home", unit: "per-category", quantity: 1, unitCost: 0.01, estimatedCost: 0.01 },
       { stage: "extract-pages-content", description: "Extract — home", unit: "per-category", quantity: 1, unitCost: 0.01, estimatedCost: 0.01 },
     ],
     subtotal: 0.044,
@@ -43,12 +41,6 @@ const order: Order = {
 const queries: AIQuery[] = [
   {
     id: "q_1", requestId: "r_1", siteId: "site_1", categoryId: "cat_1",
-    stage: "assess-pages", model: "claude-sonnet-4-6",
-    prompt: "a".repeat(4000), dataRefs: [], response: "b".repeat(2000),
-    createdAt: "2026-04-13T00:02:00Z",
-  },
-  {
-    id: "q_2", requestId: "r_1", siteId: "site_1", categoryId: "cat_1",
     stage: "extract-pages-content", model: "claude-sonnet-4-6",
     prompt: "c".repeat(4000), dataRefs: [], response: "d".repeat(3000),
     createdAt: "2026-04-13T00:03:00Z",
@@ -101,9 +93,9 @@ describe("finalizeOrder", () => {
     expect(updated.totalActualCost).toBeGreaterThan(0)
 
     // AI line items should have actualCost filled
-    const assessItem = updated.sites[0].lineItems.find(li => li.stage === "assess-pages")
-    expect(assessItem?.actualCost).toBeTypeOf("number")
-    expect(assessItem?.actualQuantity).toBeTypeOf("number")
+    const extractItem = updated.sites[0].lineItems.find(li => li.stage === "extract-pages-content")
+    expect(extractItem?.actualCost).toBeTypeOf("number")
+    expect(extractItem?.actualQuantity).toBeTypeOf("number")
 
     // Service fee actual = estimated (fixed rate)
     const feeItem = updated.sites[0].lineItems.find(li => li.stage === "service-fee")

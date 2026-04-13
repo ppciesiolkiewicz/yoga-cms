@@ -15,7 +15,6 @@ export interface PricingConfig {
   firecrawl: { perScrape: number }
   ai: {
     classifyNav: AIStageConfig
-    assessPages: AIStageConfig
     extractPagesContent: AIStageConfig
   }
   lighthouse: { perRun: number }

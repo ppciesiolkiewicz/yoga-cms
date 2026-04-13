@@ -17,7 +17,6 @@ export async function buildReportStage(repo: Repo, request: Request, site: Site)
   // Collect per-category artifacts
   const techByCategory: Record<string, unknown> = {}
   const lighthouseByCategory: Record<string, unknown> = {}
-  const contentByCategory: Record<string, unknown> = {}
   const extractByCategory: Record<string, unknown> = {}
 
   for (const cat of request.categories) {
@@ -26,9 +25,6 @@ export async function buildReportStage(repo: Repo, request: Request, site: Site)
 
     const lh = await safe<unknown>("run-lighthouse", `${cat.id}.json`)
     if (lh) lighthouseByCategory[cat.id] = lh
-
-    const assess = await safe<unknown>("assess-pages", `${cat.id}.json`)
-    if (assess) contentByCategory[cat.id] = assess
 
     const extract = await safe<unknown>("extract-pages-content", `${cat.id}.json`)
     if (extract) extractByCategory[cat.id] = extract
@@ -43,7 +39,6 @@ export async function buildReportStage(repo: Repo, request: Request, site: Site)
     classification: classify,
     tech: techByCategory,
     lighthouse: lighthouseByCategory,
-    content: contentByCategory,
     extract: extractByCategory,
     progress,
   }
