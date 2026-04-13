@@ -22,7 +22,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={cn("font-sans", geist.variable)}
     >
-      <body className="bg-surface-alt text-foreground antialiased">
+      <body className="bg-surface-alt text-foreground antialiased" suppressHydrationWarning>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

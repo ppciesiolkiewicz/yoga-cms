@@ -1,3 +1,5 @@
+"use client"
+
 import { TechCard, LighthouseCard } from "./TechCard"
 import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 import { RecordRenderer } from "@/components/RecordRenderer"
@@ -148,7 +150,10 @@ function ExtractedRecordCard({ record, index }: { record: unknown; index: number
 
   return (
     <div className="rounded-lg border border-border-default bg-surface px-4 py-3">
-      <div className="text-base font-semibold text-foreground">{title}</div>
+      <div className="flex items-center gap-2">
+        <span className="text-base font-semibold text-foreground">{title}</span>
+        <span className="rounded-full bg-surface-alt px-2 py-0.5 text-xs font-medium text-foreground-muted">Page</span>
+      </div>
       {url && (
         <a href={url} target="_blank" rel="noopener noreferrer" className="mt-1 block text-sm text-accent-fg hover:underline truncate">
           {pageLabel ? `${pageLabel} \u2014 ${url}` : url}
@@ -193,10 +198,9 @@ export default function CategoryBlock(props: Props) {
             <span className="rounded-full bg-surface-alt px-2 py-0.5 text-xs font-medium text-foreground-muted">Category</span>
           </div>
           {props.extraInfo && (
-            <>
-              <p className="mt-1 text-xs font-semibold text-foreground-muted">Classification prompt:</p>
-              <p className="mt-0.5 text-sm text-foreground-muted">{props.extraInfo}</p>
-            </>
+            <p className="mt-1 text-sm text-foreground-muted">
+              <span className="text-xs font-semibold">Classification prompt:</span> {props.extraInfo}
+            </p>
           )}
         </div>
         {props.progress && <ProgressIcon progress={props.progress} />}
@@ -247,6 +251,7 @@ export default function CategoryBlock(props: Props) {
 
       {props.extractedRecords.length > 0 && (
         <div>
+          <h3 className="mb-2 text-sm font-semibold text-foreground">Analyzed pages</h3>
           {extractQuery && <QueryDetails query={extractQuery} />}
           <div className="mt-2 space-y-3">
             {props.extractedRecords.map((record, i) => (
