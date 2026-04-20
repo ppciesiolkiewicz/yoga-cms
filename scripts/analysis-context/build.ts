@@ -107,17 +107,33 @@ async function addRawPages(
   const pagesIndexRef = { requestId, siteId, stage: "fetch-pages", name: "index.json" }
   const pages: Record<string, string> = {}
   let any = false
-  if (await repo.artifactExists(homeRef)) {
+
+  if (!categoryId && (await repo.artifactExists(homeRef))) {
     pages["home.html"] = (await repo.getArtifact(homeRef)).toString("utf8")
     any = true
   }
+
+  let allowedUrls: Set<string> | null = null
+  if (categoryId) {
+    const classifyRef = { requestId, siteId, stage: "classify-nav", name: "classify-nav.json" }
+    if (await repo.artifactExists(classifyRef)) {
+      const classify = await repo.getJson<{ byCategory?: Record<string, string[]> }>(classifyRef)
+      allowedUrls = new Set(classify.byCategory?.[categoryId] ?? [])
+    } else {
+      allowedUrls = new Set()
+    }
+  }
+
   if (await repo.artifactExists(pagesIndexRef)) {
-    const index = await repo.getJson<Record<string, { url: string; file: string; categoryId?: string }>>(pagesIndexRef)
-    for (const [, entry] of Object.entries(index)) {
-      if (categoryId && entry.categoryId !== categoryId) continue
-      const mdRef = { requestId, siteId, stage: "fetch-pages", name: entry.file }
+    const index = await repo.getJson<{ pages?: Array<{ id: string; url: string; status: string }> }>(pagesIndexRef)
+    const records = index.pages ?? []
+    for (const rec of records) {
+      if (!rec || typeof rec.id !== "string" || rec.status !== "ok") continue
+      if (allowedUrls && !allowedUrls.has(rec.url)) continue
+      const fileName = `${rec.id}.md`
+      const mdRef = { requestId, siteId, stage: "fetch-pages", name: fileName }
       if (await repo.artifactExists(mdRef)) {
-        pages[entry.file] = (await repo.getArtifact(mdRef)).toString("utf8")
+        pages[fileName] = (await repo.getArtifact(mdRef)).toString("utf8")
         any = true
       }
     }

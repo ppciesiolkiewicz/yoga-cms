@@ -251,6 +251,8 @@ export default async function SiteDetailPage({ params }: Params) {
     return (
       <CategoryBlock
         key={cat.id}
+        requestId={requestId}
+        siteId={siteId}
         categoryId={cat.id}
         categoryName={cat.name}
         extraInfo={cat.extraInfo}
@@ -335,7 +337,7 @@ export default async function SiteDetailPage({ params }: Params) {
         </div>
       </main>
 
-      <PageNav sections={sections} />
+      <PageNav sections={sections} requestId={requestId} siteId={siteId} />
     </>
   );
 }

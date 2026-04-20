@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useRef, useEffect } from "react"
 import { Settings } from "lucide-react"
+import { ScopeActions } from "@/components/ScopeActions"
 
 interface SiteEntry {
   id: string
@@ -163,7 +164,8 @@ export function SitesSidebar({
           })}
         </ul>
       </div>
-      <div className="border-t border-border-default px-3 py-3">
+      <div className="border-t border-border-default px-3 py-3 space-y-2">
+        <ScopeActions scope={{ kind: "request", requestId }} orientation="vertical" />
         <Link
           href={`/analyses/${requestId}/information`}
           className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${

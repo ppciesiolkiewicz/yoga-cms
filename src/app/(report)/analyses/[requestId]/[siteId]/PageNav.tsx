@@ -1,13 +1,22 @@
 "use client"
 
 import { useEffect, useState } from "react"
+import { ScopeActions } from "@/components/ScopeActions"
 
 interface Section {
   id: string
   label: string
 }
 
-export function PageNav({ sections }: { sections: Section[] }) {
+export function PageNav({
+  sections,
+  requestId,
+  siteId,
+}: {
+  sections: Section[]
+  requestId: string
+  siteId: string
+}) {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [activeIndex, setActiveIndex] = useState(0)
 
@@ -88,6 +97,9 @@ export function PageNav({ sections }: { sections: Section[] }) {
           </button>
         )
       })}
+      <div className="mt-2 border-t border-border-default px-2 py-2">
+        <ScopeActions scope={{ kind: "site", requestId, siteId }} orientation="vertical" />
+      </div>
     </nav>
   )
 }

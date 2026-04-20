@@ -3,6 +3,7 @@
 import { TechCard, LighthouseCard } from "./TechCard"
 import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 import { RecordRenderer } from "@/components/RecordRenderer"
+import { ScopeActions } from "@/components/ScopeActions"
 import { slugify } from "@/lib/utils"
 
 interface PageAssessment {
@@ -40,6 +41,8 @@ interface LighthouseArtifact {
 }
 
 interface Props {
+  requestId: string
+  siteId: string
   categoryId: string
   categoryName: string
   extraInfo: string
@@ -213,7 +216,17 @@ export default function CategoryBlock(props: Props) {
             </p>
           )}
         </div>
-        {props.progress && <ProgressIcon progress={props.progress} />}
+        <div className="flex items-center gap-3">
+          <ScopeActions
+            scope={{
+              kind: "category",
+              requestId: props.requestId,
+              siteId: props.siteId,
+              categoryId: props.categoryId,
+            }}
+          />
+          {props.progress && <ProgressIcon progress={props.progress} />}
+        </div>
       </div>
 
       <TechCard tech={props.tech} />
