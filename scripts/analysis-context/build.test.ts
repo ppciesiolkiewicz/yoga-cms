@@ -35,15 +35,6 @@ describe("buildAnalysisContext", () => {
 
   afterEach(() => rmSync(dir, { recursive: true, force: true }))
 
-  it("category scope returns only that category slice", async () => {
-    const ctx = await buildAnalysisContext(repo, { kind: "category", requestId, siteId, categoryId: "home" }, { extractedContent: true, tech: true })
-    expect(ctx.json).toEqual({
-      extractedContent: { content: "home" },
-      tech: { tech: ["react"] },
-    })
-    expect(ctx.missing).toEqual([])
-  })
-
   it("report tier at site scope returns build-report", async () => {
     const ctx = await buildAnalysisContext(repo, { kind: "site", requestId, siteId }, { report: true })
     expect(ctx.json).toEqual({ report: { summary: "x" } })

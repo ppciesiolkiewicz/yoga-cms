@@ -221,7 +221,6 @@ export default function CategoryBlock(props: Props) {
             scope={{
               kind: "category",
               requestId: props.requestId,
-              siteId: props.siteId,
               categoryId: props.categoryId,
             }}
           />

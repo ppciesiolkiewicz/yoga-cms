@@ -3,7 +3,7 @@ import type { AnalysisContextScope, AnalysisContextTiers } from "./types"
 export function encodeScope(s: AnalysisContextScope): string {
   if (s.kind === "request") return `req:${s.requestId}`
   if (s.kind === "site") return `site:${s.requestId}:${s.siteId}`
-  return `cat:${s.requestId}:${s.siteId}:${s.categoryId}`
+  return `cat:${s.requestId}:${s.categoryId}`
 }
 
 export function decodeScope(raw: string): AnalysisContextScope {
@@ -11,8 +11,8 @@ export function decodeScope(raw: string): AnalysisContextScope {
   if (kind === "req" && rest.length === 1) return { kind: "request", requestId: rest[0] }
   if (kind === "site" && rest.length === 2)
     return { kind: "site", requestId: rest[0], siteId: rest[1] }
-  if (kind === "cat" && rest.length === 3)
-    return { kind: "category", requestId: rest[0], siteId: rest[1], categoryId: rest[2] }
+  if (kind === "cat" && rest.length === 2)
+    return { kind: "category", requestId: rest[0], categoryId: rest[1] }
   throw new Error(`invalid scope: ${raw}`)
 }
 
@@ -41,5 +41,5 @@ export function decodeTiers(raw: string): AnalysisContextTiers {
 export function scopeKey(s: AnalysisContextScope): string {
   if (s.kind === "request") return "all"
   if (s.kind === "site") return `site-${s.siteId}`
-  return `site-${s.siteId}-cat-${s.categoryId}`
+  return `cat-${s.categoryId}`
 }

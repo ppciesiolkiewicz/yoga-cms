@@ -12,7 +12,16 @@ export async function buildAnalysisContext(
   let json: Record<string, unknown> = {}
 
   if (scope.kind === "category") {
-    json = await forCategory(repo, scope.requestId, scope.siteId, scope.categoryId, tiers, missing)
+    const req = await repo.getRequest(scope.requestId)
+    const siteIds = scope.siteIds ?? req.sites.map(s => s.id)
+    const bySite: Record<string, unknown> = {}
+    for (const siteId of siteIds) {
+      bySite[siteId] = await forCategory(
+        repo, scope.requestId, siteId, scope.categoryId, tiers, missing,
+      )
+    }
+    json = { sites: bySite }
+    if (tiers.input) json.input = req
   } else if (scope.kind === "site") {
     json = await forSite(repo, scope.requestId, scope.siteId, tiers, missing)
   } else {

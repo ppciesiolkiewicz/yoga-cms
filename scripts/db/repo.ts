@@ -81,8 +81,19 @@ export class Repo {
     const buf = await this.store.readFile(path)
     const entries = JSON.parse(buf.toString("utf8")) as StoredRequestIndexEntry[]
     return Promise.all(
-      entries.map(async e => ({ ...e, status: await this.deriveStatus(e.id) }))
+      entries.map(async e => ({
+        ...e,
+        status: await this.deriveStatus(e.id),
+        chatCount: await this.countChats(e.id),
+      })),
     )
+  }
+
+  async countChats(requestId: string): Promise<number> {
+    const dir = join(requestDir(this.root, requestId), "chats")
+    if (!(await this.store.exists(dir))) return 0
+    const files = await this.store.listFiles(dir)
+    return files.filter(f => f.endsWith(".json")).length
   }
 
   private async appendIndex(entry: StoredRequestIndexEntry): Promise<void> {

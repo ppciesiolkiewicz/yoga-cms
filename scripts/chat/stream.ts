@@ -43,7 +43,7 @@ export function buildChatMessages(params: {
 function describeScope(s: AnalysisContext["scope"]): string {
   if (s.kind === "request") return `the entire analysis request ${s.requestId}`
   if (s.kind === "site") return `site ${s.siteId} in request ${s.requestId}`
-  return `category ${s.categoryId} of site ${s.siteId} in request ${s.requestId}`
+  return `category ${s.categoryId} across all sites in request ${s.requestId}`
 }
 
 export type StreamEvent = { type: "token"; text: string } | { type: "done" } | { type: "error"; message: string }

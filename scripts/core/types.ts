@@ -45,10 +45,11 @@ export interface RequestIndexEntry {
   siteCount: number
   categoryCount: number
   status: RequestStatus
+  chatCount: number
 }
 
-/** Shape stored on disk — status is derived at read time */
-export type StoredRequestIndexEntry = Omit<RequestIndexEntry, "status">
+/** Shape stored on disk — status and chatCount are derived at read time */
+export type StoredRequestIndexEntry = Omit<RequestIndexEntry, "status" | "chatCount">
 
 export type StageName =
   | "fetch-home"

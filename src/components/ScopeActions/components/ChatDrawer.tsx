@@ -16,6 +16,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/shadcn/select"
+import { ChatHistoryMenu } from "./ChatHistoryMenu"
 import { SUPPORTED_CHAT_MODELS } from "../../../../scripts/chat/models"
 import type {
   AnalysisContextScope,
@@ -165,20 +166,7 @@ export function ChatDrawer({ open, onOpenChange, scope, initialTiers }: Props) {
               ))}
             </SelectContent>
           </Select>
-          {chats.length > 0 && (
-            <Select value={chatId ?? ""} onValueChange={resumeChat}>
-              <SelectTrigger className="w-[200px]">
-                <SelectValue placeholder="Resume chat" />
-              </SelectTrigger>
-              <SelectContent>
-                {chats.map(c => (
-                  <SelectItem key={c.id} value={c.id}>
-                    {c.title || c.id}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          )}
+          <ChatHistoryMenu chats={chats} activeChatId={chatId} onResume={resumeChat} />
           <Button variant="outline" size="sm" onClick={startNewChat}>
             New chat
           </Button>

@@ -1,7 +1,7 @@
 export type AnalysisContextScope =
   | { kind: "request"; requestId: string }
   | { kind: "site"; requestId: string; siteId: string }
-  | { kind: "category"; requestId: string; siteId: string; categoryId: string }
+  | { kind: "category"; requestId: string; categoryId: string; siteIds?: string[] }
 
 export type AnalysisContextTiers = {
   report?: boolean

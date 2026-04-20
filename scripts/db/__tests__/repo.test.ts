@@ -112,3 +112,52 @@ describe("Repo", () => {
     expect(result.sites[0].queries).toEqual([])
   })
 })
+
+const chatInput: AnalyzeInput = {
+  categories: [{ name: "Home", extraInfo: "", prompt: "", model: "sonnet" }],
+  sites: [{ url: "https://a.test" }],
+}
+
+describe("Repo chat counts", () => {
+  let dir: string
+  let repo: Repo
+
+  beforeEach(() => {
+    dir = mkdtempSync(join(tmpdir(), "repo-chats-"))
+    repo = new Repo(dir)
+  })
+  afterEach(() => rmSync(dir, { recursive: true, force: true }))
+
+  it("countChats returns 0 when no chats directory exists", async () => {
+    const req = await repo.createRequest(chatInput)
+    expect(await repo.countChats(req.id)).toBe(0)
+  })
+
+  it("countChats sums .json files across scope subdirectories", async () => {
+    const req = await repo.createRequest(chatInput)
+    await repo.createScopedChat(
+      { kind: "request", requestId: req.id },
+      { model: "m", tiers: {}, title: "A" },
+    )
+    await repo.createScopedChat(
+      { kind: "request", requestId: req.id },
+      { model: "m", tiers: {}, title: "B" },
+    )
+    await repo.createScopedChat(
+      { kind: "category", requestId: req.id, categoryId: "home" },
+      { model: "m", tiers: {}, title: "C" },
+    )
+    expect(await repo.countChats(req.id)).toBe(3)
+  })
+
+  it("listRequests populates chatCount per entry", async () => {
+    const req = await repo.createRequest(chatInput)
+    await repo.createScopedChat(
+      { kind: "request", requestId: req.id },
+      { model: "m", tiers: {}, title: "only" },
+    )
+    const list = await repo.listRequests()
+    const match = list.find(e => e.id === req.id)
+    expect(match?.chatCount).toBe(1)
+  })
+})

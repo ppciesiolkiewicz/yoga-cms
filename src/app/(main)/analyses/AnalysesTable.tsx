@@ -12,6 +12,7 @@ interface AnalysisRow {
   siteCount: number
   categoryCount: number
   status: RequestStatus
+  chatCount: number
 }
 
 const STATUS_LABEL: Record<RequestStatus, string> = {
@@ -60,6 +61,7 @@ function Row({ req }: { req: AnalysisRow }) {
       </td>
       <td className="px-4 py-3 text-center">{req.siteCount}</td>
       <td className="px-4 py-3 text-center">{req.categoryCount}</td>
+      <td className="px-4 py-3 text-center">{req.chatCount}</td>
     </tr>
   )
 }
@@ -82,6 +84,7 @@ export function AnalysesTable({ requests }: { requests: AnalysisRow[] }) {
             <th className="px-4 py-3">Created</th>
             <th className="px-4 py-3 text-center">Sites</th>
             <th className="px-4 py-3 text-center">Categories</th>
+            <th className="px-4 py-3 text-center">Questions</th>
           </tr>
         </thead>
         <tbody className="divide-y divide-divide-default">
@@ -93,7 +96,7 @@ export function AnalysesTable({ requests }: { requests: AnalysisRow[] }) {
           <>
             <tbody>
               <tr>
-                <td colSpan={5} className="px-4 py-2">
+                <td colSpan={6} className="px-4 py-2">
                   <div className="flex items-center gap-3">
                     <div className="h-px flex-1 bg-border-strong" />
                     <span className="text-xs font-medium uppercase tracking-wide text-foreground-faint">
