@@ -1,5 +1,5 @@
 import type { Repo } from "../db/repo"
-import type { Request, Order } from "../core/types"
+import type { Request, Order, AIQuery } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
 
 function tokenCost(
