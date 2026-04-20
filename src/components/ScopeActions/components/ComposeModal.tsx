@@ -49,7 +49,6 @@ const ALL_TOGGLES: Array<{ key: TierKey; label: string; help: string }> = [
     help: "Full page markdown. Large. Skip if Extracted content covers what you need.",
   },
   { key: "input", label: "Input", help: "Original request config: sites and categories." },
-  { key: "progress", label: "Progress", help: "Per-stage pipeline status." },
 ]
 
 export function ComposeModal({
@@ -82,7 +81,7 @@ export function ComposeModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[85vh] w-[calc(100vw-2rem)] max-w-3xl flex-col gap-4 sm:w-3xl">
+      <DialogContent className="flex h-[85vh] w-[calc(100vw-2rem)] max-w-6xl flex-col gap-4 sm:w-5xl lg:w-6xl">
         <DialogHeader>
           <DialogTitle>
             Configure {mode === "copy" ? "copy" : "chat context"}
@@ -99,14 +98,12 @@ export function ComposeModal({
                   <TooltipTrigger asChild>
                     <button
                       type="button"
-                      disabled={missing}
                       onClick={() => setTier(t.key, !checked)}
                       aria-pressed={checked}
-                      className="flex items-center gap-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
+                      className="flex items-center gap-2 text-sm"
                     >
                       <Checkbox
                         checked={checked}
-                        disabled={missing}
                         tabIndex={-1}
                         className="pointer-events-none"
                       />
@@ -120,7 +117,7 @@ export function ComposeModal({
                     </button>
                   </TooltipTrigger>
                   <TooltipContent side="top" className="max-w-xs">
-                    {t.help}
+                    {missing ? `${t.help} (Not available for this scope.)` : t.help}
                   </TooltipContent>
                 </Tooltip>
               )
