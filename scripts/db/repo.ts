@@ -12,6 +12,8 @@ import type {
   Category,
   Site,
 } from "../core/types"
+import type { AnalysisContextScope, ChatMeta, ChatMessage, ChatRecord, AnalysisContextTiers } from "../analysis-context/types"
+import { scopeKey } from "../analysis-context/scope-codec"
 import { Store } from "./store"
 import { dbRoot, requestDir, refToPath } from "./paths"
 
@@ -216,6 +218,62 @@ export class Repo {
       { requestId: id, stage: "", name: "result.json" },
       result,
     )
+  }
+
+  // ── scoped chats ──
+
+  private chatDir(requestId: string, key: string): string {
+    return join(requestDir(this.root, requestId), "chats", key)
+  }
+
+  async createScopedChat(
+    scope: AnalysisContextScope,
+    meta: { model: string; tiers: AnalysisContextTiers; title: string }
+  ): Promise<ChatRecord> {
+    const id = newId("chat")
+    const record: ChatRecord = {
+      id,
+      createdAt: new Date().toISOString(),
+      title: meta.title,
+      model: meta.model,
+      tiers: meta.tiers,
+      messages: [],
+    }
+    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${id}.json`)
+    await this.store.writeFile(path, JSON.stringify(record, null, 2))
+    return record
+  }
+
+  async getScopedChat(scope: AnalysisContextScope, chatId: string): Promise<ChatRecord> {
+    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${chatId}.json`)
+    const buf = await this.store.readFile(path)
+    return JSON.parse(buf.toString("utf8")) as ChatRecord
+  }
+
+  async listScopedChats(scope: AnalysisContextScope): Promise<ChatMeta[]> {
+    const dir = this.chatDir(scope.requestId, scopeKey(scope))
+    if (!(await this.store.exists(dir))) return []
+    const files = await this.store.listFiles(dir)
+    const metas: ChatMeta[] = []
+    for (const f of files) {
+      if (!f.endsWith(".json")) continue
+      const buf = await this.store.readFile(f)
+      const rec = JSON.parse(buf.toString("utf8")) as ChatRecord
+      const { messages: _ignored, ...meta } = rec
+      metas.push(meta)
+    }
+    return metas.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
+  }
+
+  async appendScopedChatMessage(
+    scope: AnalysisContextScope,
+    chatId: string,
+    msg: ChatMessage
+  ): Promise<void> {
+    const rec = await this.getScopedChat(scope, chatId)
+    rec.messages.push(msg)
+    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${chatId}.json`)
+    await this.store.writeFile(path, JSON.stringify(rec, null, 2))
   }
 }
 
