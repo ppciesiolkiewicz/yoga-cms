@@ -18,7 +18,7 @@ Three related UX changes across the analysis report pages:
 
 ## Non-goals
 
-- No migration of existing per-site category chats to the new key. Old chats stay on disk, silently orphaned.
+- No migration of existing per-site category chats to the new key — they are **deleted** instead (see Rollout). User-approved for dev data only.
 - No UI for filtering chats across scopes (e.g. showing site-scoped chats inside the category drawer). Scope-filtered list as today.
 - No scope-kind chip in the dropdown, since every row matches the current button's scope by construction.
 
@@ -96,7 +96,7 @@ Grep for other call sites that construct a `"category"` scope — only `Category
 
 #### Storage impact
 
-Chats for category scope will be written to `data/db/{requestId}/chats/cat-{categoryId}/`. Pre-existing directories under `chats/site-{siteId}-cat-{categoryId}/` remain on disk but will not be listed or resumable through the UI.
+Chats for category scope will be written to `data/db/{requestId}/chats/cat-{categoryId}/`. Pre-existing directories under `chats/site-{siteId}-cat-{categoryId}/` are deleted as part of this change (dev-local data, user-approved).
 
 ### 2. Richer previous-chats dropdown
 
@@ -199,4 +199,4 @@ Analyses index → `listRequests()` → per-entry `countChats(id)` → directory
 
 ## Rollout
 
-Single merge. Dev-local data only; accept orphaned legacy category chats.
+Single merge. Dev-local data only. Legacy per-site category chat directories (`chats/site-*-cat-*/`) are deleted one-time during this change, since they cannot be reached through the new codec.
