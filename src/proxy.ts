@@ -3,7 +3,11 @@ import { NextResponse, type NextRequest } from "next/server";
 const USERNAME = process.env.BASIC_AUTH_USER ?? "admin";
 const PASSWORD = process.env.BASIC_AUTH_PASS ?? "dharamshala";
 
-export function middleware(req: NextRequest) {
+export function proxy(req: NextRequest) {
+  if (process.env.NODE_ENV !== "production") {
+    return NextResponse.next();
+  }
+
   const header = req.headers.get("authorization");
 
   if (header?.startsWith("Basic ")) {
@@ -23,5 +27,5 @@ export function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
+  matcher: ["/((?!_next|__nextjs|favicon.ico).*)"],
 };
