@@ -283,4 +283,11 @@
   html {
     @apply font-sans;
   }
+  a {
+    cursor: pointer;
+  }
+  .report-scope a.text-accent-fg {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 }
