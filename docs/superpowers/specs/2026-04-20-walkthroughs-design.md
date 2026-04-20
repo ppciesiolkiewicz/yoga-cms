@@ -49,16 +49,16 @@ Each file exports a `Tour` object: `{ id: string; steps: Step[] }`.
 ```ts
 // types.ts
 export type Step = {
-  target: string;                      // CSS selector, usually [data-tour="..."]
+  target: string; // CSS selector, usually [data-tour="..."]
   title: string;
   body: string;
   onBefore?: () => Promise<void> | void;
   onAfter?: () => void;
-  skipIfMissing?: boolean;             // skip the step when target not found
+  skipIfMissing?: boolean; // skip the step when target not found
 };
 
 export type Tour = {
-  id: string;                          // used as localStorage key suffix
+  id: string; // used as localStorage key suffix
   steps: Step[];
 };
 ```
@@ -76,32 +76,32 @@ Existing components receive `data-tour="<page>-<slot>"` attributes. No new CSS h
 
 ### `/create`
 
-| Slot                  | Copy (title → body) |
-|-----------------------|---------------------|
-| `create-search`       | Search — "Search and select websites to analyze." |
-| `create-sites`        | Sites — "Pick which sites to analyze." |
-| `create-categories`   | Categories — "Define analysis categories with prompts." |
-| `create-review`       | Review — "Review your setup before submitting." |
-| `create-submit`       | Submit — "Start the analysis." |
+| Slot                | Copy (title → body)                                     |
+| ------------------- | ------------------------------------------------------- |
+| `create-search`     | Search — "Search and select websites to analyze."       |
+| `create-sites`      | Sites — "Pick which sites to analyze."                  |
+| `create-categories` | Categories — "Define analysis categories with prompts." |
+| `create-review`     | Review — "Review your setup before submitting."         |
+| `create-submit`     | Submit — "Start the analysis."                          |
 
 ### `/analyses`
 
-| Slot               | Copy |
-|--------------------|------|
-| `analyses-table`   | Your analyses — "Every analysis you've submitted shows up here." |
-| `analyses-status`  | Status — "Progress per site." |
-| `analyses-row`     | Open a report — "Click a row to open its full report." |
+| Slot              | Copy                                                             |
+| ----------------- | ---------------------------------------------------------------- |
+| `analyses-table`  | Your analyses — "Every analysis you've submitted shows up here." |
+| `analyses-status` | Status — "Progress per site."                                    |
+| `analyses-row`    | Open a report — "Click a row to open its full report."           |
 
 ### `/analyses/[requestId]/[siteId]`
 
-| Slot                | Copy |
-|---------------------|------|
-| `site-sidebar`           | Sites — "Switch between sites in this analysis. Each site was fetched and analyzed independently using the same categories, so you can compare how different sites handle the same topics." |
-| `site-category`          | Categories — "Data is grouped by category (home, navigation, tech, assessments, etc.). Each category aggregates findings across all crawled pages for this site, giving you one consolidated view per topic instead of page-by-page noise." |
-| `site-category-actions`  | Category scope — "Category chat analyzes all the data across sites for this category. Copy exports the same data as structured context." |
-| `site-page-actions`      | Website scope — "Website chat is about this entire site — all pages, all categories. Copy exports the site's data." |
-| `site-request-actions`   | Analysis scope — "Analysis chat uses data for all pages across all sites in this analysis. Copy exports the full analysis." |
-| `site-chat-drawer`       | Scoped chat — "Answers are grounded strictly in the scope you picked — no leakage across unrelated data." |
+| Slot                    | Copy                                                                                                                                                                                                                                        |
+| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `site-sidebar`          | Sites — "Switch between sites in this analysis. Each site was fetched and analyzed independently using the same categories, so you can compare how different sites handle the same topics."                                                 |
+| `site-category`         | Categories — "Data is grouped by category (home, navigation, tech, assessments, etc.). Each category aggregates findings across all crawled pages for this site, giving you one consolidated view per topic instead of page-by-page noise." |
+| `site-category-actions` | Category scope — "Category chat analyzes all the data across sites for this category. Copy exports the same data as structured context."                                                                                                    |
+| `site-page-actions`     | Website scope — "Website chat is about this entire site — all pages, all categories. Copy exports the site's data."                                                                                                                         |
+| `site-request-actions`  | Analysis scope — "Analysis chat uses data for all pages across all sites in this analysis. Copy exports the full analysis."                                                                                                                 |
+| `site-chat-drawer`      | Scoped chat — "Answers are grounded strictly in the scope you picked — no leakage across unrelated data."                                                                                                                                   |
 
 ## Async / conditional steps
 

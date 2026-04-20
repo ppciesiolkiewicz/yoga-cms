@@ -9,6 +9,8 @@ import { SearchSection } from "./SearchSection"
 import { SitesSection, type SelectedSite } from "./SitesSection"
 import { CategoriesSection, type CategoryDraft, type CategoryTemplate } from "./CategoriesSection"
 import { ReviewSection } from "./ReviewSection"
+import { Walkthrough, WalkthroughButton } from "@/components/Walkthrough"
+import { createTour } from "./walkthrough"
 
 interface SearchEntry {
   query: string
@@ -126,8 +128,12 @@ export default function CreatePage() {
 
   return (
     <main className="mx-auto max-w-5xl px-4 py-8">
+      <Walkthrough tour={createTour} />
       <div className="mb-4">
-        <h1 className="text-2xl font-bold">Create Analysis</h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-2xl font-bold">Create Analysis</h1>
+          <WalkthroughButton tour={createTour} />
+        </div>
         <p className="mt-1 text-sm text-foreground-muted">
           Find sites, pick the ones to analyze, then choose what to look for.
         </p>

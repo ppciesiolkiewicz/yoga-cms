@@ -6,6 +6,7 @@ import { NavigationCard } from "./NavigationCard";
 import { SitesSidebar } from "./SitesSidebar";
 import { PageNav } from "./PageNav";
 import { SectionDivider } from "./SectionDivider";
+import { SiteReportWalkthrough } from "./SiteReportWalkthrough";
 
 export const dynamic = "force-dynamic";
 
@@ -123,7 +124,6 @@ export default async function SiteDetailPage({ params }: Params) {
     | undefined;
   const displayName = result.request.displayName ?? requestId;
   const siteName = String(siteMeta.meta?.name ?? siteMeta.url);
-
   const siteQueries: AIQueryInfo[] = siteData.queries ?? [];
 
   const sidebarSites = result.request.sites.map((s) => {
@@ -230,7 +230,10 @@ export default async function SiteDetailPage({ params }: Params) {
       : []),
   ];
 
-  function renderCategory(cat: (typeof result.request.categories)[number]) {
+  function renderCategory(
+    cat: (typeof result.request.categories)[number],
+    tourAnchor = false,
+  ) {
     const classifiedUrls = classify[cat.id] ?? [];
     const extractedRecords = extractMap[cat.id]?.records ?? [];
     const tech = techMap[cat.id] ?? undefined;
@@ -263,6 +266,7 @@ export default async function SiteDetailPage({ params }: Params) {
         tech={tech}
         lighthouse={lighthouse}
         progress={progress}
+        tourAnchor={tourAnchor}
       />
     );
   }
@@ -279,7 +283,10 @@ export default async function SiteDetailPage({ params }: Params) {
       <main className="ml-65 min-h-screen bg-surface-alt px-8 py-8">
         <div className="mx-auto max-w-4xl">
           <div className="mb-6">
-            <h1 className="text-3xl font-bold text-foreground">{siteName}</h1>
+            <div className="flex items-center gap-2">
+              <h1 className="text-3xl font-bold text-foreground">{siteName}</h1>
+              <SiteReportWalkthrough requestId={requestId} siteId={siteId} />
+            </div>
             <div className="mt-1 flex flex-wrap items-center gap-3 text-sm text-foreground-muted">
               <a
                 href={siteMeta.url}
@@ -315,21 +322,21 @@ export default async function SiteDetailPage({ params }: Params) {
               {homeCategory && (
                 <>
                   <SectionDivider />
-                  {renderCategory(homeCategory)}
+                  {renderCategory(homeCategory, orderedCategories[0] === homeCategory)}
                 </>
               )}
 
               {otherCategories.map((cat) => (
                 <div key={cat.id}>
                   <SectionDivider />
-                  {renderCategory(cat)}
+                  {renderCategory(cat, orderedCategories[0] === cat)}
                 </div>
               ))}
 
               {contactCategory && (
                 <>
                   <SectionDivider />
-                  {renderCategory(contactCategory)}
+                  {renderCategory(contactCategory, orderedCategories[0] === contactCategory)}
                 </>
               )}
             </>

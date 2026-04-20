@@ -62,7 +62,7 @@ function JsonValue({ value, depth = 0 }: { value: unknown; depth?: number }) {
 
 export function ReviewSection({ input }: { input: AnalyzeInput }) {
   return (
-    <section>
+    <section data-tour="create-review">
       <h2 className="mb-3 text-base font-semibold">Review</h2>
       <Card className="overflow-x-auto p-5 font-mono text-xs leading-relaxed">
         <JsonValue value={input} />

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -36,6 +36,17 @@ export function ChatMenu({ scope, fullWidth = false }: { scope: AnalysisContextS
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [modalOpen, setModalOpen] = useState(false)
   const [tiers, setTiers] = useState<AnalysisContextTiers>({})
+
+  useEffect(() => {
+    function onOpen(e: Event) {
+      const detail = (e as CustomEvent<{ scope: AnalysisContextScope }>).detail;
+      if (JSON.stringify(detail.scope) !== JSON.stringify(scope)) return;
+      setTiers({ report: true });
+      setDrawerOpen(true);
+    }
+    window.addEventListener("walkthrough:open-chat", onOpen);
+    return () => window.removeEventListener("walkthrough:open-chat", onOpen);
+  }, [scope]);
 
   function openWith(t: AnalysisContextTiers) {
     setTiers(t)

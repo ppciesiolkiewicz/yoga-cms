@@ -97,7 +97,7 @@ export function PageNav({
           </button>
         )
       })}
-      <div className="mt-2 border-t border-border-default px-2 py-2">
+      <div data-tour="site-page-actions" className="mt-2 border-t border-border-default px-2 py-2">
         <ScopeActions scope={{ kind: "site", requestId, siteId }} orientation="vertical" />
       </div>
     </nav>

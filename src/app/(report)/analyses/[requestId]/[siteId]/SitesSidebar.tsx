@@ -63,7 +63,7 @@ export function SitesSidebar({
   const setCurrentRef = (el: HTMLElement | null) => { currentRef.current = el }
 
   return (
-    <aside className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-border-default bg-surface shadow-sm">
+    <aside data-tour="site-sidebar" className="fixed left-0 top-0 z-30 flex h-screen w-65 flex-col border-r border-border-default bg-surface shadow-sm">
       <div className="sticky top-0 border-b border-border-default bg-surface px-3 py-3">
         <Link
           href="/analyses"
@@ -164,7 +164,7 @@ export function SitesSidebar({
           })}
         </ul>
       </div>
-      <div className="border-t border-border-default px-3 py-3 space-y-2">
+      <div data-tour="site-request-actions" className="border-t border-border-default px-3 py-3 space-y-2">
         <ScopeActions scope={{ kind: "request", requestId }} orientation="vertical" />
         <Link
           href={`/analyses/${requestId}/information`}

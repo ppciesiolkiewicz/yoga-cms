@@ -53,6 +53,7 @@ interface Props {
   tech?: TechArtifact
   lighthouse?: LighthouseArtifact
   progress?: Record<string, TaskStatus>
+  tourAnchor?: boolean
 }
 
 
@@ -198,6 +199,7 @@ export default function CategoryBlock(props: Props) {
   return (
     <section
       id={`category-${slugify(props.categoryName)}`}
+      {...(props.tourAnchor ? { "data-tour": "site-category" } : {})}
       className="mb-6 rounded-lg border border-border-default bg-surface p-6"
     >
       <div className="mb-4 flex items-start justify-between">
@@ -217,13 +219,15 @@ export default function CategoryBlock(props: Props) {
           )}
         </div>
         <div className="flex items-center gap-3">
-          <ScopeActions
-            scope={{
-              kind: "category",
-              requestId: props.requestId,
-              categoryId: props.categoryId,
-            }}
-          />
+          <div {...(props.tourAnchor ? { "data-tour": "site-category-actions" } : {})}>
+            <ScopeActions
+              scope={{
+                kind: "category",
+                requestId: props.requestId,
+                categoryId: props.categoryId,
+              }}
+            />
+          </div>
           {props.progress && <ProgressIcon progress={props.progress} />}
         </div>
       </div>

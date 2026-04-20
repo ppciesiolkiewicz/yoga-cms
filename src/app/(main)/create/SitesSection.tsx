@@ -116,7 +116,7 @@ export function SitesSection({
   }
 
   return (
-    <section>
+    <section data-tour="create-sites">
       <h2 className="mb-3 text-base font-semibold">
         Selected Sites{entries.length > 0 ? ` (${entries.length})` : ""}
       </h2>

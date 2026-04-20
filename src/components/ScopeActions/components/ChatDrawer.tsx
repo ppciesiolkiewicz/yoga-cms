@@ -58,6 +58,14 @@ export function ChatDrawer({ open, onOpenChange, scope, initialTiers }: Props) {
     endRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
+  useEffect(() => {
+    function onClose() {
+      onOpenChange(false);
+    }
+    window.addEventListener("walkthrough:close-chat", onClose);
+    return () => window.removeEventListener("walkthrough:close-chat", onClose);
+  }, [onOpenChange]);
+
   async function resumeChat(id: string) {
     const qs = `scope=${encodeURIComponent(encodeScope(scope))}&chatId=${id}`
     const r = await fetch(`/api/chat/get?${qs}`)
@@ -149,7 +157,7 @@ export function ChatDrawer({ open, onOpenChange, scope, initialTiers }: Props) {
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent className="flex w-full flex-col gap-0 p-0 sm:max-w-xl">
+      <SheetContent data-tour="site-chat-drawer" className="flex w-full flex-col gap-0 p-0 sm:max-w-xl">
         <SheetHeader className="border-b">
           <SheetTitle>Chat about this analysis</SheetTitle>
         </SheetHeader>

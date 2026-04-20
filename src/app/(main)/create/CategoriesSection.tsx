@@ -300,7 +300,7 @@ export function CategoriesSection({
   }
 
   return (
-    <section>
+    <section data-tour="create-categories">
       <div className="mb-1 flex items-center justify-between">
         <h2 className="text-lg font-semibold">Categories</h2>
         <Button variant="secondary" onClick={() => setModalOpen(true)}>Add category</Button>

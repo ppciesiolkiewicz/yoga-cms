@@ -36,9 +36,12 @@ const STATUS_TOOLTIP: Record<RequestStatus, string> = {
   rejected: "Rejected — analysis failed",
 }
 
-function Row({ req }: { req: AnalysisRow }) {
+function Row({ req, isFirst }: { req: AnalysisRow; isFirst?: boolean }) {
   return (
-    <tr className="hover:bg-surface-alt">
+    <tr
+      {...(isFirst ? { "data-tour": "analyses-row" } : {})}
+      className="hover:bg-surface-alt"
+    >
       <td className="px-4 py-3">
         <Link
           href={`/analyses/${req.id}`}
@@ -74,13 +77,15 @@ export function AnalysesTable({ requests }: { requests: AnalysisRow[] }) {
     (r) => r.status === "pending" || r.status === "processing",
   )
 
+  const firstList = completed.length > 0 ? "completed" : "pending";
+
   return (
-    <div className="overflow-x-auto rounded-lg border border-border-default">
+    <div data-tour="analyses-table" className="overflow-x-auto rounded-lg border border-border-default">
       <table className="w-full text-left text-sm">
         <thead className="bg-surface-alt text-xs uppercase text-foreground-muted">
           <tr>
             <th className="px-4 py-3">Name</th>
-            <th className="px-4 py-3">Status</th>
+            <th data-tour="analyses-status" className="px-4 py-3">Status</th>
             <th className="px-4 py-3">Created</th>
             <th className="px-4 py-3 text-center">Sites</th>
             <th className="px-4 py-3 text-center">Categories</th>
@@ -88,8 +93,8 @@ export function AnalysesTable({ requests }: { requests: AnalysisRow[] }) {
           </tr>
         </thead>
         <tbody className="divide-y divide-divide-default">
-          {completed.map((req) => (
-            <Row key={req.id} req={req} />
+          {completed.map((req, i) => (
+            <Row key={req.id} req={req} isFirst={firstList === "completed" && i === 0} />
           ))}
         </tbody>
         {pending.length > 0 && (
@@ -108,8 +113,8 @@ export function AnalysesTable({ requests }: { requests: AnalysisRow[] }) {
               </tr>
             </tbody>
             <tbody className="divide-y divide-divide-default">
-              {pending.map((req) => (
-                <Row key={req.id} req={req} />
+              {pending.map((req, i) => (
+                <Row key={req.id} req={req} isFirst={firstList === "pending" && i === 0} />
               ))}
             </tbody>
           </>

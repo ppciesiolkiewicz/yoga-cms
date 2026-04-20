@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { getRepo } from "@/lib/repo-server";
 import { AnalysesTable } from "./AnalysesTable";
+import { Walkthrough, WalkthroughButton } from "@/components/Walkthrough";
+import { analysesTour } from "./walkthrough";
 
 export const dynamic = "force-dynamic";
 
@@ -30,8 +32,12 @@ export default async function AnalysesPage() {
 
   return (
     <main className="mx-auto max-w-6xl px-4 py-8">
+      <Walkthrough tour={analysesTour} />
       <div className="mt-2 mb-6 flex items-center justify-between">
-        <h1 className="text-3xl font-bold text-foreground">Past Analyses</h1>
+        <div className="flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-foreground">Past Analyses</h1>
+          <WalkthroughButton tour={analysesTour} />
+        </div>
         <p className="text-sm text-foreground-muted">
           {requests.length} {requests.length === 1 ? "analysis" : "analyses"}
         </p>

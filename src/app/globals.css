@@ -1,6 +1,7 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
+@import "driver.js/dist/driver.css";
 
 @source not "../../data/**";
 @source not "../../docs/**";
@@ -290,4 +291,53 @@
     text-decoration: underline;
     text-underline-offset: 2px;
   }
+}
+
+/* Walkthrough (driver.js) */
+.walkthrough-popover {
+  background-color: var(--surface);
+  color: var(--foreground);
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  padding: 16px;
+}
+
+.walkthrough-popover .driver-popover-title {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.walkthrough-popover .driver-popover-description {
+  color: var(--foreground-secondary);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.walkthrough-popover .driver-popover-footer {
+  margin-top: 12px;
+}
+
+.walkthrough-popover .driver-popover-next-btn,
+.walkthrough-popover .driver-popover-prev-btn,
+.walkthrough-popover .driver-popover-close-btn {
+  background-color: var(--accent);
+  color: var(--foreground-on-accent);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 12px;
+  text-shadow: none;
+}
+
+.walkthrough-popover .driver-popover-prev-btn {
+  background-color: var(--surface-alt);
+  color: var(--foreground-secondary);
+}
+
+.walkthrough-popover .driver-popover-progress-text {
+  color: var(--foreground-muted);
+  font-size: 11px;
 }

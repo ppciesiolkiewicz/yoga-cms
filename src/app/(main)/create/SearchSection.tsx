@@ -42,7 +42,7 @@ export function SearchSection({
   }
 
   return (
-    <section>
+    <section data-tour="create-search">
       <h2 className="mb-1 text-base font-semibold">Add new search</h2>
       <p className="mb-3 text-xs text-foreground-muted">Select web pages you want to analyze</p>
       <form
