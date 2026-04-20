@@ -9,6 +9,12 @@ import {
   DialogTitle,
 } from "@/components/ui/shadcn/dialog"
 import { Checkbox } from "@/components/ui/shadcn/checkbox"
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/shadcn/tooltip"
 import { Button } from "@/components/ui/shadcn/button"
 import { Copy, Check } from "lucide-react"
 import { useAnalysisContext, copyToClipboard } from "../lib/useAnalysisContext"
@@ -29,13 +35,21 @@ type Props = {
 }
 
 const ALL_TOGGLES: Array<{ key: TierKey; label: string; help: string }> = [
-  { key: "report", label: "Report", help: "The analysis summary and recommendations." },
-  { key: "extractedContent", label: "Extracted content", help: "Structured data extracted from each analyzed page." },
+  { key: "report", label: "Report", help: "Final summary and recommendations." },
+  {
+    key: "extractedContent",
+    label: "Extracted content",
+    help: "Structured data pulled from pages (e.g. classes, prices). Pick this instead of Raw pages.",
+  },
   { key: "tech", label: "Tech stack", help: "Detected technologies and estimated monthly cost." },
-  { key: "lighthouse", label: "Lighthouse", help: "Performance, accessibility, SEO and best-practices scores." },
-  { key: "rawPages", label: "Raw pages", help: "Full scraped markdown for each page (large)." },
-  { key: "input", label: "Input", help: "The original request configuration (sites and categories)." },
-  { key: "progress", label: "Progress", help: "Per-stage pipeline progress for this scope." },
+  { key: "lighthouse", label: "Lighthouse", help: "Performance, accessibility and SEO scores." },
+  {
+    key: "rawPages",
+    label: "Raw pages",
+    help: "Full page markdown. Large. Skip if Extracted content covers what you need.",
+  },
+  { key: "input", label: "Input", help: "Original request config: sites and categories." },
+  { key: "progress", label: "Progress", help: "Per-stage pipeline status." },
 ]
 
 export function ComposeModal({
@@ -68,44 +82,51 @@ export function ComposeModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex max-h-[85vh] max-w-3xl flex-col gap-4">
+      <DialogContent className="flex h-[85vh] w-[calc(100vw-2rem)] max-w-3xl flex-col gap-4 sm:w-3xl">
         <DialogHeader>
           <DialogTitle>
             Configure {mode === "copy" ? "copy" : "chat context"}
           </DialogTitle>
         </DialogHeader>
 
-        <div className="flex flex-wrap gap-x-5 gap-y-2">
-          {toggles.map(t => {
-            const missing = data?.missing?.includes(t.key)
-            const checked = !!tiers[t.key]
-            return (
-              <button
-                type="button"
-                key={t.key}
-                disabled={missing}
-                onClick={() => setTier(t.key, !checked)}
-                title={t.help}
-                aria-pressed={checked}
-                className="flex items-center gap-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <Checkbox
-                  checked={checked}
-                  disabled={missing}
-                  tabIndex={-1}
-                  className="pointer-events-none"
-                />
-                <span
-                  className={`select-none ${
-                    missing ? "text-muted-foreground line-through" : ""
-                  }`}
-                >
-                  {t.label}
-                </span>
-              </button>
-            )
-          })}
-        </div>
+        <TooltipProvider delayDuration={200}>
+          <div className="flex flex-wrap gap-x-5 gap-y-2">
+            {toggles.map(t => {
+              const missing = data?.missing?.includes(t.key)
+              const checked = !!tiers[t.key]
+              return (
+                <Tooltip key={t.key}>
+                  <TooltipTrigger asChild>
+                    <button
+                      type="button"
+                      disabled={missing}
+                      onClick={() => setTier(t.key, !checked)}
+                      aria-pressed={checked}
+                      className="flex items-center gap-2 text-sm disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      <Checkbox
+                        checked={checked}
+                        disabled={missing}
+                        tabIndex={-1}
+                        className="pointer-events-none"
+                      />
+                      <span
+                        className={`select-none ${
+                          missing ? "text-muted-foreground line-through" : ""
+                        }`}
+                      >
+                        {t.label}
+                      </span>
+                    </button>
+                  </TooltipTrigger>
+                  <TooltipContent side="top" className="max-w-xs">
+                    {t.help}
+                  </TooltipContent>
+                </Tooltip>
+              )
+            })}
+          </div>
+        </TooltipProvider>
 
         <div className="flex items-center justify-between gap-2">
           <div className="text-xs text-muted-foreground">
