@@ -186,6 +186,11 @@ function ExtractedRecordCard({ record, index }: { record: unknown; index: number
 export default function CategoryBlock(props: Props) {
   const contentQuery = props.queries?.find(q => q.stage === "assess-pages") ?? null
   const extractQuery = props.queries?.find(q => q.stage === "extract-pages-content") ?? null
+  const isEmpty =
+    !props.tech &&
+    !props.lighthouse &&
+    props.contentPages.length === 0 &&
+    props.extractedRecords.length === 0
 
   return (
     <section
@@ -213,6 +218,12 @@ export default function CategoryBlock(props: Props) {
 
       <TechCard tech={props.tech} />
       <LighthouseCard lighthouse={props.lighthouse} />
+
+      {isEmpty && (
+        <p className="text-sm text-foreground-muted">
+          No data was found for this category.
+        </p>
+      )}
 
 
       {props.contentPages.length > 0 && (

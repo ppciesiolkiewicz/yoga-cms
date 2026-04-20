@@ -208,6 +208,17 @@ export default async function SiteDetailPage({ params }: Params) {
     ...(contactCategory ? [contactCategory] : []),
   ];
 
+  const siteHasAnyData = result.request.categories.some((cat) => {
+    const classifiedUrls = classify[cat.id] ?? [];
+    const extractedRecords = extractMap[cat.id]?.records ?? [];
+    return (
+      classifiedUrls.length > 0 ||
+      extractedRecords.length > 0 ||
+      !!techMap[cat.id] ||
+      !!lighthouseMap[cat.id]
+    );
+  });
+
   const sections = [
     { id: "navigation", label: "Page Navigation" },
     ...(homeCategory
@@ -225,14 +236,6 @@ export default async function SiteDetailPage({ params }: Params) {
     const tech = techMap[cat.id] ?? undefined;
     const lighthouse = lighthouseMap[cat.id] ?? undefined;
     const progress = progressMap[cat.id] ?? undefined;
-    if (
-      classifiedUrls.length === 0 &&
-      extractedRecords.length === 0 &&
-      !tech &&
-      !lighthouse
-    ) {
-      return null;
-    }
     const categoryQueries = siteQueries.filter((q) => q.categoryId === cat.id);
     const assessMap = (siteData.artifacts["assess-pages"] ?? {}) as Record<
       string,
@@ -301,24 +304,32 @@ export default async function SiteDetailPage({ params }: Params) {
             }))}
           />
 
-          {homeCategory && (
-            <>
-              <SectionDivider />
-              {renderCategory(homeCategory)}
-            </>
-          )}
-
-          {otherCategories.map((cat) => (
-            <div key={cat.id}>
-              <SectionDivider />
-              {renderCategory(cat)}
+          {!siteHasAnyData ? (
+            <div className="mt-6 rounded-lg border border-border-default bg-surface p-6 text-sm text-foreground-muted">
+              Couldn&apos;t analyze this page. Contact customer support for more information.
             </div>
-          ))}
-
-          {contactCategory && (
+          ) : (
             <>
-              <SectionDivider />
-              {renderCategory(contactCategory)}
+              {homeCategory && (
+                <>
+                  <SectionDivider />
+                  {renderCategory(homeCategory)}
+                </>
+              )}
+
+              {otherCategories.map((cat) => (
+                <div key={cat.id}>
+                  <SectionDivider />
+                  {renderCategory(cat)}
+                </div>
+              ))}
+
+              {contactCategory && (
+                <>
+                  <SectionDivider />
+                  {renderCategory(contactCategory)}
+                </>
+              )}
             </>
           )}
         </div>
