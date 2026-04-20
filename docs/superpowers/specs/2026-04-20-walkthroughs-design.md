@@ -78,7 +78,7 @@ Existing components receive `data-tour="<page>-<slot>"` attributes. No new CSS h
 
 | Slot                  | Copy (title → body) |
 |-----------------------|---------------------|
-| `create-search`       | Search — "Search a topic to discover relevant sites to analyze." |
+| `create-search`       | Search — "Search and select websites to analyze." |
 | `create-sites`        | Sites — "Pick which sites to analyze." |
 | `create-categories`   | Categories — "Define analysis categories with prompts." |
 | `create-review`       | Review — "Review your setup before submitting." |
@@ -96,11 +96,12 @@ Existing components receive `data-tour="<page>-<slot>"` attributes. No new CSS h
 
 | Slot                | Copy |
 |---------------------|------|
-| `site-sidebar`      | Sites — "Switch between sites in this analysis. Each site was fetched and analyzed independently using the same categories, so you can compare how different sites handle the same topics." |
-| `site-category`     | Categories — "Data is grouped by category (home, navigation, tech, assessments, etc.). Each category aggregates findings across all crawled pages for this site, giving you one consolidated view per topic instead of page-by-page noise." |
-| `site-copy`         | Copy scope — "Copy the underlying data for this scope — a single category, a whole site, or the full request — as structured context. Useful for pasting into your own LLM, a doc, or a ticket." |
-| `site-chat`         | Chat scope — "Open a scoped chat. Pick the scope: one category across all pages, everything for one site, or the entire analysis across all sites. The chat only sees the data you selected." |
-| `site-chat-drawer`  | Scoped chat — "Ask questions grounded in the scoped data. Because the context is narrowed to what you chose, answers stay on-topic and avoid leaking across unrelated sites or categories." |
+| `site-sidebar`           | Sites — "Switch between sites in this analysis. Each site was fetched and analyzed independently using the same categories, so you can compare how different sites handle the same topics." |
+| `site-category`          | Categories — "Data is grouped by category (home, navigation, tech, assessments, etc.). Each category aggregates findings across all crawled pages for this site, giving you one consolidated view per topic instead of page-by-page noise." |
+| `site-category-actions`  | Category scope — "Category chat analyzes all the data across sites for this category. Copy exports the same data as structured context." |
+| `site-page-actions`      | Website scope — "Website chat is about this entire site — all pages, all categories. Copy exports the site's data." |
+| `site-request-actions`   | Analysis scope — "Analysis chat uses data for all pages across all sites in this analysis. Copy exports the full analysis." |
+| `site-chat-drawer`       | Scoped chat — "Answers are grounded strictly in the scope you picked — no leakage across unrelated data." |
 
 ## Async / conditional steps
 
@@ -112,8 +113,9 @@ The site-report tour's final step highlights the chat drawer, which is not mount
   title: 'Scoped chat',
   body: '…',
   onBefore: async () => {
+    // open chat from the analysis (request) scope, which the prior step just highlighted
     document
-      .querySelector<HTMLElement>('[data-tour="site-chat"] button')
+      .querySelector<HTMLElement>('[data-tour="site-request-actions"] [data-chat-trigger]')
       ?.click();
     await waitForSelector('[data-tour="site-chat-drawer"]', { timeout: 2000 });
   },
