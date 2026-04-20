@@ -1,0 +1,41 @@
+{
+  "categoryId": "cat_mnwyc5yw_76b8ef32",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/schedule",
+      "pageName": "SHA-LA Studios Schedule",
+      "summary": "Weekly class schedule page with location and teacher filters for two Berlin studios. The schedule widget appears to be embedded via a third-party tool (Yogo) but no actual class times or styles are visible in the scraped content.",
+      "conversionScore": 4,
+      "seoScore": 4,
+      "classStyles": [],
+      "pricingVisible": false,
+      "scheduleVisible": false,
+      "firstTimeDeal": false,
+      "notes": "Schedule widget is present but renders no visible class data in the page content, and there are no prices or style descriptions — visitors cannot answer 'when can I come' without the widget loading correctly."
+    },
+    {
+      "url": "https://www.shalastudios.com/book-class",
+      "pageName": "SHA-LA Studios Book a Class",
+      "summary": "Pricing and booking page listing all pass options including a €20 drop-in, €49 two-week trial, multi-class packs, memberships, and partner integrations (ClassPass, Wellpass, Wellhub). Prices and booking links are clearly displayed.",
+      "conversionScore": 7,
+      "seoScore": 5,
+      "classStyles": [],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": true,
+      "notes": "Pricing is clear and a first-timer trial pass is prominently shown, but there are no class styles listed and no schedule on this page, so visitors still can't see what classes are available or when."
+    },
+    {
+      "url": "https://www.shalastudios.com/studios",
+      "pageName": "SHA-LA Studios Locations",
+      "summary": "Studio locations page describing two Berlin spaces — Prenzlauer Berg (Kastanienallee 63) and Kreuzberg Waterfront (Falckensteinstr 47) — with addresses, directions links, facility details, and studio rental info.",
+      "conversionScore": 5,
+      "seoScore": 6,
+      "classStyles": [],
+      "pricingVisible": false,
+      "scheduleVisible": false,
+      "firstTimeDeal": false,
+      "notes": "Addresses and directions are clearly provided which is good for local SEO and visitor navigation, but there are no class styles, schedule, or drop-in prices on this page — studio rental pricing muddies the drop-in focus."
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://www.banham.co.uk",
+      "pageName": "Banham Homepage",
+      "summary": "Banham is a premium, heritage-focused London security brand with a polished editorial homepage emphasising craftsmanship and brand storytelling. The site reads more like a luxury lifestyle destination than an emergency locksmith, with no visible click-to-call, no 24/7 emergency messaging, and no service area callout above the fold.",
+      "opportunityScore": 6,
+      "digitalMaturityScore": 7,
+      "hasClickToCall": false,
+      "hasServiceArea": false,
+      "hasEmergencyInfo": false,
+      "hasTrustSignals": true,
+      "hasMobileExperience": true,
+      "topOpportunity": "Add a prominent emergency click-to-call button and 24/7 availability statement above the fold to capture high-intent locked-out mobile users who will otherwise bounce instantly",
+      "notes": "Banham is a mature, well-branded business that has prioritised brand prestige over conversion urgency — a mid-tier opportunity for an agency to pitch emergency UX optimisation and local SEO schema rather than a full rebuild."
+    },
+    {
+      "url": "https://www.banham.co.uk/book-a-survey/",
+      "pageName": "Book a Survey",
+      "summary": "A clean, consultative landing page for Banham's free in-person security survey, well structured with a clear step-by-step process and FAQ section. However, it relies entirely on a form enquiry flow with no phone number, no click-to-call, and no urgency signals for users with immediate needs.",
+      "opportunityScore": 5,
+      "digitalMaturityScore": 7,
+      "hasClickToCall": false,
+      "hasServiceArea": false,
+      "hasEmergencyInfo": false,
+      "hasTrustSignals": true,
+      "hasMobileExperience": true,
+      "topOpportunity": "Introduce a visible phone number or click-to-call CTA alongside the enquiry form to reduce friction for users who want immediate human contact rather than a callback workflow",
+      "notes": "The page is well-designed for considered buyers but lacks any fast-contact pathway, making it a weak conversion point for higher-urgency prospects — a targeted CRO pitch around contact accessibility would resonate here."
+    }
+  ]
+}

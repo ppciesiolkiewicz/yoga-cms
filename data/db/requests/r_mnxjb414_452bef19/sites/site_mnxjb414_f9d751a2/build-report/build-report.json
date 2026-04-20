@@ -1,0 +1,572 @@
+{
+  "siteId": "site_mnxjb414_f9d751a2",
+  "url": "https://www.londonlocks.com",
+  "meta": {
+    "name": "London Locks"
+  },
+  "scrapedAt": "2026-04-13T18:47:00.803Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "About Us",
+        "href": "https://www.londonlocks.com/about-us/"
+      },
+      {
+        "label": "Emergency Lockouts",
+        "href": "https://www.londonlocks.com/emergency-lock-outs/"
+      },
+      {
+        "label": "Key and Lock Collection",
+        "href": "https://www.londonlocks.com/key-and-lock-collection-and-delivery-services/"
+      },
+      {
+        "label": "Key Cutting",
+        "href": "https://www.londonlocks.com/key-cutting/"
+      },
+      {
+        "label": "Key Holding Services",
+        "href": "https://www.londonlocks.com/key-holding-services/"
+      },
+      {
+        "label": "Keying Alike",
+        "href": "https://www.londonlocks.com/key-alike/"
+      },
+      {
+        "label": "Lock Fitting",
+        "href": "https://www.londonlocks.com/lock-fitting/"
+      },
+      {
+        "label": "Lock Repairs",
+        "href": "https://www.londonlocks.com/lock-repairs-london/"
+      },
+      {
+        "label": "Key Fobs",
+        "href": "https://www.londonlocks.com/key-fobs-london/"
+      },
+      {
+        "label": "Master Key Systems",
+        "href": "https://www.londonlocks.com/master-key-systems-london/"
+      },
+      {
+        "label": "Landlord Services",
+        "href": "https://www.londonlocks.com/landlord-locksmith-assistance-london/"
+      },
+      {
+        "label": "Engraving Services",
+        "href": "https://www.londonlocks.com/engraving-services-east-london/"
+      },
+      {
+        "label": "Advice",
+        "href": "https://www.londonlocks.com/advice/"
+      },
+      {
+        "label": "Articles",
+        "href": "https://www.londonlocks.com/articles/"
+      },
+      {
+        "label": "Glossary",
+        "href": "https://www.londonlocks.com/glossary/"
+      },
+      {
+        "label": "Green Policy",
+        "href": "https://www.londonlocks.com/green-policy/"
+      },
+      {
+        "label": "Contact Us",
+        "href": "https://www.londonlocks.com/contact-us/"
+      },
+      {
+        "label": "Blog",
+        "href": "https://www.londonlocks.com/blog/"
+      },
+      {
+        "label": "burglary repairs",
+        "href": "https://www.londonlocks.com/burglary-repairs/"
+      },
+      {
+        "label": "lock change",
+        "href": "https://www.londonlocks.com/why-should-you-change-your-locks/"
+      },
+      {
+        "label": "24 hour emergency lock outs",
+        "href": "https://www.londonlocks.com/24-hour-emergency-lock-outs/"
+      },
+      {
+        "label": "door lock installation services",
+        "href": "https://www.londonlocks.com/what-is-the-best-lock-for-my-door/"
+      },
+      {
+        "label": "lock repairs",
+        "href": "https://www.londonlocks.com/lock-repairs/"
+      },
+      {
+        "label": "burglary repairs",
+        "href": "https://www.londonlocks.com/what-to-do-if-you-are-burgled/"
+      },
+      {
+        "label": "locksmith emergencies",
+        "href": "https://www.londonlocks.com/common-locksmith-emergencies-in-bow/"
+      },
+      {
+        "label": "locksmith services in E1",
+        "href": "https://www.londonlocks.com/locksmith-e1/"
+      },
+      {
+        "label": "new locks",
+        "href": "https://www.londonlocks.com/5-reasons-to-upgrade-your-locks/"
+      },
+      {
+        "label": "locksmith service",
+        "href": "https://www.londonlocks.com/locksmith-hackney/"
+      },
+      {
+        "label": "Islington",
+        "href": "https://www.londonlocks.com/locksmith-islington/"
+      },
+      {
+        "label": "Bethnal Green",
+        "href": "https://www.londonlocks.com/locksmith-bethnal-green/"
+      },
+      {
+        "label": "Poplar",
+        "href": "https://www.londonlocks.com/locksmith-poplar/"
+      },
+      {
+        "label": "local locksmith",
+        "href": "https://www.londonlocks.com/locksmith-whitechapel/"
+      },
+      {
+        "label": "latest crime rates and statistics in London",
+        "href": "https://www.londonlocks.com/the-latest-crime-rates-and-statistics-in-london/"
+      },
+      {
+        "label": "London locksmiths in Bow",
+        "href": "https://www.londonlocks.com/locksmith-bow/"
+      },
+      {
+        "label": "HTML Sitemap",
+        "href": "https://www.londonlocks.com/html-sitemap/"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://www.londonlocks.com"
+      ],
+      "services": [
+        "https://www.londonlocks.com/emergency-lock-outs/",
+        "https://www.londonlocks.com/lock-repairs-london/",
+        "https://www.londonlocks.com/lock-fitting/",
+        "https://www.londonlocks.com/key-cutting/",
+        "https://www.londonlocks.com/24-hour-emergency-lock-outs/"
+      ],
+      "pricing": [],
+      "trust": [
+        "https://www.londonlocks.com/about-us/"
+      ],
+      "contact": [
+        "https://www.londonlocks.com/contact-us/"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "WordPress",
+      "detectedTechnologies": [
+        {
+          "name": "WordPress",
+          "categories": [
+            "CMS",
+            "Blogs"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "MySQL",
+          "categories": [
+            "Databases"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PHP",
+          "categories": [
+            "Programming languages"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Fuzey Channels",
+          "categories": [
+            "CRM"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "spin.js",
+          "categories": [
+            "JavaScript graphics"
+          ],
+          "version": "2.3.0",
+          "confidence": 100
+        },
+        {
+          "name": "YouTube",
+          "categories": [
+            "Video players"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Bootstrap",
+          "categories": [
+            "UI frameworks"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Yoast SEO",
+          "categories": [
+            "SEO",
+            "WordPress plugins"
+          ],
+          "version": "25.0",
+          "confidence": 100
+        },
+        {
+          "name": "WOW",
+          "categories": [
+            "JavaScript frameworks",
+            "Web frameworks",
+            "JavaScript graphics"
+          ],
+          "version": "2.3.0",
+          "confidence": 100
+        },
+        {
+          "name": "Nginx",
+          "categories": [
+            "Web servers",
+            "Reverse proxies"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Slider Revolution",
+          "categories": [
+            "Widgets",
+            "Photo galleries"
+          ],
+          "version": "6.2.18",
+          "confidence": 100
+        },
+        {
+          "name": "reCAPTCHA",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "OWL Carousel",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Modernizr",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Magnific Popup",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "2.3.0",
+          "confidence": 100
+        },
+        {
+          "name": "jQuery Migrate",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "3.4.1",
+          "confidence": 100
+        },
+        {
+          "name": "jQuery",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "imagesLoaded",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "5.0.0",
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "FitVids.JS",
+          "categories": [
+            "Widgets",
+            "Video players"
+          ],
+          "version": "2.3.0",
+          "confidence": 100
+        },
+        {
+          "name": "Elfsight",
+          "categories": [
+            "Widgets"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Easy Pie Chart",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "CookieYes",
+          "categories": [
+            "Cookie compliance"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "bxSlider",
+          "categories": [
+            "Photo galleries",
+            "JavaScript libraries"
+          ],
+          "version": "6.8",
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "WordPress hosting",
+          "min": 5,
+          "max": 50
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 6,
+        "max": 52,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://www.londonlocks.com",
+      "performance": 0,
+      "accessibility": 0,
+      "seo": 0,
+      "bestPractices": 0
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://www.londonlocks.com",
+          "pageName": "London Locks Homepage",
+          "summary": "London Locks is a well-established East London locksmith with a physical shop in Bow, operating since 2004 with MLA membership. The homepage includes a click-to-call number, service area details, emergency lockout services, and trust signals, indicating a relatively mature digital presence, though with some structural and UX gaps.",
+          "opportunityScore": 4,
+          "digitalMaturityScore": 7,
+          "hasClickToCall": true,
+          "hasServiceArea": true,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": true,
+          "hasMobileExperience": true,
+          "topOpportunity": "No explicit 24/7 hours statement or real-time availability indicator above the fold — a panicked locked-out user cannot instantly confirm someone will answer right now, which a conversion-optimised redesign with a sticky emergency CTA bar could solve.",
+          "notes": "A solid lead for upselling schema markup, Google Reviews integration, and mobile page speed optimisation rather than a full rebuild — MLA badge and no-call-out-fee messaging are strong but buried too far down the page."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://www.londonlocks.com/emergency-lock-outs/",
+          "pageName": "Emergency Lockouts",
+          "summary": "Dedicated page for emergency lockout services covering Bow and London, with bullet-point selling points but no real process detail, no pricing, and no distinction between residential and vehicle lockouts. Content is thin and largely generic.",
+          "opportunityScore": 6,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Emergency Lockouts",
+            "Residential Lockouts",
+            "Vehicle Lockouts"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Rewrite page with structured content covering process, response times, pricing transparency, and separate residential vs vehicle lockout sections with strong emergency CTAs",
+          "notes": "Has a dedicated page which is a good foundation, but content is boilerplate-thin with no urgency-optimised copy, no FAQs, and no trust signals beyond vague claims — strong candidate for a content and conversion overhaul."
+        },
+        {
+          "url": "https://www.londonlocks.com/lock-repairs-london/",
+          "pageName": "Lock Repairs",
+          "summary": "Individual service page for lock repairs with moderate detail including lock types, common problems list, and a basic FAQ section, but descriptions remain shallow and there are no before/after photos or pricing indicators.",
+          "opportunityScore": 5,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Door Lock Repairs",
+            "Window Lock Repairs",
+            "UPVC Lock Repairs",
+            "Wooden Lock Repairs",
+            "Composite Lock Repairs",
+            "Aluminium Lock Repairs",
+            "Broken Key Extraction",
+            "Lock Changes"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Enhance page with before/after imagery, pricing guidance, emergency vs scheduled distinction, and expand FAQs with conversion-focused answers",
+          "notes": "Better than average for this site with a FAQ section and lock type list, but still lacks visual proof, urgency framing, and any pricing context — moderate opportunity for a content and UX uplift."
+        },
+        {
+          "url": "https://www.londonlocks.com/lock-fitting/",
+          "pageName": "Lock Fitting",
+          "summary": "Thin individual service page for lock fitting that references compliance standards (BS EN 1125, BS 3621, PAS 24) but offers almost no detail on the fitting process, lock options, or pricing, with no FAQ section and minimal imagery.",
+          "opportunityScore": 7,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Lock Fitting",
+            "Lock Changes",
+            "Garage Lock Fitting",
+            "Deadlock Installation"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Build out page with lock type options, installation process explanation, compliance standard explainers, FAQs, and service-specific CTA separating emergency fitting from planned upgrades",
+          "notes": "One of the weakest pages on the site — the compliance standard mentions are a missed SEO and trust opportunity, and the near-total absence of substantive content makes this a clear candidate for a full page rebuild."
+        },
+        {
+          "url": "https://www.londonlocks.com/key-cutting/",
+          "pageName": "Key Cutting",
+          "summary": "The most developed page on the site with multiple sections, a detailed FAQ, key type breakdowns, and geographic targeting, though it still lacks pricing, before/after visuals, and a clear emergency vs walk-in distinction.",
+          "opportunityScore": 4,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Standard Key Cutting",
+            "Fob & Remote Duplication",
+            "Fire Brigade & Access Keys",
+            "Key Cutting Without Original",
+            "Emergency Key Cutting"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Add transparent pricing table, walk-in vs call-out journey separation, and photo content of the shop and key cutting equipment to build trust and improve local SEO",
+          "notes": "The strongest page on the site and a cooler lead than the others — still improvable with pricing and visual content, but the structure and FAQ depth mean a full rebuild is less urgent than for other pages."
+        },
+        {
+          "url": "https://www.londonlocks.com/24-hour-emergency-lock-outs/",
+          "pageName": "24-Hour Emergency Lockouts",
+          "summary": "Near-identical duplicate of the /emergency-lock-outs/ page with the same boilerplate copy, no additional urgency content, no 24-hour-specific messaging, and no differentiation despite the URL implying a distinct offering.",
+          "opportunityScore": 8,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Emergency Lockouts",
+            "Residential Lockouts",
+            "Vehicle Lockouts"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Replace duplicate content with a purpose-built 24/7 emergency landing page featuring response time guarantees, out-of-hours pricing transparency, real urgency CTAs, and mobile-first design for distressed users",
+          "notes": "A duplicate page with no differentiated content is an active SEO liability and a wasted high-intent URL — this is the strongest single pitch opportunity on the site for a web agency."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": []
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": [
+        {
+          "url": "https://www.londonlocks.com/about-us/",
+          "pageName": "London Locks – About Us",
+          "summary": "London Locks is an exceptionally well-credentialed locksmith with 20+ years of trading, named founder Lloyd Morgan, MLA approved membership, a physical shop address, and a 12-month parts and labour warranty. The founder has appeared on BBC Watchdog specifically as an anti-scam authority, making this one of the strongest trust profiles in the industry.",
+          "opportunityScore": 2,
+          "hasReviews": false,
+          "hasTradeBody": true,
+          "hasInsurance": false,
+          "hasNamedTeam": true,
+          "hasGuarantee": true,
+          "topOpportunity": "Embedded Google Reviews widget — the page references a review image asset but has no live review integration, which is the one visible trust gap on an otherwise strong page.",
+          "notes": "This is a cold lead with minimal web agency opportunity — the site is mature, trust signals are extensive, and the founder is a recognised industry authority; only a Google Reviews integration or a light UX refresh would be a realistic sell."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://www.londonlocks.com/contact-us/",
+          "pageName": "Contact Us – London Locks",
+          "summary": "Basic contact page listing a physical address, email, phone, and mobile number. Office hours are Monday to Friday 9am–6pm with weekends closed — no emergency or out-of-hours provision whatsoever.",
+          "opportunityScore": 9,
+          "hasClickToCall": false,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": false,
+          "hasLiveChat": false,
+          "topOpportunity": "Full emergency contact page redesign: prominent click-to-call buttons, 24/7 emergency number, response time guarantee, service area map, and a WhatsApp/text option for after-hours lockouts",
+          "notes": "A locked-out customer landing here on a Saturday night would find zero help — closed weekends, no emergency line, no chat, no map; this is a textbook high-value redesign prospect."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

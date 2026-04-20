@@ -1,0 +1,18 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://londonlocksmiths.com/contact/",
+      "pageName": "Contact Us – London Locksmiths",
+      "summary": "The page offers two click-to-call phone numbers and a WhatsApp link, but leads with a callback request form asking for a preferred call time — not ideal for emergencies. No service area map, response time, or 24/7 information is present.",
+      "opportunityScore": 6,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": false,
+      "hasLiveChat": false,
+      "topOpportunity": "Add a dedicated emergency landing page with a prominent 24/7 badge, response time guarantee, interactive service area map, and a sticky click-to-call CTA — replacing the callback form as the primary contact method",
+      "notes": "Phone numbers are clickable and WhatsApp is present, which softens the lead, but the form-first layout, missing coverage map, and absence of any emergency or after-hours messaging leave clear room for a high-converting emergency UX redesign."
+    }
+  ]
+}

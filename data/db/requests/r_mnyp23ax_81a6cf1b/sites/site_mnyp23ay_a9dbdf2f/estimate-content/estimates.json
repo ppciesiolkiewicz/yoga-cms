@@ -1,0 +1,57 @@
+{
+  "siteId": "site_mnyp23ay_a9dbdf2f",
+  "pages": [
+    {
+      "url": "https://moro.co.uk",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/restaurant/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/menus",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/menu/christmas-menu-2024/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/menu/drinks/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/menu/tapas/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/sunday-lunch-club/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/book-now/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/location/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://moro.co.uk/contact/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 50000,
+  "totalEstimatedTokens": 12500
+}

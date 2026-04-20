@@ -1,0 +1,33 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://moro.co.uk/contact/",
+      "pageName": "Moro Contact",
+      "summary": "Basic contact page listing address, phone number, and three separate email addresses for reservations, jobs, and press. No map, no opening hours, and the page is primarily filled with decorative food photography.",
+      "opportunityScore": 8,
+      "hasAddress": true,
+      "hasPhone": true,
+      "hasEmail": true,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "hasSchemaMarkup": false,
+      "topOpportunity": "Add embedded Google Map, opening hours, click-to-call functionality, and LocalBusiness/Restaurant schema markup to improve local SEO and user experience",
+      "notes": "Strong lead — a well-known London restaurant with a barebones contact page lacking map, hours, and schema; clear room for a full local SEO and UX upgrade."
+    },
+    {
+      "url": "https://moro.co.uk/location/",
+      "pageName": "Moro Location",
+      "summary": "A neighbourhood description page that repeats the address and phone number but contains no map, no directions, no transit or parking information, and no opening hours. Content is largely a Metro editorial quote about Exmouth Market accompanied by lifestyle photos.",
+      "opportunityScore": 9,
+      "hasAddress": true,
+      "hasPhone": true,
+      "hasEmail": false,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "hasSchemaMarkup": false,
+      "topOpportunity": "Replace static neighbourhood copy with an interactive Google Map, transit and parking directions, structured opening hours, and Restaurant schema markup to drive local search visibility",
+      "notes": "Very strong lead — a dedicated location page with no actual wayfinding tools is a significant missed opportunity for a busy London restaurant; an agency could deliver immediate, measurable SEO and conversion value."
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://www.banham.co.uk/locksmith-service/",
+      "pageName": "Locksmith Service",
+      "summary": "Page content was not provided, so structure and detail level cannot be assessed. Based on URL alone, this appears to be a single locksmith service landing page.",
+      "opportunityScore": 5,
+      "serviceStructure": "minimal",
+      "servicesListed": [],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Unable to assess without page content — potential for dedicated emergency locksmith page, service breakdowns, and local SEO structure",
+      "notes": "No page content available to analyze; manual review required before qualifying as hot or cold lead."
+    },
+    {
+      "url": "https://www.banham.co.uk/locks/",
+      "pageName": "Locks Product Page",
+      "summary": "A highly polished product-focused page showcasing Banham's lock range (nightlatches, mortice, sash, lock sets) with detailed descriptions, FAQs, and brand heritage storytelling. This is a retail/product page, not a locksmith services page, and is extremely well-structured.",
+      "opportunityScore": 1,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Front Door Locks",
+        "Deadlocks",
+        "Replacement Cylinders",
+        "Door Furniture",
+        "Keys Registration",
+        "Nightlatches",
+        "Mortice Locks",
+        "Sash Locks",
+        "Lock Sets"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "No meaningful web agency opportunity — this is a sophisticated, well-resourced brand with mature digital presence",
+      "notes": "Banham is a premium 100-year-old British security brand with professional web infrastructure; not a viable SME prospecting target."
+    },
+    {
+      "url": "https://www.banham.co.uk/burglar-alarms/",
+      "pageName": "Burglar Alarms",
+      "summary": "Page content was not provided for analysis. URL suggests a dedicated burglar alarms category page, which would be a cold lead signal if properly structured.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Burglar Alarms"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "No identifiable opportunity without content — Banham's overall site sophistication suggests minimal gap",
+      "notes": "Banham's brand scale and existing digital investment make this an unlikely prospect for a web agency pitch."
+    },
+    {
+      "url": "https://www.banham.co.uk/cctv-entry/",
+      "pageName": "CCTV & Entry Systems",
+      "summary": "Page content was not provided for analysis. URL suggests a dedicated CCTV and entry systems page, consistent with Banham's structured, service-segmented site architecture.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "CCTV",
+        "Entry Systems"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "No clear opportunity identifiable — dedicated page structure already in place",
+      "notes": "Consistent with a mature enterprise-level site; not a viable cold outreach target for a web agency."
+    },
+    {
+      "url": "https://www.banham.co.uk/safes/",
+      "pageName": "Safes",
+      "summary": "Page content was not provided for analysis. URL indicates a standalone safes category page, further confirming Banham's well-segmented site structure.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Safes"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "No identifiable gap without content review — existing individual-page structure already a cold lead indicator",
+      "notes": "Banham's multi-page, category-segmented architecture across all service types signals a cold lead across the entire domain."
+    }
+  ]
+}

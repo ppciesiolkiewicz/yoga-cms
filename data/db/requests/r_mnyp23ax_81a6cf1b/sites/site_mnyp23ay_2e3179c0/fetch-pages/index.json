@@ -1,0 +1,27 @@
+{
+  "pages": [
+    {
+      "id": "b6459ea3da",
+      "url": "https://fallowrestaurant.com/our-story/",
+      "status": "ok"
+    },
+    {
+      "id": "1b3bff1f52",
+      "url": "https://fallowrestaurant.com",
+      "status": "failed",
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://fallowrestaurant.com/\", waiting until \"networkidle\"\u001b[22m\n"
+    },
+    {
+      "id": "79e02d08f2",
+      "url": "https://fallowrestaurant.com/menus/",
+      "status": "failed",
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://fallowrestaurant.com/menus/\", waiting until \"networkidle\"\u001b[22m\n"
+    },
+    {
+      "id": "af4d0660ce",
+      "url": "https://fallowrestaurant.com/find-us/",
+      "status": "failed",
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://fallowrestaurant.com/find-us/\", waiting until \"networkidle\"\u001b[22m\n"
+    }
+  ]
+}

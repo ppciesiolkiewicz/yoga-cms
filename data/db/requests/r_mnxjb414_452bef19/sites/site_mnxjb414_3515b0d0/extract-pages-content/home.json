@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://www.london-locksmiths.com/index.htm",
+      "pageName": "London Locksmiths Homepage (index.htm)",
+      "summary": "An established London-wide emergency locksmith service with 24/7 availability, a freephone number, and extensive area coverage pages, but built on a visibly dated HTML template lacking modern mobile optimisation, trust signals, and structured data. The click-to-call is present but implemented as a GIF image link, and no licence, insurance, or customer review signals are displayed.",
+      "opportunityScore": 7,
+      "digitalMaturityScore": 3,
+      "hasClickToCall": true,
+      "hasServiceArea": true,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": false,
+      "hasMobileExperience": false,
+      "topOpportunity": "Full mobile-first redesign with proper tap-to-call button, LocalBusiness schema markup, and visible trust signals (licence number, insurance, reviews) to convert panicked mobile users before they bounce to a competitor.",
+      "notes": "Operationally well-structured with strong area coverage and 24/7 messaging, but the ancient table-based template, GIF click-to-call, zero reviews, and no schema markup make this a strong candidate for a modernisation pitch."
+    },
+    {
+      "url": "https://www.london-locksmiths.com",
+      "pageName": "London Locksmiths Homepage (root)",
+      "summary": "Identical content to the index.htm page — a dated static HTML site for a London emergency locksmith with 24/7 coverage and a freephone number, but no modern mobile UX, no trust badges, no schema, and a click-to-call implemented as a legacy GIF rather than a native button. Service area breadth is strong but credibility signals are entirely absent.",
+      "opportunityScore": 7,
+      "digitalMaturityScore": 3,
+      "hasClickToCall": true,
+      "hasServiceArea": true,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": false,
+      "hasMobileExperience": false,
+      "topOpportunity": "Full mobile-first redesign with proper tap-to-call button, LocalBusiness schema markup, and visible trust signals (licence number, insurance, reviews) to convert panicked mobile users before they bounce to a competitor.",
+      "notes": "Same opportunity profile as the index.htm entry — this business has the operational depth to justify a serious digital upgrade and would benefit significantly from a modern, conversion-focused site."
+    }
+  ]
+}

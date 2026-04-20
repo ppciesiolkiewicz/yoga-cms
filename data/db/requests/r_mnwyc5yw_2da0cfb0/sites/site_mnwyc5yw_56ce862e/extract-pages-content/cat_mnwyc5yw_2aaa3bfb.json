@@ -1,0 +1,29 @@
+{
+  "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+  "records": [
+    {
+      "url": "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+      "pageName": "One Day Yoga Retreat in Spain – Hot Yoga Barcelona",
+      "summary": "A one-day yoga retreat on April 18, 2026, set in the hills near Parc del Montnegre i el Corredor, about one hour from Barcelona. The day includes Hatha Vinyasa yoga, forest bathing, myofascial release, yoga nidra, and a vegetarian lunch by the pool.",
+      "conversionScore": 6,
+      "seoScore": 5,
+      "retreatName": "One Day Yoga Retreat in Spain",
+      "where": "Near Parc del Montnegre i el Corredor, approximately 1 hour from Barcelona, Spain (accessible via train to Arenys de Mar with pick-up transfer)",
+      "when": "April 18, 2026 (currently sold out – waiting list open)",
+      "price": "Not stated on the page; early bird mentioned but no figure given",
+      "includes": [
+        "Hatha Vinyasa yoga session",
+        "Journaling",
+        "Forest bathing",
+        "Vegetarian/plant-based lunch",
+        "Poolside rest",
+        "Myofascial release workshop",
+        "Yoga Nidra",
+        "Tea and snacks",
+        "15-minute pick-up transfer from Arenys de Mar (if needed)"
+      ],
+      "dailyScheduleVisible": true,
+      "notes": "The date and schedule are clear and near the top, but the price is completely missing from the page, which is a significant conversion barrier, and the venue is described by park name only with no named venue or address."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "categoryId": "cat_mnwyc5yw_9ee5e377",
+  "records": [
+    {
+      "url": "https://www.threeboonsyoga.de/contact",
+      "pageName": "Three Boons Yoga Contact",
+      "summary": "Contact page for Three Boons Yoga Berlin featuring a contact form, addresses for two studio locations (Mitte and Kreuzberg), phone numbers, and email addresses. Embedded maps appear present via Google Maps markers, but opening hours are not listed.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "hasAddress": true,
+      "hasPhone": true,
+      "hasEmail": true,
+      "hasMap": true,
+      "hasOpeningHours": false,
+      "notes": "Key contact details are all present but buried below the contact form rather than above the fold, and opening hours are entirely missing, which hurts usability and local SEO."
+    }
+  ]
+}

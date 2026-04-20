@@ -1,0 +1,47 @@
+{
+  "siteId": "site_mnwyc5yw_3fcb22f6",
+  "pages": [
+    {
+      "url": "https://www.shalastudios.com/schedule",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/book-class",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/studios",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/academy-1",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/contact",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/about",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 40000,
+  "totalEstimatedTokens": 10000
+}

@@ -1,0 +1,85 @@
+{
+  "categoryId": "cat_mnwyc5yw_76b8ef32",
+  "records": [
+    {
+      "url": "https://www.threeboonsyoga.de/classeskreuzberg",
+      "pageName": "Classes – Kreuzberg (Dresdener Str. 11)",
+      "summary": "Drop-in class booking page for Three Boons Yoga's Kreuzberg studio, offering Jivamukti-based classes across two embedded booking tools (Mindbody and Eversports). The weekly schedule with instructor names and times is visible via the Eversports widget, but pricing requires clicking through to a separate page.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "classStyles": [
+        "Jivamukti",
+        "Yin Yoga",
+        "The Razor's Edge"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "Schedule is functional but pricing is hidden behind a link, and the page is cluttered with lengthy booking instructions and hygiene rules that bury the core call-to-action; no city/style-specific H1 or LocalBusiness schema evident."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/classesmitte",
+      "pageName": "Classes – Mitte (Brunnenstraße 29)",
+      "summary": "Drop-in class booking page for the Mitte studio, mirroring the Kreuzberg page structure with dual Mindbody and Eversports booking widgets and a visible weekly timetable. Prices are not shown on-page but linked to a separate price list.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "classStyles": [
+        "Jivamukti",
+        "Black Lotus Yoga",
+        "Yin Yoga",
+        "The Razor's Edge"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "Good class variety and a dense timetable are positives, but the page is bogged down with repeated booking instructions and lacks inline pricing, a clear H1 optimised for search, or structured local SEO markup."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/prices",
+      "pageName": "Three Boons Prices",
+      "summary": "Dedicated pricing page listing all membership tiers, class packs, single class rates, and streaming options with exact Euro amounts. Also covers the student/low-income 20% discount scheme and the practice-for-free camera programme.",
+      "conversionScore": 7,
+      "seoScore": 5,
+      "classStyles": [],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": true,
+      "notes": "Pricing is comprehensive and clearly itemised (single class €19.98, memberships from €58.95/mo), and the 2-week trial period functions as a first-time deal, but the page has no schedule, mixes streaming and in-studio options without clear separation, and lacks optimised title/H1 tags for search."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/classescharlottenburg",
+      "pageName": "Classes – Charlottenburg (Kurfürstendamm 177)",
+      "summary": "Drop-in class booking page for the Charlottenburg studio on Kurfürstendamm, with the same dual-widget setup as the other locations and a visible Eversports weekly timetable including Jivamukti, Yin, and specialty formats. Pricing links out to the main prices page.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "classStyles": [
+        "Jivamukti",
+        "Yin Yoga",
+        "The Razor's Edge",
+        "Three Boons Foundations",
+        "Sonic Yin"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "Offers the widest class variety of the three studio pages including beginner-friendly Foundations sessions, but shares the same structural weaknesses: no inline pricing, repeated boilerplate instructions, and weak SEO signals with no location-optimised H1 or schema markup."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/livestream",
+      "pageName": "Live-Stream Classes",
+      "summary": "Booking page for live-streamed Jivamukti yoga classes that run simultaneously with in-studio sessions and are joinable via Zoom from anywhere; a separate Flex-Stream archive is also referenced. Both Mindbody and Eversports widgets are embedded with a dense multi-class daily schedule.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "classStyles": [
+        "Jivamukti",
+        "Black Lotus Yoga",
+        "The Razor's Edge",
+        "Yin Yoga"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "The live-stream concept is clearly explained and the timetable is extensive, but prices are not shown on the page, the page title and H1 are not optimised for search queries like 'online yoga Berlin', and the volume of booking-tool instructions creates significant friction."
+    }
+  ]
+}

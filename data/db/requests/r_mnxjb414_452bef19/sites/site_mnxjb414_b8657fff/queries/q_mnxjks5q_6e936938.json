@@ -1,0 +1,18 @@
+{
+  "id": "q_mnxjks5q_6e936938",
+  "requestId": "r_mnxjb414_452bef19",
+  "siteId": "site_mnxjb414_b8657fff",
+  "categoryId": "pricing",
+  "stage": "extract-pages-content",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this locksmith's pricing transparency.\n\n\"Call for quote\" is the norm in this industry — any pricing transparency is a competitive advantage.\n\nHOT LEAD signals:\n- No pricing information at all\n- \"Call for a quote\" with no guidance\n- No mention of callout charges\n- No indication of price range\n\nCOLD LEAD signals:\n- Starting-from prices for common jobs\n- Callout charge clearly stated\n- Price calculator or estimator\n- \"No hidden fees\" guarantee\n- Price comparison vs competitors\n- Free quote form with structured inputs\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of pricing transparency>\",\n  \"opportunityScore\": \"<1-10, higher = less transparent = better lead>\",\n  \"pricingType\": \"<listed|ranges|call-only|none>\",\n  \"hasCalloutCharge\": true/false,\n  \"hasQuoteForm\": true/false,\n  \"hasPriceGuarantee\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://wdlocksmiths.co.uk/price-list/"
+  ],
+  "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://wdlocksmiths.co.uk/price-list/\",\n      \"pageName\": \"Watchdog Locksmiths – Price List\",\n      \"summary\": \"This page features a comprehensive, itemised price list covering working hours, out-of-hours, night rates, parts, and safe opening charges with specific figures for each service. The site explicitly promotes 'no hidden fees' and offers free survey visits within 3 miles, making it one of the most transparent locksmith pricing pages available.\",\n      \"opportunityScore\": 2,\n      \"pricingType\": \"listed\",\n      \"hasCalloutCharge\": true,\n      \"hasQuoteForm\": false,\n      \"hasPriceGuarantee\": true,\n      \"topOpportunity\": \"Very limited — pricing transparency is already a strength; only marginal gains possible via an online quote calculator or structured WhatsApp intake form to replace the informal photo-request flow.\",\n      \"notes\": \"This is a cold lead — the business has already invested heavily in pricing transparency, making it a poor candidate for a web agency pitch centred on pricing visibility improvements.\"\n    }\n  ]\n}",
+  "usage": {
+    "inputTokens": 4339,
+    "outputTokens": 280
+  },
+  "createdAt": "2026-04-13T18:44:29.966Z"
+}

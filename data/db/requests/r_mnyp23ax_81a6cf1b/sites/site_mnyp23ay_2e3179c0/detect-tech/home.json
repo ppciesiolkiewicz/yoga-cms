@@ -1,0 +1,115 @@
+{
+  "platform": "WordPress",
+  "detectedTechnologies": [
+    {
+      "name": "WordPress",
+      "categories": [
+        "CMS",
+        "Blogs"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "MySQL",
+      "categories": [
+        "Databases"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "PHP",
+      "categories": [
+        "Programming languages"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Chosen",
+      "categories": [
+        "JavaScript frameworks",
+        "Web frameworks"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Apache HTTP Server",
+      "categories": [
+        "Web servers"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Swiper",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "SevenRooms",
+      "categories": [
+        "Widgets",
+        "Appointment scheduling"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "jQuery",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "version": "2.1.3",
+      "confidence": 100
+    },
+    {
+      "name": "Google Tag Manager",
+      "categories": [
+        "Tag managers"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Hosted Libraries",
+      "categories": [
+        "CDN"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Analytics",
+      "categories": [
+        "Analytics"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Font Awesome",
+      "categories": [
+        "Font scripts"
+      ],
+      "confidence": 100
+    }
+  ],
+  "costBreakdown": [
+    {
+      "item": "WordPress hosting",
+      "min": 5,
+      "max": 50
+    },
+    {
+      "item": "Google Analytics",
+      "min": 0,
+      "max": 0
+    },
+    {
+      "item": "Domain registration",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "totalEstimatedMonthlyCost": {
+    "min": 6,
+    "max": 52,
+    "currency": "USD"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "content-encoding": "gzip",
+  "content-type": "text/html; charset=UTF-8",
+  "date": "Mon, 13 Apr 2026 18:38:07 GMT",
+  "link": "<https://londonlocksmiths.com/wp-json/>; rel=\"https://api.w.org/\", <https://londonlocksmiths.com/wp-json/wp/v2/pages/229>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://londonlocksmiths.com/>; rel=shortlink",
+  "server": "Apache",
+  "transfer-encoding": "chunked",
+  "vary": "Accept-Encoding",
+  "x-cdn-cache-status": "MISS",
+  "x-origin-cache-status": "MISS",
+  "x-powered-by": "PHP/7.4.33",
+  "x-via": "FRA1"
+}

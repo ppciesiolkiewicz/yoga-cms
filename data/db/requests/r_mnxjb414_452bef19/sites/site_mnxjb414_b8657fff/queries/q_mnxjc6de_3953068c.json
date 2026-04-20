@@ -1,0 +1,39 @@
+{
+  "id": "q_mnxjc6de_3953068c",
+  "requestId": "r_mnxjb414_452bef19",
+  "siteId": "site_mnxjb414_b8657fff",
+  "stage": "classify-nav",
+  "model": "claude-haiku-4-5",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Services\": services, lockout, lock change, lock repair, emergency, commercial, residential, auto\n- \"Pricing\": pricing, prices, costs, rates, quotes, call out charge, estimate\n- \"Trust\": about, reviews, testimonials, accreditation, license, insurance, guarantee, trade body, MLA\n- \"Contact\": contact, emergency, call us, find us, service area, coverage\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "https://wdlocksmiths.co.uk/about/",
+    "https://wdlocksmiths.co.uk/our-partners/",
+    "https://wdlocksmiths.co.uk/testimonials/",
+    "https://wdlocksmiths.co.uk/news/",
+    "https://wdlocksmiths.co.uk/price-list/",
+    "https://wdlocksmiths.co.uk/commercial-locksmith/",
+    "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/",
+    "https://wdlocksmiths.co.uk/commercial-safe-locksmith/",
+    "https://wdlocksmiths.co.uk/commercial-burglary-and-board-up/",
+    "https://wdlocksmiths.co.uk/commercial-change-door-lock-services/",
+    "https://wdlocksmiths.co.uk/residential-general-locksmith/",
+    "https://wdlocksmiths.co.uk/residential-emergency-locksmith/",
+    "https://wdlocksmiths.co.uk/safe-locksmith/",
+    "https://wdlocksmiths.co.uk/residential-burglary-and-board-up/",
+    "https://wdlocksmiths.co.uk/residential-change-door-lock-services/",
+    "https://wdlocksmiths.co.uk/area-covered/",
+    "https://wdlocksmiths.co.uk/contact-us/",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/01/03bb9702-fbdd-42a8-a9df-5d18fe40376b.mp4",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Jordan-Testimonial-1.mp4",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-1.mp4",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/USE-3.mp4",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-4.mp4",
+    "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-5.mp4"
+  ],
+  "response": "{\n  \"Home\": [\n    \"https://wdlocksmiths.co.uk/about/\"\n  ],\n  \"Services\": [\n    \"https://wdlocksmiths.co.uk/commercial-locksmith/\",\n    \"https://wdlocksmiths.co.uk/commercial-emergency-locksmith/\",\n    \"https://wdlocksmiths.co.uk/residential-emergency-locksmith/\",\n    \"https://wdlocksmiths.co.uk/residential-change-door-lock-services/\",\n    \"https://wdlocksmiths.co.uk/safe-locksmith/\"\n  ],\n  \"Pricing\": [\n    \"https://wdlocksmiths.co.uk/price-list/\"\n  ],\n  \"Trust\": [\n    \"https://wdlocksmiths.co.uk/testimonials/\",\n    \"https://wdlocksmiths.co.uk/our-partners/\"\n  ],\n  \"Contact\": [\n    \"https://wdlocksmiths.co.uk/contact-us/\",\n    \"https://wdlocksmiths.co.uk/area-covered/\"\n  ]\n}",
+  "usage": {
+    "inputTokens": 988,
+    "outputTokens": 294
+  },
+  "createdAt": "2026-04-13T18:37:48.483Z"
+}

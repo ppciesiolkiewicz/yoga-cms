@@ -1,0 +1,31 @@
+{
+  "categoryId": "cat_mnwyc5yw_9ee5e377",
+  "records": [
+    {
+      "url": "https://doinyoga.pl/kontakt/",
+      "pageName": "Kontakt – Doin Yoga",
+      "summary": "A contact page for yoga instructor Dominika Gałka featuring a contact form, social media links, and a brief invitation to get in touch. No physical address, phone number, email address, map, or opening hours are directly displayed.",
+      "conversionScore": 5,
+      "seoScore": 3,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": false,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "notes": "The page relies solely on a contact form and social media links, missing all five key contact elements (address, phone, email, map, hours), which significantly limits both conversion and local SEO value."
+    },
+    {
+      "url": "https://doinyoga.pl/dominika-galka/",
+      "pageName": "O mnie – Dominika Gałka",
+      "summary": "An 'About Me' page detailing instructor Dominika Gałka's yoga journey, qualifications, certifications, and teaching philosophy, with CTAs linking to online classes, retreats, and Wrocław sessions. No contact details, address, map, phone, email, or opening hours are present.",
+      "conversionScore": 3,
+      "seoScore": 4,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": false,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "notes": "This is a biographical/about page, not a contact page, and provides no direct contact information or location data for visitors looking to reach the business."
+    }
+  ]
+}

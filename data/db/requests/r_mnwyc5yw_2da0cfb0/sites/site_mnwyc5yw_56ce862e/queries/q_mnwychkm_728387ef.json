@@ -1,0 +1,21 @@
+{
+  "id": "q_mnwychkm_728387ef",
+  "requestId": "r_mnwyc5yw_2da0cfb0",
+  "siteId": "site_mnwyc5yw_56ce862e",
+  "stage": "classify-nav",
+  "model": "claude-haiku-4-5",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Drop in\": single-session classes, schedules, timetables, class prices, walk-in classes\n- \"Training\": multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs\n- \"Retreat\": multi-day immersive stays away from the studio (abroad, in nature, residential retreats)\n- \"Contact\": contact page, about-with-contact, location page\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "http://www.hotyogabarcelona.com/",
+    "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+    "https://www.hotyogabarcelona.com/schedule",
+    "https://www.hotyogabarcelona.com/prices",
+    "https://www.hotyogabarcelona.com/webinar-registration",
+    "https://www.hotyogabarcelona.com/shop",
+    "https://www.hotyogabarcelona.com/massage",
+    "https://www.hotyogabarcelona.com/faq-es",
+    "https://www.hotyogabarcelona.com/teacher-training"
+  ],
+  "response": "{\n  \"Drop in\": [\n    \"https://www.hotyogabarcelona.com/schedule\",\n    \"https://www.hotyogabarcelona.com/prices\"\n  ],\n  \"Training\": [\n    \"https://www.hotyogabarcelona.com/teacher-training\"\n  ],\n  \"Retreat\": [\n    \"https://www.hotyogabarcelona.com/one-day-yoga-retreat\"\n  ]\n}",
+  "createdAt": "2026-04-13T08:50:11.062Z"
+}

@@ -1,0 +1,37 @@
+{
+  "siteId": "site_mnxjb414_c16cc836",
+  "pages": [
+    {
+      "url": "https://www.londonlocksmith.co.uk",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/index.html",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/locked-out.html",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/lock-changing/index.html",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/book-a-locksmith/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/contact-us.html",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 30000,
+  "totalEstimatedTokens": 7500
+}

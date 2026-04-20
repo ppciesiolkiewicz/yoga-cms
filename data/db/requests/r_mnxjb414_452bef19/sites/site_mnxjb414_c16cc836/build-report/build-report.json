@@ -1,0 +1,889 @@
+{
+  "siteId": "site_mnxjb414_c16cc836",
+  "url": "https://www.londonlocksmith.co.uk",
+  "meta": {
+    "name": "London Locksmith Co."
+  },
+  "scrapedAt": "2026-04-13T18:50:37.087Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "index.html",
+        "href": "https://www.londonlocksmith.co.uk/index.html"
+      },
+      {
+        "label": "Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/index.html"
+      },
+      {
+        "label": "Yale Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/index.html"
+      },
+      {
+        "label": "BS1/BS2 - BS3621 Maximum Security Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-BS1-BS2-Maximum-Security-Nightlatch.html"
+      },
+      {
+        "label": "BS3/BS4 - BS8621 Emergency Escape Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-BS3-BS4-Emergency-Escape-Nightlatch.html"
+      },
+      {
+        "label": "P1/P2 Double Locking Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-P1-P2-Double-Locking-Nightlatch.html"
+      },
+      {
+        "label": "85/89 - Deadlocking Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-85-89-Deadlocking-Nightlatch.html"
+      },
+      {
+        "label": "77 - Traditional Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-77-Traditional-Nightlatch.html"
+      },
+      {
+        "label": "706 - Traditional Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-706-Traditional-Nightlatch.html"
+      },
+      {
+        "label": "Y3 - Contemporary Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-Y3-Contemporary-Nightlatch.html"
+      },
+      {
+        "label": "81 - Rollerbolt Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-81-Rollerbolt-Nightlatch.html"
+      },
+      {
+        "label": "82 - Deadbolt Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-82-Deadbolt-Nightlatch.html"
+      },
+      {
+        "label": "84/88 - Standard Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-84-88-Standard-Nightlatch.html"
+      },
+      {
+        "label": "91 - Basic Security Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/yale-nightlatches/Yale-91-Basic-Security-Nightlatch.html"
+      },
+      {
+        "label": "Union Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/union-nightlatches/index.html"
+      },
+      {
+        "label": "1332 - Standard Stile Drawback Lock",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/union-nightlatches/Union-1332-Standard-Stile-Drawback-Lock.html"
+      },
+      {
+        "label": "1334 - Narrow Stile Drawback Lock",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/union-nightlatches/Union-1334-Narrow-Stile-Drawback-Lock.html"
+      },
+      {
+        "label": "4L67E - C-Series BS High Security Rim Lock",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/union-nightlatches/Union-4L67E-C-Series-BS-High-Security-Rim-Lock.html"
+      },
+      {
+        "label": "ERA Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/era-nightlatches/"
+      },
+      {
+        "label": "BS3621 High Security Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/era-nightlatches/ERA-BS3621-British-Standard-High-Security-Nightlatch.html"
+      },
+      {
+        "label": "BS8621 Keyless Egress Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/era-nightlatches/ERA-BS8621-British-Standard-Keyless-Egress-Nightlatch.html"
+      },
+      {
+        "label": "Banham Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/banham-nightlatches/"
+      },
+      {
+        "label": "L2000 - Rim Deadbolt",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/banham-nightlatches/Banham-L2000-Rim-Deadbolt.html"
+      },
+      {
+        "label": "EL4000 - Rim Deadbolt with Electric Release",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/banham-nightlatches/Banham-EL4000-Rim-Deadbolt-with-Electric-Release.html"
+      },
+      {
+        "label": "Ingersoll Nightlatches",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/ingersoll-nightlatches/"
+      },
+      {
+        "label": "SC71 Ten-Lever Classic Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/ingersoll-nightlatches/Ingersoll-SC71-Ten-Lever-Classic-Nightlatch.html"
+      },
+      {
+        "label": "SC73E Ten-Lever 'Communal' Nightlatch",
+        "href": "https://www.londonlocksmith.co.uk/nightlatches/ingersoll-nightlatches/Ingersoll-SC73E-Ten-Lever-Communal-Nightlatch-with-Electric-Release.html"
+      },
+      {
+        "label": "Mortice Locks",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/index.html"
+      },
+      {
+        "label": "Union / Chubb Mortice Locks",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/index.html"
+      },
+      {
+        "label": "Union 3-Lever",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-3-Lever.html"
+      },
+      {
+        "label": "Union 2177 - 3 Lever Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2177-3-Lever-Mortice-Deadlock.html"
+      },
+      {
+        "label": "Union 2277 - 3 Lever Mortice Sash Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2277-3-Lever-Mortice-Sash-Lock.html"
+      },
+      {
+        "label": "Union 2077 - 3 Lever Horizontal Mortice Sash Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2077-3-Lever-Horizontal-Mortice-Sash-Lock.html"
+      },
+      {
+        "label": "Union 5-Lever",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-5-Lever.html"
+      },
+      {
+        "label": "Union 2101 - 5 Lever Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2101-5-Lever-Deadlock.html"
+      },
+      {
+        "label": "Union 2201 - 5 Lever Mortice Sash Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2201-5-Lever-Mortice-Sash-Lock.html"
+      },
+      {
+        "label": "Union BS 5-Lever",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-BS-5-Lever.html"
+      },
+      {
+        "label": "Union 2134E - 5 Lever BS 3621:2007 Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2134E-BS-5-Lever-Deadlock.html"
+      },
+      {
+        "label": "Union 2234E - 5 Lever BS 3621:2007 Mortice Sash Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-2234E-BS-5-Lever-Mortice-Sash-Lock.html"
+      },
+      {
+        "label": "Union 3G114E - 5 Lever BS 3621:2007 Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-3G114E-BS-5-Lever-Mortice-Deadlock.html"
+      },
+      {
+        "label": "Union 3K74E - BS 5 Lever BS3621:2007 Mortice Sashlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-3K74E-BS-5-Lever-Mortice-Sashlock.html"
+      },
+      {
+        "label": "Union C-Series Detainer",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-C-Series-Detainer.html"
+      },
+      {
+        "label": "Union 3G110 - 5 Detainer Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-3G110-5-Detainer-Mortice-Deadlock.html"
+      },
+      {
+        "label": "Union 3R35 / 3R35X - 5 Detainer Deadlocking Latch",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/union-chubb-mortice-locks/Union-3R35-3R35X-5-Detainer-Deadlocking-Latch.html"
+      },
+      {
+        "label": "ERA Mortice Locks",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/era-mortice-locks/index.html"
+      },
+      {
+        "label": "ERA Fortress 5-Lever British Standard Deadbolt Mortice Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/era-mortice-locks/ERA-Fortress-5-Lever-British-Standard-Deadbolt-Mortice-Door-Lock.html"
+      },
+      {
+        "label": "ERA Fortress 5-Lever British Standard Sashbolt Mortice Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/era-mortice-locks/ERA-Fortress-5-Lever-British-Standard-Sashbolt-Mortice-Door-Lock.html"
+      },
+      {
+        "label": "Banham Mortice Locks",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/banham-mortice-locks/index.html"
+      },
+      {
+        "label": "Banham M2002 Cylinder Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/banham-mortice-locks/Banham-M2002-Cylinder-Mortice-Deadlock.html"
+      },
+      {
+        "label": "Banham M2003 Cylinder Mortice Thumbturn Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/banham-mortice-locks/Banham-M2003-Cylinder-Mortice-Thumbturn-Deadlock.html"
+      },
+      {
+        "label": "Banham 7-Lever Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/banham-mortice-locks/Banham-7-Lever-Mortice-Deadlock.html"
+      },
+      {
+        "label": "Ingersoll Mortice Locks",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/ingersoll-mortice-locks/index.html"
+      },
+      {
+        "label": "Ingersoll London Line SC110 Mortice Hookbolt",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/ingersoll-mortice-locks/Ingersoll-London-Line-SC110-Mortice-Hookbolt.html"
+      },
+      {
+        "label": "Bedroom Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/bedroom-door-locks/index.html"
+      },
+      {
+        "label": "Thumb Turn Mortice Lock",
+        "href": "https://www.londonlocksmith.co.uk/mortice-locks/thumb-turn-mortice-lock/index.html"
+      },
+      {
+        "label": "Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/index.html"
+      },
+      {
+        "label": "Wooden Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-window-locks/index.html"
+      },
+      {
+        "label": "Wooden Casement Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-window-locks/wooden-casement-window-locks/index.html"
+      },
+      {
+        "label": "Yale 8K101 Window Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-window-locks/wooden-casement-window-locks/Yale-8K101-Window-Lock.html"
+      },
+      {
+        "label": "ERA Flush Pivot Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-window-locks/wooden-casement-window-locks/ERA-Flush-Pivot-Lock.html"
+      },
+      {
+        "label": "Wooden Sash Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-sash-window-locks"
+      },
+      {
+        "label": "Sash Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/wooden-sash-window-locks/sash-window-locks.html"
+      },
+      {
+        "label": "Metal Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/index.html"
+      },
+      {
+        "label": "Yale 8K106 Window Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/Yale-8K106-Window-Lock.html"
+      },
+      {
+        "label": "Ingersoll CM67 Window Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/Ingersoll-CM67-Window-Lock.html"
+      },
+      {
+        "label": "Ingersoll FM68 Window Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/Ingersoll-FM68-Window-Lock.html"
+      },
+      {
+        "label": "ERA Snaplock for Metal Windows",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/ERA-Snaplock-For-Metal-Windows.html"
+      },
+      {
+        "label": "ERA Metal Window Lock",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/metal-window-locks/ERA-Metal-Window-Lock.html"
+      },
+      {
+        "label": "PVCu Window Locks",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/PVCu-window-locks/index.html"
+      },
+      {
+        "label": "PVCu Sash Jammer",
+        "href": "https://www.londonlocksmith.co.uk/window-locks/PVCu-window-locks/PVCu-Sash-Jammer.html"
+      },
+      {
+        "label": "Locking Bolts",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/index.html"
+      },
+      {
+        "label": "Yale (formerly Chubb) Locking Bolts",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/yale-locking-bolts/index.html"
+      },
+      {
+        "label": "Yale 8K116 Locking Bolt",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/yale-locking-bolts/Yale-8K116-Locking-Bolt.html"
+      },
+      {
+        "label": "Yale PM444 Door Security Bolt",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/yale-locking-bolts/Yale-PM444-Door-Security-Bolt.html"
+      },
+      {
+        "label": "ERA Locking Bolts",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/era-locking-bolts/index.html"
+      },
+      {
+        "label": "ERA Press Bolt",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/era-locking-bolts/ERA-Press-Bolt.html"
+      },
+      {
+        "label": "Ingersoll Locking Bolts",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/ingersoll-locking-bolts/index.html"
+      },
+      {
+        "label": "Ingersoll Patio Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/locking-bolts/ingersoll-locking-bolts/Ingersoll-Patio-Door-Lock.html"
+      },
+      {
+        "label": "Door Entry Systems",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/index.html"
+      },
+      {
+        "label": "Audio",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/index.html"
+      },
+      {
+        "label": "One Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/one-button-audio-entry-system.html"
+      },
+      {
+        "label": "Two Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/two-button-audio-entry-system.html"
+      },
+      {
+        "label": "Three Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/three-button-audio-entry-system.html"
+      },
+      {
+        "label": "Four Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/four-button-audio-entry-system.html"
+      },
+      {
+        "label": "Five Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/five-button-audio-entry-system.html"
+      },
+      {
+        "label": "Six Button Audio Entry System",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/audio/six-button-audio-entry-system.html"
+      },
+      {
+        "label": "Video",
+        "href": "https://www.londonlocksmith.co.uk/door-entry-systems/video/index.html"
+      },
+      {
+        "label": "Smart Locks",
+        "href": "https://www.londonlocksmith.co.uk/smart-locks/index.html"
+      },
+      {
+        "label": "Yale Keyless Connected Door Smart Lock",
+        "href": "https://www.londonlocksmith.co.uk/smart-locks/yale-keyless-connected-door-smart-lock.html"
+      },
+      {
+        "label": "Yale Conexis L2 Smart Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/smart-locks/yale-conexis-l2-smart-door-lock.html"
+      },
+      {
+        "label": "Yale Assure Lock Touchscreen Wifi Smart Lock",
+        "href": "https://www.londonlocksmith.co.uk/smart-locks/yale-assure-lock-touchscreen-wifi-smart-lock.html"
+      },
+      {
+        "label": "London Bars etc",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/index.html"
+      },
+      {
+        "label": "London Bars",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/london-bars/index.html"
+      },
+      {
+        "label": "General Purpose London Bar",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/london-bars/General-Purpose-London-Bar.html"
+      },
+      {
+        "label": "Ingersoll London Bar",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/london-bars/Ingersoll-London-Bar.html"
+      },
+      {
+        "label": "CISA London Bar",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/london-bars/CISA-London-Bar.html"
+      },
+      {
+        "label": "Birmingham Bars",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/birmingham-bars/index.html"
+      },
+      {
+        "label": "Hinge Bolts",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/hinge-bolts/index.html"
+      },
+      {
+        "label": "Deadlock Reinforcers",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/deadlock-reinforcers/index.html"
+      },
+      {
+        "label": "Anti-Thrust Plates",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/anti-thrust-plates/index.html"
+      },
+      {
+        "label": "Letter Box Cowls",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/index.html"
+      },
+      {
+        "label": "Letter Box Security Cowl - White",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/Letter-Box-Security-Cowl-White.html"
+      },
+      {
+        "label": "Letter Box Security Cowl - Painted Silver",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/Letter-Box-Security-Cowl-Painted-Silver.html"
+      },
+      {
+        "label": "Letter Box Security Cowl - Painted Gold",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/Letter-Box-Security-Cowl-Painted-Gold.html"
+      },
+      {
+        "label": "Letter Box Security Cowl - Polished Brass",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/Letter-Box-Security-Cowl-Polished-Brass.html"
+      },
+      {
+        "label": "Letter Box Security Cowl - Polished Chrome",
+        "href": "https://www.londonlocksmith.co.uk/london-bars-etc/letter-box-cowls/Letter-Box-Security-Cowl-Polished-Chrome.html"
+      },
+      {
+        "label": "Burglar Bars & Grilles",
+        "href": "https://www.londonlocksmith.co.uk/burglar-bars-and-grilles/index.html"
+      },
+      {
+        "label": "Burglar Bar Gate",
+        "href": "https://www.londonlocksmith.co.uk/burglar-bars-and-grilles/Burglar-Bar-Gate.html"
+      },
+      {
+        "label": "Collapsible Window / Door Grille",
+        "href": "https://www.londonlocksmith.co.uk/burglar-bars-and-grilles/Collapsible-Window-Door-Grille.html"
+      },
+      {
+        "label": "Diamond Mesh Security Grille",
+        "href": "https://www.londonlocksmith.co.uk/burglar-bars-and-grilles/Diamond-Mesh-Security-Grille.html"
+      },
+      {
+        "label": "Bar Window Grille",
+        "href": "https://www.londonlocksmith.co.uk/burglar-bars-and-grilles/Bar-Window-Grille.html"
+      },
+      {
+        "label": "Digital Locks",
+        "href": "https://www.londonlocksmith.co.uk/digital-locks/index.html"
+      },
+      {
+        "label": "Budget Digital Lock",
+        "href": "https://www.londonlocksmith.co.uk/digital-locks/budget-digital-lock.html"
+      },
+      {
+        "label": "Superior Digital Lock",
+        "href": "https://www.londonlocksmith.co.uk/digital-locks/superior-digital-lock.html"
+      },
+      {
+        "label": "Heavy Duty Digital Lock",
+        "href": "https://www.londonlocksmith.co.uk/digital-locks/heavy-duty-digital-lock.html"
+      },
+      {
+        "label": "Airbnb Lock",
+        "href": "https://www.londonlocksmith.co.uk/digital-locks/airbnb-lock.html"
+      },
+      {
+        "label": "CISA Locks",
+        "href": "https://www.londonlocksmith.co.uk/cisa-locks/index.html"
+      },
+      {
+        "label": "CISA Lock 11610 Communal Door Lock",
+        "href": "https://www.londonlocksmith.co.uk/cisa-locks/CISA-Lock-11610-Communal-Door-Lock.html"
+      },
+      {
+        "label": "Post Box Lock",
+        "href": "https://www.londonlocksmith.co.uk/change-a-post-box-lock.html"
+      },
+      {
+        "label": "GERDA Lock",
+        "href": "https://www.londonlocksmith.co.uk/gerda-lock.html"
+      },
+      {
+        "label": "Door Chains & Door Viewers",
+        "href": "https://www.londonlocksmith.co.uk/door-chains-and-door-viewers/index.html"
+      },
+      {
+        "label": "Wide Angle Door Viewer",
+        "href": "https://www.londonlocksmith.co.uk/door-chains-and-door-viewers/wide-angle-door-viewer.html"
+      },
+      {
+        "label": "Security Door Chain",
+        "href": "https://www.londonlocksmith.co.uk/door-chains-and-door-viewers/security-door-chain.html"
+      },
+      {
+        "label": "Banham Locks",
+        "href": "https://www.londonlocksmith.co.uk/banham-locks.html"
+      },
+      {
+        "label": "Key Safes",
+        "href": "https://www.londonlocksmith.co.uk/key-safes/index.html"
+      },
+      {
+        "label": "Strong Keysafe",
+        "href": "https://www.londonlocksmith.co.uk/key-safes/Strong-Keysafe.html"
+      },
+      {
+        "label": "Disguised Keysafe",
+        "href": "https://www.londonlocksmith.co.uk/key-safes/Disguised-Keysafe.html"
+      },
+      {
+        "label": "Supra C500 Police Approved Keysafe",
+        "href": "https://www.londonlocksmith.co.uk/key-safes/Supra-C500-Police-Approved-Keysafe.html"
+      },
+      {
+        "label": "Keyguard XL Police Approved Keysafe",
+        "href": "https://www.londonlocksmith.co.uk/key-safes/Keyguard-XL-Police-Approved-Keysafe.html"
+      },
+      {
+        "label": "Garage Locks",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/index.html"
+      },
+      {
+        "label": "Garage Defender Master Version",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/garage-defender-master-version.html"
+      },
+      {
+        "label": "Garage Defender Standard Version",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/garage-defender-standard-version.html"
+      },
+      {
+        "label": "Roller Shutter Lock",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/roller-shutter-lock.html"
+      },
+      {
+        "label": "Garage Door 'T' Handle",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/garage-door-t-handle.html"
+      },
+      {
+        "label": "Concealed Security Garage Door Bolts",
+        "href": "https://www.londonlocksmith.co.uk/garage-locks/concealed-security-garage-door-bolts.html"
+      },
+      {
+        "label": "Gate Locks",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/index.html"
+      },
+      {
+        "label": "Wooden Gate Lock",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/wooden-gate-lock.html"
+      },
+      {
+        "label": "Wooden Gate Rim Lock",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/wooden-gate-rim-lock.html"
+      },
+      {
+        "label": "Metal Gate Lock",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/metal-gate-lock.html"
+      },
+      {
+        "label": "Metal Gate Digital Lock",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/metal-gate-digital-lock.html"
+      },
+      {
+        "label": "Locinox Digital Gate Lock",
+        "href": "https://www.londonlocksmith.co.uk/gate-locks/locinox-digital-gate-lock.html"
+      },
+      {
+        "label": "Ring Video Doorbell",
+        "href": "https://www.londonlocksmith.co.uk/ring-video-doorbell.html"
+      },
+      {
+        "label": "SAFES",
+        "href": "https://www.londonlocksmith.co.uk/safes.html"
+      },
+      {
+        "label": "Locked Out",
+        "href": "https://www.londonlocksmith.co.uk/locked-out.html"
+      },
+      {
+        "label": "Lock Changing",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/index.html"
+      },
+      {
+        "label": "Change A Yale",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-yale.html"
+      },
+      {
+        "label": "Change A Chubb",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-chubb.html"
+      },
+      {
+        "label": "Change A Euro",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-euro-cylinder.html"
+      },
+      {
+        "label": "Change A 5-Lever Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-5-lever-mortice-deadlock.html"
+      },
+      {
+        "label": "Change A Chubb and Yale",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-chubb-and-yale.html"
+      },
+      {
+        "label": "Change A Yale and Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-yale-and-mortice-deadlock.html"
+      },
+      {
+        "label": "Change A Banham Lock",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-banham-lock.html"
+      },
+      {
+        "label": "Change an Old Banham Rim Cylinder",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-an-old-banham-rim.html"
+      },
+      {
+        "label": "Change an Old Banham Rim & Mortice",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-an-old-banham-rim-and-mortice.html"
+      },
+      {
+        "label": "Change A Banham 7-Lever Mortice Deadlock",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-banham-7-lever-mortice-deadlock.html"
+      },
+      {
+        "label": "Change A Banham L2000 Cylinder",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-banham-l2000-cylinder.html"
+      },
+      {
+        "label": "Change A Banham M2002 Cylinder",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-banham-m2002-cylinder.html"
+      },
+      {
+        "label": "Change A Banham L2000 & M2002 Cylinder",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-banham-l2000-and-m2002-cylinder.html"
+      },
+      {
+        "label": "Change New Build Apartment Locks",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-new-build-apartment-locks.html"
+      },
+      {
+        "label": "Change A Garage Door 'T' Handle",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-garage-door-t-handle.html"
+      },
+      {
+        "label": "Change A Wellington Fort 6-Lever Lock",
+        "href": "https://www.londonlocksmith.co.uk/lock-changing/change-a-wellington-fort-6-lever-lock.html"
+      },
+      {
+        "label": "Help & Advice",
+        "href": "https://www.londonlocksmith.co.uk/help-and-advice.html"
+      },
+      {
+        "label": "CONTACT / EMAIL US",
+        "href": "https://www.londonlocksmith.co.uk/contact-us.html"
+      },
+      {
+        "label": "WATCH VIDEOS",
+        "href": "https://www.londonlocksmith.co.uk/watch-videos.html"
+      },
+      {
+        "label": "BOOK A LOCKSMITH",
+        "href": "https://www.londonlocksmith.co.uk/book-a-locksmith/"
+      },
+      {
+        "label": "Menu",
+        "href": "https://www.londonlocksmith.co.uk/menu.html"
+      },
+      {
+        "label": "Download Lock Instructions",
+        "href": "https://www.londonlocksmith.co.uk/lock-instructions.html"
+      },
+      {
+        "label": "Website Terms & Conditions",
+        "href": "https://www.londonlocksmith.co.uk/website-terms-and-conditions.html"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://www.londonlocksmith.co.uk",
+        "https://www.londonlocksmith.co.uk/index.html"
+      ],
+      "services": [
+        "https://www.londonlocksmith.co.uk/locked-out.html",
+        "https://www.londonlocksmith.co.uk/lock-changing/index.html",
+        "https://www.londonlocksmith.co.uk/book-a-locksmith/"
+      ],
+      "pricing": [],
+      "trust": [],
+      "contact": [
+        "https://www.londonlocksmith.co.uk/contact-us.html"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "Custom / Unknown",
+      "detectedTechnologies": [],
+      "costBreakdown": [
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 1,
+        "max": 2,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://www.londonlocksmith.co.uk",
+      "performance": 0,
+      "accessibility": 0,
+      "seo": 0,
+      "bestPractices": 0
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://www.londonlocksmith.co.uk",
+          "pageName": "London Locksmith Homepage",
+          "summary": "An established London locksmith site with phone numbers and WhatsApp links present, but the site appears to be an older, image-heavy design with no visible 24/7 emergency declaration, no explicit service area coverage list, and no trust signals such as licensing or insurance badges. The enquiry form uses a same-day callback model which is poorly suited to emergency lockout scenarios.",
+          "opportunityScore": 7,
+          "digitalMaturityScore": 3,
+          "hasClickToCall": true,
+          "hasServiceArea": false,
+          "hasEmergencyInfo": false,
+          "hasTrustSignals": false,
+          "hasMobileExperience": false,
+          "topOpportunity": "Add a bold above-the-fold emergency 24/7 call-to-action with clear service area coverage and trust badges, replacing the outdated image-based layout with a fast-loading mobile-first design",
+          "notes": "Decent phone accessibility but the dated image-based design, lack of 24/7 messaging, and absence of trust signals leave significant conversion gaps a web agency could directly address."
+        },
+        {
+          "url": "https://www.londonlocksmith.co.uk/index.html",
+          "pageName": "London Locksmith Index Page",
+          "summary": "Identical content to the root homepage, featuring phone and WhatsApp links rendered as image assets rather than native buttons, with no emergency availability statement, no defined service area, and no visible trust credentials. The same-day enquiry callback model is a critical mismatch for emergency lockout users needing immediate help.",
+          "opportunityScore": 7,
+          "digitalMaturityScore": 3,
+          "hasClickToCall": true,
+          "hasServiceArea": false,
+          "hasEmergencyInfo": false,
+          "hasTrustSignals": false,
+          "hasMobileExperience": false,
+          "topOpportunity": "Rebuild the homepage with a mobile-first emergency UX: sticky click-to-call button, 24/7 availability statement, service area list, and schema markup to replace the outdated image-dependent layout",
+          "notes": "Same gaps as the root URL — phone numbers are technically linked but buried in image assets, and the complete absence of emergency, trust, and locality signals makes this a strong pitch for a full site redesign."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://www.londonlocksmith.co.uk/locked-out.html",
+          "pageName": "Locked Out Service Page",
+          "summary": "The locked-out page is dominated by a contact enquiry form and an extensive navigation menu listing lock products, but contains no actual service description, no explanation of the lockout process, and no distinction between emergency and scheduled work. The page essentially functions as a contact form with no persuasive or informational content.",
+          "opportunityScore": 8,
+          "serviceStructure": "minimal",
+          "servicesListed": [
+            "locked out",
+            "nightlatches",
+            "mortice locks",
+            "window locks",
+            "locking bolts",
+            "lock changing",
+            "safes",
+            "CCTV",
+            "burglar bars",
+            "digital locks",
+            "CISA locks",
+            "services for landlords",
+            "professional witness",
+            "forensic locksmith",
+            "bailiff and property repossession"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Build a dedicated emergency lockout landing page with clear response time promise, process explanation, trust signals, and a prominent emergency CTA separate from scheduled bookings",
+          "notes": "This is a high-value search-intent page (locked out) with virtually no content — a prime candidate for a conversion-optimised emergency service page rebuild."
+        },
+        {
+          "url": "https://www.londonlocksmith.co.uk/lock-changing/index.html",
+          "pageName": "Lock Changing Service Page",
+          "summary": "The lock changing page appears to contain only a contact form and navigation menu with no visible body content describing the lock changing service itself, its process, pricing guidance, or use cases. It mirrors the locked-out page in its lack of substantive service content.",
+          "opportunityScore": 8,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "lock changing",
+            "nightlatches",
+            "mortice locks",
+            "window locks",
+            "locking bolts",
+            "safes",
+            "CCTV",
+            "burglar bars",
+            "digital locks",
+            "CISA locks",
+            "services for landlords",
+            "professional witness",
+            "forensic locksmith",
+            "bailiff and property repossession"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Develop fully written service pages per lock type with descriptions of the process, when lock changing is needed, brand options, and scenario-specific CTAs (e.g. after a break-in, moving home, lost keys)",
+          "notes": "Individual service URLs exist which is a good structural foundation, but all pages lack actual content — strong opportunity to sell content-led SEO page rewrites."
+        },
+        {
+          "url": "https://www.londonlocksmith.co.uk/book-a-locksmith/",
+          "pageName": "Book a Locksmith Booking Form",
+          "summary": "This page is a detailed job booking form capturing visit preferences, full contact details, address, parking, congestion/ULEZ charges, and payment method — it is functional and thorough but serves purely as an operational intake form with no service marketing content. There is no service description, no trust-building elements, and no contextual information to reassure a prospective customer.",
+          "opportunityScore": 5,
+          "serviceStructure": "none",
+          "servicesListed": [],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Redesign the booking flow with a modern multi-step UX, add trust signals (reviews, accreditations) near the form, and introduce a service-selection step that cross-sells relevant add-ons",
+          "notes": "The booking form is operationally detailed but has no conversion copy or reassurance elements — a UX and trust-optimisation project would be a natural sell alongside any service page work."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": []
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": []
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://www.londonlocksmith.co.uk/contact-us.html",
+          "pageName": "London Locksmith – Contact Us",
+          "summary": "The page prominently displays two click-to-call phone numbers (landline and mobile) plus WhatsApp/text options near the top. However, there is no service area map, no stated response time, no 24/7 confirmation, and no live chat.",
+          "opportunityScore": 5,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": false,
+          "hasLiveChat": false,
+          "topOpportunity": "Add a service area map with coverage zones, a 24/7 emergency badge with guaranteed response time, and a live chat or chatbot widget to convert distressed locked-out visitors faster.",
+          "notes": "Phone and WhatsApp contact is solid, but the absence of 24/7 info, response time guarantee, and a service area map leaves meaningful conversion value on the table for emergency searchers."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

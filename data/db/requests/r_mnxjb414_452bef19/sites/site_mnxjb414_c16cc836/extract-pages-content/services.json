@@ -1,0 +1,72 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://www.londonlocksmith.co.uk/locked-out.html",
+      "pageName": "Locked Out Service Page",
+      "summary": "The locked-out page is dominated by a contact enquiry form and an extensive navigation menu listing lock products, but contains no actual service description, no explanation of the lockout process, and no distinction between emergency and scheduled work. The page essentially functions as a contact form with no persuasive or informational content.",
+      "opportunityScore": 8,
+      "serviceStructure": "minimal",
+      "servicesListed": [
+        "locked out",
+        "nightlatches",
+        "mortice locks",
+        "window locks",
+        "locking bolts",
+        "lock changing",
+        "safes",
+        "CCTV",
+        "burglar bars",
+        "digital locks",
+        "CISA locks",
+        "services for landlords",
+        "professional witness",
+        "forensic locksmith",
+        "bailiff and property repossession"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Build a dedicated emergency lockout landing page with clear response time promise, process explanation, trust signals, and a prominent emergency CTA separate from scheduled bookings",
+      "notes": "This is a high-value search-intent page (locked out) with virtually no content — a prime candidate for a conversion-optimised emergency service page rebuild."
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/lock-changing/index.html",
+      "pageName": "Lock Changing Service Page",
+      "summary": "The lock changing page appears to contain only a contact form and navigation menu with no visible body content describing the lock changing service itself, its process, pricing guidance, or use cases. It mirrors the locked-out page in its lack of substantive service content.",
+      "opportunityScore": 8,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "lock changing",
+        "nightlatches",
+        "mortice locks",
+        "window locks",
+        "locking bolts",
+        "safes",
+        "CCTV",
+        "burglar bars",
+        "digital locks",
+        "CISA locks",
+        "services for landlords",
+        "professional witness",
+        "forensic locksmith",
+        "bailiff and property repossession"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Develop fully written service pages per lock type with descriptions of the process, when lock changing is needed, brand options, and scenario-specific CTAs (e.g. after a break-in, moving home, lost keys)",
+      "notes": "Individual service URLs exist which is a good structural foundation, but all pages lack actual content — strong opportunity to sell content-led SEO page rewrites."
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/book-a-locksmith/",
+      "pageName": "Book a Locksmith Booking Form",
+      "summary": "This page is a detailed job booking form capturing visit preferences, full contact details, address, parking, congestion/ULEZ charges, and payment method — it is functional and thorough but serves purely as an operational intake form with no service marketing content. There is no service description, no trust-building elements, and no contextual information to reassure a prospective customer.",
+      "opportunityScore": 5,
+      "serviceStructure": "none",
+      "servicesListed": [],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Redesign the booking flow with a modern multi-step UX, add trust signals (reviews, accreditations) near the form, and introduce a service-selection step that cross-sells relevant add-ons",
+      "notes": "The booking form is operationally detailed but has no conversion copy or reassurance elements — a UX and trust-optimisation project would be a natural sell alongside any service page work."
+    }
+  ]
+}

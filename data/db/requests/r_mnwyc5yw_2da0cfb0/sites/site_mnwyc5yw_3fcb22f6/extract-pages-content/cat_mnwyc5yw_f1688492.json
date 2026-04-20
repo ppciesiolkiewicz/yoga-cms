@@ -1,0 +1,35 @@
+{
+  "categoryId": "cat_mnwyc5yw_f1688492",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "pageName": "Sha-La Academy – Training Hub",
+      "summary": "The Sha-La Academy in Berlin offers a wide range of yoga teacher trainings and continuing education programmes, from a 200h multi-style YTT to short intensives in Yin, Kundalini, Katonah, and more, led by in-house and guest faculty.",
+      "conversionScore": 7,
+      "seoScore": 4,
+      "trainingName": "Sha-La Academy (multiple programmes)",
+      "hours": "10h–200h depending on programme",
+      "price": "€150–€3,500 (early bird discounts available)",
+      "dates": "May 2026–Jun 2027 (varies by programme)",
+      "style": "Multi-style: Vinyasa, Yin, Kundalini, Katonah, Inversions, Hypnosis/Sound",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "Dates and prices are clearly listed per programme which aids conversion, but this is a hub page with many mixed offerings and no curriculum detail, teacher bios, or reviews visible, and SEO is weak with no structured schema, thin H1, and no city/hours in the title."
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "pageName": "Yoga Apprenticeship – 404 Page",
+      "summary": "This URL returns a 404 error; the apprenticeship programme page has been moved or deleted.",
+      "conversionScore": 1,
+      "seoScore": 1,
+      "trainingName": "Yoga Apprenticeship Program",
+      "hours": "Unknown",
+      "price": "€1,200",
+      "dates": "Unknown",
+      "style": "Unknown",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "Page does not exist; any visitor or search engine landing here will see only a 404, losing both conversion and SEO value entirely."
+    }
+  ]
+}

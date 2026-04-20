@@ -1,0 +1,61 @@
+{
+  "siteId": "site_mnwyc5yw_4bcb6253",
+  "url": "https://www.yoga-lotos.de",
+  "meta": {
+    "name": "Lotos Yoga Berlin"
+  },
+  "scrapedAt": "2026-04-13T08:55:35.164Z",
+  "navigation": {
+    "links": []
+  },
+  "classification": {
+    "byCategory": {
+      "cat_mnwyc5yw_76b8ef32": [],
+      "cat_mnwyc5yw_f1688492": [],
+      "cat_mnwyc5yw_2aaa3bfb": [],
+      "cat_mnwyc5yw_9ee5e377": []
+    }
+  },
+  "tech": {},
+  "lighthouse": {},
+  "extract": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "categoryId": "cat_mnwyc5yw_76b8ef32",
+      "records": []
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "categoryId": "cat_mnwyc5yw_f1688492",
+      "records": []
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+      "records": []
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "categoryId": "cat_mnwyc5yw_9ee5e377",
+      "records": []
+    }
+  },
+  "progress": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

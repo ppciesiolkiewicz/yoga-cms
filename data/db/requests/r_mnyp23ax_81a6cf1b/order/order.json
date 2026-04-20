@@ -1,0 +1,339 @@
+{
+  "id": "ord_mnyp97bd_2b25e43e",
+  "requestId": "r_mnyp23ax_81a6cf1b",
+  "createdAt": "2026-04-14T14:11:13.609Z",
+  "status": "completed",
+  "sites": [
+    {
+      "siteId": "site_mnyp23ay_2e3179c0",
+      "url": "https://fallowrestaurant.com",
+      "pageCount": 4,
+      "estimatedTokens": 5000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.00076,
+          "estimatedCost": 0.00076,
+          "actualCost": 0.00076,
+          "actualQuantity": 408
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.01,
+          "estimatedCost": 0.04,
+          "actualQuantity": 1,
+          "actualCost": 0.01
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.002,
+          "estimatedCost": 0.008,
+          "actualQuantity": 1,
+          "actualCost": 0.002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 1603,
+          "actualCost": 0.008253
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Menu",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 1603,
+          "actualCost": 0.008253
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Ordering",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 1603,
+          "actualCost": 0.008253
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Reservations",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 1603,
+          "actualCost": 0.008253
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 1603,
+          "actualCost": 0.008253
+        }
+      ],
+      "subtotal": 0.23826000000000003
+    },
+    {
+      "siteId": "site_mnyp23ay_a9dbdf2f",
+      "url": "https://moro.co.uk",
+      "pageCount": 10,
+      "estimatedTokens": 12500,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.001663,
+          "estimatedCost": 0.001663,
+          "actualCost": 0.001663,
+          "actualQuantity": 871
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 10,
+          "unitCost": 0.01,
+          "estimatedCost": 0.1,
+          "actualQuantity": 10,
+          "actualCost": 0.1
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 10,
+          "unitCost": 0.002,
+          "estimatedCost": 0.02,
+          "actualQuantity": 10,
+          "actualCost": 0.02
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06,
+          "estimatedCost": 0.06,
+          "actualQuantity": 12487,
+          "actualCost": 0.067941
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Menu",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06,
+          "estimatedCost": 0.06,
+          "actualQuantity": 12487,
+          "actualCost": 0.067941
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Ordering",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06,
+          "estimatedCost": 0.06,
+          "actualQuantity": 12487,
+          "actualCost": 0.067941
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Reservations",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06,
+          "estimatedCost": 0.06,
+          "actualQuantity": 12487,
+          "actualCost": 0.067941
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06,
+          "estimatedCost": 0.06,
+          "actualQuantity": 12487,
+          "actualCost": 0.067941
+        }
+      ],
+      "subtotal": 0.423663
+    },
+    {
+      "siteId": "site_mnyp23ay_8d1c4a61",
+      "url": "https://www.morito.co.uk",
+      "pageCount": 4,
+      "estimatedTokens": 5000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.000933,
+          "estimatedCost": 0.000933,
+          "actualCost": 0.000933,
+          "actualQuantity": 557
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.01,
+          "estimatedCost": 0.04,
+          "actualQuantity": 4,
+          "actualCost": 0.04
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.002,
+          "estimatedCost": 0.008,
+          "actualQuantity": 4,
+          "actualCost": 0.008
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 12789,
+          "actualCost": 0.05064300000000001
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Menu",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 12789,
+          "actualCost": 0.05064300000000001
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Ordering",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 12789,
+          "actualCost": 0.05064300000000001
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Reservations",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 12789,
+          "actualCost": 0.05064300000000001
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 12789,
+          "actualCost": 0.05064300000000001
+        }
+      ],
+      "subtotal": 0.238433
+    }
+  ],
+  "totalEstimatedCost": 0.900356,
+  "approvedAt": "2026-04-14T14:35:46.380Z",
+  "completedAt": "2026-04-14T14:40:59.812Z",
+  "totalActualCost": 0.8235410000000001
+}

@@ -1,0 +1,31 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://www.banham.co.uk/contact/",
+      "pageName": "Banham Contact Us",
+      "summary": "The page offers multiple contact routes including phone numbers for existing customers, new enquiries, and a dedicated 24/7 emergency locksmith line (020 7622 5151), but buries the emergency number mid-page among many other query categories. The primary layout pushes users toward lengthy dropdown-driven contact forms rather than surfacing the emergency number immediately at the top.",
+      "opportunityScore": 5,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": true,
+      "hasLiveChat": false,
+      "topOpportunity": "Redesign the emergency contact UX: a sticky top-of-page click-to-call banner for the 24/7 locksmith line, plus a clear service area map and stated response time guarantee to convert locked-out visitors before they bounce.",
+      "notes": "Banham has the right ingredients (24/7 line, multiple numbers) but hides the emergency CTA deep in a cluttered form-heavy layout — a focused emergency landing page with a prominent click-to-call and response time promise would meaningfully lift conversion."
+    },
+    {
+      "url": "https://www.banham.co.uk/showrooms",
+      "pageName": "Banham Showrooms",
+      "summary": "The page lists four London/South England showrooms with addresses and click-to-call phone numbers, an interactive Google Map with pin markers, and a postcode checker to confirm local service availability. However, it is focused on in-person consultations rather than emergency locksmith response, with no 24/7 or response-time information present.",
+      "opportunityScore": 4,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": true,
+      "hasResponseTime": false,
+      "has24x7Info": false,
+      "hasLiveChat": false,
+      "topOpportunity": "Add an emergency callout CTA section above the fold — a prominent 24/7 locksmith phone button with response time promise — to capture locked-out visitors who land on the showrooms page outside business hours.",
+      "notes": "Strong location and map presence makes this a good prospect for adding an emergency overlay or sticky banner; the postcode checker is a solid foundation but the page completely ignores after-hours emergency needs."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "id": "q_mnxjsnf6_78e142bc",
+  "requestId": "r_mnxjb414_452bef19",
+  "siteId": "site_mnxjb414_c16cc836",
+  "categoryId": "contact",
+  "stage": "extract-pages-content",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this locksmith's contact/emergency page.\n\nCritical question: can a locked-out person get help within 30 seconds of landing on this page?\n\nHOT LEAD signals:\n- Phone number not prominent or not click-to-call\n- No service area map or list\n- Contact form as primary contact method (useless in emergency)\n- No response time stated\n- No after-hours information\n\nCOLD LEAD signals:\n- Giant click-to-call button\n- Service area map with coverage zones\n- Response time guarantee (\"30 min or less\")\n- 24/7 clearly stated with emergency number\n- Live chat\n- WhatsApp/text option\n- Address with embedded map\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of contact/emergency access>\",\n  \"opportunityScore\": \"<1-10, higher = harder to reach = better lead>\",\n  \"hasClickToCall\": true/false,\n  \"hasServiceAreaMap\": true/false,\n  \"hasResponseTime\": true/false,\n  \"has24x7Info\": true/false,\n  \"hasLiveChat\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.londonlocksmith.co.uk/contact-us.html"
+  ],
+  "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.londonlocksmith.co.uk/contact-us.html\",\n      \"pageName\": \"London Locksmith – Contact Us\",\n      \"summary\": \"The page prominently displays two click-to-call phone numbers (landline and mobile) plus WhatsApp/text options near the top. However, there is no service area map, no stated response time, no 24/7 confirmation, and no live chat.\",\n      \"opportunityScore\": 5,\n      \"hasClickToCall\": true,\n      \"hasServiceAreaMap\": false,\n      \"hasResponseTime\": false,\n      \"has24x7Info\": false,\n      \"hasLiveChat\": false,\n      \"topOpportunity\": \"Add a service area map with coverage zones, a 24/7 emergency badge with guaranteed response time, and a live chat or chatbot widget to convert distressed locked-out visitors faster.\",\n      \"notes\": \"Phone and WhatsApp contact is solid, but the absence of 24/7 info, response time guarantee, and a service area map leaves meaningful conversion value on the table for emergency searchers.\"\n    }\n  ]\n}",
+  "usage": {
+    "inputTokens": 5287,
+    "outputTokens": 281
+  },
+  "createdAt": "2026-04-13T18:50:37.074Z"
+}

@@ -1,0 +1,18 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://www.londonlocks.com/contact-us/",
+      "pageName": "Contact Us – London Locks",
+      "summary": "Basic contact page listing a physical address, email, phone, and mobile number. Office hours are Monday to Friday 9am–6pm with weekends closed — no emergency or out-of-hours provision whatsoever.",
+      "opportunityScore": 9,
+      "hasClickToCall": false,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": false,
+      "hasLiveChat": false,
+      "topOpportunity": "Full emergency contact page redesign: prominent click-to-call buttons, 24/7 emergency number, response time guarantee, service area map, and a WhatsApp/text option for after-hours lockouts",
+      "notes": "A locked-out customer landing here on a Saturday night would find zero help — closed weekends, no emergency line, no chat, no map; this is a textbook high-value redesign prospect."
+    }
+  ]
+}

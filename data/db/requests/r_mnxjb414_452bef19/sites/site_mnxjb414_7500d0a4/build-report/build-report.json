@@ -1,0 +1,741 @@
+{
+  "siteId": "site_mnxjb414_7500d0a4",
+  "url": "https://www.banham.co.uk",
+  "meta": {
+    "name": "Banham Security"
+  },
+  "scrapedAt": "2026-04-13T18:42:22.702Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Book a Survey",
+        "href": "https://www.banham.co.uk/book-a-survey/"
+      },
+      {
+        "label": "All Locks",
+        "href": "https://www.banham.co.uk/locks/"
+      },
+      {
+        "label": "Door Locks",
+        "href": "https://www.banham.co.uk/locks/door-locks/"
+      },
+      {
+        "label": "Window Locks & Door Bolts",
+        "href": "https://www.banham.co.uk/locks/locks-additional-security/"
+      },
+      {
+        "label": "Keys, Fobs & Accessories",
+        "href": "https://www.banham.co.uk/locks/keys-and-accessories/"
+      },
+      {
+        "label": "Keycutting and Key Registration",
+        "href": "https://www.banham.co.uk/key-cutting-key-registration/"
+      },
+      {
+        "label": "Emergency Locksmiths",
+        "href": "https://www.banham.co.uk/locksmith-service/"
+      },
+      {
+        "label": "All Doors",
+        "href": "https://www.banham.co.uk/doors/"
+      },
+      {
+        "label": "Front Doors",
+        "href": "https://www.banham.co.uk/doors/security-doors/"
+      },
+      {
+        "label": "Fire Doors",
+        "href": "https://www.banham.co.uk/doors/fire-doors/"
+      },
+      {
+        "label": "Door Furniture",
+        "href": "https://www.banham.co.uk/doors/door-furniture/"
+      },
+      {
+        "label": "All Burglar Alarms",
+        "href": "https://www.banham.co.uk/burglar-alarms/"
+      },
+      {
+        "label": "Alarm Consultation",
+        "href": "https://www.banham.co.uk/burglar-alarms/alarm-consultation/"
+      },
+      {
+        "label": "Alarm Installation",
+        "href": "https://www.banham.co.uk/burglar-alarms/alarm-installation/"
+      },
+      {
+        "label": "Car Shield",
+        "href": "https://www.banham.co.uk/burglar-alarms/car-shield/"
+      },
+      {
+        "label": "Upgrade Your Alarm System",
+        "href": "https://www.banham.co.uk/burglar-alarms/alarm-system-upgrade/"
+      },
+      {
+        "label": "Alarm Monitoring",
+        "href": "https://www.banham.co.uk/burglar-alarms/alarm-monitoring/"
+      },
+      {
+        "label": "Smart Security App",
+        "href": "https://www.banham.co.uk/burglar-alarms/banham-smart-security-app/"
+      },
+      {
+        "label": "Keyholding and Alarm Response",
+        "href": "https://www.banham.co.uk/keyholding/"
+      },
+      {
+        "label": "Digital Phone Switchover",
+        "href": "https://www.banham.co.uk/pstn/"
+      },
+      {
+        "label": "All CCTV",
+        "href": "https://www.banham.co.uk/cctv-entry/"
+      },
+      {
+        "label": "CCTV Systems",
+        "href": "https://www.banham.co.uk/cctv-entry/cctv/"
+      },
+      {
+        "label": "Entry & Access Control Systems",
+        "href": "https://www.banham.co.uk/cctv-entry/entry-access-control-systems/"
+      },
+      {
+        "label": "CCTV Monitoring",
+        "href": "https://www.banham.co.uk/cctv-entry/cctv/cctv-monitoring-services/"
+      },
+      {
+        "label": "Routine CCTV Maintenance and 24-Hour Service",
+        "href": "https://www.banham.co.uk/cctv-entry/cctv/routine-cctv-maintenance-24-hour-service/"
+      },
+      {
+        "label": "Direct Debit Options",
+        "href": "https://www.banham.co.uk/direct-debits/"
+      },
+      {
+        "label": "All Fire Alarms",
+        "href": "https://www.banham.co.uk/fire-alarms/"
+      },
+      {
+        "label": "Fire Extinguishers",
+        "href": "https://www.banham.co.uk/fire-extinguishers/"
+      },
+      {
+        "label": "Alarm Maintenance 24/7",
+        "href": "https://www.banham.co.uk/burglar-alarms/routine-alarm-maintenance-24-hour-service/"
+      },
+      {
+        "label": "All Safes",
+        "href": "https://www.banham.co.uk/safes/"
+      },
+      {
+        "label": "Bespoke Safes",
+        "href": "https://www.banham.co.uk/bespoke-safes/"
+      },
+      {
+        "label": "Gun Cabinets & Gun Safes",
+        "href": "https://www.banham.co.uk/safes/gun-cabinets/"
+      },
+      {
+        "label": "Fire Proof Safes",
+        "href": "https://www.banham.co.uk/safes/fire-resistant-safes/"
+      },
+      {
+        "label": "Freestanding Safes",
+        "href": "https://www.banham.co.uk/safes/freestanding-safes/"
+      },
+      {
+        "label": "Safe Services",
+        "href": "https://www.banham.co.uk/safes/safe-services/"
+      },
+      {
+        "label": "All Gates & Grilles",
+        "href": "https://www.banham.co.uk/gates-grilles-shutters/"
+      },
+      {
+        "label": "Security Gates",
+        "href": "https://www.banham.co.uk/gates-grilles-shutters/gates/"
+      },
+      {
+        "label": "Security Grilles",
+        "href": "https://www.banham.co.uk/gates-grilles-shutters/grilles/"
+      },
+      {
+        "label": "Railings",
+        "href": "https://www.banham.co.uk/gates-grilles-shutters/railings/"
+      },
+      {
+        "label": "Roller Shutters",
+        "href": "https://www.banham.co.uk/gates-grilles-shutters/roller-shutters/"
+      },
+      {
+        "label": "For Homes",
+        "href": "https://www.banham.co.uk/keyholding/residential/"
+      },
+      {
+        "label": "Pricing",
+        "href": "https://www.banham.co.uk/keyholding/pricing/"
+      },
+      {
+        "label": "Emergency Locksmith",
+        "href": "https://www.banham.co.uk/locksmith-service/emergency-locksmith/"
+      },
+      {
+        "label": "Sign In",
+        "href": "https://www.banham.co.uk/customer/account/login/"
+      },
+      {
+        "label": "Help and Support",
+        "href": "https://www.banham.co.uk/customer-help-centre"
+      },
+      {
+        "label": "Contact Us",
+        "href": "https://www.banham.co.uk/contact/"
+      },
+      {
+        "label": "Trade Site",
+        "href": "https://www.banham.co.uk/trade/trade-area"
+      },
+      {
+        "label": "About Us",
+        "href": "https://www.banham.co.uk/about-us"
+      },
+      {
+        "label": "Journal",
+        "href": "https://www.banham.co.uk/journal"
+      },
+      {
+        "label": "Showrooms",
+        "href": "https://www.banham.co.uk/showrooms"
+      },
+      {
+        "label": "Sign In",
+        "href": "https://www.banham.co.uk/customer/account/index/"
+      },
+      {
+        "label": "Create an Account",
+        "href": "https://www.banham.co.uk/customer/account/create/"
+      },
+      {
+        "label": "Online Payment",
+        "href": "https://www.banham.co.uk/banham-payment/customer/view/"
+      },
+      {
+        "label": "Forgot Your Password?",
+        "href": "https://www.banham.co.uk/customer/account/forgotpassword/"
+      },
+      {
+        "label": "Read More",
+        "href": "https://www.banham.co.uk/journal/teddy-bear-collection"
+      },
+      {
+        "label": "About Our Award",
+        "href": "https://www.banham.co.uk/journal/award-winning-product"
+      },
+      {
+        "label": "Moving Home Learn More",
+        "href": "https://www.banham.co.uk/moving-home/"
+      },
+      {
+        "label": "Behind The Banham Shield Read More",
+        "href": "https://www.banham.co.uk/journal/behind-the-banham-shield"
+      },
+      {
+        "label": "Doors Of Distinction Make An Enchanting Entrance Read More",
+        "href": "https://www.banham.co.uk/journal/wild-at-heart"
+      },
+      {
+        "label": "Patents",
+        "href": "https://www.banham.co.uk/patents/"
+      },
+      {
+        "label": "Deliveries and Returns",
+        "href": "https://www.banham.co.uk/deliveries-returns/"
+      },
+      {
+        "label": "Banham Swindon",
+        "href": "https://www.banham.co.uk/burglar-alarms/alarm-systems-south-west/"
+      },
+      {
+        "label": "Update Your Details",
+        "href": "https://www.banham.co.uk/update-your-details/"
+      },
+      {
+        "label": "Complaints Procedure",
+        "href": "https://www.banham.co.uk/complaints/"
+      },
+      {
+        "label": "Annual Contracts Details",
+        "href": "https://www.banham.co.uk/annual-contract-details/"
+      },
+      {
+        "label": "Website Terms and Conditions",
+        "href": "https://www.banham.co.uk/website-terms-conditions/"
+      },
+      {
+        "label": "Banham App EULA",
+        "href": "https://www.banham.co.uk/eula/"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://www.banham.co.uk",
+        "https://www.banham.co.uk/book-a-survey/"
+      ],
+      "services": [
+        "https://www.banham.co.uk/locksmith-service/",
+        "https://www.banham.co.uk/locks/",
+        "https://www.banham.co.uk/burglar-alarms/",
+        "https://www.banham.co.uk/cctv-entry/",
+        "https://www.banham.co.uk/safes/"
+      ],
+      "pricing": [
+        "https://www.banham.co.uk/keyholding/pricing/"
+      ],
+      "trust": [
+        "https://www.banham.co.uk/about-us",
+        "https://www.banham.co.uk/journal/award-winning-product",
+        "https://www.banham.co.uk/patents/"
+      ],
+      "contact": [
+        "https://www.banham.co.uk/contact/",
+        "https://www.banham.co.uk/showrooms"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "Custom / Unknown",
+      "detectedTechnologies": [
+        {
+          "name": "Magento",
+          "categories": [
+            "Ecommerce"
+          ],
+          "version": "2",
+          "confidence": 100
+        },
+        {
+          "name": "Storyblok",
+          "categories": [
+            "CMS"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Doofinder",
+          "categories": [
+            "Search engines"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "MySQL",
+          "categories": [
+            "Databases"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PHP",
+          "categories": [
+            "Programming languages"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Hyva Themes",
+          "categories": [
+            "Ecommerce frontends"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Tailwind CSS",
+          "categories": [
+            "UI frameworks"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Bootstrap",
+          "categories": [
+            "UI frameworks"
+          ],
+          "version": "5",
+          "confidence": 100
+        },
+        {
+          "name": "Amazon Web Services",
+          "categories": [
+            "PaaS"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Platform.sh",
+          "categories": [
+            "PaaS"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PayPal",
+          "categories": [
+            "Payment processors"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Alpine.js",
+          "categories": [
+            "JavaScript frameworks"
+          ],
+          "confidence": 75
+        },
+        {
+          "name": "Trustpilot",
+          "categories": [
+            "Reviews"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "SweetAlert2",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "OneTrust",
+          "categories": [
+            "Cookie compliance"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Microsoft Advertising",
+          "categories": [
+            "Advertising"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Linkedin Insight Tag",
+          "categories": [
+            "Analytics"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Linkedin Ads",
+          "categories": [
+            "Advertising"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Klarna Checkout",
+          "categories": [
+            "Payment processors",
+            "Buy now pay later"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "HSTS",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "hCaptcha",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Optimize",
+          "categories": [
+            "A/B Testing"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Analytics",
+          "categories": [
+            "Analytics"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Amazon S3",
+          "categories": [
+            "CDN"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "Google Analytics",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 1,
+        "max": 2,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://www.banham.co.uk",
+      "performance": 41,
+      "accessibility": 89,
+      "seo": 85,
+      "bestPractices": 75
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://www.banham.co.uk",
+          "pageName": "Banham Homepage",
+          "summary": "Banham is a premium, heritage-focused London security brand with a polished editorial homepage emphasising craftsmanship and brand storytelling. The site reads more like a luxury lifestyle destination than an emergency locksmith, with no visible click-to-call, no 24/7 emergency messaging, and no service area callout above the fold.",
+          "opportunityScore": 6,
+          "digitalMaturityScore": 7,
+          "hasClickToCall": false,
+          "hasServiceArea": false,
+          "hasEmergencyInfo": false,
+          "hasTrustSignals": true,
+          "hasMobileExperience": true,
+          "topOpportunity": "Add a prominent emergency click-to-call button and 24/7 availability statement above the fold to capture high-intent locked-out mobile users who will otherwise bounce instantly",
+          "notes": "Banham is a mature, well-branded business that has prioritised brand prestige over conversion urgency — a mid-tier opportunity for an agency to pitch emergency UX optimisation and local SEO schema rather than a full rebuild."
+        },
+        {
+          "url": "https://www.banham.co.uk/book-a-survey/",
+          "pageName": "Book a Survey",
+          "summary": "A clean, consultative landing page for Banham's free in-person security survey, well structured with a clear step-by-step process and FAQ section. However, it relies entirely on a form enquiry flow with no phone number, no click-to-call, and no urgency signals for users with immediate needs.",
+          "opportunityScore": 5,
+          "digitalMaturityScore": 7,
+          "hasClickToCall": false,
+          "hasServiceArea": false,
+          "hasEmergencyInfo": false,
+          "hasTrustSignals": true,
+          "hasMobileExperience": true,
+          "topOpportunity": "Introduce a visible phone number or click-to-call CTA alongside the enquiry form to reduce friction for users who want immediate human contact rather than a callback workflow",
+          "notes": "The page is well-designed for considered buyers but lacks any fast-contact pathway, making it a weak conversion point for higher-urgency prospects — a targeted CRO pitch around contact accessibility would resonate here."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://www.banham.co.uk/locksmith-service/",
+          "pageName": "Locksmith Service",
+          "summary": "Page content was not provided, so structure and detail level cannot be assessed. Based on URL alone, this appears to be a single locksmith service landing page.",
+          "opportunityScore": 5,
+          "serviceStructure": "minimal",
+          "servicesListed": [],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Unable to assess without page content — potential for dedicated emergency locksmith page, service breakdowns, and local SEO structure",
+          "notes": "No page content available to analyze; manual review required before qualifying as hot or cold lead."
+        },
+        {
+          "url": "https://www.banham.co.uk/locks/",
+          "pageName": "Locks Product Page",
+          "summary": "A highly polished product-focused page showcasing Banham's lock range (nightlatches, mortice, sash, lock sets) with detailed descriptions, FAQs, and brand heritage storytelling. This is a retail/product page, not a locksmith services page, and is extremely well-structured.",
+          "opportunityScore": 1,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Front Door Locks",
+            "Deadlocks",
+            "Replacement Cylinders",
+            "Door Furniture",
+            "Keys Registration",
+            "Nightlatches",
+            "Mortice Locks",
+            "Sash Locks",
+            "Lock Sets"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "No meaningful web agency opportunity — this is a sophisticated, well-resourced brand with mature digital presence",
+          "notes": "Banham is a premium 100-year-old British security brand with professional web infrastructure; not a viable SME prospecting target."
+        },
+        {
+          "url": "https://www.banham.co.uk/burglar-alarms/",
+          "pageName": "Burglar Alarms",
+          "summary": "Page content was not provided for analysis. URL suggests a dedicated burglar alarms category page, which would be a cold lead signal if properly structured.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Burglar Alarms"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "No identifiable opportunity without content — Banham's overall site sophistication suggests minimal gap",
+          "notes": "Banham's brand scale and existing digital investment make this an unlikely prospect for a web agency pitch."
+        },
+        {
+          "url": "https://www.banham.co.uk/cctv-entry/",
+          "pageName": "CCTV & Entry Systems",
+          "summary": "Page content was not provided for analysis. URL suggests a dedicated CCTV and entry systems page, consistent with Banham's structured, service-segmented site architecture.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "CCTV",
+            "Entry Systems"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "No clear opportunity identifiable — dedicated page structure already in place",
+          "notes": "Consistent with a mature enterprise-level site; not a viable cold outreach target for a web agency."
+        },
+        {
+          "url": "https://www.banham.co.uk/safes/",
+          "pageName": "Safes",
+          "summary": "Page content was not provided for analysis. URL indicates a standalone safes category page, further confirming Banham's well-segmented site structure.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Safes"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "No identifiable gap without content review — existing individual-page structure already a cold lead indicator",
+          "notes": "Banham's multi-page, category-segmented architecture across all service types signals a cold lead across the entire domain."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": [
+        {
+          "url": "https://www.banham.co.uk/keyholding/pricing/",
+          "pageName": "Banham Keyholding Pricing",
+          "summary": "Banham provides a dedicated pricing page for their keyholding service, listing clear annual subscription tiers with specific pound amounts for different service levels. This is unusually transparent for the industry, with named packages and stated prices visible without needing to call.",
+          "opportunityScore": 2,
+          "pricingType": "listed",
+          "hasCalloutCharge": false,
+          "hasQuoteForm": false,
+          "hasPriceGuarantee": false,
+          "topOpportunity": "Very limited — pricing is already well-presented; could potentially pitch UX improvements or a price comparison tool, but this is a strong lead for transparency not conversion issues.",
+          "notes": "Banham is a cold lead — their pricing page is well-structured and transparent, making them one of the least promising prospects for a web agency pitch around pricing visibility."
+        }
+      ]
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": [
+        {
+          "url": "https://www.banham.co.uk/journal/award-winning-product",
+          "pageName": "Great British Brands Product of the Year 2026",
+          "summary": "Banham showcases a prestigious 2026 product award, a century of family business heritage, and named co-managing directors — all strong trust signals. The page emphasises craftsmanship, British manufacturing, and a robust product range with specialist team support in showrooms.",
+          "opportunityScore": 2,
+          "hasReviews": false,
+          "hasTradeBody": false,
+          "hasInsurance": false,
+          "hasNamedTeam": true,
+          "hasGuarantee": false,
+          "topOpportunity": "Adding embedded Google/Trustpilot reviews and a trade body membership badge section could round out an already strong trust page",
+          "notes": "Banham is a well-established, highly credible brand with strong heritage and award proof points — very cold lead with minimal web agency opportunity."
+        },
+        {
+          "url": "https://www.banham.co.uk/patents/",
+          "pageName": "Banham Patents Page",
+          "summary": "This page details Banham's patented lock and key systems, including the Mark III patent valid until 2032, emphasising legal exclusivity, key registration, and a decades-long history of innovation. It functions as a strong technical trust signal demonstrating proprietary security credentials.",
+          "opportunityScore": 2,
+          "hasReviews": false,
+          "hasTradeBody": false,
+          "hasInsurance": false,
+          "hasNamedTeam": false,
+          "hasGuarantee": false,
+          "topOpportunity": "Integrating customer testimonials or case studies to complement the technical patent content with social proof",
+          "notes": "Banham's patent page is a sophisticated trust asset that few competitors can match — this is a cold lead representing a mature, self-sufficient brand."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://www.banham.co.uk/contact/",
+          "pageName": "Banham Contact Us",
+          "summary": "The page offers multiple contact routes including phone numbers for existing customers, new enquiries, and a dedicated 24/7 emergency locksmith line (020 7622 5151), but buries the emergency number mid-page among many other query categories. The primary layout pushes users toward lengthy dropdown-driven contact forms rather than surfacing the emergency number immediately at the top.",
+          "opportunityScore": 5,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": true,
+          "hasLiveChat": false,
+          "topOpportunity": "Redesign the emergency contact UX: a sticky top-of-page click-to-call banner for the 24/7 locksmith line, plus a clear service area map and stated response time guarantee to convert locked-out visitors before they bounce.",
+          "notes": "Banham has the right ingredients (24/7 line, multiple numbers) but hides the emergency CTA deep in a cluttered form-heavy layout — a focused emergency landing page with a prominent click-to-call and response time promise would meaningfully lift conversion."
+        },
+        {
+          "url": "https://www.banham.co.uk/showrooms",
+          "pageName": "Banham Showrooms",
+          "summary": "The page lists four London/South England showrooms with addresses and click-to-call phone numbers, an interactive Google Map with pin markers, and a postcode checker to confirm local service availability. However, it is focused on in-person consultations rather than emergency locksmith response, with no 24/7 or response-time information present.",
+          "opportunityScore": 4,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": true,
+          "hasResponseTime": false,
+          "has24x7Info": false,
+          "hasLiveChat": false,
+          "topOpportunity": "Add an emergency callout CTA section above the fold — a prominent 24/7 locksmith phone button with response time promise — to capture locked-out visitors who land on the showrooms page outside business hours.",
+          "notes": "Strong location and map presence makes this a good prospect for adding an emergency overlay or sticky banner; the postcode checker is a solid foundation but the page completely ignores after-hours emergency needs."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

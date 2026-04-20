@@ -1,0 +1,31 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://wdlocksmiths.co.uk/contact-us/",
+      "pageName": "Contact Us – Watchdog Locksmiths",
+      "summary": "The contact page leads with a 24-hour call prompt and prominently features click-to-call buttons, a WhatsApp option, and an embedded OpenStreetMap with the business address. Two phone numbers are listed alongside a secondary contact form, but the form is clearly de-prioritised behind faster contact methods.",
+      "opportunityScore": 2,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": true,
+      "hasLiveChat": false,
+      "topOpportunity": "Add a response time guarantee (e.g. '30-min arrival') and a live chat widget to close the remaining conversion gaps",
+      "notes": "This is a well-optimised emergency contact page with click-to-call, WhatsApp, 24-hour messaging, and a mapped address — very few gaps for a web agency to exploit."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/area-covered/",
+      "pageName": "Areas Covered – Watchdog Locksmiths",
+      "summary": "The page lists 26 named service areas across Greater London and surrounding counties and states a typical 30-minute arrival time with no call-out charge. Click-to-call and WhatsApp CTAs appear above and below the fold, though no visual coverage map is present.",
+      "opportunityScore": 3,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": true,
+      "has24x7Info": true,
+      "hasLiveChat": false,
+      "topOpportunity": "Replace the text-only area list with an interactive coverage zone map to visually reassure prospects they are within the service area",
+      "notes": "Strong conversion signals and a stated 30-min response time, but the absence of a visual service-area map is the one meaningful gap a web agency could pitch."
+    }
+  ]
+}

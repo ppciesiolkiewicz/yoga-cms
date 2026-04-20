@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "id": "074e6ea033",
+      "url": "https://www.morito.co.uk",
+      "status": "ok"
+    },
+    {
+      "id": "7e8e7ac05a",
+      "url": "https://www.morito.co.uk/our-story",
+      "status": "ok"
+    },
+    {
+      "id": "1ed1511e41",
+      "url": "https://www.morito.co.uk/book-online",
+      "status": "ok"
+    },
+    {
+      "id": "f29b0c9d5d",
+      "url": "https://www.morito.co.uk/contact-us",
+      "status": "ok"
+    }
+  ]
+}

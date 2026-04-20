@@ -1,0 +1,24 @@
+{
+  "links": [
+    {
+      "label": "Services",
+      "href": "https://londonlocksmiths.com/services/"
+    },
+    {
+      "label": "Lock Repair",
+      "href": "https://londonlocksmiths.com/lock-repair/"
+    },
+    {
+      "label": "About",
+      "href": "https://londonlocksmiths.com/about/"
+    },
+    {
+      "label": "Gallery",
+      "href": "https://londonlocksmiths.com/gallery/"
+    },
+    {
+      "label": "Contact",
+      "href": "https://londonlocksmiths.com/contact/"
+    }
+  ]
+}

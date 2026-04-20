@@ -1,0 +1,31 @@
+{
+  "categoryId": "trust",
+  "records": [
+    {
+      "url": "https://wdlocksmiths.co.uk/testimonials/",
+      "pageName": "Watchdog Locksmiths – Testimonials",
+      "summary": "The page features named written testimonials with first/last names and a video case study from a named customer, showing genuine social proof. However, there is no embedded Google or Trustpilot widget, no trade body logos, no insurance/licence numbers, and no guarantee mentioned.",
+      "opportunityScore": 5,
+      "hasReviews": true,
+      "hasTradeBody": false,
+      "hasInsurance": false,
+      "hasNamedTeam": true,
+      "hasGuarantee": false,
+      "topOpportunity": "Integrate an embedded Google Reviews or Trustpilot widget to replace manually curated testimonials with independently verified social proof, significantly boosting credibility.",
+      "notes": "A moderately trusted site with genuine-feeling testimonials and named technicians, but the absence of third-party verified reviews, trade body membership, and licence/insurance details leaves meaningful trust gaps a web agency could address."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/our-partners/",
+      "pageName": "Watchdog Locksmiths – Our Partners",
+      "summary": "The page showcases a strong roster of institutional partners including the NHS, Metropolitan Police, Ealing Council, and Hammersmith & Fulham, which are powerful credibility signals. Despite this, no MLA or ALOA trade body accreditation logos are visible, and no insurance or licence numbers are displayed.",
+      "opportunityScore": 4,
+      "hasReviews": false,
+      "hasTradeBody": false,
+      "hasInsurance": false,
+      "hasNamedTeam": false,
+      "hasGuarantee": false,
+      "topOpportunity": "Add a dedicated accreditations section featuring MLA membership, insurance certificate details, and licence numbers to complement the impressive partner logos already present.",
+      "notes": "High-calibre institutional partnerships give this page genuine authority, but the lack of recognised locksmith trade body badges and verifiable credentials means the trust story is incomplete — a targeted accreditation and compliance module would round it out."
+    }
+  ]
+}

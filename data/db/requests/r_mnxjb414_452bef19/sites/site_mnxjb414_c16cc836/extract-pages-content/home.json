@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://www.londonlocksmith.co.uk",
+      "pageName": "London Locksmith Homepage",
+      "summary": "An established London locksmith site with phone numbers and WhatsApp links present, but the site appears to be an older, image-heavy design with no visible 24/7 emergency declaration, no explicit service area coverage list, and no trust signals such as licensing or insurance badges. The enquiry form uses a same-day callback model which is poorly suited to emergency lockout scenarios.",
+      "opportunityScore": 7,
+      "digitalMaturityScore": 3,
+      "hasClickToCall": true,
+      "hasServiceArea": false,
+      "hasEmergencyInfo": false,
+      "hasTrustSignals": false,
+      "hasMobileExperience": false,
+      "topOpportunity": "Add a bold above-the-fold emergency 24/7 call-to-action with clear service area coverage and trust badges, replacing the outdated image-based layout with a fast-loading mobile-first design",
+      "notes": "Decent phone accessibility but the dated image-based design, lack of 24/7 messaging, and absence of trust signals leave significant conversion gaps a web agency could directly address."
+    },
+    {
+      "url": "https://www.londonlocksmith.co.uk/index.html",
+      "pageName": "London Locksmith Index Page",
+      "summary": "Identical content to the root homepage, featuring phone and WhatsApp links rendered as image assets rather than native buttons, with no emergency availability statement, no defined service area, and no visible trust credentials. The same-day enquiry callback model is a critical mismatch for emergency lockout users needing immediate help.",
+      "opportunityScore": 7,
+      "digitalMaturityScore": 3,
+      "hasClickToCall": true,
+      "hasServiceArea": false,
+      "hasEmergencyInfo": false,
+      "hasTrustSignals": false,
+      "hasMobileExperience": false,
+      "topOpportunity": "Rebuild the homepage with a mobile-first emergency UX: sticky click-to-call button, 24/7 availability statement, service area list, and schema markup to replace the outdated image-dependent layout",
+      "notes": "Same gaps as the root URL — phone numbers are technically linked but buried in image assets, and the complete absence of emergency, trust, and locality signals makes this a strong pitch for a full site redesign."
+    }
+  ]
+}

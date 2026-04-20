@@ -1,0 +1,2206 @@
+{
+  "request": {
+    "id": "r_mnyp23ax_81a6cf1b",
+    "createdAt": "2026-04-14T14:05:41.817Z",
+    "displayName": "Local restaurants — B2B prospecting",
+    "categories": [
+      {
+        "name": "Home",
+        "extraInfo": "",
+        "model": "sonnet",
+        "prompt": "You are a B2B prospecting analyst for a web agency that sells digital solutions to restaurants.\n\nAnalyze this restaurant's homepage for digital maturity and gaps. You are NOT judging quality — you are identifying sales opportunities.\n\nSignals of LOW digital maturity (= good lead):\n- No online ordering or reservation widget\n- Generic template with no customization\n- Missing or broken mobile experience\n- No social proof (reviews, press mentions)\n- Stock photos instead of real food photography\n- No schema markup\n\nSignals of HIGH digital maturity (= poor lead):\n- Integrated ordering system (native, not just Deliveroo link)\n- Reservation widget (OpenTable, ResDiary, Quandoo)\n- Professional food photography\n- Active blog or events section\n- Loyalty/newsletter signup\n- Rich structured data\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of digital presence>\",\n  \"opportunityScore\": \"<1-10, higher = more gaps = better lead>\",\n  \"digitalMaturityScore\": \"<1-10, higher = more mature>\",\n  \"hasOnlineOrdering\": true/false,\n  \"hasReservationWidget\": true/false,\n  \"hasProfessionalPhotos\": true/false,\n  \"hasMobileExperience\": true/false,\n  \"techStackNotes\": \"<observed platform/tools>\",\n  \"topOpportunity\": \"<single biggest gap a web agency could sell>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+        "wappalyzer": true,
+        "lighthouse": true,
+        "id": "home"
+      },
+      {
+        "name": "Menu",
+        "extraInfo": "menu, food menu, drinks, wine list, specials, dishes",
+        "model": "sonnet",
+        "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's menu page.\n\nThe menu page is the #1 signal for digital maturity in restaurants.\n\nHOT LEAD signals:\n- Menu is a PDF (can't be indexed, can't be updated easily)\n- Menu is an image/photo of a printed menu\n- No menu page at all (just a link to a third-party)\n- Outdated menu (seasonal items from wrong season, old dates)\n\nCOLD LEAD signals:\n- Interactive HTML menu with categories and descriptions\n- Menu integrated with ordering system\n- Allergen/dietary filters\n- Prices clearly listed and formatted\n- Menu items with photos\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of menu presentation>\",\n  \"opportunityScore\": \"<1-10, higher = worse menu = better lead>\",\n  \"menuFormat\": \"<html|pdf|image|third-party|none>\",\n  \"hasPrices\": true/false,\n  \"hasAllergenInfo\": true/false,\n  \"hasFoodPhotos\": true/false,\n  \"isOutdated\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+        "id": "menu"
+      },
+      {
+        "name": "Ordering",
+        "extraInfo": "order online, delivery, takeaway, click and collect, order food",
+        "model": "sonnet",
+        "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's online ordering capability.\n\nHOT LEAD signals:\n- No ordering page at all\n- Only a phone number for takeaway\n- Only third-party links (Deliveroo, UberEats, JustEat) with no native option\n- Broken or abandoned ordering system\n\nCOLD LEAD signals:\n- Native ordering system integrated into site\n- Click-and-collect with time slots\n- Delivery zone map\n- Order tracking\n- Payment integration\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of ordering capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse ordering = better lead>\",\n  \"orderingType\": \"<native|third-party-only|phone-only|none>\",\n  \"hasDelivery\": true/false,\n  \"hasClickAndCollect\": true/false,\n  \"thirdPartyPlatforms\": [\"<platform names if any>\"],\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+        "id": "ordering"
+      },
+      {
+        "name": "Reservations",
+        "extraInfo": "book a table, reservations, booking, reserve",
+        "model": "sonnet",
+        "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's reservation system.\n\nHOT LEAD signals:\n- No reservation page — phone only\n- Email-only booking\n- Contact form instead of real booking widget\n- \"Call to reserve\" with no online option\n\nCOLD LEAD signals:\n- Embedded booking widget (OpenTable, ResDiary, Quandoo, Resy)\n- Native reservation system with date/time/party-size picker\n- Confirmation emails / SMS\n- Waitlist feature\n- Integration with Google Reserve\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of reservation capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse booking = better lead>\",\n  \"bookingType\": \"<widget|native|email|phone|form|none>\",\n  \"bookingPlatform\": \"<platform name if any>\",\n  \"hasOnlineBooking\": true/false,\n  \"hasWaitlist\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+        "id": "reservations"
+      },
+      {
+        "name": "Contact",
+        "extraInfo": "contact, find us, location, opening hours, address, directions",
+        "model": "sonnet",
+        "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's contact/location page.\n\nHOT LEAD signals:\n- No dedicated contact page\n- Address without a map\n- Missing opening hours\n- No schema markup (LocalBusiness, Restaurant)\n- Inconsistent NAP (name, address, phone) across site\n\nCOLD LEAD signals:\n- Embedded Google Map\n- Full opening hours including holidays\n- Click-to-call phone number\n- Directions from transit/parking\n- LocalBusiness or Restaurant schema\n- Social media links\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of contact page>\",\n  \"opportunityScore\": \"<1-10, higher = worse contact page = better lead>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"hasSchemaMarkup\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+        "id": "contact"
+      }
+    ],
+    "sites": [
+      {
+        "url": "https://stjohnrestaurant.com",
+        "meta": {
+          "name": "St. JOHN"
+        },
+        "id": "site_mnyp23ay_57ffe5b7"
+      },
+      {
+        "url": "https://ottolenghi.co.uk",
+        "meta": {
+          "name": "Ottolenghi"
+        },
+        "id": "site_mnyp23ay_86935a44"
+      },
+      {
+        "url": "https://fallowrestaurant.com",
+        "meta": {
+          "name": "Fallow"
+        },
+        "id": "site_mnyp23ay_2e3179c0"
+      },
+      {
+        "url": "https://www.tayyabs.co.uk",
+        "meta": {
+          "name": "Tayyabs"
+        },
+        "id": "site_mnyp23ay_344147fc"
+      },
+      {
+        "url": "https://moro.co.uk",
+        "meta": {
+          "name": "Moro"
+        },
+        "id": "site_mnyp23ay_a9dbdf2f"
+      },
+      {
+        "url": "https://www.morito.co.uk",
+        "meta": {
+          "name": "Morito"
+        },
+        "id": "site_mnyp23ay_8d1c4a61"
+      }
+    ],
+    "status": "complete"
+  },
+  "sites": [
+    {
+      "siteId": "site_mnyp23ay_57ffe5b7",
+      "url": "https://stjohnrestaurant.com",
+      "artifacts": {},
+      "queries": []
+    },
+    {
+      "siteId": "site_mnyp23ay_86935a44",
+      "url": "https://ottolenghi.co.uk",
+      "artifacts": {},
+      "queries": []
+    },
+    {
+      "siteId": "site_mnyp23ay_2e3179c0",
+      "url": "https://fallowrestaurant.com",
+      "artifacts": {
+        "build-report": {
+          "siteId": "site_mnyp23ay_2e3179c0",
+          "url": "https://fallowrestaurant.com",
+          "meta": {
+            "name": "Fallow"
+          },
+          "scrapedAt": "2026-04-14T14:37:35.211Z",
+          "navigation": {
+            "links": [
+              {
+                "label": "Our Story",
+                "href": "https://fallowrestaurant.com/our-story/"
+              },
+              {
+                "label": "Menus",
+                "href": "https://fallowrestaurant.com/menus/"
+              },
+              {
+                "label": "FAQ",
+                "href": "https://fallowrestaurant.com/faq/"
+              },
+              {
+                "label": "How to find us",
+                "href": "https://fallowrestaurant.com/find-us/"
+              }
+            ]
+          },
+          "classification": {
+            "byCategory": {
+              "home": [
+                "https://fallowrestaurant.com",
+                "https://fallowrestaurant.com/our-story/"
+              ],
+              "menu": [
+                "https://fallowrestaurant.com/menus/"
+              ],
+              "ordering": [],
+              "reservations": [],
+              "contact": [
+                "https://fallowrestaurant.com/find-us/"
+              ]
+            }
+          },
+          "tech": {
+            "home": {
+              "platform": "WordPress",
+              "detectedTechnologies": [
+                {
+                  "name": "WordPress",
+                  "categories": [
+                    "CMS",
+                    "Blogs"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "MySQL",
+                  "categories": [
+                    "Databases"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "PHP",
+                  "categories": [
+                    "Programming languages"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Chosen",
+                  "categories": [
+                    "JavaScript frameworks",
+                    "Web frameworks"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Apache HTTP Server",
+                  "categories": [
+                    "Web servers"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Swiper",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "SevenRooms",
+                  "categories": [
+                    "Widgets",
+                    "Appointment scheduling"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "jQuery",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "version": "2.1.3",
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Tag Manager",
+                  "categories": [
+                    "Tag managers"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Hosted Libraries",
+                  "categories": [
+                    "CDN"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Analytics",
+                  "categories": [
+                    "Analytics"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Font Awesome",
+                  "categories": [
+                    "Font scripts"
+                  ],
+                  "confidence": 100
+                }
+              ],
+              "costBreakdown": [
+                {
+                  "item": "WordPress hosting",
+                  "min": 5,
+                  "max": 50
+                },
+                {
+                  "item": "Google Analytics",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "item": "Domain registration",
+                  "min": 1,
+                  "max": 2
+                }
+              ],
+              "totalEstimatedMonthlyCost": {
+                "min": 6,
+                "max": 52,
+                "currency": "USD"
+              }
+            }
+          },
+          "lighthouse": {
+            "home": {
+              "url": "https://fallowrestaurant.com",
+              "performance": 41,
+              "accessibility": 89,
+              "seo": 92,
+              "bestPractices": 100
+            }
+          },
+          "extract": {
+            "home": {
+              "categoryId": "home",
+              "records": [
+                {
+                  "url": "https://fallowrestaurant.com/our-story/",
+                  "pageName": "Fallow Restaurant – Our Story",
+                  "summary": "Brand storytelling page covering the founding team's backgrounds and restaurant history. No transactional elements, digital integrations, or conversion features are present on this page.",
+                  "opportunityScore": 6,
+                  "digitalMaturityScore": 4,
+                  "hasOnlineOrdering": false,
+                  "hasReservationWidget": false,
+                  "hasProfessionalPhotos": false,
+                  "hasMobileExperience": true,
+                  "techStackNotes": "No CMS, e-commerce, or widget technology observable on this page; Instagram linked externally; contact via raw mailto links only",
+                  "topOpportunity": "No reservation widget or CTA on the page — a high-intent visitor reading the brand story has no immediate path to book a table",
+                  "notes": "Fallow is an award-winning, concept-driven restaurant with strong brand equity but this page lacks any conversion infrastructure, making it a viable lead for CRO, reservation integration, and structured content strategy."
+                }
+              ]
+            },
+            "menu": {
+              "categoryId": "menu",
+              "records": []
+            },
+            "ordering": {
+              "categoryId": "ordering",
+              "records": []
+            },
+            "reservations": {
+              "categoryId": "reservations",
+              "records": []
+            },
+            "contact": {
+              "categoryId": "contact",
+              "records": []
+            }
+          },
+          "progress": {
+            "home": {
+              "detect-tech": "completed",
+              "run-lighthouse": "completed",
+              "extract-pages-content": "completed"
+            },
+            "menu": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "ordering": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "reservations": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "contact": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            }
+          }
+        },
+        "classify-nav": {
+          "byCategory": {
+            "home": [
+              "https://fallowrestaurant.com",
+              "https://fallowrestaurant.com/our-story/"
+            ],
+            "menu": [
+              "https://fallowrestaurant.com/menus/"
+            ],
+            "ordering": [],
+            "reservations": [],
+            "contact": [
+              "https://fallowrestaurant.com/find-us/"
+            ]
+          }
+        },
+        "detect-tech": {
+          "home": {
+            "platform": "WordPress",
+            "detectedTechnologies": [
+              {
+                "name": "WordPress",
+                "categories": [
+                  "CMS",
+                  "Blogs"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "MySQL",
+                "categories": [
+                  "Databases"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "PHP",
+                "categories": [
+                  "Programming languages"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Chosen",
+                "categories": [
+                  "JavaScript frameworks",
+                  "Web frameworks"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Apache HTTP Server",
+                "categories": [
+                  "Web servers"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Swiper",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "SevenRooms",
+                "categories": [
+                  "Widgets",
+                  "Appointment scheduling"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "jQuery",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "version": "2.1.3",
+                "confidence": 100
+              },
+              {
+                "name": "Google Tag Manager",
+                "categories": [
+                  "Tag managers"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Google Hosted Libraries",
+                "categories": [
+                  "CDN"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Google Analytics",
+                "categories": [
+                  "Analytics"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Font Awesome",
+                "categories": [
+                  "Font scripts"
+                ],
+                "confidence": 100
+              }
+            ],
+            "costBreakdown": [
+              {
+                "item": "WordPress hosting",
+                "min": 5,
+                "max": 50
+              },
+              {
+                "item": "Google Analytics",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "item": "Domain registration",
+                "min": 1,
+                "max": 2
+              }
+            ],
+            "totalEstimatedMonthlyCost": {
+              "min": 6,
+              "max": 52,
+              "currency": "USD"
+            }
+          }
+        },
+        "extract-pages-content": {
+          "home": {
+            "categoryId": "home",
+            "records": [
+              {
+                "url": "https://fallowrestaurant.com/our-story/",
+                "pageName": "Fallow Restaurant – Our Story",
+                "summary": "Brand storytelling page covering the founding team's backgrounds and restaurant history. No transactional elements, digital integrations, or conversion features are present on this page.",
+                "opportunityScore": 6,
+                "digitalMaturityScore": 4,
+                "hasOnlineOrdering": false,
+                "hasReservationWidget": false,
+                "hasProfessionalPhotos": false,
+                "hasMobileExperience": true,
+                "techStackNotes": "No CMS, e-commerce, or widget technology observable on this page; Instagram linked externally; contact via raw mailto links only",
+                "topOpportunity": "No reservation widget or CTA on the page — a high-intent visitor reading the brand story has no immediate path to book a table",
+                "notes": "Fallow is an award-winning, concept-driven restaurant with strong brand equity but this page lacks any conversion infrastructure, making it a viable lead for CRO, reservation integration, and structured content strategy."
+              }
+            ]
+          },
+          "menu": {
+            "categoryId": "menu",
+            "records": []
+          },
+          "ordering": {
+            "categoryId": "ordering",
+            "records": []
+          },
+          "reservations": {
+            "categoryId": "reservations",
+            "records": []
+          },
+          "contact": {
+            "categoryId": "contact",
+            "records": []
+          }
+        },
+        "parse-links": {
+          "links": [
+            {
+              "label": "Our Story",
+              "href": "https://fallowrestaurant.com/our-story/"
+            },
+            {
+              "label": "Menus",
+              "href": "https://fallowrestaurant.com/menus/"
+            },
+            {
+              "label": "FAQ",
+              "href": "https://fallowrestaurant.com/faq/"
+            },
+            {
+              "label": "How to find us",
+              "href": "https://fallowrestaurant.com/find-us/"
+            }
+          ]
+        },
+        "run-lighthouse": {
+          "home": {
+            "url": "https://fallowrestaurant.com",
+            "performance": 41,
+            "accessibility": 89,
+            "seo": 92,
+            "bestPractices": 100
+          }
+        },
+        "progress": {
+          "home": {
+            "detect-tech": "completed",
+            "run-lighthouse": "completed",
+            "extract-pages-content": "completed"
+          },
+          "menu": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "ordering": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "reservations": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "contact": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          }
+        }
+      },
+      "queries": [
+        {
+          "id": "q_mnyp6mql_eaf4bed8",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_2e3179c0",
+          "stage": "classify-nav",
+          "model": "claude-haiku-4-5",
+          "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Menu\": menu, food menu, drinks, wine list, specials, dishes\n- \"Ordering\": order online, delivery, takeaway, click and collect, order food\n- \"Reservations\": book a table, reservations, booking, reserve\n- \"Contact\": contact, find us, location, opening hours, address, directions\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+          "dataRefs": [
+            "https://fallowrestaurant.com/our-story/",
+            "https://fallowrestaurant.com/menus/",
+            "https://fallowrestaurant.com/faq/",
+            "https://fallowrestaurant.com/find-us/"
+          ],
+          "response": "{\n  \"Home\": [\n    \"https://fallowrestaurant.com/our-story/\"\n  ],\n  \"Menu\": [\n    \"https://fallowrestaurant.com/menus/\"\n  ],\n  \"Contact\": [\n    \"https://fallowrestaurant.com/find-us/\"\n  ]\n}",
+          "usage": {
+            "inputTokens": 320,
+            "outputTokens": 88
+          },
+          "createdAt": "2026-04-14T14:09:13.629Z"
+        },
+        {
+          "id": "q_mnyq73of_d781b7f9",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_2e3179c0",
+          "categoryId": "home",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency that sells digital solutions to restaurants.\n\nAnalyze this restaurant's homepage for digital maturity and gaps. You are NOT judging quality — you are identifying sales opportunities.\n\nSignals of LOW digital maturity (= good lead):\n- No online ordering or reservation widget\n- Generic template with no customization\n- Missing or broken mobile experience\n- No social proof (reviews, press mentions)\n- Stock photos instead of real food photography\n- No schema markup\n\nSignals of HIGH digital maturity (= poor lead):\n- Integrated ordering system (native, not just Deliveroo link)\n- Reservation widget (OpenTable, ResDiary, Quandoo)\n- Professional food photography\n- Active blog or events section\n- Loyalty/newsletter signup\n- Rich structured data\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of digital presence>\",\n  \"opportunityScore\": \"<1-10, higher = more gaps = better lead>\",\n  \"digitalMaturityScore\": \"<1-10, higher = more mature>\",\n  \"hasOnlineOrdering\": true/false,\n  \"hasReservationWidget\": true/false,\n  \"hasProfessionalPhotos\": true/false,\n  \"hasMobileExperience\": true/false,\n  \"techStackNotes\": \"<observed platform/tools>\",\n  \"topOpportunity\": \"<single biggest gap a web agency could sell>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://fallowrestaurant.com/our-story/"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://fallowrestaurant.com/our-story/\",\n      \"pageName\": \"Fallow Restaurant – Our Story\",\n      \"summary\": \"Brand storytelling page covering the founding team's backgrounds and restaurant history. No transactional elements, digital integrations, or conversion features are present on this page.\",\n      \"opportunityScore\": 6,\n      \"digitalMaturityScore\": 4,\n      \"hasOnlineOrdering\": false,\n      \"hasReservationWidget\": false,\n      \"hasProfessionalPhotos\": false,\n      \"hasMobileExperience\": true,\n      \"techStackNotes\": \"No CMS, e-commerce, or widget technology observable on this page; Instagram linked externally; contact via raw mailto links only\",\n      \"topOpportunity\": \"No reservation widget or CTA on the page — a high-intent visitor reading the brand story has no immediate path to book a table\",\n      \"notes\": \"Fallow is an award-winning, concept-driven restaurant with strong brand equity but this page lacks any conversion infrastructure, making it a viable lead for CRO, reservation integration, and structured content strategy.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 1316,
+            "outputTokens": 287
+          },
+          "createdAt": "2026-04-14T14:37:35.199Z"
+        }
+      ]
+    },
+    {
+      "siteId": "site_mnyp23ay_344147fc",
+      "url": "https://www.tayyabs.co.uk",
+      "artifacts": {},
+      "queries": []
+    },
+    {
+      "siteId": "site_mnyp23ay_a9dbdf2f",
+      "url": "https://moro.co.uk",
+      "artifacts": {
+        "build-report": {
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "url": "https://moro.co.uk",
+          "meta": {
+            "name": "Moro"
+          },
+          "scrapedAt": "2026-04-14T14:39:26.556Z",
+          "navigation": {
+            "links": [
+              {
+                "label": "Restaurant",
+                "href": "https://moro.co.uk/restaurant/"
+              },
+              {
+                "label": "Menus",
+                "href": "https://moro.co.uk/menus"
+              },
+              {
+                "label": "Current Menu",
+                "href": "https://moro.co.uk/menu/christmas-menu-2024/"
+              },
+              {
+                "label": "Sunday Lunch Club",
+                "href": "https://moro.co.uk/sunday-lunch-club/"
+              },
+              {
+                "label": "Drinks",
+                "href": "https://moro.co.uk/menu/drinks/"
+              },
+              {
+                "label": "Tapas",
+                "href": "https://moro.co.uk/menu/tapas/"
+              },
+              {
+                "label": "Make A Reservation",
+                "href": "https://moro.co.uk/book-now/"
+              },
+              {
+                "label": "Private Dining",
+                "href": "https://moro.co.uk/casamoro/"
+              },
+              {
+                "label": "Private Dining Room",
+                "href": "https://moro.co.uk/casamoro/private-dining/"
+              },
+              {
+                "label": "Casa Moro catering",
+                "href": "https://moro.co.uk/casa-moro-event-catering/"
+              },
+              {
+                "label": "Autumn Yard",
+                "href": "https://moro.co.uk/casamoro/autumn-street/"
+              },
+              {
+                "label": "Vouchers",
+                "href": "https://moro.co.uk/shop/"
+              },
+              {
+                "label": "Location",
+                "href": "https://moro.co.uk/location/"
+              },
+              {
+                "label": "Contact",
+                "href": "https://moro.co.uk/contact/"
+              },
+              {
+                "label": "Journal",
+                "href": "https://moro.co.uk/journal/"
+              },
+              {
+                "label": "History",
+                "href": "https://moro.co.uk/restaurant/history/"
+              },
+              {
+                "label": "People",
+                "href": "https://moro.co.uk/restaurant/people/"
+              },
+              {
+                "label": "Morito Exmouth",
+                "href": "https://moro.co.uk/restaurant/morito/"
+              },
+              {
+                "label": "Morito Hackney",
+                "href": "https://moro.co.uk/restaurant/morito-hackney-road/"
+              },
+              {
+                "label": "Newsletter",
+                "href": "https://moro.co.uk/contact/keep-in-touch/"
+              }
+            ]
+          },
+          "classification": {
+            "byCategory": {
+              "home": [
+                "https://moro.co.uk",
+                "https://moro.co.uk/restaurant/"
+              ],
+              "menu": [
+                "https://moro.co.uk/menus",
+                "https://moro.co.uk/menu/christmas-menu-2024/",
+                "https://moro.co.uk/menu/drinks/",
+                "https://moro.co.uk/menu/tapas/",
+                "https://moro.co.uk/sunday-lunch-club/"
+              ],
+              "ordering": [],
+              "reservations": [
+                "https://moro.co.uk/book-now/"
+              ],
+              "contact": [
+                "https://moro.co.uk/location/",
+                "https://moro.co.uk/contact/"
+              ]
+            }
+          },
+          "tech": {
+            "home": {
+              "platform": "WordPress",
+              "detectedTechnologies": [
+                {
+                  "name": "WordPress",
+                  "categories": [
+                    "CMS",
+                    "Blogs"
+                  ],
+                  "version": "6.8.5",
+                  "confidence": 100
+                },
+                {
+                  "name": "MySQL",
+                  "categories": [
+                    "Databases"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "PHP",
+                  "categories": [
+                    "Programming languages"
+                  ],
+                  "version": "7.4.33",
+                  "confidence": 100
+                },
+                {
+                  "name": "LiteSpeed",
+                  "categories": [
+                    "Web servers"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Underscore.js",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Slick",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Moment.js",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "jsDelivr",
+                  "categories": [
+                    "CDN"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "jQuery Migrate",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "version": "3.4.1",
+                  "confidence": 100
+                },
+                {
+                  "name": "jQuery",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Instafeed.js",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Hostinger",
+                  "categories": [
+                    "Hosting"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Tag Manager",
+                  "categories": [
+                    "Tag managers"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Google Analytics",
+                  "categories": [
+                    "Analytics"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "HTTP/3",
+                  "categories": [
+                    "Miscellaneous"
+                  ],
+                  "confidence": 100
+                }
+              ],
+              "costBreakdown": [
+                {
+                  "item": "WordPress hosting",
+                  "min": 5,
+                  "max": 50
+                },
+                {
+                  "item": "Google Analytics",
+                  "min": 0,
+                  "max": 0
+                },
+                {
+                  "item": "Domain registration",
+                  "min": 1,
+                  "max": 2
+                }
+              ],
+              "totalEstimatedMonthlyCost": {
+                "min": 6,
+                "max": 52,
+                "currency": "USD"
+              }
+            }
+          },
+          "lighthouse": {
+            "home": {
+              "url": "https://moro.co.uk",
+              "performance": 65,
+              "accessibility": 89,
+              "seo": 85,
+              "bestPractices": 100
+            }
+          },
+          "extract": {
+            "home": {
+              "categoryId": "home",
+              "records": [
+                {
+                  "url": "https://moro.co.uk",
+                  "pageName": "Moro Restaurant – Homepage",
+                  "summary": "Moro's homepage is a minimal WordPress site with atmospheric food photography and basic navigation to menu, booking, and location pages. The site functions as a digital brochure but lacks integrated conversion tools or modern engagement features.",
+                  "opportunityScore": 6,
+                  "digitalMaturityScore": 4,
+                  "hasOnlineOrdering": false,
+                  "hasReservationWidget": false,
+                  "hasProfessionalPhotos": true,
+                  "hasMobileExperience": true,
+                  "techStackNotes": "WordPress with basic theme; image assets served via wp-content/uploads; no evident schema markup, analytics tags, or third-party reservation embeds visible in page content",
+                  "topOpportunity": "No integrated reservation widget — the 'Book now' link points to an internal page rather than an embedded widget (e.g. OpenTable or ResDiary), creating friction and likely lost bookings",
+                  "notes": "Moro is an established, critically acclaimed London restaurant with good photography and brand presence, but the site's thin feature set and lack of a live reservation widget or loyalty/newsletter capture make it a viable mid-tier lead for a reservation integration and CRM/email capture pitch."
+                },
+                {
+                  "url": "https://moro.co.uk/restaurant/",
+                  "pageName": "Moro Restaurant – About/Restaurant Page",
+                  "summary": "The restaurant page delivers strong brand storytelling and features credited professional food photography, but remains entirely static with no interactive elements, structured data, or conversion prompts beyond navigational image tiles. The page reads well but does nothing to capture or convert visitors.",
+                  "opportunityScore": 6,
+                  "digitalMaturityScore": 4,
+                  "hasOnlineOrdering": false,
+                  "hasReservationWidget": false,
+                  "hasProfessionalPhotos": true,
+                  "hasMobileExperience": true,
+                  "techStackNotes": "WordPress CMS; images credited to Susan Bell (professional photographer); no observable schema markup, no embedded third-party widgets, gift voucher shop suggests WooCommerce or similar may be present",
+                  "topOpportunity": "No schema markup (Restaurant, Menu, Review) meaning the site misses rich results in Google Search — a quick technical SEO win a web agency could deliver immediately",
+                  "notes": "The brand story and photography quality are strong assets, but the complete absence of structured data, social proof signals, and interactive booking tools means a web agency could offer clear, tangible uplift in search visibility and conversion rate."
+                }
+              ]
+            },
+            "menu": {
+              "categoryId": "menu",
+              "records": [
+                {
+                  "url": "https://moro.co.uk/menus",
+                  "pageName": "Menus Index (404)",
+                  "summary": "The main menus index page returns a 404 error, meaning visitors have no central hub to find menu options. Navigation to food and drink content is broken at the top level.",
+                  "opportunityScore": 7,
+                  "menuFormat": "none",
+                  "hasPrices": false,
+                  "hasAllergenInfo": false,
+                  "hasFoodPhotos": false,
+                  "isOutdated": false,
+                  "topOpportunity": "Rebuild a proper menus landing/index page with clear navigation to all menu sections",
+                  "notes": "A broken menu index is a direct conversion killer — any prospecting pitch should lead with fixing this structural navigation failure."
+                },
+                {
+                  "url": "https://moro.co.uk/menu/christmas-menu-2024/",
+                  "pageName": "Christmas Menu 2024",
+                  "summary": "A plain-text HTML page presenting what is labelled a Christmas 2024 menu but appears to display spring/summer dishes (asparagus, broad beans, morels) with an April 2026 timestamp. The menu is well-priced and detailed but the seasonal mismatch and stale branding are significant red flags.",
+                  "opportunityScore": 8,
+                  "menuFormat": "html",
+                  "hasPrices": true,
+                  "hasAllergenInfo": true,
+                  "hasFoodPhotos": false,
+                  "isOutdated": true,
+                  "topOpportunity": "Redesign menu pages with proper seasonal labelling, dynamic date management, food photography, and structured layout replacing raw text",
+                  "notes": "A Christmas-branded URL serving spring content dated April 2026 signals poor CMS hygiene and no menu update workflow — strong agency pitch around content management and seasonal templating."
+                },
+                {
+                  "url": "https://moro.co.uk/menu/drinks/",
+                  "pageName": "Drinks Menu",
+                  "summary": "A comprehensive plain-text HTML drinks menu covering cocktails, vermouth, sherry, wine by region, spirits, and softs — all with prices. Presentation is purely typographic with no visual hierarchy, imagery, or filtering.",
+                  "opportunityScore": 5,
+                  "menuFormat": "html",
+                  "hasPrices": true,
+                  "hasAllergenInfo": false,
+                  "hasFoodPhotos": false,
+                  "isOutdated": false,
+                  "topOpportunity": "Redesign with visual hierarchy, category navigation/tabs, and curated wine/cocktail photography to elevate perceived quality",
+                  "notes": "Content is thorough and current, but the wall-of-text format undersells a clearly premium drinks programme — a design-led agency could pitch a high-impact visual refresh."
+                },
+                {
+                  "url": "https://moro.co.uk/menu/tapas/",
+                  "pageName": "Tapas Menu",
+                  "summary": "A very short plain-text HTML tapas menu listing items with prices, available at the bar and terrace. Minimal detail, no descriptions, no allergen info, and no imagery.",
+                  "opportunityScore": 6,
+                  "menuFormat": "html",
+                  "hasPrices": true,
+                  "hasAllergenInfo": false,
+                  "hasFoodPhotos": false,
+                  "isOutdated": false,
+                  "topOpportunity": "Expand tapas page with dish descriptions, food photography, and allergen indicators to drive bar-area upsell",
+                  "notes": "Bare-bones presentation for what is likely a high-margin bar offering — easy win for an agency to pitch enhanced content and layout to boost tapas visibility and revenue."
+                },
+                {
+                  "url": "https://moro.co.uk/sunday-lunch-club/",
+                  "pageName": "Sunday Lunch Club",
+                  "summary": "A well-written landing page for a set-menu Sunday feast concept, with full menu details, clear pricing (£45/£55), and a booking CTA. Presentation is still plain HTML text with no imagery or interactive elements.",
+                  "opportunityScore": 4,
+                  "menuFormat": "html",
+                  "hasPrices": true,
+                  "hasAllergenInfo": false,
+                  "hasFoodPhotos": false,
+                  "isOutdated": false,
+                  "topOpportunity": "Add hero food photography and atmosphere imagery to convert the strong editorial copy into a higher-performing booking page",
+                  "notes": "This is the most conversion-ready page on the site — good copy and clear pricing — but a lack of visuals leaves significant booking uplift on the table."
+                }
+              ]
+            },
+            "ordering": {
+              "categoryId": "ordering",
+              "records": []
+            },
+            "reservations": {
+              "categoryId": "reservations",
+              "records": [
+                {
+                  "url": "https://moro.co.uk/book-now/",
+                  "pageName": "Moro – Book Now",
+                  "summary": "Moro uses OpenTable for online reservations for groups up to 7 guests, with email and phone provided for larger groups or existing booking updates. The booking experience is largely handled off-site via OpenTable with no native widget embedded on the page itself.",
+                  "opportunityScore": 3,
+                  "bookingType": "widget",
+                  "bookingPlatform": "OpenTable",
+                  "hasOnlineBooking": true,
+                  "hasWaitlist": false,
+                  "topOpportunity": "Embed an OpenTable widget directly on the page rather than redirecting users off-site; add a dedicated group booking enquiry form to replace the plain email link for large-party reservations.",
+                  "notes": "Well-covered for standard bookings via OpenTable, but the page itself is thin — no embedded widget, no form, and large-group handling is a basic mailto link, leaving some room for UX improvements."
+                }
+              ]
+            },
+            "contact": {
+              "categoryId": "contact",
+              "records": [
+                {
+                  "url": "https://moro.co.uk/contact/",
+                  "pageName": "Moro Contact",
+                  "summary": "Basic contact page listing address, phone number, and three separate email addresses for reservations, jobs, and press. No map, no opening hours, and the page is primarily filled with decorative food photography.",
+                  "opportunityScore": 8,
+                  "hasAddress": true,
+                  "hasPhone": true,
+                  "hasEmail": true,
+                  "hasMap": false,
+                  "hasOpeningHours": false,
+                  "hasSchemaMarkup": false,
+                  "topOpportunity": "Add embedded Google Map, opening hours, click-to-call functionality, and LocalBusiness/Restaurant schema markup to improve local SEO and user experience",
+                  "notes": "Strong lead — a well-known London restaurant with a barebones contact page lacking map, hours, and schema; clear room for a full local SEO and UX upgrade."
+                },
+                {
+                  "url": "https://moro.co.uk/location/",
+                  "pageName": "Moro Location",
+                  "summary": "A neighbourhood description page that repeats the address and phone number but contains no map, no directions, no transit or parking information, and no opening hours. Content is largely a Metro editorial quote about Exmouth Market accompanied by lifestyle photos.",
+                  "opportunityScore": 9,
+                  "hasAddress": true,
+                  "hasPhone": true,
+                  "hasEmail": false,
+                  "hasMap": false,
+                  "hasOpeningHours": false,
+                  "hasSchemaMarkup": false,
+                  "topOpportunity": "Replace static neighbourhood copy with an interactive Google Map, transit and parking directions, structured opening hours, and Restaurant schema markup to drive local search visibility",
+                  "notes": "Very strong lead — a dedicated location page with no actual wayfinding tools is a significant missed opportunity for a busy London restaurant; an agency could deliver immediate, measurable SEO and conversion value."
+                }
+              ]
+            }
+          },
+          "progress": {
+            "home": {
+              "detect-tech": "completed",
+              "run-lighthouse": "completed",
+              "extract-pages-content": "completed"
+            },
+            "menu": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "ordering": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "reservations": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "contact": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            }
+          }
+        },
+        "classify-nav": {
+          "byCategory": {
+            "home": [
+              "https://moro.co.uk",
+              "https://moro.co.uk/restaurant/"
+            ],
+            "menu": [
+              "https://moro.co.uk/menus",
+              "https://moro.co.uk/menu/christmas-menu-2024/",
+              "https://moro.co.uk/menu/drinks/",
+              "https://moro.co.uk/menu/tapas/",
+              "https://moro.co.uk/sunday-lunch-club/"
+            ],
+            "ordering": [],
+            "reservations": [
+              "https://moro.co.uk/book-now/"
+            ],
+            "contact": [
+              "https://moro.co.uk/location/",
+              "https://moro.co.uk/contact/"
+            ]
+          }
+        },
+        "detect-tech": {
+          "home": {
+            "platform": "WordPress",
+            "detectedTechnologies": [
+              {
+                "name": "WordPress",
+                "categories": [
+                  "CMS",
+                  "Blogs"
+                ],
+                "version": "6.8.5",
+                "confidence": 100
+              },
+              {
+                "name": "MySQL",
+                "categories": [
+                  "Databases"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "PHP",
+                "categories": [
+                  "Programming languages"
+                ],
+                "version": "7.4.33",
+                "confidence": 100
+              },
+              {
+                "name": "LiteSpeed",
+                "categories": [
+                  "Web servers"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Underscore.js",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Slick",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Moment.js",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "jsDelivr",
+                "categories": [
+                  "CDN"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "jQuery Migrate",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "version": "3.4.1",
+                "confidence": 100
+              },
+              {
+                "name": "jQuery",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Instafeed.js",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Hostinger",
+                "categories": [
+                  "Hosting"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Google Tag Manager",
+                "categories": [
+                  "Tag managers"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Google Analytics",
+                "categories": [
+                  "Analytics"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "HTTP/3",
+                "categories": [
+                  "Miscellaneous"
+                ],
+                "confidence": 100
+              }
+            ],
+            "costBreakdown": [
+              {
+                "item": "WordPress hosting",
+                "min": 5,
+                "max": 50
+              },
+              {
+                "item": "Google Analytics",
+                "min": 0,
+                "max": 0
+              },
+              {
+                "item": "Domain registration",
+                "min": 1,
+                "max": 2
+              }
+            ],
+            "totalEstimatedMonthlyCost": {
+              "min": 6,
+              "max": 52,
+              "currency": "USD"
+            }
+          }
+        },
+        "extract-pages-content": {
+          "home": {
+            "categoryId": "home",
+            "records": [
+              {
+                "url": "https://moro.co.uk",
+                "pageName": "Moro Restaurant – Homepage",
+                "summary": "Moro's homepage is a minimal WordPress site with atmospheric food photography and basic navigation to menu, booking, and location pages. The site functions as a digital brochure but lacks integrated conversion tools or modern engagement features.",
+                "opportunityScore": 6,
+                "digitalMaturityScore": 4,
+                "hasOnlineOrdering": false,
+                "hasReservationWidget": false,
+                "hasProfessionalPhotos": true,
+                "hasMobileExperience": true,
+                "techStackNotes": "WordPress with basic theme; image assets served via wp-content/uploads; no evident schema markup, analytics tags, or third-party reservation embeds visible in page content",
+                "topOpportunity": "No integrated reservation widget — the 'Book now' link points to an internal page rather than an embedded widget (e.g. OpenTable or ResDiary), creating friction and likely lost bookings",
+                "notes": "Moro is an established, critically acclaimed London restaurant with good photography and brand presence, but the site's thin feature set and lack of a live reservation widget or loyalty/newsletter capture make it a viable mid-tier lead for a reservation integration and CRM/email capture pitch."
+              },
+              {
+                "url": "https://moro.co.uk/restaurant/",
+                "pageName": "Moro Restaurant – About/Restaurant Page",
+                "summary": "The restaurant page delivers strong brand storytelling and features credited professional food photography, but remains entirely static with no interactive elements, structured data, or conversion prompts beyond navigational image tiles. The page reads well but does nothing to capture or convert visitors.",
+                "opportunityScore": 6,
+                "digitalMaturityScore": 4,
+                "hasOnlineOrdering": false,
+                "hasReservationWidget": false,
+                "hasProfessionalPhotos": true,
+                "hasMobileExperience": true,
+                "techStackNotes": "WordPress CMS; images credited to Susan Bell (professional photographer); no observable schema markup, no embedded third-party widgets, gift voucher shop suggests WooCommerce or similar may be present",
+                "topOpportunity": "No schema markup (Restaurant, Menu, Review) meaning the site misses rich results in Google Search — a quick technical SEO win a web agency could deliver immediately",
+                "notes": "The brand story and photography quality are strong assets, but the complete absence of structured data, social proof signals, and interactive booking tools means a web agency could offer clear, tangible uplift in search visibility and conversion rate."
+              }
+            ]
+          },
+          "menu": {
+            "categoryId": "menu",
+            "records": [
+              {
+                "url": "https://moro.co.uk/menus",
+                "pageName": "Menus Index (404)",
+                "summary": "The main menus index page returns a 404 error, meaning visitors have no central hub to find menu options. Navigation to food and drink content is broken at the top level.",
+                "opportunityScore": 7,
+                "menuFormat": "none",
+                "hasPrices": false,
+                "hasAllergenInfo": false,
+                "hasFoodPhotos": false,
+                "isOutdated": false,
+                "topOpportunity": "Rebuild a proper menus landing/index page with clear navigation to all menu sections",
+                "notes": "A broken menu index is a direct conversion killer — any prospecting pitch should lead with fixing this structural navigation failure."
+              },
+              {
+                "url": "https://moro.co.uk/menu/christmas-menu-2024/",
+                "pageName": "Christmas Menu 2024",
+                "summary": "A plain-text HTML page presenting what is labelled a Christmas 2024 menu but appears to display spring/summer dishes (asparagus, broad beans, morels) with an April 2026 timestamp. The menu is well-priced and detailed but the seasonal mismatch and stale branding are significant red flags.",
+                "opportunityScore": 8,
+                "menuFormat": "html",
+                "hasPrices": true,
+                "hasAllergenInfo": true,
+                "hasFoodPhotos": false,
+                "isOutdated": true,
+                "topOpportunity": "Redesign menu pages with proper seasonal labelling, dynamic date management, food photography, and structured layout replacing raw text",
+                "notes": "A Christmas-branded URL serving spring content dated April 2026 signals poor CMS hygiene and no menu update workflow — strong agency pitch around content management and seasonal templating."
+              },
+              {
+                "url": "https://moro.co.uk/menu/drinks/",
+                "pageName": "Drinks Menu",
+                "summary": "A comprehensive plain-text HTML drinks menu covering cocktails, vermouth, sherry, wine by region, spirits, and softs — all with prices. Presentation is purely typographic with no visual hierarchy, imagery, or filtering.",
+                "opportunityScore": 5,
+                "menuFormat": "html",
+                "hasPrices": true,
+                "hasAllergenInfo": false,
+                "hasFoodPhotos": false,
+                "isOutdated": false,
+                "topOpportunity": "Redesign with visual hierarchy, category navigation/tabs, and curated wine/cocktail photography to elevate perceived quality",
+                "notes": "Content is thorough and current, but the wall-of-text format undersells a clearly premium drinks programme — a design-led agency could pitch a high-impact visual refresh."
+              },
+              {
+                "url": "https://moro.co.uk/menu/tapas/",
+                "pageName": "Tapas Menu",
+                "summary": "A very short plain-text HTML tapas menu listing items with prices, available at the bar and terrace. Minimal detail, no descriptions, no allergen info, and no imagery.",
+                "opportunityScore": 6,
+                "menuFormat": "html",
+                "hasPrices": true,
+                "hasAllergenInfo": false,
+                "hasFoodPhotos": false,
+                "isOutdated": false,
+                "topOpportunity": "Expand tapas page with dish descriptions, food photography, and allergen indicators to drive bar-area upsell",
+                "notes": "Bare-bones presentation for what is likely a high-margin bar offering — easy win for an agency to pitch enhanced content and layout to boost tapas visibility and revenue."
+              },
+              {
+                "url": "https://moro.co.uk/sunday-lunch-club/",
+                "pageName": "Sunday Lunch Club",
+                "summary": "A well-written landing page for a set-menu Sunday feast concept, with full menu details, clear pricing (£45/£55), and a booking CTA. Presentation is still plain HTML text with no imagery or interactive elements.",
+                "opportunityScore": 4,
+                "menuFormat": "html",
+                "hasPrices": true,
+                "hasAllergenInfo": false,
+                "hasFoodPhotos": false,
+                "isOutdated": false,
+                "topOpportunity": "Add hero food photography and atmosphere imagery to convert the strong editorial copy into a higher-performing booking page",
+                "notes": "This is the most conversion-ready page on the site — good copy and clear pricing — but a lack of visuals leaves significant booking uplift on the table."
+              }
+            ]
+          },
+          "ordering": {
+            "categoryId": "ordering",
+            "records": []
+          },
+          "reservations": {
+            "categoryId": "reservations",
+            "records": [
+              {
+                "url": "https://moro.co.uk/book-now/",
+                "pageName": "Moro – Book Now",
+                "summary": "Moro uses OpenTable for online reservations for groups up to 7 guests, with email and phone provided for larger groups or existing booking updates. The booking experience is largely handled off-site via OpenTable with no native widget embedded on the page itself.",
+                "opportunityScore": 3,
+                "bookingType": "widget",
+                "bookingPlatform": "OpenTable",
+                "hasOnlineBooking": true,
+                "hasWaitlist": false,
+                "topOpportunity": "Embed an OpenTable widget directly on the page rather than redirecting users off-site; add a dedicated group booking enquiry form to replace the plain email link for large-party reservations.",
+                "notes": "Well-covered for standard bookings via OpenTable, but the page itself is thin — no embedded widget, no form, and large-group handling is a basic mailto link, leaving some room for UX improvements."
+              }
+            ]
+          },
+          "contact": {
+            "categoryId": "contact",
+            "records": [
+              {
+                "url": "https://moro.co.uk/contact/",
+                "pageName": "Moro Contact",
+                "summary": "Basic contact page listing address, phone number, and three separate email addresses for reservations, jobs, and press. No map, no opening hours, and the page is primarily filled with decorative food photography.",
+                "opportunityScore": 8,
+                "hasAddress": true,
+                "hasPhone": true,
+                "hasEmail": true,
+                "hasMap": false,
+                "hasOpeningHours": false,
+                "hasSchemaMarkup": false,
+                "topOpportunity": "Add embedded Google Map, opening hours, click-to-call functionality, and LocalBusiness/Restaurant schema markup to improve local SEO and user experience",
+                "notes": "Strong lead — a well-known London restaurant with a barebones contact page lacking map, hours, and schema; clear room for a full local SEO and UX upgrade."
+              },
+              {
+                "url": "https://moro.co.uk/location/",
+                "pageName": "Moro Location",
+                "summary": "A neighbourhood description page that repeats the address and phone number but contains no map, no directions, no transit or parking information, and no opening hours. Content is largely a Metro editorial quote about Exmouth Market accompanied by lifestyle photos.",
+                "opportunityScore": 9,
+                "hasAddress": true,
+                "hasPhone": true,
+                "hasEmail": false,
+                "hasMap": false,
+                "hasOpeningHours": false,
+                "hasSchemaMarkup": false,
+                "topOpportunity": "Replace static neighbourhood copy with an interactive Google Map, transit and parking directions, structured opening hours, and Restaurant schema markup to drive local search visibility",
+                "notes": "Very strong lead — a dedicated location page with no actual wayfinding tools is a significant missed opportunity for a busy London restaurant; an agency could deliver immediate, measurable SEO and conversion value."
+              }
+            ]
+          }
+        },
+        "parse-links": {
+          "links": [
+            {
+              "label": "Restaurant",
+              "href": "https://moro.co.uk/restaurant/"
+            },
+            {
+              "label": "Menus",
+              "href": "https://moro.co.uk/menus"
+            },
+            {
+              "label": "Current Menu",
+              "href": "https://moro.co.uk/menu/christmas-menu-2024/"
+            },
+            {
+              "label": "Sunday Lunch Club",
+              "href": "https://moro.co.uk/sunday-lunch-club/"
+            },
+            {
+              "label": "Drinks",
+              "href": "https://moro.co.uk/menu/drinks/"
+            },
+            {
+              "label": "Tapas",
+              "href": "https://moro.co.uk/menu/tapas/"
+            },
+            {
+              "label": "Make A Reservation",
+              "href": "https://moro.co.uk/book-now/"
+            },
+            {
+              "label": "Private Dining",
+              "href": "https://moro.co.uk/casamoro/"
+            },
+            {
+              "label": "Private Dining Room",
+              "href": "https://moro.co.uk/casamoro/private-dining/"
+            },
+            {
+              "label": "Casa Moro catering",
+              "href": "https://moro.co.uk/casa-moro-event-catering/"
+            },
+            {
+              "label": "Autumn Yard",
+              "href": "https://moro.co.uk/casamoro/autumn-street/"
+            },
+            {
+              "label": "Vouchers",
+              "href": "https://moro.co.uk/shop/"
+            },
+            {
+              "label": "Location",
+              "href": "https://moro.co.uk/location/"
+            },
+            {
+              "label": "Contact",
+              "href": "https://moro.co.uk/contact/"
+            },
+            {
+              "label": "Journal",
+              "href": "https://moro.co.uk/journal/"
+            },
+            {
+              "label": "History",
+              "href": "https://moro.co.uk/restaurant/history/"
+            },
+            {
+              "label": "People",
+              "href": "https://moro.co.uk/restaurant/people/"
+            },
+            {
+              "label": "Morito Exmouth",
+              "href": "https://moro.co.uk/restaurant/morito/"
+            },
+            {
+              "label": "Morito Hackney",
+              "href": "https://moro.co.uk/restaurant/morito-hackney-road/"
+            },
+            {
+              "label": "Newsletter",
+              "href": "https://moro.co.uk/contact/keep-in-touch/"
+            }
+          ]
+        },
+        "run-lighthouse": {
+          "home": {
+            "url": "https://moro.co.uk",
+            "performance": 65,
+            "accessibility": 89,
+            "seo": 85,
+            "bestPractices": 100
+          }
+        },
+        "progress": {
+          "home": {
+            "detect-tech": "completed",
+            "run-lighthouse": "completed",
+            "extract-pages-content": "completed"
+          },
+          "menu": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "ordering": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "reservations": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "contact": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          }
+        }
+      },
+      "queries": [
+        {
+          "id": "q_mnyp8uew_b5096414",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "stage": "classify-nav",
+          "model": "claude-haiku-4-5",
+          "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Menu\": menu, food menu, drinks, wine list, specials, dishes\n- \"Ordering\": order online, delivery, takeaway, click and collect, order food\n- \"Reservations\": book a table, reservations, booking, reserve\n- \"Contact\": contact, find us, location, opening hours, address, directions\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+          "dataRefs": [
+            "https://moro.co.uk/restaurant/",
+            "https://moro.co.uk/menus",
+            "https://moro.co.uk/menu/christmas-menu-2024/",
+            "https://moro.co.uk/sunday-lunch-club/",
+            "https://moro.co.uk/menu/drinks/",
+            "https://moro.co.uk/menu/tapas/",
+            "https://moro.co.uk/book-now/",
+            "https://moro.co.uk/casamoro/",
+            "https://moro.co.uk/casamoro/private-dining/",
+            "https://moro.co.uk/casa-moro-event-catering/",
+            "https://moro.co.uk/casamoro/autumn-street/",
+            "https://moro.co.uk/shop/",
+            "https://moro.co.uk/location/",
+            "https://moro.co.uk/contact/",
+            "https://moro.co.uk/journal/",
+            "https://moro.co.uk/restaurant/history/",
+            "https://moro.co.uk/restaurant/people/",
+            "https://moro.co.uk/restaurant/morito/",
+            "https://moro.co.uk/restaurant/morito-hackney-road/",
+            "https://moro.co.uk/contact/keep-in-touch/"
+          ],
+          "response": "{\n  \"Home\": [\n    \"https://moro.co.uk/restaurant/\"\n  ],\n  \"Menu\": [\n    \"https://moro.co.uk/menus\",\n    \"https://moro.co.uk/menu/christmas-menu-2024/\",\n    \"https://moro.co.uk/menu/drinks/\",\n    \"https://moro.co.uk/menu/tapas/\",\n    \"https://moro.co.uk/sunday-lunch-club/\"\n  ],\n  \"Reservations\": [\n    \"https://moro.co.uk/book-now/\"\n  ],\n  \"Contact\": [\n    \"https://moro.co.uk/location/\",\n    \"https://moro.co.uk/contact/\"\n  ]\n}",
+          "usage": {
+            "inputTokens": 673,
+            "outputTokens": 198
+          },
+          "createdAt": "2026-04-14T14:10:56.888Z"
+        },
+        {
+          "id": "q_mnyq8p11_02396411",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "categoryId": "home",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency that sells digital solutions to restaurants.\n\nAnalyze this restaurant's homepage for digital maturity and gaps. You are NOT judging quality — you are identifying sales opportunities.\n\nSignals of LOW digital maturity (= good lead):\n- No online ordering or reservation widget\n- Generic template with no customization\n- Missing or broken mobile experience\n- No social proof (reviews, press mentions)\n- Stock photos instead of real food photography\n- No schema markup\n\nSignals of HIGH digital maturity (= poor lead):\n- Integrated ordering system (native, not just Deliveroo link)\n- Reservation widget (OpenTable, ResDiary, Quandoo)\n- Professional food photography\n- Active blog or events section\n- Loyalty/newsletter signup\n- Rich structured data\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of digital presence>\",\n  \"opportunityScore\": \"<1-10, higher = more gaps = better lead>\",\n  \"digitalMaturityScore\": \"<1-10, higher = more mature>\",\n  \"hasOnlineOrdering\": true/false,\n  \"hasReservationWidget\": true/false,\n  \"hasProfessionalPhotos\": true/false,\n  \"hasMobileExperience\": true/false,\n  \"techStackNotes\": \"<observed platform/tools>\",\n  \"topOpportunity\": \"<single biggest gap a web agency could sell>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://moro.co.uk",
+            "https://moro.co.uk/restaurant/"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://moro.co.uk\",\n      \"pageName\": \"Moro Restaurant – Homepage\",\n      \"summary\": \"Moro's homepage is a minimal WordPress site with atmospheric food photography and basic navigation to menu, booking, and location pages. The site functions as a digital brochure but lacks integrated conversion tools or modern engagement features.\",\n      \"opportunityScore\": 6,\n      \"digitalMaturityScore\": 4,\n      \"hasOnlineOrdering\": false,\n      \"hasReservationWidget\": false,\n      \"hasProfessionalPhotos\": true,\n      \"hasMobileExperience\": true,\n      \"techStackNotes\": \"WordPress with basic theme; image assets served via wp-content/uploads; no evident schema markup, analytics tags, or third-party reservation embeds visible in page content\",\n      \"topOpportunity\": \"No integrated reservation widget — the 'Book now' link points to an internal page rather than an embedded widget (e.g. OpenTable or ResDiary), creating friction and likely lost bookings\",\n      \"notes\": \"Moro is an established, critically acclaimed London restaurant with good photography and brand presence, but the site's thin feature set and lack of a live reservation widget or loyalty/newsletter capture make it a viable mid-tier lead for a reservation integration and CRM/email capture pitch.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/restaurant/\",\n      \"pageName\": \"Moro Restaurant – About/Restaurant Page\",\n      \"summary\": \"The restaurant page delivers strong brand storytelling and features credited professional food photography, but remains entirely static with no interactive elements, structured data, or conversion prompts beyond navigational image tiles. The page reads well but does nothing to capture or convert visitors.\",\n      \"opportunityScore\": 6,\n      \"digitalMaturityScore\": 4,\n      \"hasOnlineOrdering\": false,\n      \"hasReservationWidget\": false,\n      \"hasProfessionalPhotos\": true,\n      \"hasMobileExperience\": true,\n      \"techStackNotes\": \"WordPress CMS; images credited to Susan Bell (professional photographer); no observable schema markup, no embedded third-party widgets, gift voucher shop suggests WooCommerce or similar may be present\",\n      \"topOpportunity\": \"No schema markup (Restaurant, Menu, Review) meaning the site misses rich results in Google Search — a quick technical SEO win a web agency could deliver immediately\",\n      \"notes\": \"The brand story and photography quality are strong assets, but the complete absence of structured data, social proof signals, and interactive booking tools means a web agency could offer clear, tangible uplift in search visibility and conversion rate.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 1580,
+            "outputTokens": 635
+          },
+          "createdAt": "2026-04-14T14:38:49.525Z"
+        },
+        {
+          "id": "q_mnyq95yv_17587156",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "categoryId": "menu",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's menu page.\n\nThe menu page is the #1 signal for digital maturity in restaurants.\n\nHOT LEAD signals:\n- Menu is a PDF (can't be indexed, can't be updated easily)\n- Menu is an image/photo of a printed menu\n- No menu page at all (just a link to a third-party)\n- Outdated menu (seasonal items from wrong season, old dates)\n\nCOLD LEAD signals:\n- Interactive HTML menu with categories and descriptions\n- Menu integrated with ordering system\n- Allergen/dietary filters\n- Prices clearly listed and formatted\n- Menu items with photos\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of menu presentation>\",\n  \"opportunityScore\": \"<1-10, higher = worse menu = better lead>\",\n  \"menuFormat\": \"<html|pdf|image|third-party|none>\",\n  \"hasPrices\": true/false,\n  \"hasAllergenInfo\": true/false,\n  \"hasFoodPhotos\": true/false,\n  \"isOutdated\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://moro.co.uk/menus",
+            "https://moro.co.uk/menu/christmas-menu-2024/",
+            "https://moro.co.uk/menu/drinks/",
+            "https://moro.co.uk/menu/tapas/",
+            "https://moro.co.uk/sunday-lunch-club/"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://moro.co.uk/menus\",\n      \"pageName\": \"Menus Index (404)\",\n      \"summary\": \"The main menus index page returns a 404 error, meaning visitors have no central hub to find menu options. Navigation to food and drink content is broken at the top level.\",\n      \"opportunityScore\": 7,\n      \"menuFormat\": \"none\",\n      \"hasPrices\": false,\n      \"hasAllergenInfo\": false,\n      \"hasFoodPhotos\": false,\n      \"isOutdated\": false,\n      \"topOpportunity\": \"Rebuild a proper menus landing/index page with clear navigation to all menu sections\",\n      \"notes\": \"A broken menu index is a direct conversion killer — any prospecting pitch should lead with fixing this structural navigation failure.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/menu/christmas-menu-2024/\",\n      \"pageName\": \"Christmas Menu 2024\",\n      \"summary\": \"A plain-text HTML page presenting what is labelled a Christmas 2024 menu but appears to display spring/summer dishes (asparagus, broad beans, morels) with an April 2026 timestamp. The menu is well-priced and detailed but the seasonal mismatch and stale branding are significant red flags.\",\n      \"opportunityScore\": 8,\n      \"menuFormat\": \"html\",\n      \"hasPrices\": true,\n      \"hasAllergenInfo\": true,\n      \"hasFoodPhotos\": false,\n      \"isOutdated\": true,\n      \"topOpportunity\": \"Redesign menu pages with proper seasonal labelling, dynamic date management, food photography, and structured layout replacing raw text\",\n      \"notes\": \"A Christmas-branded URL serving spring content dated April 2026 signals poor CMS hygiene and no menu update workflow — strong agency pitch around content management and seasonal templating.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/menu/drinks/\",\n      \"pageName\": \"Drinks Menu\",\n      \"summary\": \"A comprehensive plain-text HTML drinks menu covering cocktails, vermouth, sherry, wine by region, spirits, and softs — all with prices. Presentation is purely typographic with no visual hierarchy, imagery, or filtering.\",\n      \"opportunityScore\": 5,\n      \"menuFormat\": \"html\",\n      \"hasPrices\": true,\n      \"hasAllergenInfo\": false,\n      \"hasFoodPhotos\": false,\n      \"isOutdated\": false,\n      \"topOpportunity\": \"Redesign with visual hierarchy, category navigation/tabs, and curated wine/cocktail photography to elevate perceived quality\",\n      \"notes\": \"Content is thorough and current, but the wall-of-text format undersells a clearly premium drinks programme — a design-led agency could pitch a high-impact visual refresh.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/menu/tapas/\",\n      \"pageName\": \"Tapas Menu\",\n      \"summary\": \"A very short plain-text HTML tapas menu listing items with prices, available at the bar and terrace. Minimal detail, no descriptions, no allergen info, and no imagery.\",\n      \"opportunityScore\": 6,\n      \"menuFormat\": \"html\",\n      \"hasPrices\": true,\n      \"hasAllergenInfo\": false,\n      \"hasFoodPhotos\": false,\n      \"isOutdated\": false,\n      \"topOpportunity\": \"Expand tapas page with dish descriptions, food photography, and allergen indicators to drive bar-area upsell\",\n      \"notes\": \"Bare-bones presentation for what is likely a high-margin bar offering — easy win for an agency to pitch enhanced content and layout to boost tapas visibility and revenue.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/sunday-lunch-club/\",\n      \"pageName\": \"Sunday Lunch Club\",\n      \"summary\": \"A well-written landing page for a set-menu Sunday feast concept, with full menu details, clear pricing (£45/£55), and a booking CTA. Presentation is still plain HTML text with no imagery or interactive elements.\",\n      \"opportunityScore\": 4,\n      \"menuFormat\": \"html\",\n      \"hasPrices\": true,\n      \"hasAllergenInfo\": false,\n      \"hasFoodPhotos\": false,\n      \"isOutdated\": false,\n      \"topOpportunity\": \"Add hero food photography and atmosphere imagery to convert the strong editorial copy into a higher-performing booking page\",\n      \"notes\": \"This is the most conversion-ready page on the site — good copy and clear pricing — but a lack of visuals leaves significant booking uplift on the table.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 6080,
+            "outputTokens": 1152
+          },
+          "createdAt": "2026-04-14T14:39:11.479Z"
+        },
+        {
+          "id": "q_mnyq9awg_5c9b1d62",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "categoryId": "reservations",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's reservation system.\n\nHOT LEAD signals:\n- No reservation page — phone only\n- Email-only booking\n- Contact form instead of real booking widget\n- \"Call to reserve\" with no online option\n\nCOLD LEAD signals:\n- Embedded booking widget (OpenTable, ResDiary, Quandoo, Resy)\n- Native reservation system with date/time/party-size picker\n- Confirmation emails / SMS\n- Waitlist feature\n- Integration with Google Reserve\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of reservation capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse booking = better lead>\",\n  \"bookingType\": \"<widget|native|email|phone|form|none>\",\n  \"bookingPlatform\": \"<platform name if any>\",\n  \"hasOnlineBooking\": true/false,\n  \"hasWaitlist\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://moro.co.uk/book-now/"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://moro.co.uk/book-now/\",\n      \"pageName\": \"Moro – Book Now\",\n      \"summary\": \"Moro uses OpenTable for online reservations for groups up to 7 guests, with email and phone provided for larger groups or existing booking updates. The booking experience is largely handled off-site via OpenTable with no native widget embedded on the page itself.\",\n      \"opportunityScore\": 3,\n      \"bookingType\": \"widget\",\n      \"bookingPlatform\": \"OpenTable\",\n      \"hasOnlineBooking\": true,\n      \"hasWaitlist\": false,\n      \"topOpportunity\": \"Embed an OpenTable widget directly on the page rather than redirecting users off-site; add a dedicated group booking enquiry form to replace the plain email link for large-party reservations.\",\n      \"notes\": \"Well-covered for standard bookings via OpenTable, but the page itself is thin — no embedded widget, no form, and large-group handling is a basic mailto link, leaving some room for UX improvements.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 975,
+            "outputTokens": 268
+          },
+          "createdAt": "2026-04-14T14:39:17.872Z"
+        },
+        {
+          "id": "q_mnyq9hlb_b6ad26fb",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_a9dbdf2f",
+          "categoryId": "contact",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's contact/location page.\n\nHOT LEAD signals:\n- No dedicated contact page\n- Address without a map\n- Missing opening hours\n- No schema markup (LocalBusiness, Restaurant)\n- Inconsistent NAP (name, address, phone) across site\n\nCOLD LEAD signals:\n- Embedded Google Map\n- Full opening hours including holidays\n- Click-to-call phone number\n- Directions from transit/parking\n- LocalBusiness or Restaurant schema\n- Social media links\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of contact page>\",\n  \"opportunityScore\": \"<1-10, higher = worse contact page = better lead>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"hasSchemaMarkup\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://moro.co.uk/contact/",
+            "https://moro.co.uk/location/"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://moro.co.uk/contact/\",\n      \"pageName\": \"Moro Contact\",\n      \"summary\": \"Basic contact page listing address, phone number, and three separate email addresses for reservations, jobs, and press. No map, no opening hours, and the page is primarily filled with decorative food photography.\",\n      \"opportunityScore\": 8,\n      \"hasAddress\": true,\n      \"hasPhone\": true,\n      \"hasEmail\": true,\n      \"hasMap\": false,\n      \"hasOpeningHours\": false,\n      \"hasSchemaMarkup\": false,\n      \"topOpportunity\": \"Add embedded Google Map, opening hours, click-to-call functionality, and LocalBusiness/Restaurant schema markup to improve local SEO and user experience\",\n      \"notes\": \"Strong lead — a well-known London restaurant with a barebones contact page lacking map, hours, and schema; clear room for a full local SEO and UX upgrade.\"\n    },\n    {\n      \"url\": \"https://moro.co.uk/location/\",\n      \"pageName\": \"Moro Location\",\n      \"summary\": \"A neighbourhood description page that repeats the address and phone number but contains no map, no directions, no transit or parking information, and no opening hours. Content is largely a Metro editorial quote about Exmouth Market accompanied by lifestyle photos.\",\n      \"opportunityScore\": 9,\n      \"hasAddress\": true,\n      \"hasPhone\": true,\n      \"hasEmail\": false,\n      \"hasMap\": false,\n      \"hasOpeningHours\": false,\n      \"hasSchemaMarkup\": false,\n      \"topOpportunity\": \"Replace static neighbourhood copy with an interactive Google Map, transit and parking directions, structured opening hours, and Restaurant schema markup to drive local search visibility\",\n      \"notes\": \"Very strong lead — a dedicated location page with no actual wayfinding tools is a significant missed opportunity for a busy London restaurant; an agency could deliver immediate, measurable SEO and conversion value.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 1312,
+            "outputTokens": 485
+          },
+          "createdAt": "2026-04-14T14:39:26.543Z"
+        }
+      ]
+    },
+    {
+      "siteId": "site_mnyp23ay_8d1c4a61",
+      "url": "https://www.morito.co.uk",
+      "artifacts": {
+        "build-report": {
+          "siteId": "site_mnyp23ay_8d1c4a61",
+          "url": "https://www.morito.co.uk",
+          "meta": {
+            "name": "Morito"
+          },
+          "scrapedAt": "2026-04-14T14:40:59.802Z",
+          "navigation": {
+            "links": [
+              {
+                "label": "Exmouth Market",
+                "href": "https://www.morito.co.uk/exmouth-market"
+              },
+              {
+                "label": "Hackney Road",
+                "href": "https://www.morito.co.uk/hackney-road"
+              },
+              {
+                "label": "Private Hire",
+                "href": "https://www.morito.co.uk/private-hire"
+              },
+              {
+                "label": "Our Story",
+                "href": "https://www.morito.co.uk/our-story"
+              },
+              {
+                "label": "Outside Catering",
+                "href": "https://www.morito.co.uk/outside-catering"
+              },
+              {
+                "label": "Gift Vouchers",
+                "href": "https://www.morito.co.uk/gift-vouchers"
+              },
+              {
+                "label": "Autumn Yard",
+                "href": "https://www.morito.co.uk/autumn-yard"
+              },
+              {
+                "label": "Book Online",
+                "href": "https://www.morito.co.uk/book-online"
+              },
+              {
+                "label": "Folder: Information",
+                "href": "https://www.morito.co.uk/information"
+              },
+              {
+                "label": "CONTACT US",
+                "href": "https://www.morito.co.uk/contact-us"
+              }
+            ]
+          },
+          "classification": {
+            "byCategory": {
+              "home": [
+                "https://www.morito.co.uk",
+                "https://www.morito.co.uk/our-story"
+              ],
+              "menu": [],
+              "ordering": [],
+              "reservations": [
+                "https://www.morito.co.uk/book-online"
+              ],
+              "contact": [
+                "https://www.morito.co.uk/contact-us"
+              ]
+            }
+          },
+          "tech": {
+            "home": {
+              "platform": "Squarespace",
+              "detectedTechnologies": [
+                {
+                  "name": "Squarespace Commerce",
+                  "categories": [
+                    "Ecommerce"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Squarespace",
+                  "categories": [
+                    "CMS"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "Stimulus",
+                  "categories": [
+                    "JavaScript frameworks"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "reCAPTCHA",
+                  "categories": [
+                    "Security"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "parallax.js",
+                  "categories": [
+                    "JavaScript libraries"
+                  ],
+                  "confidence": 100
+                },
+                {
+                  "name": "HSTS",
+                  "categories": [
+                    "Security"
+                  ],
+                  "confidence": 100
+                }
+              ],
+              "costBreakdown": [
+                {
+                  "item": "Squarespace subscription",
+                  "min": 16,
+                  "max": 65
+                },
+                {
+                  "item": "Domain registration",
+                  "min": 1,
+                  "max": 2
+                }
+              ],
+              "totalEstimatedMonthlyCost": {
+                "min": 17,
+                "max": 67,
+                "currency": "USD"
+              }
+            }
+          },
+          "lighthouse": {
+            "home": {
+              "url": "https://www.morito.co.uk",
+              "performance": 49,
+              "accessibility": 94,
+              "seo": 100,
+              "bestPractices": 100
+            }
+          },
+          "extract": {
+            "home": {
+              "categoryId": "home",
+              "records": [
+                {
+                  "url": "https://www.morito.co.uk",
+                  "pageName": "Morito Homepage",
+                  "summary": "Visually rich Squarespace homepage for a well-established London tapas and mezze restaurant group with two locations. Features strong food photography and brand storytelling but lacks any integrated booking or ordering functionality.",
+                  "opportunityScore": 6,
+                  "digitalMaturityScore": 5,
+                  "hasOnlineOrdering": false,
+                  "hasReservationWidget": false,
+                  "hasProfessionalPhotos": true,
+                  "hasMobileExperience": true,
+                  "techStackNotes": "Squarespace (v1 CDN URLs confirmed), no third-party booking or ordering widgets detected",
+                  "topOpportunity": "No reservation widget present — integrating OpenTable, ResDiary or Quandoo directly on the homepage would convert passive visitors into confirmed covers",
+                  "notes": "Strong brand identity and photography make this a warm lead for a reservation widget and structured data uplift rather than a full redesign."
+                },
+                {
+                  "url": "https://www.morito.co.uk/our-story",
+                  "pageName": "Morito Our Story",
+                  "summary": "Simple brand narrative page with founder copy and a single image, reusing the homepage story section. No calls-to-action, no social proof, and no links to menus, reservations or events.",
+                  "opportunityScore": 7,
+                  "digitalMaturityScore": 4,
+                  "hasOnlineOrdering": false,
+                  "hasReservationWidget": false,
+                  "hasProfessionalPhotos": true,
+                  "hasMobileExperience": true,
+                  "techStackNotes": "Squarespace, static content page with no embedded tools or widgets",
+                  "topOpportunity": "Page has no CTA — adding a reservation button, press quotes, or newsletter signup would turn a dead-end brand page into a conversion touchpoint",
+                  "notes": "A high-intent page (people researching the brand before booking) that currently drives zero conversions — strong case for a CTA and social proof injection."
+                }
+              ]
+            },
+            "menu": {
+              "categoryId": "menu",
+              "records": []
+            },
+            "ordering": {
+              "categoryId": "ordering",
+              "records": []
+            },
+            "reservations": {
+              "categoryId": "reservations",
+              "records": [
+                {
+                  "url": "https://www.morito.co.uk/book-online",
+                  "pageName": "Morito – Book Online",
+                  "summary": "Morito offers online reservations for both its Exmouth Market and Hackney Road locations via embedded OpenTable links. Guests are directed to OpenTable's availability picker to find and book a table.",
+                  "opportunityScore": 2,
+                  "bookingType": "widget",
+                  "bookingPlatform": "OpenTable",
+                  "hasOnlineBooking": true,
+                  "hasWaitlist": false,
+                  "topOpportunity": "Minimal — could pitch a native booking system to reduce OpenTable commission fees or add a waitlist feature",
+                  "notes": "Strong cold lead; Morito already has functional online booking via OpenTable for both locations, leaving little room for a reservation-focused agency pitch."
+                }
+              ]
+            },
+            "contact": {
+              "categoryId": "contact",
+              "records": [
+                {
+                  "url": "https://www.morito.co.uk/contact-us",
+                  "pageName": "Morito – Contact Us",
+                  "summary": "The contact page features an embedded Google Map and appears to be built on Squarespace. However, no opening hours, phone number, or email address are visibly present on the page, and no LocalBusiness/Restaurant schema markup was detected.",
+                  "opportunityScore": 6,
+                  "hasAddress": false,
+                  "hasPhone": false,
+                  "hasEmail": false,
+                  "hasMap": true,
+                  "hasOpeningHours": false,
+                  "hasSchemaMarkup": false,
+                  "topOpportunity": "Add structured LocalBusiness/Restaurant schema markup, opening hours, click-to-call phone number, and a visible address to improve local SEO and customer findability.",
+                  "notes": "Moderate lead — the map is present but key contact details and schema are missing, leaving significant local SEO and UX gaps a web agency could address."
+                }
+              ]
+            }
+          },
+          "progress": {
+            "home": {
+              "detect-tech": "completed",
+              "run-lighthouse": "completed",
+              "extract-pages-content": "completed"
+            },
+            "menu": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "ordering": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "reservations": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            },
+            "contact": {
+              "detect-tech": "not-requested",
+              "run-lighthouse": "not-requested",
+              "extract-pages-content": "completed"
+            }
+          }
+        },
+        "classify-nav": {
+          "byCategory": {
+            "home": [
+              "https://www.morito.co.uk",
+              "https://www.morito.co.uk/our-story"
+            ],
+            "menu": [],
+            "ordering": [],
+            "reservations": [
+              "https://www.morito.co.uk/book-online"
+            ],
+            "contact": [
+              "https://www.morito.co.uk/contact-us"
+            ]
+          }
+        },
+        "detect-tech": {
+          "home": {
+            "platform": "Squarespace",
+            "detectedTechnologies": [
+              {
+                "name": "Squarespace Commerce",
+                "categories": [
+                  "Ecommerce"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Squarespace",
+                "categories": [
+                  "CMS"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "Stimulus",
+                "categories": [
+                  "JavaScript frameworks"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "reCAPTCHA",
+                "categories": [
+                  "Security"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "parallax.js",
+                "categories": [
+                  "JavaScript libraries"
+                ],
+                "confidence": 100
+              },
+              {
+                "name": "HSTS",
+                "categories": [
+                  "Security"
+                ],
+                "confidence": 100
+              }
+            ],
+            "costBreakdown": [
+              {
+                "item": "Squarespace subscription",
+                "min": 16,
+                "max": 65
+              },
+              {
+                "item": "Domain registration",
+                "min": 1,
+                "max": 2
+              }
+            ],
+            "totalEstimatedMonthlyCost": {
+              "min": 17,
+              "max": 67,
+              "currency": "USD"
+            }
+          }
+        },
+        "extract-pages-content": {
+          "home": {
+            "categoryId": "home",
+            "records": [
+              {
+                "url": "https://www.morito.co.uk",
+                "pageName": "Morito Homepage",
+                "summary": "Visually rich Squarespace homepage for a well-established London tapas and mezze restaurant group with two locations. Features strong food photography and brand storytelling but lacks any integrated booking or ordering functionality.",
+                "opportunityScore": 6,
+                "digitalMaturityScore": 5,
+                "hasOnlineOrdering": false,
+                "hasReservationWidget": false,
+                "hasProfessionalPhotos": true,
+                "hasMobileExperience": true,
+                "techStackNotes": "Squarespace (v1 CDN URLs confirmed), no third-party booking or ordering widgets detected",
+                "topOpportunity": "No reservation widget present — integrating OpenTable, ResDiary or Quandoo directly on the homepage would convert passive visitors into confirmed covers",
+                "notes": "Strong brand identity and photography make this a warm lead for a reservation widget and structured data uplift rather than a full redesign."
+              },
+              {
+                "url": "https://www.morito.co.uk/our-story",
+                "pageName": "Morito Our Story",
+                "summary": "Simple brand narrative page with founder copy and a single image, reusing the homepage story section. No calls-to-action, no social proof, and no links to menus, reservations or events.",
+                "opportunityScore": 7,
+                "digitalMaturityScore": 4,
+                "hasOnlineOrdering": false,
+                "hasReservationWidget": false,
+                "hasProfessionalPhotos": true,
+                "hasMobileExperience": true,
+                "techStackNotes": "Squarespace, static content page with no embedded tools or widgets",
+                "topOpportunity": "Page has no CTA — adding a reservation button, press quotes, or newsletter signup would turn a dead-end brand page into a conversion touchpoint",
+                "notes": "A high-intent page (people researching the brand before booking) that currently drives zero conversions — strong case for a CTA and social proof injection."
+              }
+            ]
+          },
+          "menu": {
+            "categoryId": "menu",
+            "records": []
+          },
+          "ordering": {
+            "categoryId": "ordering",
+            "records": []
+          },
+          "reservations": {
+            "categoryId": "reservations",
+            "records": [
+              {
+                "url": "https://www.morito.co.uk/book-online",
+                "pageName": "Morito – Book Online",
+                "summary": "Morito offers online reservations for both its Exmouth Market and Hackney Road locations via embedded OpenTable links. Guests are directed to OpenTable's availability picker to find and book a table.",
+                "opportunityScore": 2,
+                "bookingType": "widget",
+                "bookingPlatform": "OpenTable",
+                "hasOnlineBooking": true,
+                "hasWaitlist": false,
+                "topOpportunity": "Minimal — could pitch a native booking system to reduce OpenTable commission fees or add a waitlist feature",
+                "notes": "Strong cold lead; Morito already has functional online booking via OpenTable for both locations, leaving little room for a reservation-focused agency pitch."
+              }
+            ]
+          },
+          "contact": {
+            "categoryId": "contact",
+            "records": [
+              {
+                "url": "https://www.morito.co.uk/contact-us",
+                "pageName": "Morito – Contact Us",
+                "summary": "The contact page features an embedded Google Map and appears to be built on Squarespace. However, no opening hours, phone number, or email address are visibly present on the page, and no LocalBusiness/Restaurant schema markup was detected.",
+                "opportunityScore": 6,
+                "hasAddress": false,
+                "hasPhone": false,
+                "hasEmail": false,
+                "hasMap": true,
+                "hasOpeningHours": false,
+                "hasSchemaMarkup": false,
+                "topOpportunity": "Add structured LocalBusiness/Restaurant schema markup, opening hours, click-to-call phone number, and a visible address to improve local SEO and customer findability.",
+                "notes": "Moderate lead — the map is present but key contact details and schema are missing, leaving significant local SEO and UX gaps a web agency could address."
+              }
+            ]
+          }
+        },
+        "parse-links": {
+          "links": [
+            {
+              "label": "Exmouth Market",
+              "href": "https://www.morito.co.uk/exmouth-market"
+            },
+            {
+              "label": "Hackney Road",
+              "href": "https://www.morito.co.uk/hackney-road"
+            },
+            {
+              "label": "Private Hire",
+              "href": "https://www.morito.co.uk/private-hire"
+            },
+            {
+              "label": "Our Story",
+              "href": "https://www.morito.co.uk/our-story"
+            },
+            {
+              "label": "Outside Catering",
+              "href": "https://www.morito.co.uk/outside-catering"
+            },
+            {
+              "label": "Gift Vouchers",
+              "href": "https://www.morito.co.uk/gift-vouchers"
+            },
+            {
+              "label": "Autumn Yard",
+              "href": "https://www.morito.co.uk/autumn-yard"
+            },
+            {
+              "label": "Book Online",
+              "href": "https://www.morito.co.uk/book-online"
+            },
+            {
+              "label": "Folder: Information",
+              "href": "https://www.morito.co.uk/information"
+            },
+            {
+              "label": "CONTACT US",
+              "href": "https://www.morito.co.uk/contact-us"
+            }
+          ]
+        },
+        "run-lighthouse": {
+          "home": {
+            "url": "https://www.morito.co.uk",
+            "performance": 49,
+            "accessibility": 94,
+            "seo": 100,
+            "bestPractices": 100
+          }
+        },
+        "progress": {
+          "home": {
+            "detect-tech": "completed",
+            "run-lighthouse": "completed",
+            "extract-pages-content": "completed"
+          },
+          "menu": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "ordering": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "reservations": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          },
+          "contact": {
+            "detect-tech": "not-requested",
+            "run-lighthouse": "not-requested",
+            "extract-pages-content": "completed"
+          }
+        }
+      },
+      "queries": [
+        {
+          "id": "q_mnyp97b6_9944e013",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_8d1c4a61",
+          "stage": "classify-nav",
+          "model": "claude-haiku-4-5",
+          "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Menu\": menu, food menu, drinks, wine list, specials, dishes\n- \"Ordering\": order online, delivery, takeaway, click and collect, order food\n- \"Reservations\": book a table, reservations, booking, reserve\n- \"Contact\": contact, find us, location, opening hours, address, directions\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+          "dataRefs": [
+            "https://www.morito.co.uk/exmouth-market",
+            "https://www.morito.co.uk/hackney-road",
+            "https://www.morito.co.uk/private-hire",
+            "https://www.morito.co.uk/our-story",
+            "https://www.morito.co.uk/outside-catering",
+            "https://www.morito.co.uk/gift-vouchers",
+            "https://www.morito.co.uk/autumn-yard",
+            "https://www.morito.co.uk/book-online",
+            "https://www.morito.co.uk/information",
+            "https://www.morito.co.uk/contact-us"
+          ],
+          "response": "{\n  \"Home\": [\n    \"https://www.morito.co.uk/our-story\"\n  ],\n  \"Reservations\": [\n    \"https://www.morito.co.uk/book-online\"\n  ],\n  \"Contact\": [\n    \"https://www.morito.co.uk/contact-us\"\n  ]\n}",
+          "usage": {
+            "inputTokens": 463,
+            "outputTokens": 94
+          },
+          "createdAt": "2026-04-14T14:11:13.602Z"
+        },
+        {
+          "id": "q_mnyqb6pr_d946ba9e",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_8d1c4a61",
+          "categoryId": "home",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency that sells digital solutions to restaurants.\n\nAnalyze this restaurant's homepage for digital maturity and gaps. You are NOT judging quality — you are identifying sales opportunities.\n\nSignals of LOW digital maturity (= good lead):\n- No online ordering or reservation widget\n- Generic template with no customization\n- Missing or broken mobile experience\n- No social proof (reviews, press mentions)\n- Stock photos instead of real food photography\n- No schema markup\n\nSignals of HIGH digital maturity (= poor lead):\n- Integrated ordering system (native, not just Deliveroo link)\n- Reservation widget (OpenTable, ResDiary, Quandoo)\n- Professional food photography\n- Active blog or events section\n- Loyalty/newsletter signup\n- Rich structured data\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of digital presence>\",\n  \"opportunityScore\": \"<1-10, higher = more gaps = better lead>\",\n  \"digitalMaturityScore\": \"<1-10, higher = more mature>\",\n  \"hasOnlineOrdering\": true/false,\n  \"hasReservationWidget\": true/false,\n  \"hasProfessionalPhotos\": true/false,\n  \"hasMobileExperience\": true/false,\n  \"techStackNotes\": \"<observed platform/tools>\",\n  \"topOpportunity\": \"<single biggest gap a web agency could sell>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.morito.co.uk",
+            "https://www.morito.co.uk/our-story"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.morito.co.uk\",\n      \"pageName\": \"Morito Homepage\",\n      \"summary\": \"Visually rich Squarespace homepage for a well-established London tapas and mezze restaurant group with two locations. Features strong food photography and brand storytelling but lacks any integrated booking or ordering functionality.\",\n      \"opportunityScore\": 6,\n      \"digitalMaturityScore\": 5,\n      \"hasOnlineOrdering\": false,\n      \"hasReservationWidget\": false,\n      \"hasProfessionalPhotos\": true,\n      \"hasMobileExperience\": true,\n      \"techStackNotes\": \"Squarespace (v1 CDN URLs confirmed), no third-party booking or ordering widgets detected\",\n      \"topOpportunity\": \"No reservation widget present — integrating OpenTable, ResDiary or Quandoo directly on the homepage would convert passive visitors into confirmed covers\",\n      \"notes\": \"Strong brand identity and photography make this a warm lead for a reservation widget and structured data uplift rather than a full redesign.\"\n    },\n    {\n      \"url\": \"https://www.morito.co.uk/our-story\",\n      \"pageName\": \"Morito Our Story\",\n      \"summary\": \"Simple brand narrative page with founder copy and a single image, reusing the homepage story section. No calls-to-action, no social proof, and no links to menus, reservations or events.\",\n      \"opportunityScore\": 7,\n      \"digitalMaturityScore\": 4,\n      \"hasOnlineOrdering\": false,\n      \"hasReservationWidget\": false,\n      \"hasProfessionalPhotos\": true,\n      \"hasMobileExperience\": true,\n      \"techStackNotes\": \"Squarespace, static content page with no embedded tools or widgets\",\n      \"topOpportunity\": \"Page has no CTA — adding a reservation button, press quotes, or newsletter signup would turn a dead-end brand page into a conversion touchpoint\",\n      \"notes\": \"A high-intent page (people researching the brand before booking) that currently drives zero conversions — strong case for a CTA and social proof injection.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 2773,
+            "outputTokens": 533
+          },
+          "createdAt": "2026-04-14T14:40:45.760Z"
+        },
+        {
+          "id": "q_mnyqbbzo_3ff060d6",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_8d1c4a61",
+          "categoryId": "reservations",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's reservation system.\n\nHOT LEAD signals:\n- No reservation page — phone only\n- Email-only booking\n- Contact form instead of real booking widget\n- \"Call to reserve\" with no online option\n\nCOLD LEAD signals:\n- Embedded booking widget (OpenTable, ResDiary, Quandoo, Resy)\n- Native reservation system with date/time/party-size picker\n- Confirmation emails / SMS\n- Waitlist feature\n- Integration with Google Reserve\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of reservation capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse booking = better lead>\",\n  \"bookingType\": \"<widget|native|email|phone|form|none>\",\n  \"bookingPlatform\": \"<platform name if any>\",\n  \"hasOnlineBooking\": true/false,\n  \"hasWaitlist\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.morito.co.uk/book-online"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.morito.co.uk/book-online\",\n      \"pageName\": \"Morito – Book Online\",\n      \"summary\": \"Morito offers online reservations for both its Exmouth Market and Hackney Road locations via embedded OpenTable links. Guests are directed to OpenTable's availability picker to find and book a table.\",\n      \"opportunityScore\": 2,\n      \"bookingType\": \"widget\",\n      \"bookingPlatform\": \"OpenTable\",\n      \"hasOnlineBooking\": true,\n      \"hasWaitlist\": false,\n      \"topOpportunity\": \"Minimal — could pitch a native booking system to reduce OpenTable commission fees or add a waitlist feature\",\n      \"notes\": \"Strong cold lead; Morito already has functional online booking via OpenTable for both locations, leaving little room for a reservation-focused agency pitch.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 957,
+            "outputTokens": 226
+          },
+          "createdAt": "2026-04-14T14:40:52.596Z"
+        },
+        {
+          "id": "q_mnyqbhji_e08bd686",
+          "requestId": "r_mnyp23ax_81a6cf1b",
+          "siteId": "site_mnyp23ay_8d1c4a61",
+          "categoryId": "contact",
+          "stage": "extract-pages-content",
+          "model": "claude-sonnet-4-6",
+          "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's contact/location page.\n\nHOT LEAD signals:\n- No dedicated contact page\n- Address without a map\n- Missing opening hours\n- No schema markup (LocalBusiness, Restaurant)\n- Inconsistent NAP (name, address, phone) across site\n\nCOLD LEAD signals:\n- Embedded Google Map\n- Full opening hours including holidays\n- Click-to-call phone number\n- Directions from transit/parking\n- LocalBusiness or Restaurant schema\n- Social media links\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of contact page>\",\n  \"opportunityScore\": \"<1-10, higher = worse contact page = better lead>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"hasSchemaMarkup\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+          "dataRefs": [
+            "https://www.morito.co.uk/contact-us"
+          ],
+          "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.morito.co.uk/contact-us\",\n      \"pageName\": \"Morito – Contact Us\",\n      \"summary\": \"The contact page features an embedded Google Map and appears to be built on Squarespace. However, no opening hours, phone number, or email address are visibly present on the page, and no LocalBusiness/Restaurant schema markup was detected.\",\n      \"opportunityScore\": 6,\n      \"hasAddress\": false,\n      \"hasPhone\": false,\n      \"hasEmail\": false,\n      \"hasMap\": true,\n      \"hasOpeningHours\": false,\n      \"hasSchemaMarkup\": false,\n      \"topOpportunity\": \"Add structured LocalBusiness/Restaurant schema markup, opening hours, click-to-call phone number, and a visible address to improve local SEO and customer findability.\",\n      \"notes\": \"Moderate lead — the map is present but key contact details and schema are missing, leaving significant local SEO and UX gaps a web agency could address.\"\n    }\n  ]\n}",
+          "usage": {
+            "inputTokens": 8036,
+            "outputTokens": 264
+          },
+          "createdAt": "2026-04-14T14:40:59.791Z"
+        }
+      ]
+    }
+  ]
+}

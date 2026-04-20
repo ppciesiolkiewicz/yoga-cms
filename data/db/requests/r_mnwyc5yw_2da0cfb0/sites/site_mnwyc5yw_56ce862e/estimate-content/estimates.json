@@ -1,0 +1,27 @@
+{
+  "siteId": "site_mnwyc5yw_56ce862e",
+  "pages": [
+    {
+      "url": "https://www.hotyogabarcelona.com/schedule",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.hotyogabarcelona.com/prices",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.hotyogabarcelona.com/teacher-training",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 20000,
+  "totalEstimatedTokens": 5000
+}

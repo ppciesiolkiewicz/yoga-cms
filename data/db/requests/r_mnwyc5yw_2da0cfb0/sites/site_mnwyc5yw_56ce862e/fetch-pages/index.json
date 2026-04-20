@@ -1,0 +1,24 @@
+{
+  "pages": [
+    {
+      "id": "137405e88a",
+      "url": "https://www.hotyogabarcelona.com/prices",
+      "status": "ok"
+    },
+    {
+      "id": "c3e8cefb39",
+      "url": "https://www.hotyogabarcelona.com/schedule",
+      "status": "ok"
+    },
+    {
+      "id": "9b4788dd54",
+      "url": "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+      "status": "ok"
+    },
+    {
+      "id": "f29c5e96f6",
+      "url": "https://www.hotyogabarcelona.com/teacher-training",
+      "status": "ok"
+    }
+  ]
+}

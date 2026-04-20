@@ -1,0 +1,93 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://www.londonlocks.com/emergency-lock-outs/",
+      "pageName": "Emergency Lockouts",
+      "summary": "Dedicated page for emergency lockout services covering Bow and London, with bullet-point selling points but no real process detail, no pricing, and no distinction between residential and vehicle lockouts. Content is thin and largely generic.",
+      "opportunityScore": 6,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Emergency Lockouts",
+        "Residential Lockouts",
+        "Vehicle Lockouts"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Rewrite page with structured content covering process, response times, pricing transparency, and separate residential vs vehicle lockout sections with strong emergency CTAs",
+      "notes": "Has a dedicated page which is a good foundation, but content is boilerplate-thin with no urgency-optimised copy, no FAQs, and no trust signals beyond vague claims — strong candidate for a content and conversion overhaul."
+    },
+    {
+      "url": "https://www.londonlocks.com/lock-repairs-london/",
+      "pageName": "Lock Repairs",
+      "summary": "Individual service page for lock repairs with moderate detail including lock types, common problems list, and a basic FAQ section, but descriptions remain shallow and there are no before/after photos or pricing indicators.",
+      "opportunityScore": 5,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Door Lock Repairs",
+        "Window Lock Repairs",
+        "UPVC Lock Repairs",
+        "Wooden Lock Repairs",
+        "Composite Lock Repairs",
+        "Aluminium Lock Repairs",
+        "Broken Key Extraction",
+        "Lock Changes"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Enhance page with before/after imagery, pricing guidance, emergency vs scheduled distinction, and expand FAQs with conversion-focused answers",
+      "notes": "Better than average for this site with a FAQ section and lock type list, but still lacks visual proof, urgency framing, and any pricing context — moderate opportunity for a content and UX uplift."
+    },
+    {
+      "url": "https://www.londonlocks.com/lock-fitting/",
+      "pageName": "Lock Fitting",
+      "summary": "Thin individual service page for lock fitting that references compliance standards (BS EN 1125, BS 3621, PAS 24) but offers almost no detail on the fitting process, lock options, or pricing, with no FAQ section and minimal imagery.",
+      "opportunityScore": 7,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Lock Fitting",
+        "Lock Changes",
+        "Garage Lock Fitting",
+        "Deadlock Installation"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Build out page with lock type options, installation process explanation, compliance standard explainers, FAQs, and service-specific CTA separating emergency fitting from planned upgrades",
+      "notes": "One of the weakest pages on the site — the compliance standard mentions are a missed SEO and trust opportunity, and the near-total absence of substantive content makes this a clear candidate for a full page rebuild."
+    },
+    {
+      "url": "https://www.londonlocks.com/key-cutting/",
+      "pageName": "Key Cutting",
+      "summary": "The most developed page on the site with multiple sections, a detailed FAQ, key type breakdowns, and geographic targeting, though it still lacks pricing, before/after visuals, and a clear emergency vs walk-in distinction.",
+      "opportunityScore": 4,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Standard Key Cutting",
+        "Fob & Remote Duplication",
+        "Fire Brigade & Access Keys",
+        "Key Cutting Without Original",
+        "Emergency Key Cutting"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Add transparent pricing table, walk-in vs call-out journey separation, and photo content of the shop and key cutting equipment to build trust and improve local SEO",
+      "notes": "The strongest page on the site and a cooler lead than the others — still improvable with pricing and visual content, but the structure and FAQ depth mean a full rebuild is less urgent than for other pages."
+    },
+    {
+      "url": "https://www.londonlocks.com/24-hour-emergency-lock-outs/",
+      "pageName": "24-Hour Emergency Lockouts",
+      "summary": "Near-identical duplicate of the /emergency-lock-outs/ page with the same boilerplate copy, no additional urgency content, no 24-hour-specific messaging, and no differentiation despite the URL implying a distinct offering.",
+      "opportunityScore": 8,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Emergency Lockouts",
+        "Residential Lockouts",
+        "Vehicle Lockouts"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Replace duplicate content with a purpose-built 24/7 emergency landing page featuring response time guarantees, out-of-hours pricing transparency, real urgency CTAs, and mobile-first design for distressed users",
+      "notes": "A duplicate page with no differentiated content is an active SEO liability and a wasted high-intent URL — this is the strongest single pitch opportunity on the site for a web agency."
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://www.londonlocks.com",
+      "pageName": "London Locks Homepage",
+      "summary": "London Locks is a well-established East London locksmith with a physical shop in Bow, operating since 2004 with MLA membership. The homepage includes a click-to-call number, service area details, emergency lockout services, and trust signals, indicating a relatively mature digital presence, though with some structural and UX gaps.",
+      "opportunityScore": 4,
+      "digitalMaturityScore": 7,
+      "hasClickToCall": true,
+      "hasServiceArea": true,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": true,
+      "hasMobileExperience": true,
+      "topOpportunity": "No explicit 24/7 hours statement or real-time availability indicator above the fold — a panicked locked-out user cannot instantly confirm someone will answer right now, which a conversion-optimised redesign with a sticky emergency CTA bar could solve.",
+      "notes": "A solid lead for upselling schema markup, Google Reviews integration, and mobile page speed optimisation rather than a full rebuild — MLA badge and no-call-out-fee messaging are strong but buried too far down the page."
+    }
+  ]
+}

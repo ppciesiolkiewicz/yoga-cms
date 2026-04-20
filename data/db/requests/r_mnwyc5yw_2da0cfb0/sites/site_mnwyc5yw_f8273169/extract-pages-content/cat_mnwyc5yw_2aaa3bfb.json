@@ -1,0 +1,24 @@
+{
+  "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+  "records": [
+    {
+      "url": "https://www.threeboonsyoga.de/retreats",
+      "pageName": "Three Boons Yoga Retreats Overview",
+      "summary": "A listing page for Three Boons Yoga retreats offering multiple upcoming Jivamukti Yoga events across Europe in 2026, including locations in Mecklenburg, Rügen, Venice, and Sicily. The page leads with a lengthy philosophical introduction before presenting individual retreat cards.",
+      "conversionScore": 4,
+      "seoScore": 5,
+      "retreatName": "Three Boons Yoga Retreats (multiple)",
+      "where": "Multiple locations: Mecklenburg, Rügen Island, Venice, Sicily",
+      "when": "March 19–22, June 18–22, Summer 2026, September 2026 (approx.)",
+      "price": "Not listed on this page",
+      "includes": [
+        "Jivamukti Yoga sessions",
+        "Vegan meals",
+        "Meditation and chanting",
+        "Nature settings"
+      ],
+      "dailyScheduleVisible": false,
+      "notes": "This listing page buries all five key facts under a long philosophical intro, mixes four separate retreats without per-retreat pricing, and lacks a daily schedule or clear booking CTA at the top level."
+    }
+  ]
+}

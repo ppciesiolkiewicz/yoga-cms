@@ -1,0 +1,19 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://londonlocksmiths.com",
+      "pageName": "London Locksmiths – Homepage",
+      "summary": "London Locksmiths Ltd has a well-established web presence with MLA accreditation, Google reviews, and phone numbers listed, but the emergency call-to-action and click-to-call button are buried below the fold rather than prominently displayed above it. The site relies heavily on Adobe Stock photography rather than real team or van photos, and no specific service area coverage map or borough list is provided beyond a vague 'London' reference.",
+      "opportunityScore": 5,
+      "digitalMaturityScore": 6,
+      "hasClickToCall": false,
+      "hasServiceArea": false,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": true,
+      "hasMobileExperience": false,
+      "topOpportunity": "Add a sticky above-the-fold click-to-call button with 24/7 emergency messaging to capture panicked mobile users before they bounce to a competitor",
+      "notes": "Solid trust credentials and reviews make this a warm rather than hot lead, but the lack of a prominent mobile click-to-call CTA and real photos are clear upsell angles for a conversion-focused redesign."
+    }
+  ]
+}

@@ -1,0 +1,249 @@
+{
+  "siteId": "site_mnyp23ay_8d1c4a61",
+  "url": "https://www.morito.co.uk",
+  "meta": {
+    "name": "Morito"
+  },
+  "scrapedAt": "2026-04-14T14:40:59.802Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Exmouth Market",
+        "href": "https://www.morito.co.uk/exmouth-market"
+      },
+      {
+        "label": "Hackney Road",
+        "href": "https://www.morito.co.uk/hackney-road"
+      },
+      {
+        "label": "Private Hire",
+        "href": "https://www.morito.co.uk/private-hire"
+      },
+      {
+        "label": "Our Story",
+        "href": "https://www.morito.co.uk/our-story"
+      },
+      {
+        "label": "Outside Catering",
+        "href": "https://www.morito.co.uk/outside-catering"
+      },
+      {
+        "label": "Gift Vouchers",
+        "href": "https://www.morito.co.uk/gift-vouchers"
+      },
+      {
+        "label": "Autumn Yard",
+        "href": "https://www.morito.co.uk/autumn-yard"
+      },
+      {
+        "label": "Book Online",
+        "href": "https://www.morito.co.uk/book-online"
+      },
+      {
+        "label": "Folder: Information",
+        "href": "https://www.morito.co.uk/information"
+      },
+      {
+        "label": "CONTACT US",
+        "href": "https://www.morito.co.uk/contact-us"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://www.morito.co.uk",
+        "https://www.morito.co.uk/our-story"
+      ],
+      "menu": [],
+      "ordering": [],
+      "reservations": [
+        "https://www.morito.co.uk/book-online"
+      ],
+      "contact": [
+        "https://www.morito.co.uk/contact-us"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "Squarespace",
+      "detectedTechnologies": [
+        {
+          "name": "Squarespace Commerce",
+          "categories": [
+            "Ecommerce"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Squarespace",
+          "categories": [
+            "CMS"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Stimulus",
+          "categories": [
+            "JavaScript frameworks"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "reCAPTCHA",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "parallax.js",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "HSTS",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "Squarespace subscription",
+          "min": 16,
+          "max": 65
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 17,
+        "max": 67,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://www.morito.co.uk",
+      "performance": 49,
+      "accessibility": 94,
+      "seo": 100,
+      "bestPractices": 100
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://www.morito.co.uk",
+          "pageName": "Morito Homepage",
+          "summary": "Visually rich Squarespace homepage for a well-established London tapas and mezze restaurant group with two locations. Features strong food photography and brand storytelling but lacks any integrated booking or ordering functionality.",
+          "opportunityScore": 6,
+          "digitalMaturityScore": 5,
+          "hasOnlineOrdering": false,
+          "hasReservationWidget": false,
+          "hasProfessionalPhotos": true,
+          "hasMobileExperience": true,
+          "techStackNotes": "Squarespace (v1 CDN URLs confirmed), no third-party booking or ordering widgets detected",
+          "topOpportunity": "No reservation widget present — integrating OpenTable, ResDiary or Quandoo directly on the homepage would convert passive visitors into confirmed covers",
+          "notes": "Strong brand identity and photography make this a warm lead for a reservation widget and structured data uplift rather than a full redesign."
+        },
+        {
+          "url": "https://www.morito.co.uk/our-story",
+          "pageName": "Morito Our Story",
+          "summary": "Simple brand narrative page with founder copy and a single image, reusing the homepage story section. No calls-to-action, no social proof, and no links to menus, reservations or events.",
+          "opportunityScore": 7,
+          "digitalMaturityScore": 4,
+          "hasOnlineOrdering": false,
+          "hasReservationWidget": false,
+          "hasProfessionalPhotos": true,
+          "hasMobileExperience": true,
+          "techStackNotes": "Squarespace, static content page with no embedded tools or widgets",
+          "topOpportunity": "Page has no CTA — adding a reservation button, press quotes, or newsletter signup would turn a dead-end brand page into a conversion touchpoint",
+          "notes": "A high-intent page (people researching the brand before booking) that currently drives zero conversions — strong case for a CTA and social proof injection."
+        }
+      ]
+    },
+    "menu": {
+      "categoryId": "menu",
+      "records": []
+    },
+    "ordering": {
+      "categoryId": "ordering",
+      "records": []
+    },
+    "reservations": {
+      "categoryId": "reservations",
+      "records": [
+        {
+          "url": "https://www.morito.co.uk/book-online",
+          "pageName": "Morito – Book Online",
+          "summary": "Morito offers online reservations for both its Exmouth Market and Hackney Road locations via embedded OpenTable links. Guests are directed to OpenTable's availability picker to find and book a table.",
+          "opportunityScore": 2,
+          "bookingType": "widget",
+          "bookingPlatform": "OpenTable",
+          "hasOnlineBooking": true,
+          "hasWaitlist": false,
+          "topOpportunity": "Minimal — could pitch a native booking system to reduce OpenTable commission fees or add a waitlist feature",
+          "notes": "Strong cold lead; Morito already has functional online booking via OpenTable for both locations, leaving little room for a reservation-focused agency pitch."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://www.morito.co.uk/contact-us",
+          "pageName": "Morito – Contact Us",
+          "summary": "The contact page features an embedded Google Map and appears to be built on Squarespace. However, no opening hours, phone number, or email address are visibly present on the page, and no LocalBusiness/Restaurant schema markup was detected.",
+          "opportunityScore": 6,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": false,
+          "hasMap": true,
+          "hasOpeningHours": false,
+          "hasSchemaMarkup": false,
+          "topOpportunity": "Add structured LocalBusiness/Restaurant schema markup, opening hours, click-to-call phone number, and a visible address to improve local SEO and customer findability.",
+          "notes": "Moderate lead — the map is present but key contact details and schema are missing, leaving significant local SEO and UX gaps a web agency could address."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "menu": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "ordering": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "reservations": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

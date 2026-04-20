@@ -1,0 +1,9 @@
+{
+  "connection": "Keep-Alive",
+  "content-type": "text/html; charset=UTF-8",
+  "date": "Tue, 14 Apr 2026 14:08:55 GMT",
+  "keep-alive": "timeout=5, max=100",
+  "link": "<https://fallowrestaurant.com/wp-json/>; rel=\"https://api.w.org/\", <https://fallowrestaurant.com/wp-json/wp/v2/pages/15>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://fallowrestaurant.com/>; rel=shortlink",
+  "server": "Apache",
+  "transfer-encoding": "chunked"
+}

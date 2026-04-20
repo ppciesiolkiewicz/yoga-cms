@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://moro.co.uk",
+      "pageName": "Moro Restaurant – Homepage",
+      "summary": "Moro's homepage is a minimal WordPress site with atmospheric food photography and basic navigation to menu, booking, and location pages. The site functions as a digital brochure but lacks integrated conversion tools or modern engagement features.",
+      "opportunityScore": 6,
+      "digitalMaturityScore": 4,
+      "hasOnlineOrdering": false,
+      "hasReservationWidget": false,
+      "hasProfessionalPhotos": true,
+      "hasMobileExperience": true,
+      "techStackNotes": "WordPress with basic theme; image assets served via wp-content/uploads; no evident schema markup, analytics tags, or third-party reservation embeds visible in page content",
+      "topOpportunity": "No integrated reservation widget — the 'Book now' link points to an internal page rather than an embedded widget (e.g. OpenTable or ResDiary), creating friction and likely lost bookings",
+      "notes": "Moro is an established, critically acclaimed London restaurant with good photography and brand presence, but the site's thin feature set and lack of a live reservation widget or loyalty/newsletter capture make it a viable mid-tier lead for a reservation integration and CRM/email capture pitch."
+    },
+    {
+      "url": "https://moro.co.uk/restaurant/",
+      "pageName": "Moro Restaurant – About/Restaurant Page",
+      "summary": "The restaurant page delivers strong brand storytelling and features credited professional food photography, but remains entirely static with no interactive elements, structured data, or conversion prompts beyond navigational image tiles. The page reads well but does nothing to capture or convert visitors.",
+      "opportunityScore": 6,
+      "digitalMaturityScore": 4,
+      "hasOnlineOrdering": false,
+      "hasReservationWidget": false,
+      "hasProfessionalPhotos": true,
+      "hasMobileExperience": true,
+      "techStackNotes": "WordPress CMS; images credited to Susan Bell (professional photographer); no observable schema markup, no embedded third-party widgets, gift voucher shop suggests WooCommerce or similar may be present",
+      "topOpportunity": "No schema markup (Restaurant, Menu, Review) meaning the site misses rich results in Google Search — a quick technical SEO win a web agency could deliver immediately",
+      "notes": "The brand story and photography quality are strong assets, but the complete absence of structured data, social proof signals, and interactive booking tools means a web agency could offer clear, tangible uplift in search visibility and conversion rate."
+    }
+  ]
+}

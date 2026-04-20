@@ -1,0 +1,666 @@
+{
+  "id": "ord_mnxjde02_03a98386",
+  "requestId": "r_mnxjb414_452bef19",
+  "createdAt": "2026-04-13T18:38:45.026Z",
+  "status": "completed",
+  "sites": [
+    {
+      "siteId": "site_mnxjb414_7500d0a4",
+      "url": "https://www.banham.co.uk",
+      "pageCount": 13,
+      "estimatedTokens": 16250,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.0035529999999999997,
+          "estimatedCost": 0.0035529999999999997,
+          "actualCost": 0.0035529999999999997,
+          "actualQuantity": 2421
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 13,
+          "unitCost": 0.01,
+          "estimatedCost": 0.13,
+          "actualQuantity": 12,
+          "actualCost": 0.12
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 13,
+          "unitCost": 0.002,
+          "estimatedCost": 0.026000000000000002,
+          "actualQuantity": 12,
+          "actualCost": 0.024
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.07125000000000001,
+          "estimatedCost": 0.07125000000000001,
+          "actualQuantity": 22812,
+          "actualCost": 0.1041
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.07125000000000001,
+          "estimatedCost": 0.07125000000000001,
+          "actualQuantity": 22812,
+          "actualCost": 0.1041
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.07125000000000001,
+          "estimatedCost": 0.07125000000000001,
+          "actualQuantity": 22812,
+          "actualCost": 0.1041
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.07125000000000001,
+          "estimatedCost": 0.07125000000000001,
+          "actualQuantity": 22812,
+          "actualCost": 0.1041
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.07125000000000001,
+          "estimatedCost": 0.07125000000000001,
+          "actualQuantity": 22812,
+          "actualCost": 0.1041
+        }
+      ],
+      "subtotal": 0.5178030000000001
+    },
+    {
+      "siteId": "site_mnxjb414_b8657fff",
+      "url": "https://wdlocksmiths.co.uk",
+      "pageCount": 12,
+      "estimatedTokens": 15000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002458,
+          "estimatedCost": 0.002458,
+          "actualCost": 0.002458,
+          "actualQuantity": 1282
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 12,
+          "unitCost": 0.01,
+          "estimatedCost": 0.12,
+          "actualQuantity": 12,
+          "actualCost": 0.12
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 12,
+          "unitCost": 0.002,
+          "estimatedCost": 0.024,
+          "actualQuantity": 12,
+          "actualCost": 0.024
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 50633,
+          "actualCost": 0.18926700000000002
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 50633,
+          "actualCost": 0.18926700000000002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 50633,
+          "actualCost": 0.18926700000000002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 50633,
+          "actualCost": 0.18926700000000002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 50633,
+          "actualCost": 0.18926700000000002
+        }
+      ],
+      "subtotal": 0.485958
+    },
+    {
+      "siteId": "site_mnxjb414_f9d751a2",
+      "url": "https://www.londonlocks.com",
+      "pageCount": 8,
+      "estimatedTokens": 10000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002156,
+          "estimatedCost": 0.002156,
+          "actualCost": 0.002156,
+          "actualQuantity": 1384
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.01,
+          "estimatedCost": 0.08,
+          "actualQuantity": 8,
+          "actualCost": 0.08
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.002,
+          "estimatedCost": 0.016,
+          "actualQuantity": 8,
+          "actualCost": 0.016
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 19042,
+          "actualCost": 0.084258
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 19042,
+          "actualCost": 0.084258
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 19042,
+          "actualCost": 0.084258
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 19042,
+          "actualCost": 0.084258
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 19042,
+          "actualCost": 0.084258
+        }
+      ],
+      "subtotal": 0.362656
+    },
+    {
+      "siteId": "site_mnxjb414_901b436e",
+      "url": "https://londonlocksmiths.com",
+      "pageCount": 5,
+      "estimatedTokens": 6250,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.0008749999999999999,
+          "estimatedCost": 0.0008749999999999999,
+          "actualCost": 0.0008749999999999999,
+          "actualQuantity": 455
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 5,
+          "unitCost": 0.01,
+          "estimatedCost": 0.05,
+          "actualQuantity": 5,
+          "actualCost": 0.05
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 5,
+          "unitCost": 0.002,
+          "estimatedCost": 0.01,
+          "actualQuantity": 5,
+          "actualCost": 0.01
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.041249999999999995,
+          "estimatedCost": 0.041249999999999995,
+          "actualQuantity": 10677,
+          "actualCost": 0.048699000000000006
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.041249999999999995,
+          "estimatedCost": 0.041249999999999995,
+          "actualQuantity": 10677,
+          "actualCost": 0.048699000000000006
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.041249999999999995,
+          "estimatedCost": 0.041249999999999995,
+          "actualQuantity": 10677,
+          "actualCost": 0.048699000000000006
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.041249999999999995,
+          "estimatedCost": 0.041249999999999995,
+          "actualQuantity": 10677,
+          "actualCost": 0.048699000000000006
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.041249999999999995,
+          "estimatedCost": 0.041249999999999995,
+          "actualQuantity": 10677,
+          "actualCost": 0.048699000000000006
+        }
+      ],
+      "subtotal": 0.269125
+    },
+    {
+      "siteId": "site_mnxjb414_c16cc836",
+      "url": "https://www.londonlocksmith.co.uk",
+      "pageCount": 6,
+      "estimatedTokens": 7500,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.008934999999999998,
+          "estimatedCost": 0.008934999999999998,
+          "actualCost": 0.008934999999999998,
+          "actualQuantity": 8319
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 6,
+          "unitCost": 0.01,
+          "estimatedCost": 0.06,
+          "actualQuantity": 6,
+          "actualCost": 0.06
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 6,
+          "unitCost": 0.002,
+          "estimatedCost": 0.012,
+          "actualQuantity": 6,
+          "actualCost": 0.012
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.045,
+          "estimatedCost": 0.045,
+          "actualQuantity": 27501,
+          "actualCost": 0.103779
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.045,
+          "estimatedCost": 0.045,
+          "actualQuantity": 27501,
+          "actualCost": 0.103779
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.045,
+          "estimatedCost": 0.045,
+          "actualQuantity": 27501,
+          "actualCost": 0.103779
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.045,
+          "estimatedCost": 0.045,
+          "actualQuantity": 27501,
+          "actualCost": 0.103779
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.045,
+          "estimatedCost": 0.045,
+          "actualQuantity": 27501,
+          "actualCost": 0.103779
+        }
+      ],
+      "subtotal": 0.30793499999999996
+    },
+    {
+      "siteId": "site_mnxjb414_3515b0d0",
+      "url": "https://www.london-locksmiths.com",
+      "pageCount": 9,
+      "estimatedTokens": 11250,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.008057,
+          "estimatedCost": 0.008057,
+          "actualCost": 0.008057,
+          "actualQuantity": 7001
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 9,
+          "unitCost": 0.01,
+          "estimatedCost": 0.09,
+          "actualQuantity": 9,
+          "actualCost": 0.09
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 9,
+          "unitCost": 0.002,
+          "estimatedCost": 0.018000000000000002,
+          "actualQuantity": 9,
+          "actualCost": 0.018000000000000002
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 30679,
+          "actualCost": 0.12161699999999999
+        },
+        {
+          "stage": "run-lighthouse",
+          "description": "Lighthouse audit — Home",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualQuantity": 1,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Services",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 30679,
+          "actualCost": 0.12161699999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Pricing",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 30679,
+          "actualCost": 0.12161699999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Trust",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 30679,
+          "actualCost": 0.12161699999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.05625,
+          "estimatedCost": 0.05625,
+          "actualQuantity": 30679,
+          "actualCost": 0.12161699999999999
+        }
+      ],
+      "subtotal": 0.399307
+    }
+  ],
+  "totalEstimatedCost": 2.342784,
+  "approvedAt": "2026-04-13T18:39:00.568Z",
+  "completedAt": "2026-04-13T18:52:27.858Z",
+  "totalActualCost": 3.920634
+}

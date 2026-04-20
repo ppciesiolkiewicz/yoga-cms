@@ -1,0 +1,20 @@
+{
+  "categoryId": "cat_mnwyc5yw_f1688492",
+  "records": [
+    {
+      "url": "https://www.hotyogabarcelona.com/teacher-training",
+      "pageName": "Hot Yoga Barcelona Teacher Training",
+      "summary": "A 200-hour Hot Hatha Vinyasa YTT in Barcelona running over 3 months on weekends, including a 3-day Costa Brava retreat, registered with Yoga Alliance. Pricing is shown and teacher bios are present, but upcoming dates are not yet published.",
+      "conversionScore": 6,
+      "seoScore": 5,
+      "trainingName": "200h Hot Hatha Vinyasa Yoga Teacher Training",
+      "hours": "200 hours",
+      "price": "€2499 early bird / €2700 full price",
+      "dates": "Dates coming soon — email for inquiries",
+      "style": "Hot Hatha & Vinyasa",
+      "curriculumVisible": true,
+      "teacherBiosVisible": true,
+      "notes": "Price and curriculum are visible near the top, but missing specific dates seriously hurts conversion; SEO is weakened by no visible title tag naming city and hours, likely no course schema, and reviews mention the studio rather than the training program specifically."
+    }
+  ]
+}

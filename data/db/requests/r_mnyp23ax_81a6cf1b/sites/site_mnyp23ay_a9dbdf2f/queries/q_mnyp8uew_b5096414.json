@@ -1,0 +1,36 @@
+{
+  "id": "q_mnyp8uew_b5096414",
+  "requestId": "r_mnyp23ax_81a6cf1b",
+  "siteId": "site_mnyp23ay_a9dbdf2f",
+  "stage": "classify-nav",
+  "model": "claude-haiku-4-5",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Menu\": menu, food menu, drinks, wine list, specials, dishes\n- \"Ordering\": order online, delivery, takeaway, click and collect, order food\n- \"Reservations\": book a table, reservations, booking, reserve\n- \"Contact\": contact, find us, location, opening hours, address, directions\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "https://moro.co.uk/restaurant/",
+    "https://moro.co.uk/menus",
+    "https://moro.co.uk/menu/christmas-menu-2024/",
+    "https://moro.co.uk/sunday-lunch-club/",
+    "https://moro.co.uk/menu/drinks/",
+    "https://moro.co.uk/menu/tapas/",
+    "https://moro.co.uk/book-now/",
+    "https://moro.co.uk/casamoro/",
+    "https://moro.co.uk/casamoro/private-dining/",
+    "https://moro.co.uk/casa-moro-event-catering/",
+    "https://moro.co.uk/casamoro/autumn-street/",
+    "https://moro.co.uk/shop/",
+    "https://moro.co.uk/location/",
+    "https://moro.co.uk/contact/",
+    "https://moro.co.uk/journal/",
+    "https://moro.co.uk/restaurant/history/",
+    "https://moro.co.uk/restaurant/people/",
+    "https://moro.co.uk/restaurant/morito/",
+    "https://moro.co.uk/restaurant/morito-hackney-road/",
+    "https://moro.co.uk/contact/keep-in-touch/"
+  ],
+  "response": "{\n  \"Home\": [\n    \"https://moro.co.uk/restaurant/\"\n  ],\n  \"Menu\": [\n    \"https://moro.co.uk/menus\",\n    \"https://moro.co.uk/menu/christmas-menu-2024/\",\n    \"https://moro.co.uk/menu/drinks/\",\n    \"https://moro.co.uk/menu/tapas/\",\n    \"https://moro.co.uk/sunday-lunch-club/\"\n  ],\n  \"Reservations\": [\n    \"https://moro.co.uk/book-now/\"\n  ],\n  \"Contact\": [\n    \"https://moro.co.uk/location/\",\n    \"https://moro.co.uk/contact/\"\n  ]\n}",
+  "usage": {
+    "inputTokens": 673,
+    "outputTokens": 198
+  },
+  "createdAt": "2026-04-14T14:10:56.888Z"
+}

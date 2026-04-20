@@ -1,0 +1,27 @@
+{
+  "siteId": "site_mnyp23ay_8d1c4a61",
+  "pages": [
+    {
+      "url": "https://www.morito.co.uk",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.morito.co.uk/our-story",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.morito.co.uk/book-online",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.morito.co.uk/contact-us",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 20000,
+  "totalEstimatedTokens": 5000
+}

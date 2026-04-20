@@ -1,0 +1,31 @@
+{
+  "categoryId": "cat_mnwyc5yw_9ee5e377",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/contact",
+      "pageName": "SHA-LA Studios Contact & FAQ",
+      "summary": "The contact page features a contact form with studio selection and an extensive FAQ section. An email address is mentioned within the FAQ but no address, phone, map, or opening hours are present.",
+      "conversionScore": 4,
+      "seoScore": 2,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": true,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "notes": "The page is heavily FAQ-focused and lacks essential contact details like physical address, phone number, map, and opening hours, making it difficult for visitors to locate or directly reach the studio."
+    },
+    {
+      "url": "https://www.shalastudios.com/about",
+      "pageName": "SHA-LA Studios About",
+      "summary": "The about page introduces the studio's philosophy, founders, and general amenities across their two Berlin locations in Prenzlauer Berg and Kreuzberg. No direct contact information, map, phone, email, or opening hours are provided.",
+      "conversionScore": 2,
+      "seoScore": 2,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": false,
+      "hasMap": false,
+      "hasOpeningHours": false,
+      "notes": "As an about page it serves its narrative purpose, but it provides zero actionable contact information and would not help a visitor physically locate or contact the business."
+    }
+  ]
+}

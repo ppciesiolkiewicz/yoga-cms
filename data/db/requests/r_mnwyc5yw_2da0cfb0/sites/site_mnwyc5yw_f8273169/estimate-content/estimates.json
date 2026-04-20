@@ -1,0 +1,62 @@
+{
+  "siteId": "site_mnwyc5yw_f8273169",
+  "pages": [
+    {
+      "url": "https://www.threeboonsyoga.de/classesmitte",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/classeskreuzberg",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/classescharlottenburg",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/prices",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/livestream",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/training",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/advancedtraining",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/harmoniumtt",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/630hrmentoring",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/retreats",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/contact",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 55000,
+  "totalEstimatedTokens": 13750
+}

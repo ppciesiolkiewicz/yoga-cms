@@ -1,0 +1,88 @@
+{
+  "id": "r_mnyp23ax_81a6cf1b",
+  "createdAt": "2026-04-14T14:05:41.817Z",
+  "displayName": "Local restaurants — B2B prospecting",
+  "categories": [
+    {
+      "name": "Home",
+      "extraInfo": "",
+      "model": "sonnet",
+      "prompt": "You are a B2B prospecting analyst for a web agency that sells digital solutions to restaurants.\n\nAnalyze this restaurant's homepage for digital maturity and gaps. You are NOT judging quality — you are identifying sales opportunities.\n\nSignals of LOW digital maturity (= good lead):\n- No online ordering or reservation widget\n- Generic template with no customization\n- Missing or broken mobile experience\n- No social proof (reviews, press mentions)\n- Stock photos instead of real food photography\n- No schema markup\n\nSignals of HIGH digital maturity (= poor lead):\n- Integrated ordering system (native, not just Deliveroo link)\n- Reservation widget (OpenTable, ResDiary, Quandoo)\n- Professional food photography\n- Active blog or events section\n- Loyalty/newsletter signup\n- Rich structured data\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of digital presence>\",\n  \"opportunityScore\": \"<1-10, higher = more gaps = better lead>\",\n  \"digitalMaturityScore\": \"<1-10, higher = more mature>\",\n  \"hasOnlineOrdering\": true/false,\n  \"hasReservationWidget\": true/false,\n  \"hasProfessionalPhotos\": true/false,\n  \"hasMobileExperience\": true/false,\n  \"techStackNotes\": \"<observed platform/tools>\",\n  \"topOpportunity\": \"<single biggest gap a web agency could sell>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+      "wappalyzer": true,
+      "lighthouse": true,
+      "id": "home"
+    },
+    {
+      "name": "Menu",
+      "extraInfo": "menu, food menu, drinks, wine list, specials, dishes",
+      "model": "sonnet",
+      "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's menu page.\n\nThe menu page is the #1 signal for digital maturity in restaurants.\n\nHOT LEAD signals:\n- Menu is a PDF (can't be indexed, can't be updated easily)\n- Menu is an image/photo of a printed menu\n- No menu page at all (just a link to a third-party)\n- Outdated menu (seasonal items from wrong season, old dates)\n\nCOLD LEAD signals:\n- Interactive HTML menu with categories and descriptions\n- Menu integrated with ordering system\n- Allergen/dietary filters\n- Prices clearly listed and formatted\n- Menu items with photos\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of menu presentation>\",\n  \"opportunityScore\": \"<1-10, higher = worse menu = better lead>\",\n  \"menuFormat\": \"<html|pdf|image|third-party|none>\",\n  \"hasPrices\": true/false,\n  \"hasAllergenInfo\": true/false,\n  \"hasFoodPhotos\": true/false,\n  \"isOutdated\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+      "id": "menu"
+    },
+    {
+      "name": "Ordering",
+      "extraInfo": "order online, delivery, takeaway, click and collect, order food",
+      "model": "sonnet",
+      "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's online ordering capability.\n\nHOT LEAD signals:\n- No ordering page at all\n- Only a phone number for takeaway\n- Only third-party links (Deliveroo, UberEats, JustEat) with no native option\n- Broken or abandoned ordering system\n\nCOLD LEAD signals:\n- Native ordering system integrated into site\n- Click-and-collect with time slots\n- Delivery zone map\n- Order tracking\n- Payment integration\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of ordering capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse ordering = better lead>\",\n  \"orderingType\": \"<native|third-party-only|phone-only|none>\",\n  \"hasDelivery\": true/false,\n  \"hasClickAndCollect\": true/false,\n  \"thirdPartyPlatforms\": [\"<platform names if any>\"],\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+      "id": "ordering"
+    },
+    {
+      "name": "Reservations",
+      "extraInfo": "book a table, reservations, booking, reserve",
+      "model": "sonnet",
+      "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's reservation system.\n\nHOT LEAD signals:\n- No reservation page — phone only\n- Email-only booking\n- Contact form instead of real booking widget\n- \"Call to reserve\" with no online option\n\nCOLD LEAD signals:\n- Embedded booking widget (OpenTable, ResDiary, Quandoo, Resy)\n- Native reservation system with date/time/party-size picker\n- Confirmation emails / SMS\n- Waitlist feature\n- Integration with Google Reserve\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of reservation capability>\",\n  \"opportunityScore\": \"<1-10, higher = worse booking = better lead>\",\n  \"bookingType\": \"<widget|native|email|phone|form|none>\",\n  \"bookingPlatform\": \"<platform name if any>\",\n  \"hasOnlineBooking\": true/false,\n  \"hasWaitlist\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+      "id": "reservations"
+    },
+    {
+      "name": "Contact",
+      "extraInfo": "contact, find us, location, opening hours, address, directions",
+      "model": "sonnet",
+      "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this restaurant's contact/location page.\n\nHOT LEAD signals:\n- No dedicated contact page\n- Address without a map\n- Missing opening hours\n- No schema markup (LocalBusiness, Restaurant)\n- Inconsistent NAP (name, address, phone) across site\n\nCOLD LEAD signals:\n- Embedded Google Map\n- Full opening hours including holidays\n- Click-to-call phone number\n- Directions from transit/parking\n- LocalBusiness or Restaurant schema\n- Social media links\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of contact page>\",\n  \"opportunityScore\": \"<1-10, higher = worse contact page = better lead>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"hasSchemaMarkup\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}",
+      "id": "contact"
+    }
+  ],
+  "sites": [
+    {
+      "url": "https://stjohnrestaurant.com",
+      "meta": {
+        "name": "St. JOHN"
+      },
+      "id": "site_mnyp23ay_57ffe5b7"
+    },
+    {
+      "url": "https://ottolenghi.co.uk",
+      "meta": {
+        "name": "Ottolenghi"
+      },
+      "id": "site_mnyp23ay_86935a44"
+    },
+    {
+      "url": "https://fallowrestaurant.com",
+      "meta": {
+        "name": "Fallow"
+      },
+      "id": "site_mnyp23ay_2e3179c0"
+    },
+    {
+      "url": "https://www.tayyabs.co.uk",
+      "meta": {
+        "name": "Tayyabs"
+      },
+      "id": "site_mnyp23ay_344147fc"
+    },
+    {
+      "url": "https://moro.co.uk",
+      "meta": {
+        "name": "Moro"
+      },
+      "id": "site_mnyp23ay_a9dbdf2f"
+    },
+    {
+      "url": "https://www.morito.co.uk",
+      "meta": {
+        "name": "Morito"
+      },
+      "id": "site_mnyp23ay_8d1c4a61"
+    }
+  ]
+}

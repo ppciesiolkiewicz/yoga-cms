@@ -1,0 +1,46 @@
+{
+  "categoryId": "cat_mnwyc5yw_76b8ef32",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/schedule",
+      "pageName": "SHA-LA Studios Schedule",
+      "summary": "Weekly class schedule page with location filters for Waterfront and Prenzlauer Berg studios, and teacher/class type filters. The actual class listings appear to be loaded via a third-party widget (Yogo) and are not visible in the page content.",
+      "conversionScore": 4,
+      "seoScore": 3,
+      "classStyles": [],
+      "pricingVisible": false,
+      "scheduleVisible": false,
+      "firstTimeDeal": false,
+      "notes": "The schedule widget renders no visible class data in the scraped content, making it impossible for visitors (or search engines) to see day, time, or style without JavaScript — a significant usability and SEO gap."
+    },
+    {
+      "url": "https://www.shalastudios.com/book-class",
+      "pageName": "SHA-LA Studios Book a Class",
+      "summary": "Pricing and booking page listing drop-in, class packs, week pass, and a two-week trial pass for first-timers, with clear per-option pricing and buy buttons. Partner memberships (Wellpass, Wellhub, ClassPass) are also accommodated.",
+      "conversionScore": 8,
+      "seoScore": 5,
+      "classStyles": [],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": true,
+      "notes": "Pricing is clear and well-structured with a genuine first-timer trial (€49/2 weeks), but no class schedule or style descriptions are shown, and the page title/H1 and local SEO signals are not evident."
+    },
+    {
+      "url": "https://www.shalastudios.com/wellbeing-treatments",
+      "pageName": "SHA-LA Studios Wellbeing Treatments",
+      "summary": "A dedicated page for 1:1 wellness treatments (massage, breathwork, hypnotherapy, sound therapy) and group red light therapy yoga and Pilates recovery classes, with durations and prices listed for each service.",
+      "conversionScore": 5,
+      "seoScore": 4,
+      "classStyles": [
+        "Restorative Yoga",
+        "Yin Yoga",
+        "Pilates",
+        "Red Light Flow"
+      ],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": false,
+      "notes": "Prices and service descriptions are detailed, but booking links are marked 'available soon,' there is no class schedule, and the page mixes drop-in recovery classes with 1:1 treatment upsells in a way that may confuse visitors."
+    }
+  ]
+}

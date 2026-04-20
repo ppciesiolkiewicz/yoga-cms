@@ -1,0 +1,21 @@
+{
+  "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+  "records": [
+    {
+      "url": "https://www.shalastudios.com/academy-1",
+      "pageName": "Shala Studios Retreats Listing",
+      "summary": "A listing page showing two upcoming yoga retreats near Berlin — 'Be the Leaf' (March 2026) and 'Where We Bloom' (April/May) — with minimal details and links to separate booking forms and detail pages.",
+      "conversionScore": 4,
+      "seoScore": 3,
+      "retreatName": "Multiple retreats: Be the Leaf / Where We Bloom",
+      "where": "Haven Havelland (90 min from Berlin) / Buckow, Märkische Schweiz",
+      "when": "March 12–15, 2026 / April 30–May 3",
+      "price": "Not shown on page; 'Where We Bloom' links to external site for pricing",
+      "includes": [
+        "Not specified on this page"
+      ],
+      "dailyScheduleVisible": false,
+      "notes": "Two retreats are mixed on one listing page with almost no detail — no price for first retreat, no inclusions, no schedule, and pricing for the second retreat requires visiting an external site."
+    }
+  ]
+}

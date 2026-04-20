@@ -1,0 +1,47 @@
+{
+  "siteId": "site_mnxjb414_f9d751a2",
+  "pages": [
+    {
+      "url": "https://www.londonlocks.com",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/emergency-lock-outs/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/lock-repairs-london/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/lock-fitting/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/key-cutting/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/24-hour-emergency-lock-outs/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/about-us/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.londonlocks.com/contact-us/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 40000,
+  "totalEstimatedTokens": 10000
+}

@@ -1,0 +1,18 @@
+{
+  "categoryId": "trust",
+  "records": [
+    {
+      "url": "https://www.londonlocks.com/about-us/",
+      "pageName": "London Locks – About Us",
+      "summary": "London Locks is an exceptionally well-credentialed locksmith with 20+ years of trading, named founder Lloyd Morgan, MLA approved membership, a physical shop address, and a 12-month parts and labour warranty. The founder has appeared on BBC Watchdog specifically as an anti-scam authority, making this one of the strongest trust profiles in the industry.",
+      "opportunityScore": 2,
+      "hasReviews": false,
+      "hasTradeBody": true,
+      "hasInsurance": false,
+      "hasNamedTeam": true,
+      "hasGuarantee": true,
+      "topOpportunity": "Embedded Google Reviews widget — the page references a review image asset but has no live review integration, which is the one visible trust gap on an otherwise strong page.",
+      "notes": "This is a cold lead with minimal web agency opportunity — the site is mature, trust signals are extensive, and the founder is a recognised industry authority; only a Google Reviews integration or a light UX refresh would be a realistic sell."
+    }
+  ]
+}

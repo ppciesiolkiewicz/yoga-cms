@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://wdlocksmiths.co.uk/about/",
+      "pageName": "Watchdog Locksmiths – About Page",
+      "summary": "A well-structured about page for a London-based locksmith that clearly states 24/7 availability, service area, DBS-checked team, and multiple contact methods including click-to-call and WhatsApp. Trust signals and emergency info are present, though formal trade body badges or licence numbers are absent.",
+      "opportunityScore": 3,
+      "digitalMaturityScore": 8,
+      "hasClickToCall": true,
+      "hasServiceArea": true,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": true,
+      "hasMobileExperience": true,
+      "topOpportunity": "No visible trade body membership (e.g. Master Locksmiths Association) or licence/insurance number displayed — adding these would close the last credibility gap and could be sold as a trust-optimisation package.",
+      "notes": "Watchdog is a digitally mature operator with strong fundamentals; low opportunity score makes this a cold lead, but upsell potential exists around schema markup, formal accreditation badges, and review platform integration."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk",
+      "pageName": "Watchdog Locksmiths – Homepage",
+      "summary": "A highly capable homepage with above-the-fold click-to-call, WhatsApp CTA, 24/7 emergency messaging, London service area, pricing transparency, video testimonials, and notable client logos including NHS and Metropolitan Police. The site demonstrates strong conversion intent and digital maturity.",
+      "opportunityScore": 2,
+      "digitalMaturityScore": 9,
+      "hasClickToCall": true,
+      "hasServiceArea": true,
+      "hasEmergencyInfo": true,
+      "hasTrustSignals": true,
+      "hasMobileExperience": true,
+      "topOpportunity": "No confirmed LocalBusiness or Service schema markup visible in the page source — implementing structured data could improve local pack rankings and is a low-friction technical SEO sell.",
+      "notes": "This is a very cold lead with an exceptionally well-optimised homepage; the only realistic agency pitch would be schema/structured data implementation or a Google Ads management retainer to capitalise on the strong on-site conversion setup."
+    }
+  ]
+}

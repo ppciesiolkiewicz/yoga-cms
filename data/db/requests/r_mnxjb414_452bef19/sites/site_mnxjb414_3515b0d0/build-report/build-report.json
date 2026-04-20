@@ -1,0 +1,924 @@
+{
+  "siteId": "site_mnxjb414_3515b0d0",
+  "url": "https://www.london-locksmiths.com",
+  "meta": {
+    "name": "JJM Locksmiths"
+  },
+  "scrapedAt": "2026-04-13T18:52:27.842Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "emergency london locksmiths home",
+        "href": "https://www.london-locksmiths.com/index.htm"
+      },
+      {
+        "label": "about london locksmiths",
+        "href": "https://www.london-locksmiths.com/about-london-locksmiths.htm"
+      },
+      {
+        "label": "london locksmith services",
+        "href": "https://www.london-locksmiths.com/london-locksmiths-services.htm"
+      },
+      {
+        "label": "north london locksmiths",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/index.htm"
+      },
+      {
+        "label": "east london locksmiths",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/index.htm"
+      },
+      {
+        "label": "south london locksmiths",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/index.htm"
+      },
+      {
+        "label": "west london locksmiths",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/index.htm"
+      },
+      {
+        "label": "contact london locksmiths",
+        "href": "https://www.london-locksmiths.com/contact-london-locksmiths.htm"
+      },
+      {
+        "label": "Sitemap",
+        "href": "https://www.london-locksmiths.com/sitemap.htm"
+      },
+      {
+        "label": "Barnet",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/barnet-locksmiths.htm"
+      },
+      {
+        "label": "Camden",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/camden-locksmiths.htm"
+      },
+      {
+        "label": "Enfield",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/enfield-locksmiths.htm"
+      },
+      {
+        "label": "Finsbury Park",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/finsbury-park-locksmiths.htm"
+      },
+      {
+        "label": "Haringey",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/haringey-locksmiths.htm"
+      },
+      {
+        "label": "Islington",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/islington-locksmiths.htm"
+      },
+      {
+        "label": "Finchley",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/finchley-locksmiths.htm"
+      },
+      {
+        "label": "Edgware",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/edgware-locksmiths.htm"
+      },
+      {
+        "label": "Mill Hill",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/mill-hill-locksmiths.htm"
+      },
+      {
+        "label": "Hendon",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/hendon-locksmiths.htm"
+      },
+      {
+        "label": "Tottenham",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/tottenham-locksmiths.htm"
+      },
+      {
+        "label": "Highbury",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/highbury-locksmiths.htm"
+      },
+      {
+        "label": "Edmonton",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/edmonton-locksmiths.htm"
+      },
+      {
+        "label": "Wood Green",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/wood-green-locksmiths.htm"
+      },
+      {
+        "label": "Golders Green",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/golders-green-locksmiths.htm"
+      },
+      {
+        "label": "Hornsey",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/hornsey-locksmiths.htm"
+      },
+      {
+        "label": "Southgate",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/locksmiths-southgate.htm"
+      },
+      {
+        "label": "Muswell Hill",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/muswell-hill-locksmiths.htm"
+      },
+      {
+        "label": "Palmers Green",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/palmers-green-locksmiths.htm"
+      },
+      {
+        "label": "Enfield Lock",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/enfield-lock-locksmiths.htm"
+      },
+      {
+        "label": "Brent Cross",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/brent-cross-locksmiths.htm"
+      },
+      {
+        "label": "Harrow",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/harrow-locksmiths.htm"
+      },
+      {
+        "label": "Kenton",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/kenton-locksmiths.htm"
+      },
+      {
+        "label": "Stanmore",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/stanmore-locksmiths.htm"
+      },
+      {
+        "label": "Harrow Weald",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/harrow-weald-locksmiths.htm"
+      },
+      {
+        "label": "Pinner",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/pinner-locksmiths.htm"
+      },
+      {
+        "label": "Ruislip",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/ruislip-locksmiths.htm"
+      },
+      {
+        "label": "Uxbridge",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/uxbridge-locksmiths.htm"
+      },
+      {
+        "label": "Watford",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/watford-locksmiths.htm"
+      },
+      {
+        "label": "Hillingdon",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/hillingdon-locksmiths.htm"
+      },
+      {
+        "label": "Kings Cross",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/kings-cross-locksmiths.htm"
+      },
+      {
+        "label": "St Johns Wood",
+        "href": "https://www.london-locksmiths.com/north-london-locksmiths/st-johns-wood-locksmiths.htm"
+      },
+      {
+        "label": "Clerkenwell",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/clerkenwell-locksmiths.htm"
+      },
+      {
+        "label": "Barbican",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/barbican-locksmiths.htm"
+      },
+      {
+        "label": "Shoreditch",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/shoreditch-locksmiths.htm"
+      },
+      {
+        "label": "Shadwell",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/shadwell-locksmiths.htm"
+      },
+      {
+        "label": "Stepney",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/stepney-locksmiths.htm"
+      },
+      {
+        "label": "Bethnal Green",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/bethnal-green-locksmiths.htm"
+      },
+      {
+        "label": "Dalston",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/dalston-locksmiths.htm"
+      },
+      {
+        "label": "Hackney",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/hackney-locksmiths.htm"
+      },
+      {
+        "label": "Poplar",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/poplar-locksmiths.htm"
+      },
+      {
+        "label": "Bow",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/bow-locksmiths.htm"
+      },
+      {
+        "label": "Bromley By Bow",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/bromley-by-bow-locksmiths.htm"
+      },
+      {
+        "label": "Canning Town",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/canning-town-locksmiths.htm"
+      },
+      {
+        "label": "Stratford",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/stratford-locksmiths.htm"
+      },
+      {
+        "label": "Leyton",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/leyton-locksmiths.htm"
+      },
+      {
+        "label": "Walthamstow",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/walthamstow-locksmiths.htm"
+      },
+      {
+        "label": "West Ham",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/west-ham-locksmiths.htm"
+      },
+      {
+        "label": "Upton",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/upton-locksmiths.htm"
+      },
+      {
+        "label": "Forest Gate",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/forest-gate-locksmiths.htm"
+      },
+      {
+        "label": "Leytonstone",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/leytonstone-locksmiths.htm"
+      },
+      {
+        "label": "Beckton",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/beckton-locksmiths.htm"
+      },
+      {
+        "label": "East Ham",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/east-ham-locksmiths.htm"
+      },
+      {
+        "label": "Manor Park",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/manor-park-locksmiths.htm"
+      },
+      {
+        "label": "Wanstead",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/wanstead-locksmiths.htm"
+      },
+      {
+        "label": "Barking",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/barking-locksmiths.htm"
+      },
+      {
+        "label": "Ilford",
+        "href": "https://www.london-locksmiths.com/east-london-locksmiths/ilford-locksmiths.htm"
+      },
+      {
+        "label": "Waterloo",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/waterloo-locksmiths.htm"
+      },
+      {
+        "label": "Vauxhall",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/vauxhall-locksmiths.htm"
+      },
+      {
+        "label": "Lambeth",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/lambeth-locksmiths.htm"
+      },
+      {
+        "label": "Southwark",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/southwark-locksmiths.htm"
+      },
+      {
+        "label": "Kennington",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/kennington-locksmiths.htm"
+      },
+      {
+        "label": "Walworth",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/walworth-locksmiths.htm"
+      },
+      {
+        "label": "Camberwell",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/camberwell-locksmiths.htm"
+      },
+      {
+        "label": "Herne Hill",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/herne-hill-locksmiths.htm"
+      },
+      {
+        "label": "Peckham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/peckham-locksmiths.htm"
+      },
+      {
+        "label": "Bermondsey",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/bermondsey-locksmiths.htm"
+      },
+      {
+        "label": "New Cross",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/new-cross-locksmiths.htm"
+      },
+      {
+        "label": "Deptford",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/deptford-locksmiths.htm"
+      },
+      {
+        "label": "Lewisham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/lewisham-locksmiths.htm"
+      },
+      {
+        "label": "Blackheath",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/blackheath-locksmiths.htm"
+      },
+      {
+        "label": "Greenwich",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/greenwich-locksmiths.htm"
+      },
+      {
+        "label": "Charlton",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/charlton-locksmiths.htm"
+      },
+      {
+        "label": "Woolwich",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/woolwich-locksmiths.htm"
+      },
+      {
+        "label": "Woolwich Common",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/woolwich-common-locksmiths.htm"
+      },
+      {
+        "label": "Plumstead",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/"
+      },
+      {
+        "label": "Abbey Wood",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/abbey-wood-locksmiths.htm"
+      },
+      {
+        "label": "Belverdere",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/belverdere-locksmiths.htm"
+      },
+      {
+        "label": "Thamesmead",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/thamesmead-locksmiths.htm"
+      },
+      {
+        "label": "Kidbrooke",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/kidbrooke-locksmiths.htm"
+      },
+      {
+        "label": "Eltham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/eltham-locksmiths.htm"
+      },
+      {
+        "label": "New Eltham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/new-eltham-locksmiths.htm"
+      },
+      {
+        "label": "Sidcup",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/sidcup-locksmiths.htm"
+      },
+      {
+        "label": "Footscray",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/footscray-locksmiths.htm"
+      },
+      {
+        "label": "North Cray",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/north-cray-locksmiths.htm"
+      },
+      {
+        "label": "St Marys Cray",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/st-marys-cray-locksmiths.htm"
+      },
+      {
+        "label": "Welling",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/welling-locksmiths.htm"
+      },
+      {
+        "label": "Bexleyheath",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/bexleyheath-locksmiths.htm"
+      },
+      {
+        "label": "Hither Green",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/hither-green-locksmiths.htm"
+      },
+      {
+        "label": "Catford",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/catford-locksmiths.htm"
+      },
+      {
+        "label": "Bellingham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/bellingham-locksmiths.htm"
+      },
+      {
+        "label": "Downham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/downham-locksmiths.htm"
+      },
+      {
+        "label": "Beckenham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/beckenham-locksmiths.htm"
+      },
+      {
+        "label": "Bromley",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/bromley-locksmiths.htm"
+      },
+      {
+        "label": "Bickely",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/bickley-locksmiths.htm"
+      },
+      {
+        "label": "Sundridge",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/sundridge-locksmiths.htm"
+      },
+      {
+        "label": "Chislehurst",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/chislehurst-locksmiths.htm"
+      },
+      {
+        "label": "Elmers End",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/elmers-end-locksmiths.htm"
+      },
+      {
+        "label": "West Wickham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/west-wickham-locksmiths.htm"
+      },
+      {
+        "label": "Hayes",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/hayes-locksmiths.htm"
+      },
+      {
+        "label": "Keston",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/keston-locksmiths.htm"
+      },
+      {
+        "label": "Farnborough",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/farnborough-locksmiths.htm"
+      },
+      {
+        "label": "Petts Wood",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/petts-wood-locksmiths.htm"
+      },
+      {
+        "label": "Orpington",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/orpington-locksmiths.htm"
+      },
+      {
+        "label": "Norwood",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/norwood-locksmiths.htm"
+      },
+      {
+        "label": "Norbury",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/norbury-locksmiths.htm"
+      },
+      {
+        "label": "Thornton Heath",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/thornton-heath-locksmiths.htm"
+      },
+      {
+        "label": "Croydon",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/croydon-locksmiths.htm"
+      },
+      {
+        "label": "East Croydon",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/east-croydon-locksmiths.htm"
+      },
+      {
+        "label": "Shirley",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/shirley-locksmiths.htm"
+      },
+      {
+        "label": "South Norwood",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/south-norwood-locksmiths.htm"
+      },
+      {
+        "label": "Penge",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/penge-locksmiths.htm"
+      },
+      {
+        "label": "Crystal Palace",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/crystal-palace-locksmiths.htm"
+      },
+      {
+        "label": "Dulwich",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/dulwich-locksmiths.htm"
+      },
+      {
+        "label": "East Dulwich",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/east-dulwich-locksmiths.htm"
+      },
+      {
+        "label": "Sydenham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/sydenham-locksmiths.htm"
+      },
+      {
+        "label": "Forest Hill",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/forest-hill-locksmiths.htm"
+      },
+      {
+        "label": "Wimbledon",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/wimbledon-locksmiths.htm"
+      },
+      {
+        "label": "Clapham",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/clapham-locksmiths.htm"
+      },
+      {
+        "label": "Wandsworth",
+        "href": "https://www.london-locksmiths.com/south-london-locksmiths/wandsworth-locksmiths.htm"
+      },
+      {
+        "label": "Westminster",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/westminster-locksmiths.htm"
+      },
+      {
+        "label": "Battersea",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/battersea-locksmiths.htm"
+      },
+      {
+        "label": "Streatham",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/streatham-locksmiths.htm"
+      },
+      {
+        "label": "Brixton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/brixton-locksmiths.htm"
+      },
+      {
+        "label": "Chelsea",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/chelsea-locksmiths.htm"
+      },
+      {
+        "label": "Fulham",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/fulham-locksmiths.htm"
+      },
+      {
+        "label": "Kensington",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/kensington-locksmiths.htm"
+      },
+      {
+        "label": "Chiswick",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/chiswick-locksmiths.htm"
+      },
+      {
+        "label": "Ealing",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/ealing-locksmiths.htm"
+      },
+      {
+        "label": "Acton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/acton-locksmiths.htm"
+      },
+      {
+        "label": "Brentford",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/brentford-locksmiths.htm"
+      },
+      {
+        "label": "Southall",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/southall-locksmiths.htm"
+      },
+      {
+        "label": "Hanwell",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/hanwell-locksmiths.htm"
+      },
+      {
+        "label": "Richmond",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/richmond-locksmiths.htm"
+      },
+      {
+        "label": "Hounslow",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/hounslow-locksmiths.htm"
+      },
+      {
+        "label": "Twickenham",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/twickenham-locksmiths.htm"
+      },
+      {
+        "label": "Teddington",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/teddington-locksmiths.htm"
+      },
+      {
+        "label": "Kingston Upon Thames",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/kingston-upon-thames-locksmiths.htm"
+      },
+      {
+        "label": "Surbiton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/surbiton-locksmiths.htm"
+      },
+      {
+        "label": "Esher",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/esher-locksmiths.htm"
+      },
+      {
+        "label": "Wimbledon",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/wimbledon-locksmiths.htm"
+      },
+      {
+        "label": "Mitcham",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/mitcham-locksmiths.htm"
+      },
+      {
+        "label": "Merton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/merton-locksmiths.htm"
+      },
+      {
+        "label": "Morden",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/morden-locksmiths.htm"
+      },
+      {
+        "label": "Sutton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/sutton-locksmiths.htm"
+      },
+      {
+        "label": "Epsom",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/epsom-locksmiths.htm"
+      },
+      {
+        "label": "Ewell",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/ewell-locksmiths.htm"
+      },
+      {
+        "label": "Banstead",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/banstead-locksmiths.htm"
+      },
+      {
+        "label": "Feltham",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/feltham-locksmiths.htm"
+      },
+      {
+        "label": "Sunbury",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/sunbury-locksmiths.htm"
+      },
+      {
+        "label": "Hampton",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/hampton-locksmiths.htm"
+      },
+      {
+        "label": "New Malden",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/new-malden-locksmiths.htm"
+      },
+      {
+        "label": "Park Lane",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/park-lane-locksmiths.htm"
+      },
+      {
+        "label": "Maida Vale",
+        "href": "https://www.london-locksmiths.com/west-london-locksmiths/maida-vale-locksmiths.htm"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://www.london-locksmiths.com",
+        "https://www.london-locksmiths.com/index.htm"
+      ],
+      "services": [
+        "https://www.london-locksmiths.com/london-locksmiths-services.htm",
+        "https://www.london-locksmiths.com/north-london-locksmiths/index.htm",
+        "https://www.london-locksmiths.com/east-london-locksmiths/index.htm",
+        "https://www.london-locksmiths.com/south-london-locksmiths/index.htm",
+        "https://www.london-locksmiths.com/west-london-locksmiths/index.htm"
+      ],
+      "pricing": [],
+      "trust": [
+        "https://www.london-locksmiths.com/about-london-locksmiths.htm"
+      ],
+      "contact": [
+        "https://www.london-locksmiths.com/contact-london-locksmiths.htm"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "Custom / Unknown",
+      "detectedTechnologies": [],
+      "costBreakdown": [
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 1,
+        "max": 2,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://www.london-locksmiths.com",
+      "performance": 0,
+      "accessibility": 0,
+      "seo": 0,
+      "bestPractices": 0
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://www.london-locksmiths.com/index.htm",
+          "pageName": "London Locksmiths Homepage (index.htm)",
+          "summary": "An established London-wide emergency locksmith service with 24/7 availability, a freephone number, and extensive area coverage pages, but built on a visibly dated HTML template lacking modern mobile optimisation, trust signals, and structured data. The click-to-call is present but implemented as a GIF image link, and no licence, insurance, or customer review signals are displayed.",
+          "opportunityScore": 7,
+          "digitalMaturityScore": 3,
+          "hasClickToCall": true,
+          "hasServiceArea": true,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": false,
+          "hasMobileExperience": false,
+          "topOpportunity": "Full mobile-first redesign with proper tap-to-call button, LocalBusiness schema markup, and visible trust signals (licence number, insurance, reviews) to convert panicked mobile users before they bounce to a competitor.",
+          "notes": "Operationally well-structured with strong area coverage and 24/7 messaging, but the ancient table-based template, GIF click-to-call, zero reviews, and no schema markup make this a strong candidate for a modernisation pitch."
+        },
+        {
+          "url": "https://www.london-locksmiths.com",
+          "pageName": "London Locksmiths Homepage (root)",
+          "summary": "Identical content to the index.htm page — a dated static HTML site for a London emergency locksmith with 24/7 coverage and a freephone number, but no modern mobile UX, no trust badges, no schema, and a click-to-call implemented as a legacy GIF rather than a native button. Service area breadth is strong but credibility signals are entirely absent.",
+          "opportunityScore": 7,
+          "digitalMaturityScore": 3,
+          "hasClickToCall": true,
+          "hasServiceArea": true,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": false,
+          "hasMobileExperience": false,
+          "topOpportunity": "Full mobile-first redesign with proper tap-to-call button, LocalBusiness schema markup, and visible trust signals (licence number, insurance, reviews) to convert panicked mobile users before they bounce to a competitor.",
+          "notes": "Same opportunity profile as the index.htm entry — this business has the operational depth to justify a serious digital upgrade and would benefit significantly from a modern, conversion-focused site."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://www.london-locksmiths.com/london-locksmiths-services.htm",
+          "pageName": "London Locksmiths Services",
+          "summary": "The services page lists a broad range of locksmith and security offerings across two sections, with each service linking to its own dedicated sub-page. Services are organised into loose groupings (emergency, domestic/commercial, physical security, alarms/CCTV) with brief paragraph-level descriptions rather than per-service detail.",
+          "opportunityScore": 5,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "24 Hour Emergency Locksmiths",
+            "Burglary Repairs",
+            "Emergency Lock Repair and Replacement",
+            "Mobile Locksmiths",
+            "Domestic Locksmiths",
+            "Commercial Locksmiths",
+            "Insurance Surveys",
+            "Lock Fitting",
+            "UPVC/Patio Door and Lock Repairs",
+            "Window Locks",
+            "Safe Fitting Opening and Servicing",
+            "Door Repair and Carpentry",
+            "Access Control",
+            "Bars Grills and Shutters",
+            "Security Keys",
+            "Master Keys and Keyed Alike",
+            "Domestic Burglar Alarms",
+            "CCTV",
+            "Commercial Alarm Systems",
+            "Free Security Audits",
+            "Free Security Surveys",
+            "High Security Locks",
+            "Industrial Safe Installation"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Individual service pages exist but lack detailed descriptions, FAQs, before/after photos and service-specific CTAs — a content and conversion optimisation project per service page.",
+          "notes": "The site has the structural bones of a good services section but each linked page likely lacks depth, trust signals and conversion elements, making it a moderate opportunity for a content-led redesign pitch."
+        },
+        {
+          "url": "https://www.london-locksmiths.com/north-london-locksmiths/index.htm",
+          "pageName": "North London Locksmiths",
+          "summary": "A geographic coverage page for North London that presents service capabilities as short bullet-point lists (emergency, response times, pricing) with no descriptive content per service type. The page is essentially a directory of coverage areas with a call-to-action phone number.",
+          "opportunityScore": 7,
+          "serviceStructure": "single-page",
+          "servicesListed": [
+            "Locked In/Out",
+            "Lock Repair and Replacement",
+            "Door and Burglary Repairs",
+            "24 Hour Emergency Service"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Full geo-landing page build with service-specific sections, local trust signals, photos, reviews and dedicated CTAs to replace the thin bullet-list format.",
+          "notes": "This is a weak geo-landing page with no real service content beyond bullet points and a coverage link list — strong candidate for a localised landing page redesign upsell."
+        },
+        {
+          "url": "https://www.london-locksmiths.com/east-london-locksmiths/index.htm",
+          "pageName": "East London Locksmiths",
+          "summary": "Near-identical template to the North London page, offering bullet-point service highlights and a list of coverage area links with no individual service descriptions or location-specific content. Boilerplate copy with East London substituted throughout.",
+          "opportunityScore": 7,
+          "serviceStructure": "single-page",
+          "servicesListed": [
+            "Locked In/Out",
+            "Lock Repair and Replacement",
+            "Door and Burglary Repairs",
+            "24 Hour Emergency Service"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Unique geo-targeted landing page with localised content, service breakdowns, area-specific trust signals and conversion-optimised layout to replace the cloned template.",
+          "notes": "Boilerplate geo-page with zero unique content value — easy to pitch a differentiated local landing page that would outperform this in search and conversion."
+        },
+        {
+          "url": "https://www.london-locksmiths.com/south-london-locksmiths/index.htm",
+          "pageName": "South London Locksmiths",
+          "summary": "Another cloned geographic template for South London, structurally and textually identical to the North and East London pages apart from location name substitutions and a longer coverage area list. No service descriptions or unique content present.",
+          "opportunityScore": 7,
+          "serviceStructure": "single-page",
+          "servicesListed": [
+            "Locked In/Out",
+            "Lock Repair and Replacement",
+            "Door and Burglary Repairs",
+            "24 Hour Emergency Service"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Localised geo-landing page with unique copy, service detail sections, neighbourhood-specific trust content and strong CTA design to replace the templated placeholder.",
+          "notes": "One of four near-identical geo-pages that collectively represent a significant thin-content SEO problem and a clear web agency content strategy opportunity."
+        },
+        {
+          "url": "https://www.london-locksmiths.com/west-london-locksmiths/index.htm",
+          "pageName": "West London Locksmiths",
+          "summary": "Fourth in a series of cloned geographic landing pages, this West London version replicates the same bullet-point structure, boilerplate paragraph copy and area link list as the other regional pages. No service descriptions, photos or unique local content.",
+          "opportunityScore": 7,
+          "serviceStructure": "single-page",
+          "servicesListed": [
+            "Locked In/Out",
+            "Lock Repair and Replacement",
+            "Door and Burglary Repairs",
+            "24 Hour Emergency Service"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": false,
+          "topOpportunity": "Unique geo-landing page with locally relevant content, service-specific sections, testimonials and conversion-focused design to replace the duplicate template.",
+          "notes": "The four near-identical regional pages represent a systemic site-wide content problem — pitching a geo-landing page strategy overhaul covering all four regions plus individual area pages would be a strong agency offer."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": []
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": [
+        {
+          "url": "https://www.london-locksmiths.com/about-london-locksmiths.htm",
+          "pageName": "London Locksmiths – About Page",
+          "summary": "The about page is thin on genuine trust signals — no named team members, no trade body logos, no insurance or licence numbers, and no customer reviews. The site mentions a 12-month guarantee and 'no fix no fee' but provides no verifiable credentials to back up these claims.",
+          "opportunityScore": 8,
+          "hasReviews": false,
+          "hasTradeBody": false,
+          "hasInsurance": false,
+          "hasNamedTeam": false,
+          "hasGuarantee": true,
+          "topOpportunity": "Build a trust-focused redesign incorporating Google Reviews integration, MLA membership badge display, named engineer profiles with photos, and visible licence/insurance credentials to dramatically improve conversion from suspicious London searchers.",
+          "notes": "A high-volume emergency locksmith serving all of London with almost zero verifiable trust signals — a textbook prospect for a conversion-led web redesign pitch."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://www.london-locksmiths.com/contact-london-locksmiths.htm",
+          "pageName": "Contact London Locksmiths",
+          "summary": "The page provides a physical address, email, freephone and mobile number, plus a small click-to-call image button and a contact enquiry form. Core emergency signals like response time, 24/7 statement, service area map, live chat, or WhatsApp are entirely absent.",
+          "opportunityScore": 7,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": false,
+          "hasLiveChat": false,
+          "topOpportunity": "Full emergency landing page redesign: prominent 24/7 badge, response time guarantee, interactive service area map, WhatsApp/text CTA, and removal of the form as the fallback contact method.",
+          "notes": "The click-to-call button exists but is a small GIF image with no size or urgency hierarchy; the absence of 24/7 info, response time, and a service map makes this a weak emergency page and a solid mid-tier prospect for a conversion-focused redesign."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

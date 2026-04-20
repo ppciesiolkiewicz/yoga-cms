@@ -1,0 +1,296 @@
+{
+  "siteId": "site_mnxjb414_901b436e",
+  "url": "https://londonlocksmiths.com",
+  "meta": {
+    "name": "London Locksmiths Ltd"
+  },
+  "scrapedAt": "2026-04-13T18:48:30.413Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Services",
+        "href": "https://londonlocksmiths.com/services/"
+      },
+      {
+        "label": "Lock Repair",
+        "href": "https://londonlocksmiths.com/lock-repair/"
+      },
+      {
+        "label": "About",
+        "href": "https://londonlocksmiths.com/about/"
+      },
+      {
+        "label": "Gallery",
+        "href": "https://londonlocksmiths.com/gallery/"
+      },
+      {
+        "label": "Contact",
+        "href": "https://londonlocksmiths.com/contact/"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://londonlocksmiths.com"
+      ],
+      "services": [
+        "https://londonlocksmiths.com/services/",
+        "https://londonlocksmiths.com/lock-repair/"
+      ],
+      "pricing": [],
+      "trust": [
+        "https://londonlocksmiths.com/about/"
+      ],
+      "contact": [
+        "https://londonlocksmiths.com/contact/"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "WordPress",
+      "detectedTechnologies": [
+        {
+          "name": "WordPress",
+          "categories": [
+            "CMS",
+            "Blogs"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "MySQL",
+          "categories": [
+            "Databases"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PHP",
+          "categories": [
+            "Programming languages"
+          ],
+          "version": "7.4.33",
+          "confidence": 100
+        },
+        {
+          "name": "Yoast SEO",
+          "categories": [
+            "SEO",
+            "WordPress plugins"
+          ],
+          "version": "27.2",
+          "confidence": 100
+        },
+        {
+          "name": "Apache HTTP Server",
+          "categories": [
+            "Web servers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Swiper",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "jQuery Migrate",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "3.4.1",
+          "confidence": 100
+        },
+        {
+          "name": "jQuery",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "imagesLoaded",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "2.10.1.4",
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Analytics",
+          "categories": [
+            "Analytics"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "WordPress hosting",
+          "min": 5,
+          "max": 50
+        },
+        {
+          "item": "Google Analytics",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 6,
+        "max": 52,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://londonlocksmiths.com",
+      "performance": 0,
+      "accessibility": 0,
+      "seo": 0,
+      "bestPractices": 0
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://londonlocksmiths.com",
+          "pageName": "London Locksmiths – Homepage",
+          "summary": "London Locksmiths Ltd has a well-established web presence with MLA accreditation, Google reviews, and phone numbers listed, but the emergency call-to-action and click-to-call button are buried below the fold rather than prominently displayed above it. The site relies heavily on Adobe Stock photography rather than real team or van photos, and no specific service area coverage map or borough list is provided beyond a vague 'London' reference.",
+          "opportunityScore": 5,
+          "digitalMaturityScore": 6,
+          "hasClickToCall": false,
+          "hasServiceArea": false,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": true,
+          "hasMobileExperience": false,
+          "topOpportunity": "Add a sticky above-the-fold click-to-call button with 24/7 emergency messaging to capture panicked mobile users before they bounce to a competitor",
+          "notes": "Solid trust credentials and reviews make this a warm rather than hot lead, but the lack of a prominent mobile click-to-call CTA and real photos are clear upsell angles for a conversion-focused redesign."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://londonlocksmiths.com/services/",
+          "pageName": "Services Overview",
+          "summary": "All services are presented on a single page with short descriptive paragraphs per service. There is no structural separation between emergency and scheduled work, no individual service pages linked, and images appear to be stock rather than actual work.",
+          "opportunityScore": 6,
+          "serviceStructure": "single-page",
+          "servicesListed": [
+            "Lock Repairs",
+            "Lock Replacements",
+            "Property Entry",
+            "Lock Picking"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Build out individual landing pages per service (residential, commercial, emergency, auto) with targeted SEO copy and service-specific CTAs to capture intent-driven search traffic.",
+          "notes": "The page has more substance than a bare bullet list but still consolidates everything in one place with stock imagery, no emergency callout, and no segmentation by customer type — leaving significant SEO and conversion value on the table."
+        },
+        {
+          "url": "https://londonlocksmiths.com/lock-repair/",
+          "pageName": "Lock Repair",
+          "summary": "A dedicated lock repair page exists with two descriptive sub-sections covering diagnosis and repair process. However, it relies entirely on stock photography, lacks FAQs, pricing signals, and any emergency vs. scheduled distinction despite claiming 24-hour availability.",
+          "opportunityScore": 5,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "Lock Repair",
+            "Lock Diagnosis"
+          ],
+          "hasEmergencyDistinction": false,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Enhance the page with real job photography, an FAQ section, a prominent emergency CTA, and structured data markup to improve local search visibility and trust signals.",
+          "notes": "The site shows partial maturity — individual service pages exist — but content depth, trust assets, and conversion optimisation are underdeveloped, making this a mid-tier opportunity for a web agency pitching SEO and CRO improvements."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": []
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": [
+        {
+          "url": "https://londonlocksmiths.com/about/",
+          "pageName": "London Locksmiths – About",
+          "summary": "Strong trust signals overall: named team members with detailed bios, MLA membership prominently stated, and 35 years of experience highlighted. However, stock Adobe photos are used instead of real team images, and there is no visible mention of reviews, guarantees, or insurance details.",
+          "opportunityScore": 3,
+          "hasReviews": false,
+          "hasTradeBody": true,
+          "hasInsurance": false,
+          "hasNamedTeam": true,
+          "hasGuarantee": false,
+          "topOpportunity": "Add embedded Google Reviews or Trustpilot widget and real team photography to replace stock Adobe images — the strong MLA and bio content deserves authentic visuals to maximise conversion.",
+          "notes": "This is a well-established business with genuine credentials but a cold digital presence; a review integration and photo upgrade would be a relatively easy sell with clear ROI framing around trust and conversion."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://londonlocksmiths.com/contact/",
+          "pageName": "Contact Us – London Locksmiths",
+          "summary": "The page offers two click-to-call phone numbers and a WhatsApp link, but leads with a callback request form asking for a preferred call time — not ideal for emergencies. No service area map, response time, or 24/7 information is present.",
+          "opportunityScore": 6,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": false,
+          "hasLiveChat": false,
+          "topOpportunity": "Add a dedicated emergency landing page with a prominent 24/7 badge, response time guarantee, interactive service area map, and a sticky click-to-call CTA — replacing the callback form as the primary contact method",
+          "notes": "Phone numbers are clickable and WhatsApp is present, which softens the lead, but the form-first layout, missing coverage map, and absence of any emergency or after-hours messaging leave clear room for a high-converting emergency UX redesign."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

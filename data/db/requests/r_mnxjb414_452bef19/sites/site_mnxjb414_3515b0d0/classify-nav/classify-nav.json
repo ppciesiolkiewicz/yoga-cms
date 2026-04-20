@@ -1,0 +1,22 @@
+{
+  "byCategory": {
+    "home": [
+      "https://www.london-locksmiths.com",
+      "https://www.london-locksmiths.com/index.htm"
+    ],
+    "services": [
+      "https://www.london-locksmiths.com/london-locksmiths-services.htm",
+      "https://www.london-locksmiths.com/north-london-locksmiths/index.htm",
+      "https://www.london-locksmiths.com/east-london-locksmiths/index.htm",
+      "https://www.london-locksmiths.com/south-london-locksmiths/index.htm",
+      "https://www.london-locksmiths.com/west-london-locksmiths/index.htm"
+    ],
+    "pricing": [],
+    "trust": [
+      "https://www.london-locksmiths.com/about-london-locksmiths.htm"
+    ],
+    "contact": [
+      "https://www.london-locksmiths.com/contact-london-locksmiths.htm"
+    ]
+  }
+}

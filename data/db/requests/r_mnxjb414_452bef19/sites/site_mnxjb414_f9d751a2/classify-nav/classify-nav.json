@@ -1,0 +1,21 @@
+{
+  "byCategory": {
+    "home": [
+      "https://www.londonlocks.com"
+    ],
+    "services": [
+      "https://www.londonlocks.com/emergency-lock-outs/",
+      "https://www.londonlocks.com/lock-repairs-london/",
+      "https://www.londonlocks.com/lock-fitting/",
+      "https://www.londonlocks.com/key-cutting/",
+      "https://www.londonlocks.com/24-hour-emergency-lock-outs/"
+    ],
+    "pricing": [],
+    "trust": [
+      "https://www.londonlocks.com/about-us/"
+    ],
+    "contact": [
+      "https://www.londonlocks.com/contact-us/"
+    ]
+  }
+}

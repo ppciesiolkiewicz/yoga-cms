@@ -1,0 +1,546 @@
+{
+  "id": "ord_mnwyczc0_77bfb729",
+  "requestId": "r_mnwyc5yw_2da0cfb0",
+  "createdAt": "2026-04-13T08:50:34.080Z",
+  "status": "completed",
+  "sites": [
+    {
+      "siteId": "site_mnwyc5yw_58ecace9",
+      "url": "https://doinyoga.pl",
+      "pageCount": 12,
+      "estimatedTokens": 15000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.001144,
+          "estimatedCost": 0.001144,
+          "actualCost": 0.001144,
+          "actualQuantity": 384
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 12,
+          "unitCost": 0.01,
+          "estimatedCost": 0.12,
+          "actualQuantity": 12,
+          "actualCost": 0.12
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 12,
+          "unitCost": 0.002,
+          "estimatedCost": 0.024,
+          "actualQuantity": 12,
+          "actualCost": 0.024
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 5001,
+          "actualCost": 0.050102999999999995
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 5001,
+          "actualCost": 0.050102999999999995
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 5001,
+          "actualCost": 0.050102999999999995
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0675,
+          "estimatedCost": 0.0675,
+          "actualQuantity": 5001,
+          "actualCost": 0.050102999999999995
+        }
+      ],
+      "subtotal": 0.417144
+    },
+    {
+      "siteId": "site_mnwyc5yw_3fcb22f6",
+      "url": "https://www.shalastudios.com",
+      "pageCount": 8,
+      "estimatedTokens": 10000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.0007490000000000001,
+          "estimatedCost": 0.0007490000000000001,
+          "actualCost": 0.0007490000000000001,
+          "actualQuantity": 305
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.01,
+          "estimatedCost": 0.08,
+          "actualQuantity": 8,
+          "actualCost": 0.08
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.002,
+          "estimatedCost": 0.016,
+          "actualQuantity": 8,
+          "actualCost": 0.016
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3752,
+          "actualCost": 0.031368
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3752,
+          "actualCost": 0.031368
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3752,
+          "actualCost": 0.031368
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3752,
+          "actualCost": 0.031368
+        }
+      ],
+      "subtotal": 0.308749
+    },
+    {
+      "siteId": "site_mnwyc5yw_56ce862e",
+      "url": "https://www.hotyogabarcelona.com",
+      "pageCount": 4,
+      "estimatedTokens": 5000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.000539,
+          "estimatedCost": 0.000539,
+          "actualCost": 0.000539,
+          "actualQuantity": 263
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.01,
+          "estimatedCost": 0.04,
+          "actualQuantity": 4,
+          "actualCost": 0.04
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 4,
+          "unitCost": 0.002,
+          "estimatedCost": 0.008,
+          "actualQuantity": 4,
+          "actualCost": 0.008
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 2713,
+          "actualCost": 0.020103000000000003
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 2713,
+          "actualCost": 0.020103000000000003
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 2713,
+          "actualCost": 0.020103000000000003
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0375,
+          "estimatedCost": 0.0375,
+          "actualQuantity": 2713,
+          "actualCost": 0.020103000000000003
+        }
+      ],
+      "subtotal": 0.20053900000000002
+    },
+    {
+      "siteId": "site_mnwyc5yw_bb7ed043",
+      "url": "https://www.shalastudios.com",
+      "pageCount": 8,
+      "estimatedTokens": 10000,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.0007640000000000001,
+          "estimatedCost": 0.0007640000000000001,
+          "actualCost": 0.0007640000000000001,
+          "actualQuantity": 308
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.01,
+          "estimatedCost": 0.08,
+          "actualQuantity": 8,
+          "actualCost": 0.08
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 8,
+          "unitCost": 0.002,
+          "estimatedCost": 0.016,
+          "actualQuantity": 8,
+          "actualCost": 0.016
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3725,
+          "actualCost": 0.030963
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3725,
+          "actualCost": 0.030963
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3725,
+          "actualCost": 0.030963
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0525,
+          "estimatedCost": 0.0525,
+          "actualQuantity": 3725,
+          "actualCost": 0.030963
+        }
+      ],
+      "subtotal": 0.308764
+    },
+    {
+      "siteId": "site_mnwyc5yw_f8273169",
+      "url": "https://www.threeboonsyoga.de",
+      "pageCount": 11,
+      "estimatedTokens": 13750,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.000979,
+          "estimatedCost": 0.000979,
+          "actualCost": 0.000979,
+          "actualQuantity": 351
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 11,
+          "unitCost": 0.01,
+          "estimatedCost": 0.11,
+          "actualQuantity": 11,
+          "actualCost": 0.11
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 11,
+          "unitCost": 0.002,
+          "estimatedCost": 0.022,
+          "actualQuantity": 11,
+          "actualCost": 0.022
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06375,
+          "estimatedCost": 0.06375,
+          "actualQuantity": 4677,
+          "actualCost": 0.04524299999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06375,
+          "estimatedCost": 0.06375,
+          "actualQuantity": 4677,
+          "actualCost": 0.04524299999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06375,
+          "estimatedCost": 0.06375,
+          "actualQuantity": 4677,
+          "actualCost": 0.04524299999999999
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.06375,
+          "estimatedCost": 0.06375,
+          "actualQuantity": 4677,
+          "actualCost": 0.04524299999999999
+        }
+      ],
+      "subtotal": 0.38997899999999996
+    },
+    {
+      "siteId": "site_mnwyc5yw_4bcb6253",
+      "url": "https://www.yoga-lotos.de",
+      "pageCount": 0,
+      "estimatedTokens": 0,
+      "lineItems": [
+        {
+          "stage": "fetch-home",
+          "description": "Homepage scrape (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0.002,
+          "estimatedCost": 0.002,
+          "actualCost": 0.002,
+          "actualQuantity": 1
+        },
+        {
+          "stage": "classify-nav",
+          "description": "Navigation classification (sunk)",
+          "unit": "per-site",
+          "quantity": 1,
+          "unitCost": 0,
+          "estimatedCost": 0,
+          "actualCost": 0,
+          "actualQuantity": 0
+        },
+        {
+          "stage": "service-fee",
+          "description": "Service fee",
+          "unit": "per-page",
+          "quantity": 0,
+          "unitCost": 0.01,
+          "estimatedCost": 0,
+          "actualQuantity": 0,
+          "actualCost": 0
+        },
+        {
+          "stage": "fetch-pages",
+          "description": "Firecrawl page scraping",
+          "unit": "per-page",
+          "quantity": 0,
+          "unitCost": 0.002,
+          "estimatedCost": 0,
+          "actualQuantity": 0,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Drop in",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0225,
+          "estimatedCost": 0.0225,
+          "actualQuantity": 0,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Training",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0225,
+          "estimatedCost": 0.0225,
+          "actualQuantity": 0,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Retreat",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0225,
+          "estimatedCost": 0.0225,
+          "actualQuantity": 0,
+          "actualCost": 0
+        },
+        {
+          "stage": "extract-pages-content",
+          "description": "Extract content — Contact",
+          "unit": "per-category",
+          "quantity": 1,
+          "unitCost": 0.0225,
+          "estimatedCost": 0.0225,
+          "actualQuantity": 0,
+          "actualCost": 0
+        }
+      ],
+      "subtotal": 0.092
+    }
+  ],
+  "totalEstimatedCost": 1.7171750000000001,
+  "approvedAt": "2026-04-13T08:50:38.567Z",
+  "completedAt": "2026-04-13T08:55:35.174Z",
+  "totalActualCost": 1.243295
+}

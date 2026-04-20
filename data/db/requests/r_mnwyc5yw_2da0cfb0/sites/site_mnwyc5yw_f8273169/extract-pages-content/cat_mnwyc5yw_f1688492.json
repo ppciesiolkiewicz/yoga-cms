@@ -1,0 +1,65 @@
+{
+  "categoryId": "cat_mnwyc5yw_f1688492",
+  "records": [
+    {
+      "url": "https://www.threeboonsyoga.de/training",
+      "pageName": "Three Boons 180+HR YTT",
+      "summary": "Three Boons Yoga Berlin offers a 180+hour foundational yoga teacher training called 'The Art of Teaching Yoga I,' running over 8 weeks across April–May 2027, with in-person and online options.",
+      "conversionScore": 5,
+      "seoScore": 4,
+      "trainingName": "The Art of Teaching Yoga I: Three Boons 180+HR Yoga Teacher Training",
+      "hours": "180+ hours",
+      "price": "Not visible in provided content",
+      "dates": "April–May 2027 (Spring 2027 cohort)",
+      "style": "Jivamukti / Vinyasa",
+      "curriculumVisible": true,
+      "teacherBiosVisible": false,
+      "notes": "Dates and hours are clearly stated, but price is absent from the provided content and philosophy-heavy copy appears before key facts, hurting conversion; no teacher bios, schema markup, or reviews are evident."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/advancedtraining",
+      "pageName": "Three Boons 153+HR Advanced YTT",
+      "summary": "An advanced 153+hour yoga teacher training for existing certified teachers, running May 30–July 12, 2026 in Berlin-Mitte (or online), priced at 1,899 EUR with payment plan options.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "trainingName": "The Art of Teaching Yoga II: Three Boons 153+HR Advanced Yoga Teacher Training",
+      "hours": "153+ hours",
+      "price": "1,899 EUR (450 EUR non-refundable deposit)",
+      "dates": "May 30 – July 12, 2026",
+      "style": "Jivamukti / Vinyasa",
+      "curriculumVisible": true,
+      "teacherBiosVisible": false,
+      "notes": "Price and dates are present but buried after lengthy prerequisite and philosophy copy; no teacher bios, student reviews, or structured schema are evident, limiting both conversion and SEO performance."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/harmoniumtt",
+      "pageName": "Three Boons 15+HR Mantra & Harmonium Training",
+      "summary": "A 15+hour Bhakti Yoga mantra and harmonium weekend training at Three Boons Yoga Berlin on February 7–8, 2026, priced at 279–333 EUR, open to all levels with no prerequisites.",
+      "conversionScore": 8,
+      "seoScore": 5,
+      "trainingName": "The Art of Bhakti Yoga: Three Boons 15+HR Mantra & Harmonium Training",
+      "hours": "15+ hours",
+      "price": "333 EUR (or 279 EUR with own harmonium); 18% discount for certified Jivamukti/3Boons teachers",
+      "dates": "February 7–8, 2026",
+      "style": "Bhakti Yoga / Jivamukti",
+      "curriculumVisible": true,
+      "teacherBiosVisible": true,
+      "notes": "Best-structured page of the set — dates, price, curriculum topics, and a detailed teacher bio are all present; direct booking via Eversports aids conversion, though price and dates still appear mid-page rather than at the very top."
+    },
+    {
+      "url": "https://www.threeboonsyoga.de/630hrmentoring",
+      "pageName": "Three Boons 630+HR Yoga Teacher Mentoring Program",
+      "summary": "A long-form 630+hour one-on-one yoga teacher mentoring program at Three Boons Yoga Berlin, spanning 3 months to 2 years, priced at 10 monthly installments of 333 EUR, for teachers already certified within the Jivamukti/Three Boons lineage.",
+      "conversionScore": 5,
+      "seoScore": 4,
+      "trainingName": "The Art of Teaching Yoga III: Three Boons 630+HR Yoga Teacher Mentoring Program",
+      "hours": "630+ hours",
+      "price": "10 x 333 EUR per month (3,330 EUR total minimum)",
+      "dates": "Rolling / application-based, no fixed dates listed",
+      "style": "Jivamukti / Three Boons Yoga",
+      "curriculumVisible": true,
+      "teacherBiosVisible": false,
+      "notes": "Mentor names are listed but without bios or photos; no fixed dates reduces urgency, and the application-only model makes a direct booking CTA impossible, lowering conversion; SEO is weakened by no schema, no reviews, and a generic page structure."
+    }
+  ]
+}

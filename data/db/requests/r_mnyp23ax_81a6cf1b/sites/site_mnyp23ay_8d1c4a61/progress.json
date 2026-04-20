@@ -1,0 +1,27 @@
+{
+  "home": {
+    "detect-tech": "completed",
+    "run-lighthouse": "completed",
+    "extract-pages-content": "completed"
+  },
+  "menu": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "ordering": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "reservations": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "contact": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  }
+}

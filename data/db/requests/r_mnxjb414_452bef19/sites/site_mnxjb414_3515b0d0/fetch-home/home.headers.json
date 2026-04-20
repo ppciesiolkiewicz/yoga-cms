@@ -1,0 +1,16 @@
+{
+  "connection": "keep-alive",
+  "content-encoding": "gzip",
+  "content-type": "text/html",
+  "date": "Mon, 13 Apr 2026 18:38:34 GMT",
+  "etag": "W/\"69b1618c-125b9\"",
+  "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+  "server": "nginx",
+  "transfer-encoding": "chunked",
+  "vary": "Accept-Encoding",
+  "x-cdn-c": "static",
+  "x-ce": "europe-north1-815q",
+  "x-proxy-cache": "MISS",
+  "x-proxy-cache-info": "0 NC:000000 UP:",
+  "x-sg-cdn": "1"
+}

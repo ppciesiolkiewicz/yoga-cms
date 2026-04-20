@@ -1,0 +1,18 @@
+{
+  "categoryId": "trust",
+  "records": [
+    {
+      "url": "https://londonlocksmiths.com/about/",
+      "pageName": "London Locksmiths – About",
+      "summary": "Strong trust signals overall: named team members with detailed bios, MLA membership prominently stated, and 35 years of experience highlighted. However, stock Adobe photos are used instead of real team images, and there is no visible mention of reviews, guarantees, or insurance details.",
+      "opportunityScore": 3,
+      "hasReviews": false,
+      "hasTradeBody": true,
+      "hasInsurance": false,
+      "hasNamedTeam": true,
+      "hasGuarantee": false,
+      "topOpportunity": "Add embedded Google Reviews or Trustpilot widget and real team photography to replace stock Adobe images — the strong MLA and bio content deserves authentic visuals to maximise conversion.",
+      "notes": "This is a well-established business with genuine credentials but a cold digital presence; a review integration and photo upgrade would be a relatively easy sell with clear ROI framing around trust and conversion."
+    }
+  ]
+}

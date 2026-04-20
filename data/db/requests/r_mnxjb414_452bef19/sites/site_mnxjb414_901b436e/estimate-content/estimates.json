@@ -1,0 +1,32 @@
+{
+  "siteId": "site_mnxjb414_901b436e",
+  "pages": [
+    {
+      "url": "https://londonlocksmiths.com",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://londonlocksmiths.com/services/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://londonlocksmiths.com/lock-repair/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://londonlocksmiths.com/about/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://londonlocksmiths.com/contact/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 25000,
+  "totalEstimatedTokens": 6250
+}

@@ -1,0 +1,234 @@
+{
+  "siteId": "site_mnyp23ay_2e3179c0",
+  "url": "https://fallowrestaurant.com",
+  "meta": {
+    "name": "Fallow"
+  },
+  "scrapedAt": "2026-04-14T14:37:35.211Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Our Story",
+        "href": "https://fallowrestaurant.com/our-story/"
+      },
+      {
+        "label": "Menus",
+        "href": "https://fallowrestaurant.com/menus/"
+      },
+      {
+        "label": "FAQ",
+        "href": "https://fallowrestaurant.com/faq/"
+      },
+      {
+        "label": "How to find us",
+        "href": "https://fallowrestaurant.com/find-us/"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://fallowrestaurant.com",
+        "https://fallowrestaurant.com/our-story/"
+      ],
+      "menu": [
+        "https://fallowrestaurant.com/menus/"
+      ],
+      "ordering": [],
+      "reservations": [],
+      "contact": [
+        "https://fallowrestaurant.com/find-us/"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "WordPress",
+      "detectedTechnologies": [
+        {
+          "name": "WordPress",
+          "categories": [
+            "CMS",
+            "Blogs"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "MySQL",
+          "categories": [
+            "Databases"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PHP",
+          "categories": [
+            "Programming languages"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Chosen",
+          "categories": [
+            "JavaScript frameworks",
+            "Web frameworks"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Apache HTTP Server",
+          "categories": [
+            "Web servers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Swiper",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "SevenRooms",
+          "categories": [
+            "Widgets",
+            "Appointment scheduling"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "jQuery",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "2.1.3",
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Hosted Libraries",
+          "categories": [
+            "CDN"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Analytics",
+          "categories": [
+            "Analytics"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Font Awesome",
+          "categories": [
+            "Font scripts"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "WordPress hosting",
+          "min": 5,
+          "max": 50
+        },
+        {
+          "item": "Google Analytics",
+          "min": 0,
+          "max": 0
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 6,
+        "max": 52,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://fallowrestaurant.com",
+      "performance": 41,
+      "accessibility": 89,
+      "seo": 92,
+      "bestPractices": 100
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://fallowrestaurant.com/our-story/",
+          "pageName": "Fallow Restaurant – Our Story",
+          "summary": "Brand storytelling page covering the founding team's backgrounds and restaurant history. No transactional elements, digital integrations, or conversion features are present on this page.",
+          "opportunityScore": 6,
+          "digitalMaturityScore": 4,
+          "hasOnlineOrdering": false,
+          "hasReservationWidget": false,
+          "hasProfessionalPhotos": false,
+          "hasMobileExperience": true,
+          "techStackNotes": "No CMS, e-commerce, or widget technology observable on this page; Instagram linked externally; contact via raw mailto links only",
+          "topOpportunity": "No reservation widget or CTA on the page — a high-intent visitor reading the brand story has no immediate path to book a table",
+          "notes": "Fallow is an award-winning, concept-driven restaurant with strong brand equity but this page lacks any conversion infrastructure, making it a viable lead for CRO, reservation integration, and structured content strategy."
+        }
+      ]
+    },
+    "menu": {
+      "categoryId": "menu",
+      "records": []
+    },
+    "ordering": {
+      "categoryId": "ordering",
+      "records": []
+    },
+    "reservations": {
+      "categoryId": "reservations",
+      "records": []
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": []
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "menu": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "ordering": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "reservations": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

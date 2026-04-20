@@ -1,0 +1,16 @@
+{
+  "platform": "Custom / Unknown",
+  "detectedTechnologies": [],
+  "costBreakdown": [
+    {
+      "item": "Domain registration",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "totalEstimatedMonthlyCost": {
+    "min": 1,
+    "max": 2,
+    "currency": "USD"
+  }
+}

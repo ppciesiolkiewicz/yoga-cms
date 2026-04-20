@@ -1,0 +1,500 @@
+{
+  "siteId": "site_mnxjb414_b8657fff",
+  "url": "https://wdlocksmiths.co.uk",
+  "meta": {
+    "name": "Watchdog Locksmiths"
+  },
+  "scrapedAt": "2026-04-13T18:44:55.183Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Overview",
+        "href": "https://wdlocksmiths.co.uk/about/"
+      },
+      {
+        "label": "Our Partners",
+        "href": "https://wdlocksmiths.co.uk/our-partners/"
+      },
+      {
+        "label": "Testimonials",
+        "href": "https://wdlocksmiths.co.uk/testimonials/"
+      },
+      {
+        "label": "News",
+        "href": "https://wdlocksmiths.co.uk/news/"
+      },
+      {
+        "label": "Price list",
+        "href": "https://wdlocksmiths.co.uk/price-list/"
+      },
+      {
+        "label": "Overview",
+        "href": "https://wdlocksmiths.co.uk/commercial-locksmith/"
+      },
+      {
+        "label": "24/7 Emergency Locksmith",
+        "href": "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/"
+      },
+      {
+        "label": "Safe Locksmith",
+        "href": "https://wdlocksmiths.co.uk/commercial-safe-locksmith/"
+      },
+      {
+        "label": "Burglary and Board Up",
+        "href": "https://wdlocksmiths.co.uk/commercial-burglary-and-board-up/"
+      },
+      {
+        "label": "Change Door Lock Services",
+        "href": "https://wdlocksmiths.co.uk/commercial-change-door-lock-services/"
+      },
+      {
+        "label": "Overview",
+        "href": "https://wdlocksmiths.co.uk/residential-general-locksmith/"
+      },
+      {
+        "label": "24/7 Emergency Locksmith",
+        "href": "https://wdlocksmiths.co.uk/residential-emergency-locksmith/"
+      },
+      {
+        "label": "Safe Locksmith",
+        "href": "https://wdlocksmiths.co.uk/safe-locksmith/"
+      },
+      {
+        "label": "Burglary and Board Up",
+        "href": "https://wdlocksmiths.co.uk/residential-burglary-and-board-up/"
+      },
+      {
+        "label": "Change Door Lock Services",
+        "href": "https://wdlocksmiths.co.uk/residential-change-door-lock-services/"
+      },
+      {
+        "label": "Area Covered",
+        "href": "https://wdlocksmiths.co.uk/area-covered/"
+      },
+      {
+        "label": "Contact Us",
+        "href": "https://wdlocksmiths.co.uk/contact-us/"
+      },
+      {
+        "label": "Play Video",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/01/03bb9702-fbdd-42a8-a9df-5d18fe40376b.mp4"
+      },
+      {
+        "label": "Play Video",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Jordan-Testimonial-1.mp4"
+      },
+      {
+        "label": "Use 1.mp4",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-1.mp4"
+      },
+      {
+        "label": "USE 3.mp4",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/USE-3.mp4"
+      },
+      {
+        "label": "Use 4.mp4",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-4.mp4"
+      },
+      {
+        "label": "Use 5.mp4",
+        "href": "https://wdlocksmiths.co.uk/wp-content/uploads/2026/02/Use-5.mp4"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "home": [
+        "https://wdlocksmiths.co.uk",
+        "https://wdlocksmiths.co.uk/about/"
+      ],
+      "services": [
+        "https://wdlocksmiths.co.uk/commercial-locksmith/",
+        "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/",
+        "https://wdlocksmiths.co.uk/residential-emergency-locksmith/",
+        "https://wdlocksmiths.co.uk/residential-change-door-lock-services/",
+        "https://wdlocksmiths.co.uk/safe-locksmith/"
+      ],
+      "pricing": [
+        "https://wdlocksmiths.co.uk/price-list/"
+      ],
+      "trust": [
+        "https://wdlocksmiths.co.uk/testimonials/",
+        "https://wdlocksmiths.co.uk/our-partners/"
+      ],
+      "contact": [
+        "https://wdlocksmiths.co.uk/contact-us/",
+        "https://wdlocksmiths.co.uk/area-covered/"
+      ]
+    }
+  },
+  "tech": {
+    "home": {
+      "platform": "WordPress",
+      "detectedTechnologies": [
+        {
+          "name": "WordPress",
+          "categories": [
+            "CMS",
+            "Blogs"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "MySQL",
+          "categories": [
+            "Databases"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "PHP",
+          "categories": [
+            "Programming languages"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Yoast SEO",
+          "categories": [
+            "SEO",
+            "WordPress plugins"
+          ],
+          "version": "27.3",
+          "confidence": 100
+        },
+        {
+          "name": "WP Engine",
+          "categories": [
+            "PaaS",
+            "Hosting"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "jQuery Migrate",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "3.4.1",
+          "confidence": 100
+        },
+        {
+          "name": "jQuery",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "imagesLoaded",
+          "categories": [
+            "JavaScript libraries"
+          ],
+          "version": "4.1.4",
+          "confidence": 100
+        },
+        {
+          "name": "HSTS",
+          "categories": [
+            "Security"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Google Tag Manager",
+          "categories": [
+            "Tag managers"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "Cloudflare",
+          "categories": [
+            "CDN"
+          ],
+          "confidence": 100
+        },
+        {
+          "name": "HTTP/3",
+          "categories": [
+            "Miscellaneous"
+          ],
+          "confidence": 100
+        }
+      ],
+      "costBreakdown": [
+        {
+          "item": "WordPress hosting",
+          "min": 5,
+          "max": 50
+        },
+        {
+          "item": "Cloudflare",
+          "min": 0,
+          "max": 20
+        },
+        {
+          "item": "Domain registration",
+          "min": 1,
+          "max": 2
+        }
+      ],
+      "totalEstimatedMonthlyCost": {
+        "min": 6,
+        "max": 72,
+        "currency": "USD"
+      }
+    }
+  },
+  "lighthouse": {
+    "home": {
+      "url": "https://wdlocksmiths.co.uk",
+      "performance": 0,
+      "accessibility": 0,
+      "seo": 0,
+      "bestPractices": 0
+    }
+  },
+  "extract": {
+    "home": {
+      "categoryId": "home",
+      "records": [
+        {
+          "url": "https://wdlocksmiths.co.uk/about/",
+          "pageName": "Watchdog Locksmiths – About Page",
+          "summary": "A well-structured about page for a London-based locksmith that clearly states 24/7 availability, service area, DBS-checked team, and multiple contact methods including click-to-call and WhatsApp. Trust signals and emergency info are present, though formal trade body badges or licence numbers are absent.",
+          "opportunityScore": 3,
+          "digitalMaturityScore": 8,
+          "hasClickToCall": true,
+          "hasServiceArea": true,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": true,
+          "hasMobileExperience": true,
+          "topOpportunity": "No visible trade body membership (e.g. Master Locksmiths Association) or licence/insurance number displayed — adding these would close the last credibility gap and could be sold as a trust-optimisation package.",
+          "notes": "Watchdog is a digitally mature operator with strong fundamentals; low opportunity score makes this a cold lead, but upsell potential exists around schema markup, formal accreditation badges, and review platform integration."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk",
+          "pageName": "Watchdog Locksmiths – Homepage",
+          "summary": "A highly capable homepage with above-the-fold click-to-call, WhatsApp CTA, 24/7 emergency messaging, London service area, pricing transparency, video testimonials, and notable client logos including NHS and Metropolitan Police. The site demonstrates strong conversion intent and digital maturity.",
+          "opportunityScore": 2,
+          "digitalMaturityScore": 9,
+          "hasClickToCall": true,
+          "hasServiceArea": true,
+          "hasEmergencyInfo": true,
+          "hasTrustSignals": true,
+          "hasMobileExperience": true,
+          "topOpportunity": "No confirmed LocalBusiness or Service schema markup visible in the page source — implementing structured data could improve local pack rankings and is a low-friction technical SEO sell.",
+          "notes": "This is a very cold lead with an exceptionally well-optimised homepage; the only realistic agency pitch would be schema/structured data implementation or a Google Ads management retainer to capitalise on the strong on-site conversion setup."
+        }
+      ]
+    },
+    "services": {
+      "categoryId": "services",
+      "records": [
+        {
+          "url": "https://wdlocksmiths.co.uk/commercial-locksmith/",
+          "pageName": "Commercial Locksmith Overview",
+          "summary": "A well-structured commercial locksmith overview page with clear CTAs, Google reviews widget, and navigation to dedicated sub-service pages. Serves as a hub linking out to emergency, safe, burglary, and lock change pages.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "commercial locksmith",
+            "emergency locksmith",
+            "safe locksmith",
+            "burglary and board up",
+            "lock changes"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Minimal — page is well-organised; could potentially improve with before/after work photos or case studies",
+          "notes": "This is a cold lead — the site has strong service architecture, dedicated sub-pages per category, and clear emergency vs scheduled distinction."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/",
+          "pageName": "Commercial Emergency Locksmith",
+          "summary": "Dedicated emergency commercial locksmith page with detailed service descriptions, FAQs, social proof, partner logos, and multiple CTAs. Clearly distinguishes emergency and scheduled work.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "24/7 emergency lockouts",
+            "lock repairs and replacements",
+            "new lock installations",
+            "keyless entry and access control",
+            "burglary repairs",
+            "digital and smart lock fitting",
+            "uPVC door and window lock repairs"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Possibly before/after work photography; testimonial videos use stock avatars which weakens trust",
+          "notes": "Cold lead — page is comprehensive, well-structured, and conversion-optimised with FAQs, pricing anchor, and multiple contact channels."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/residential-emergency-locksmith/",
+          "pageName": "Residential Emergency Locksmith",
+          "summary": "Dedicated residential emergency locksmith page covering 24/7 lockouts, lost keys, and urgent lock changes, with DBS-checked credentials, FAQs, and clear pricing signals. Mirrors commercial page structure closely.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "24/7 emergency lockouts",
+            "lock repairs and replacements",
+            "new lock installations",
+            "key cutting and keyed alike",
+            "burglary repairs",
+            "digital and smart lock fitting",
+            "uPVC door and window lock repairs"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Actual before/after job photography would strengthen trust; testimonial profiles use stock imagery",
+          "notes": "Cold lead — page is well-built with strong SEO intent targeting, FAQ section, and clear emergency framing throughout."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/residential-change-door-lock-services/",
+          "pageName": "Residential Door Lock Replacement",
+          "summary": "Dedicated scheduled-service page for residential lock changes, broken down into uPVC, timber/composite, and post-incident scenarios with clear bullet-point descriptions and FAQs. Well-differentiated from emergency content.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "uPVC door lock changes",
+            "home door lock replacement",
+            "lock changes after incidents",
+            "euro cylinder replacement",
+            "mortice lock replacement",
+            "anti-snap lock upgrades"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Real job photography or a lock comparison visual would add conversion value; testimonial section uses stock photos",
+          "notes": "Cold lead — page demonstrates strong service segmentation with use-case-based sub-sections and a comprehensive FAQ addressing objections."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/safe-locksmith/",
+          "pageName": "Residential Safe Locksmith",
+          "summary": "Dedicated safe locksmith page covering non-destructive opening, repairs, code replacement, installation, and removal, with detailed FAQs and strong trust signals. Clearly focused on a niche service.",
+          "opportunityScore": 2,
+          "serviceStructure": "individual-pages",
+          "servicesListed": [
+            "safe opening",
+            "safe repairs",
+            "key and code replacement",
+            "safe removal",
+            "safe installation",
+            "insurance-approved safe supply"
+          ],
+          "hasEmergencyDistinction": true,
+          "hasServiceDescriptions": true,
+          "topOpportunity": "Real safe job photography or a short explainer video would differentiate; testimonial videos link to YouTube but use generic avatars",
+          "notes": "Cold lead — the site as a whole is a well-executed, professionally structured locksmith web presence with very limited gaps for a web agency to exploit."
+        }
+      ]
+    },
+    "pricing": {
+      "categoryId": "pricing",
+      "records": [
+        {
+          "url": "https://wdlocksmiths.co.uk/price-list/",
+          "pageName": "Watchdog Locksmiths – Price List",
+          "summary": "This page features a comprehensive, itemised price list covering working hours, out-of-hours, night rates, parts, and safe opening charges with specific figures for each service. The site explicitly promotes 'no hidden fees' and offers free survey visits within 3 miles, making it one of the most transparent locksmith pricing pages available.",
+          "opportunityScore": 2,
+          "pricingType": "listed",
+          "hasCalloutCharge": true,
+          "hasQuoteForm": false,
+          "hasPriceGuarantee": true,
+          "topOpportunity": "Very limited — pricing transparency is already a strength; only marginal gains possible via an online quote calculator or structured WhatsApp intake form to replace the informal photo-request flow.",
+          "notes": "This is a cold lead — the business has already invested heavily in pricing transparency, making it a poor candidate for a web agency pitch centred on pricing visibility improvements."
+        }
+      ]
+    },
+    "trust": {
+      "categoryId": "trust",
+      "records": [
+        {
+          "url": "https://wdlocksmiths.co.uk/testimonials/",
+          "pageName": "Watchdog Locksmiths – Testimonials",
+          "summary": "The page features named written testimonials with first/last names and a video case study from a named customer, showing genuine social proof. However, there is no embedded Google or Trustpilot widget, no trade body logos, no insurance/licence numbers, and no guarantee mentioned.",
+          "opportunityScore": 5,
+          "hasReviews": true,
+          "hasTradeBody": false,
+          "hasInsurance": false,
+          "hasNamedTeam": true,
+          "hasGuarantee": false,
+          "topOpportunity": "Integrate an embedded Google Reviews or Trustpilot widget to replace manually curated testimonials with independently verified social proof, significantly boosting credibility.",
+          "notes": "A moderately trusted site with genuine-feeling testimonials and named technicians, but the absence of third-party verified reviews, trade body membership, and licence/insurance details leaves meaningful trust gaps a web agency could address."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/our-partners/",
+          "pageName": "Watchdog Locksmiths – Our Partners",
+          "summary": "The page showcases a strong roster of institutional partners including the NHS, Metropolitan Police, Ealing Council, and Hammersmith & Fulham, which are powerful credibility signals. Despite this, no MLA or ALOA trade body accreditation logos are visible, and no insurance or licence numbers are displayed.",
+          "opportunityScore": 4,
+          "hasReviews": false,
+          "hasTradeBody": false,
+          "hasInsurance": false,
+          "hasNamedTeam": false,
+          "hasGuarantee": false,
+          "topOpportunity": "Add a dedicated accreditations section featuring MLA membership, insurance certificate details, and licence numbers to complement the impressive partner logos already present.",
+          "notes": "High-calibre institutional partnerships give this page genuine authority, but the lack of recognised locksmith trade body badges and verifiable credentials means the trust story is incomplete — a targeted accreditation and compliance module would round it out."
+        }
+      ]
+    },
+    "contact": {
+      "categoryId": "contact",
+      "records": [
+        {
+          "url": "https://wdlocksmiths.co.uk/contact-us/",
+          "pageName": "Contact Us – Watchdog Locksmiths",
+          "summary": "The contact page leads with a 24-hour call prompt and prominently features click-to-call buttons, a WhatsApp option, and an embedded OpenStreetMap with the business address. Two phone numbers are listed alongside a secondary contact form, but the form is clearly de-prioritised behind faster contact methods.",
+          "opportunityScore": 2,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": false,
+          "has24x7Info": true,
+          "hasLiveChat": false,
+          "topOpportunity": "Add a response time guarantee (e.g. '30-min arrival') and a live chat widget to close the remaining conversion gaps",
+          "notes": "This is a well-optimised emergency contact page with click-to-call, WhatsApp, 24-hour messaging, and a mapped address — very few gaps for a web agency to exploit."
+        },
+        {
+          "url": "https://wdlocksmiths.co.uk/area-covered/",
+          "pageName": "Areas Covered – Watchdog Locksmiths",
+          "summary": "The page lists 26 named service areas across Greater London and surrounding counties and states a typical 30-minute arrival time with no call-out charge. Click-to-call and WhatsApp CTAs appear above and below the fold, though no visual coverage map is present.",
+          "opportunityScore": 3,
+          "hasClickToCall": true,
+          "hasServiceAreaMap": false,
+          "hasResponseTime": true,
+          "has24x7Info": true,
+          "hasLiveChat": false,
+          "topOpportunity": "Replace the text-only area list with an interactive coverage zone map to visually reassure prospects they are within the service area",
+          "notes": "Strong conversion signals and a stated 30-min response time, but the absence of a visual service-area map is the one meaningful gap a web agency could pitch."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "home": {
+      "detect-tech": "completed",
+      "run-lighthouse": "completed",
+      "extract-pages-content": "completed"
+    },
+    "services": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "pricing": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "trust": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "contact": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

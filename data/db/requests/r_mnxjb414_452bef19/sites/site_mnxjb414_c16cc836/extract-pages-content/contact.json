@@ -1,0 +1,18 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://www.londonlocksmith.co.uk/contact-us.html",
+      "pageName": "London Locksmith – Contact Us",
+      "summary": "The page prominently displays two click-to-call phone numbers (landline and mobile) plus WhatsApp/text options near the top. However, there is no service area map, no stated response time, no 24/7 confirmation, and no live chat.",
+      "opportunityScore": 5,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": false,
+      "hasLiveChat": false,
+      "topOpportunity": "Add a service area map with coverage zones, a 24/7 emergency badge with guaranteed response time, and a live chat or chatbot widget to convert distressed locked-out visitors faster.",
+      "notes": "Phone and WhatsApp contact is solid, but the absence of 24/7 info, response time guarantee, and a service area map leaves meaningful conversion value on the table for emergency searchers."
+    }
+  ]
+}

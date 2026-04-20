@@ -1,0 +1,78 @@
+<h2>Step Indicator: Which style?</h2>
+<p class="subtitle">The wizard navigation sets the tone for the whole page. Pick the one that fits.</p>
+
+<div class="cards">
+  <!-- Approach A: Connected dots -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px 24px; background: #0d1520;">
+      <div style="display: flex; align-items: center; justify-content: center; gap: 0;">
+        <!-- Step 1 active -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; background: #3b82f6; color: white; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">1</div>
+          <span style="font-size: 13px; color: white; font-weight: 500;">Sites</span>
+        </div>
+        <div style="width: 60px; height: 2px; background: linear-gradient(to right, #3b82f6, #334155); margin: 0 8px;"></div>
+        <!-- Step 2 -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #334155; color: #64748b; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">2</div>
+          <span style="font-size: 13px; color: #64748b;">Categories</span>
+        </div>
+        <div style="width: 60px; height: 2px; background: #334155; margin: 0 8px;"></div>
+        <!-- Step 3 -->
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <div style="width: 32px; height: 32px; border-radius: 50%; border: 2px solid #334155; color: #64748b; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 600;">3</div>
+          <span style="font-size: 13px; color: #64748b;">Review</span>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Connected Steps</h3>
+      <p>Numbered circles with connecting lines. Classic progress pattern. Shows completion state clearly.</p>
+    </div>
+  </div>
+
+  <!-- Approach B: Segmented bar -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px 24px; background: #0d1520;">
+      <div style="max-width: 400px; margin: 0 auto;">
+        <!-- Labels row -->
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+          <span style="font-size: 13px; color: white; font-weight: 500;">Sites</span>
+          <span style="font-size: 13px; color: #64748b;">Categories</span>
+          <span style="font-size: 13px; color: #64748b;">Review</span>
+        </div>
+        <!-- Bar -->
+        <div style="display: flex; gap: 4px; height: 4px; border-radius: 4px; overflow: hidden;">
+          <div style="flex: 1; background: #3b82f6; border-radius: 2px;"></div>
+          <div style="flex: 1; background: #1e293b; border-radius: 2px;"></div>
+          <div style="flex: 1; background: #1e293b; border-radius: 2px;"></div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Segmented Bar</h3>
+      <p>Minimal progress bar with labels above. Compact, modern. Takes less vertical space.</p>
+    </div>
+  </div>
+
+  <!-- Approach C: Tabs style -->
+  <div class="card" data-choice="c" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 32px 24px; background: #0d1520;">
+      <div style="display: flex; border-bottom: 2px solid #1e293b;">
+        <div style="padding: 8px 20px; font-size: 13px; font-weight: 500; color: white; border-bottom: 2px solid #3b82f6; margin-bottom: -2px;">
+          <span style="color: #3b82f6; margin-right: 6px;">1.</span> Sites
+        </div>
+        <div style="padding: 8px 20px; font-size: 13px; color: #64748b;">
+          <span style="margin-right: 6px;">2.</span> Categories
+        </div>
+        <div style="padding: 8px 20px; font-size: 13px; color: #64748b;">
+          <span style="margin-right: 6px;">3.</span> Review
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>C. Underline Tabs</h3>
+      <p>Tab-style navigation with active underline. Familiar pattern that doubles as both nav and progress.</p>
+    </div>
+  </div>
+</div>

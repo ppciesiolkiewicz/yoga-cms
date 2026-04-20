@@ -1,0 +1,367 @@
+{
+  "siteId": "site_mnwyc5yw_58ecace9",
+  "url": "https://doinyoga.pl",
+  "meta": {
+    "name": "Doinyoga"
+  },
+  "scrapedAt": "2026-04-13T08:52:20.998Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "Zarządzaj opcjami",
+        "href": "https://doinyoga.pl/polityka-prywatnosci/#cmplz-manage-consent-container"
+      },
+      {
+        "label": "Informacje i zapisy",
+        "href": "https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/"
+      },
+      {
+        "label": "Joga Online",
+        "href": "https://doinyoga.pl/joga-online/"
+      },
+      {
+        "label": "Joga Stacjonarnie we Wrocławiu",
+        "href": "https://doinyoga.pl/joga-we-wroclawiu/"
+      },
+      {
+        "label": "Joga Indywidualnie Online lub stacjonarnie we Wrocławiu",
+        "href": "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/"
+      },
+      {
+        "label": "Warsztaty Jogowe",
+        "href": "https://doinyoga.pl/warsztaty-jogowe-wroclaw/"
+      },
+      {
+        "label": "Wyjazdy",
+        "href": "https://doinyoga.pl/wyjazdy-jogowe/"
+      },
+      {
+        "label": "O mnie",
+        "href": "https://doinyoga.pl/dominika-galka/"
+      },
+      {
+        "label": "Blog",
+        "href": "https://doinyoga.pl/blog/"
+      },
+      {
+        "label": "English",
+        "href": "https://doinyoga.pl/yoga-in-english-wroclaw-online/"
+      },
+      {
+        "label": "Kontakt",
+        "href": "https://doinyoga.pl/kontakt/"
+      },
+      {
+        "label": "0,00 zł 0",
+        "href": "https://doinyoga.pl/koszyk/"
+      },
+      {
+        "label": "Asana Lab",
+        "href": "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/%22"
+      },
+      {
+        "label": "Yin jogi online",
+        "href": "https://doinyoga.pl/joga-online/%22"
+      },
+      {
+        "label": "Vinyasa Flow",
+        "href": "https://doinyoga.pl/kategoria/joga-stacjonarnie/%22"
+      },
+      {
+        "label": "Dołącz do zajęć online",
+        "href": "https://doinyoga.pl/kategoria/joga-online/"
+      },
+      {
+        "label": "Dowiedz się więcej",
+        "href": "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/"
+      },
+      {
+        "label": "Informacje i zapisy",
+        "href": "https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/"
+      },
+      {
+        "label": "Informacje i zapisy",
+        "href": "https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/"
+      },
+      {
+        "label": "Panel klienta",
+        "href": "https://doinyoga.pl/moje-konto/"
+      },
+      {
+        "label": "Regulamin",
+        "href": "https://doinyoga.pl/regulamin-sklepu-internetowego-doinyoga/"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "cat_mnwyc5yw_76b8ef32": [
+        "https://doinyoga.pl/joga-online/",
+        "https://doinyoga.pl/joga-we-wroclawiu/",
+        "https://doinyoga.pl/kategoria/joga-online/"
+      ],
+      "cat_mnwyc5yw_f1688492": [
+        "https://doinyoga.pl/warsztaty-jogowe-wroclaw/",
+        "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/",
+        "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/"
+      ],
+      "cat_mnwyc5yw_2aaa3bfb": [
+        "https://doinyoga.pl/wyjazdy-jogowe/",
+        "https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/",
+        "https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/",
+        "https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/"
+      ],
+      "cat_mnwyc5yw_9ee5e377": [
+        "https://doinyoga.pl/kontakt/",
+        "https://doinyoga.pl/dominika-galka/"
+      ]
+    }
+  },
+  "tech": {},
+  "lighthouse": {},
+  "extract": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "categoryId": "cat_mnwyc5yw_76b8ef32",
+      "records": [
+        {
+          "url": "https://doinyoga.pl/joga-online/",
+          "pageName": "Joga Online – Yin Joga",
+          "summary": "Landing page for weekly online Yin yoga classes led by instructor Domi, held every Wednesday at 19:00. Pricing is clearly displayed with a single session at 40 PLN and a 4-class pack at 150 PLN.",
+          "conversionScore": 7,
+          "seoScore": 5,
+          "classStyles": [
+            "Yin Joga"
+          ],
+          "pricingVisible": true,
+          "scheduleVisible": true,
+          "firstTimeDeal": false,
+          "notes": "Good conversion basics — schedule and prices are clear — but the booking CTA links to a category page showing 'no products found', which breaks the purchase flow; no city/location in page title hurts local SEO and there is no LocalBusiness schema since it is online-only."
+        },
+        {
+          "url": "https://doinyoga.pl/kategoria/joga-online/",
+          "pageName": "Joga Online – Booking Category Page",
+          "summary": "The actual booking/shop page for online yoga classes, showing pricing options for single sessions and 4-class packs. However, the class listings section shows 'Nie znaleziono produktów' (no products found), making it impossible to actually book.",
+          "conversionScore": 2,
+          "seoScore": 4,
+          "classStyles": [
+            "Yin Joga"
+          ],
+          "pricingVisible": true,
+          "scheduleVisible": false,
+          "firstTimeDeal": false,
+          "notes": "Critical conversion failure — the page where visitors are directed to book shows no available sessions, meaning no purchase can be completed; pricing is visible but useless without bookable slots."
+        },
+        {
+          "url": "https://doinyoga.pl/joga-we-wroclawiu/",
+          "pageName": "Joga we Wrocławiu – In-Person Classes",
+          "summary": "Page for in-person yoga classes in Wrocław, listing a weekly schedule with days, times, styles, and venue addresses. Prices are not shown on the page itself — visitors are redirected to external booking systems.",
+          "conversionScore": 6,
+          "seoScore": 6,
+          "classStyles": [
+            "Power Joga",
+            "Poranna Joga",
+            "Asana Lab",
+            "Vinyasa Flow"
+          ],
+          "pricingVisible": false,
+          "scheduleVisible": true,
+          "firstTimeDeal": false,
+          "notes": "Schedule and venue addresses are clearly listed which is a strong plus, but pricing is missing entirely from the page and a closed-group course is mixed in with open drop-in classes, which may confuse first-time visitors."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "categoryId": "cat_mnwyc5yw_f1688492",
+      "records": [
+        {
+          "url": "https://doinyoga.pl/warsztaty-jogowe-wroclaw/",
+          "pageName": "Warsztaty Jogowe Wrocław – DoinYoga",
+          "summary": "Page promoting yoga workshops in Wrocław led by Dominika (Domi), combining Yang and Yin elements with breathwork, meditation, and cacao ceremonies. No upcoming workshop dates, prices, or curriculum details are visible on the page itself.",
+          "conversionScore": 3,
+          "seoScore": 4,
+          "trainingName": "Warsztaty Jogowe Wrocław",
+          "hours": "Not specified",
+          "price": "Not listed",
+          "dates": "Not listed on this page",
+          "style": "Yin/Yang Vinyasa, Yin Yoga, Yoga Nidra, meditation",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "All five key facts (dates, price, location, curriculum, duration) are missing from the page — visitors must click through to individual workshop listings to find any decision-making information."
+        },
+        {
+          "url": "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/",
+          "pageName": "Joga Indywidualnie 1:1 – DoinYoga",
+          "summary": "Page offering personalized 1:1 yoga sessions with Dominika, available online or in-person in Wrocław, with sessions lasting 60 minutes and tailored to individual goals. Price is not listed, but multiple student reviews are present.",
+          "conversionScore": 5,
+          "seoScore": 5,
+          "trainingName": "Joga Indywidualnie 1:1",
+          "hours": "60 minutes per session",
+          "price": "Not listed",
+          "dates": "Flexible / on request",
+          "style": "Vinyasa, Pranayama, Meditation",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "Strong social proof with multiple named reviews, but price is completely absent and teacher bio is missing, which undermines conversion; FAQ schema could strengthen SEO."
+        },
+        {
+          "url": "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/",
+          "pageName": "Asana Lab (grupa zamknięta) – DoinYoga",
+          "summary": "A closed, ongoing weekly yoga group focused on advanced asana technique, yoga philosophy, and community, held every Tuesday at 18:30 at a studio in Wrocław. The group is currently full with a waiting list available.",
+          "conversionScore": 5,
+          "seoScore": 4,
+          "trainingName": "Asana Lab (grupa zamknięta)",
+          "hours": "Weekly sessions, total not specified",
+          "price": "220,00 zł",
+          "dates": "Every Tuesday 18:30, ongoing",
+          "style": "Advanced Asana, Yoga Philosophy",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "Price and location are clearly stated near the top, which is good, but the group is full and there is no curriculum breakdown, teacher bio, or schema markup to support SEO or conversions."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+      "records": [
+        {
+          "url": "https://doinyoga.pl/wyjazdy-jogowe/",
+          "pageName": "Doinyoga – Wyjazdy Jogowe (lista)",
+          "summary": "Strona-lista wyjjazdów jogowych organizowanych przez Dominikę Gałkę. Prezentuje trzy nadchodzące wyjazdy (Dolny Śląsk, Mazury, Sri Lanka) z podstawowymi informacjami i linkami do podstron.",
+          "conversionScore": 6,
+          "seoScore": 5,
+          "retreatName": "Wyjazdy Jogowe – lista",
+          "where": "Różne lokalizacje: Dolny Śląsk, Mazury, Sri Lanka",
+          "when": "Czerwiec 2026, Sierpień 2026, Listopad 2026",
+          "price": "od 1850 zł do 2000 USD (zależnie od wyjazdu)",
+          "includes": [
+            "Zakwaterowanie (szczegóły na podstronach)",
+            "Posiłki wegetariańskie/wegańskie",
+            "Codzienne sesje jogi (poranna i wieczorna)",
+            "Medytacja i pranayama"
+          ],
+          "dailyScheduleVisible": false,
+          "notes": "Strona spełnia rolę katalogu z kluczowymi danymi (data, miejsce, cena, liczba miejsc) widocznymi w kartach retreat, ale szczegóły są dostępne dopiero po wejściu w podstrony."
+        },
+        {
+          "url": "https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/",
+          "pageName": "Poza zasięgiem – weekend offline z jogą – Dolny Śląsk – Czerwiec 2026",
+          "summary": "Czterdniowy weekend z jogą w ekoturystyce Artystyka w Nowej Bystrzycy (Góry Bystrzyckie, 620 m n.p.m.), nastawiony na digital detoks, vinyasę, yin jogę, medytację, bio-saunę i wypiek chleba. Cena 1850 zł, zostało 6 miejsc.",
+          "conversionScore": 8,
+          "seoScore": 7,
+          "retreatName": "Poza zasięgiem – weekend offline z jogą",
+          "where": "Artystyka, Nowa Bystrzyca, Dolny Śląsk (Góry Bystrzyckie, 620 m n.p.m.)",
+          "when": "4–7 czerwca 2026",
+          "price": "1850 zł",
+          "includes": [
+            "Zakwaterowanie w Artystyce",
+            "Wyżywienie (w pełni roślinne, sezonowe posiłki)",
+            "2 x dziennie zajęcia jogi (poranna Vinyasa, wieczorna Yin/joga nidra/medytacja)",
+            "Warsztat wypieku chleba na zakwasie",
+            "Bio-sauna",
+            "Ognisko z obserwacją nieba"
+          ],
+          "dailyScheduleVisible": true,
+          "notes": "Wszystkie 5 kluczowych faktów (kiedy, gdzie, cena, styl jogi, długość) widoczne na górze strony; plan dnia opisany szczegółowo, jest formularz zapisu – dobra strona decyzyjna."
+        },
+        {
+          "url": "https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/",
+          "pageName": "Rejs z jogą – Mazury – Sierpień 2026",
+          "summary": "Siedmiodniowy rejs żeglarski po Mazurach (22–29 sierpnia 2026) z codzienną jogą prowadzoną przez dwie certyfikowane nauczycielki, przeznaczony dla 12 uczestników; cena 3600 zł. Plan dnia i szlak żeglarski opisane ogólnie.",
+          "conversionScore": 7,
+          "seoScore": 6,
+          "retreatName": "Rejs z jogą – Mazury",
+          "where": "Mazury (trasa: Ruciane-Nida, Śniardwy, Bełdany, Nidzkie, Ryn i inne jeziora)",
+          "when": "22–29 sierpnia 2026",
+          "price": "3600 zł",
+          "includes": [
+            "Miejsce na jachcie",
+            "Opieka profesjonalnego skippera",
+            "Wszystkie zajęcia jogi (Vinyasa, Hatha, Joga Nidra)",
+            "Ubezpieczenie NNW i KL",
+            "Wyżywienie",
+            "Noclegi w portach",
+            "Opłaty portowe, celne i paliwo",
+            "1 kolacja kapitańska"
+          ],
+          "dailyScheduleVisible": true,
+          "notes": "Kluczowe dane widoczne od razu; plan dzienny dość ogólny ('każdy dzień inny'), brak dokładnych godzin poza opisem soboty; formularz zapisu na dole strony."
+        },
+        {
+          "url": "https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/",
+          "pageName": "Island Balance – Sri Lanka – Listopad 2026",
+          "summary": "10-dniowy retreat jogowy na południu Sri Lanki (Kabana Beach) w dniach 12–22 listopada 2026, w małej grupie do 13 osób; cena 2000 USD. Program łączy Vinyasę, Yin, jogę Nidrę, ceremonie, warsztaty ruchu, naukę gotowania lankijskiego i sztuki Batik.",
+          "conversionScore": 8,
+          "seoScore": 7,
+          "retreatName": "Island Balance – Sri Lanka",
+          "where": "Kabana Beach, południe Sri Lanki (butikowy hotel przy plaży)",
+          "when": "12–22 listopada 2026",
+          "price": "2000 USD",
+          "includes": [
+            "Zakwaterowanie w butikowym hotelu (pokoje 2- lub 3-osobowe z prywatnym ogrodem)",
+            "Wyżywienie (wspólne śniadania i kolacje)",
+            "2 x dziennie zajęcia jogi (Vinyasa/Yang rano, Yin/Nidra/medytacja wieczorem)",
+            "Warsztaty: movement, journaling, ceremonia kakao, ceremonia otwarcia/zamknięcia",
+            "Nauka tradycyjnego gotowania lankijskiego",
+            "Warsztat sztuki Batik",
+            "Transport z/na lotnisko"
+          ],
+          "dailyScheduleVisible": true,
+          "notes": "Plan wyjazdu z przykładowym harmonogramem dnia widoczny; kluczowe fakty na górze strony; drobna niespójność dat (nagłówek mówi listopad 2026, plan dnia wymienia daty marcowe/kwiet. 2026), co może dezorientować odwiedzających."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "categoryId": "cat_mnwyc5yw_9ee5e377",
+      "records": [
+        {
+          "url": "https://doinyoga.pl/kontakt/",
+          "pageName": "Kontakt – Doin Yoga",
+          "summary": "A contact page for yoga instructor Dominika Gałka featuring a contact form, social media links, and a brief invitation to get in touch. No physical address, phone number, email address, map, or opening hours are directly displayed.",
+          "conversionScore": 5,
+          "seoScore": 3,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": false,
+          "hasMap": false,
+          "hasOpeningHours": false,
+          "notes": "The page relies solely on a contact form and social media links, missing all five key contact elements (address, phone, email, map, hours), which significantly limits both conversion and local SEO value."
+        },
+        {
+          "url": "https://doinyoga.pl/dominika-galka/",
+          "pageName": "O mnie – Dominika Gałka",
+          "summary": "An 'About Me' page detailing instructor Dominika Gałka's yoga journey, qualifications, certifications, and teaching philosophy, with CTAs linking to online classes, retreats, and Wrocław sessions. No contact details, address, map, phone, email, or opening hours are present.",
+          "conversionScore": 3,
+          "seoScore": 4,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": false,
+          "hasMap": false,
+          "hasOpeningHours": false,
+          "notes": "This is a biographical/about page, not a contact page, and provides no direct contact information or location data for visitors looking to reach the business."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

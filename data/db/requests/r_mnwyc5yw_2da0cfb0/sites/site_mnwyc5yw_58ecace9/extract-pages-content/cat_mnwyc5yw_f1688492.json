@@ -1,0 +1,50 @@
+{
+  "categoryId": "cat_mnwyc5yw_f1688492",
+  "records": [
+    {
+      "url": "https://doinyoga.pl/warsztaty-jogowe-wroclaw/",
+      "pageName": "Warsztaty Jogowe Wrocław – DoinYoga",
+      "summary": "Page promoting yoga workshops in Wrocław led by Dominika (Domi), combining Yang and Yin elements with breathwork, meditation, and cacao ceremonies. No upcoming workshop dates, prices, or curriculum details are visible on the page itself.",
+      "conversionScore": 3,
+      "seoScore": 4,
+      "trainingName": "Warsztaty Jogowe Wrocław",
+      "hours": "Not specified",
+      "price": "Not listed",
+      "dates": "Not listed on this page",
+      "style": "Yin/Yang Vinyasa, Yin Yoga, Yoga Nidra, meditation",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "All five key facts (dates, price, location, curriculum, duration) are missing from the page — visitors must click through to individual workshop listings to find any decision-making information."
+    },
+    {
+      "url": "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/",
+      "pageName": "Joga Indywidualnie 1:1 – DoinYoga",
+      "summary": "Page offering personalized 1:1 yoga sessions with Dominika, available online or in-person in Wrocław, with sessions lasting 60 minutes and tailored to individual goals. Price is not listed, but multiple student reviews are present.",
+      "conversionScore": 5,
+      "seoScore": 5,
+      "trainingName": "Joga Indywidualnie 1:1",
+      "hours": "60 minutes per session",
+      "price": "Not listed",
+      "dates": "Flexible / on request",
+      "style": "Vinyasa, Pranayama, Meditation",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "Strong social proof with multiple named reviews, but price is completely absent and teacher bio is missing, which undermines conversion; FAQ schema could strengthen SEO."
+    },
+    {
+      "url": "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/",
+      "pageName": "Asana Lab (grupa zamknięta) – DoinYoga",
+      "summary": "A closed, ongoing weekly yoga group focused on advanced asana technique, yoga philosophy, and community, held every Tuesday at 18:30 at a studio in Wrocław. The group is currently full with a waiting list available.",
+      "conversionScore": 5,
+      "seoScore": 4,
+      "trainingName": "Asana Lab (grupa zamknięta)",
+      "hours": "Weekly sessions, total not specified",
+      "price": "220,00 zł",
+      "dates": "Every Tuesday 18:30, ongoing",
+      "style": "Advanced Asana, Yoga Philosophy",
+      "curriculumVisible": false,
+      "teacherBiosVisible": false,
+      "notes": "Price and location are clearly stated near the top, which is good, but the group is full and there is no curriculum breakdown, teacher bio, or schema markup to support SEO or conversions."
+    }
+  ]
+}

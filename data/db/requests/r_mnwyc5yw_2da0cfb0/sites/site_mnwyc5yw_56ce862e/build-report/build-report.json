@@ -1,0 +1,174 @@
+{
+  "siteId": "site_mnwyc5yw_56ce862e",
+  "url": "https://www.hotyogabarcelona.com",
+  "meta": {
+    "name": "Hot Yoga Barcelona"
+  },
+  "scrapedAt": "2026-04-13T08:53:34.134Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "home",
+        "href": "http://www.hotyogabarcelona.com/"
+      },
+      {
+        "label": "One Day Yoga Retreat",
+        "href": "https://www.hotyogabarcelona.com/one-day-yoga-retreat"
+      },
+      {
+        "label": "Schedule",
+        "href": "https://www.hotyogabarcelona.com/schedule"
+      },
+      {
+        "label": "Prices",
+        "href": "https://www.hotyogabarcelona.com/prices"
+      },
+      {
+        "label": "New to Hot Yoga",
+        "href": "https://www.hotyogabarcelona.com/webinar-registration"
+      },
+      {
+        "label": "Shop",
+        "href": "https://www.hotyogabarcelona.com/shop"
+      },
+      {
+        "label": "Massage",
+        "href": "https://www.hotyogabarcelona.com/massage"
+      },
+      {
+        "label": "FAQ",
+        "href": "https://www.hotyogabarcelona.com/faq-es"
+      },
+      {
+        "label": "Teacher Training",
+        "href": "https://www.hotyogabarcelona.com/teacher-training"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "cat_mnwyc5yw_76b8ef32": [
+        "https://www.hotyogabarcelona.com/schedule",
+        "https://www.hotyogabarcelona.com/prices"
+      ],
+      "cat_mnwyc5yw_f1688492": [
+        "https://www.hotyogabarcelona.com/teacher-training"
+      ],
+      "cat_mnwyc5yw_2aaa3bfb": [
+        "https://www.hotyogabarcelona.com/one-day-yoga-retreat"
+      ],
+      "cat_mnwyc5yw_9ee5e377": []
+    }
+  },
+  "tech": {},
+  "lighthouse": {},
+  "extract": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "categoryId": "cat_mnwyc5yw_76b8ef32",
+      "records": [
+        {
+          "url": "https://www.hotyogabarcelona.com/prices",
+          "pageName": "Hot Yoga Barcelona – Prices",
+          "summary": "Pricing page listing all drop-in and membership options including a €29 resident trial, €25 single class, monthly recurring plans, and class packs. Gift cards are also available.",
+          "conversionScore": 7,
+          "seoScore": 4,
+          "classStyles": [],
+          "pricingVisible": true,
+          "scheduleVisible": false,
+          "firstTimeDeal": true,
+          "notes": "Pricing is clear and well-structured with direct buy links, but there is no schedule, no studio address, no class style descriptions, and the page title/H1 do not reference Barcelona or yoga type for SEO."
+        },
+        {
+          "url": "https://www.hotyogabarcelona.com/schedule",
+          "pageName": "Hot Yoga Barcelona – Schedule",
+          "summary": "Schedule page with an embedded booking widget (Momence) plus a static image of the weekly timetable. Lists Bikram 90 and Vinyasa 60 as class types and includes booking rules.",
+          "conversionScore": 6,
+          "seoScore": 4,
+          "classStyles": [
+            "Bikram",
+            "Vinyasa"
+          ],
+          "pricingVisible": false,
+          "scheduleVisible": true,
+          "firstTimeDeal": false,
+          "notes": "The live booking widget showed no classes on the sampled day and the main schedule relies on a static image with no alt text; pricing, address, and SEO signals like LocalBusiness schema are absent."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "categoryId": "cat_mnwyc5yw_f1688492",
+      "records": [
+        {
+          "url": "https://www.hotyogabarcelona.com/teacher-training",
+          "pageName": "Hot Yoga Barcelona Teacher Training",
+          "summary": "A 200-hour Hot Hatha Vinyasa YTT in Barcelona running over 3 months on weekends, including a 3-day Costa Brava retreat, registered with Yoga Alliance. Pricing is shown and teacher bios are present, but upcoming dates are not yet published.",
+          "conversionScore": 6,
+          "seoScore": 5,
+          "trainingName": "200h Hot Hatha Vinyasa Yoga Teacher Training",
+          "hours": "200 hours",
+          "price": "€2499 early bird / €2700 full price",
+          "dates": "Dates coming soon — email for inquiries",
+          "style": "Hot Hatha & Vinyasa",
+          "curriculumVisible": true,
+          "teacherBiosVisible": true,
+          "notes": "Price and curriculum are visible near the top, but missing specific dates seriously hurts conversion; SEO is weakened by no visible title tag naming city and hours, likely no course schema, and reviews mention the studio rather than the training program specifically."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+      "records": [
+        {
+          "url": "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+          "pageName": "One Day Yoga Retreat in Spain – Hot Yoga Barcelona",
+          "summary": "A one-day yoga retreat on April 18, 2026, set in the hills near Parc del Montnegre i el Corredor, about one hour from Barcelona. The day includes Hatha Vinyasa yoga, forest bathing, myofascial release, yoga nidra, and a vegetarian lunch by the pool.",
+          "conversionScore": 6,
+          "seoScore": 5,
+          "retreatName": "One Day Yoga Retreat in Spain",
+          "where": "Near Parc del Montnegre i el Corredor, approximately 1 hour from Barcelona, Spain (accessible via train to Arenys de Mar with pick-up transfer)",
+          "when": "April 18, 2026 (currently sold out – waiting list open)",
+          "price": "Not stated on the page; early bird mentioned but no figure given",
+          "includes": [
+            "Hatha Vinyasa yoga session",
+            "Journaling",
+            "Forest bathing",
+            "Vegetarian/plant-based lunch",
+            "Poolside rest",
+            "Myofascial release workshop",
+            "Yoga Nidra",
+            "Tea and snacks",
+            "15-minute pick-up transfer from Arenys de Mar (if needed)"
+          ],
+          "dailyScheduleVisible": true,
+          "notes": "The date and schedule are clear and near the top, but the price is completely missing from the page, which is a significant conversion barrier, and the venue is described by park name only with no named venue or address."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "categoryId": "cat_mnwyc5yw_9ee5e377",
+      "records": []
+    }
+  },
+  "progress": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

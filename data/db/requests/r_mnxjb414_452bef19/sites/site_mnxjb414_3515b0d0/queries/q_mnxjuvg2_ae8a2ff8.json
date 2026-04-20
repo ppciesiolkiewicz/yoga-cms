@@ -1,0 +1,18 @@
+{
+  "id": "q_mnxjuvg2_ae8a2ff8",
+  "requestId": "r_mnxjb414_452bef19",
+  "siteId": "site_mnxjb414_3515b0d0",
+  "categoryId": "trust",
+  "stage": "extract-pages-content",
+  "model": "claude-sonnet-4-6",
+  "prompt": "You are a B2B prospecting analyst for a web agency. Analyze this locksmith's trust signals.\n\nLocksmiths have a massive trust problem — the industry is plagued by scam operators. Trust signals are critical for conversion.\n\nHOT LEAD signals:\n- No reviews or testimonials on site\n- No mention of license or insurance\n- No trade body membership (MLA, ALOA)\n- No guarantee mentioned\n- Stock photos of locks instead of real team\n- No Google Reviews integration\n\nCOLD LEAD signals:\n- Embedded Google/Trustpilot reviews\n- Trade body logos (Master Locksmiths Association)\n- License and insurance numbers\n- Named team members with photos\n- Guarantee/warranty stated\n- Case studies or before/after photos\n- Years in business prominently displayed\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of trust signals>\",\n  \"opportunityScore\": \"<1-10, higher = fewer trust signals = better lead>\",\n  \"hasReviews\": true/false,\n  \"hasTradeBody\": true/false,\n  \"hasInsurance\": true/false,\n  \"hasNamedTeam\": true/false,\n  \"hasGuarantee\": true/false,\n  \"topOpportunity\": \"<what a web agency could sell here>\",\n  \"notes\": \"<one sentence prospecting assessment>\"\n}\n\n---\nYou are analyzing web pages for the category described above.\nFor each page provided below, extract one record.\nFollow the JSON schema from the category description exactly.\n\n## Required fields (always include)\n- \"url\": the page URL\n- \"pageName\": short human-readable page name\n- \"summary\": 1-2 sentence plain-language overview\n\n## Field naming conventions (follow strictly)\n- Scores: name ends with \"Score\", value is a number 1-10 (e.g. \"conversionScore\": 7)\n- Booleans: name starts with \"has\"/\"is\" or ends with \"Visible\" (e.g. \"pricingVisible\": true)\n- Short text: \"notes\", \"description\" — 1-2 sentences max\n- Tags/lists: arrays of short strings (e.g. \"classStyles\": [\"Hatha\", \"Vinyasa\"])\n- Plain strings: everything else (e.g. \"price\": \"€15 drop-in\")\n\nReturn a JSON object: { \"records\": [<one record per page>] }.\nNo markdown, no code fences.",
+  "dataRefs": [
+    "https://www.london-locksmiths.com/about-london-locksmiths.htm"
+  ],
+  "response": "{\n  \"records\": [\n    {\n      \"url\": \"https://www.london-locksmiths.com/about-london-locksmiths.htm\",\n      \"pageName\": \"London Locksmiths – About Page\",\n      \"summary\": \"The about page is thin on genuine trust signals — no named team members, no trade body logos, no insurance or licence numbers, and no customer reviews. The site mentions a 12-month guarantee and 'no fix no fee' but provides no verifiable credentials to back up these claims.\",\n      \"opportunityScore\": 8,\n      \"hasReviews\": false,\n      \"hasTradeBody\": false,\n      \"hasInsurance\": false,\n      \"hasNamedTeam\": false,\n      \"hasGuarantee\": true,\n      \"topOpportunity\": \"Build a trust-focused redesign incorporating Google Reviews integration, MLA membership badge display, named engineer profiles with photos, and visible licence/insurance credentials to dramatically improve conversion from suspicious London searchers.\",\n      \"notes\": \"A high-volume emergency locksmith serving all of London with almost zero verifiable trust signals — a textbook prospect for a conversion-led web redesign pitch.\"\n    }\n  ]\n}",
+  "usage": {
+    "inputTokens": 2430,
+    "outputTokens": 283
+  },
+  "createdAt": "2026-04-13T18:52:20.786Z"
+}

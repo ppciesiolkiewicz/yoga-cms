@@ -1,0 +1,17 @@
+{
+  "categoryId": "pricing",
+  "records": [
+    {
+      "url": "https://www.banham.co.uk/keyholding/pricing/",
+      "pageName": "Banham Keyholding Pricing",
+      "summary": "Banham provides a dedicated pricing page for their keyholding service, listing clear annual subscription tiers with specific pound amounts for different service levels. This is unusually transparent for the industry, with named packages and stated prices visible without needing to call.",
+      "opportunityScore": 2,
+      "pricingType": "listed",
+      "hasCalloutCharge": false,
+      "hasQuoteForm": false,
+      "hasPriceGuarantee": false,
+      "topOpportunity": "Very limited — pricing is already well-presented; could potentially pitch UX improvements or a price comparison tool, but this is a strong lead for transparency not conversion issues.",
+      "notes": "Banham is a cold lead — their pricing page is well-structured and transparent, making them one of the least promising prospects for a web agency pitch around pricing visibility."
+    }
+  ]
+}

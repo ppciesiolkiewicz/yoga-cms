@@ -1,0 +1,23 @@
+{
+  "byCategory": {
+    "home": [
+      "https://moro.co.uk",
+      "https://moro.co.uk/restaurant/"
+    ],
+    "menu": [
+      "https://moro.co.uk/menus",
+      "https://moro.co.uk/menu/christmas-menu-2024/",
+      "https://moro.co.uk/menu/drinks/",
+      "https://moro.co.uk/menu/tapas/",
+      "https://moro.co.uk/sunday-lunch-club/"
+    ],
+    "ordering": [],
+    "reservations": [
+      "https://moro.co.uk/book-now/"
+    ],
+    "contact": [
+      "https://moro.co.uk/location/",
+      "https://moro.co.uk/contact/"
+    ]
+  }
+}

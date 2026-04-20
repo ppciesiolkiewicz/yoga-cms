@@ -1,0 +1,137 @@
+<h2>Full Design: Create Analysis Page</h2>
+<p class="subtitle">All the pieces together — step 1 (Search & Select Sites) view</p>
+
+<div class="mockup">
+  <div class="mockup-header">Create Analysis — Step 1</div>
+  <div class="mockup-body" style="padding: 0; background: #0b1121; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif;">
+
+    <!-- Page header -->
+    <div style="padding: 32px 32px 0;">
+      <h1 style="font-size: 22px; font-weight: 700; margin: 0; color: #f1f5f9;">Create Analysis</h1>
+      <p style="font-size: 13px; color: #64748b; margin: 4px 0 12px;">Find sites, pick the ones to analyze, then choose what to look for.</p>
+      <div style="padding: 7px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #94a3b8; font-size: 13px; width: 280px;">Coffee shops in Berlin</div>
+    </div>
+
+    <!-- Tab navigation -->
+    <div style="display: flex; border-bottom: 2px solid rgba(255,255,255,0.06); margin-top: 20px; padding: 0 32px;">
+      <div style="padding: 10px 20px; font-size: 13px; font-weight: 500; color: #f1f5f9; border-bottom: 2px solid #3b82f6; margin-bottom: -2px;">
+        <span style="color: #3b82f6; margin-right: 5px;">1.</span> Sites
+      </div>
+      <div style="padding: 10px 20px; font-size: 13px; color: #64748b; cursor: pointer;">
+        <span style="margin-right: 5px;">2.</span> Categories
+      </div>
+      <div style="padding: 10px 20px; font-size: 13px; color: #64748b; cursor: pointer;">
+        <span style="margin-right: 5px;">3.</span> Review
+      </div>
+    </div>
+
+    <!-- Content area -->
+    <div style="padding: 24px 32px 32px;">
+
+      <!-- Search section -->
+      <div style="margin-bottom: 28px;">
+        <div style="font-size: 15px; font-weight: 600; color: #e2e8f0; margin-bottom: 4px;">Add new search</div>
+        <div style="font-size: 12px; color: #64748b; margin-bottom: 12px;">Select web pages you want to analyze</div>
+        <div style="display: flex; gap: 10px; align-items: center;">
+          <div style="flex: 1; padding: 9px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #475569; font-size: 13px;">Search Google...</div>
+          <div style="padding: 9px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #94a3b8; font-size: 13px; width: 160px; display: flex; justify-content: space-between; align-items: center;">
+            <span>Search from country</span>
+            <span style="font-size: 10px;">&#9662;</span>
+          </div>
+          <div style="padding: 9px 18px; background: #3b82f6; border-radius: 8px; color: white; font-size: 13px; font-weight: 500;">Search</div>
+        </div>
+      </div>
+
+      <!-- Selected Sites -->
+      <div>
+        <div style="font-size: 15px; font-weight: 600; color: #e2e8f0; margin-bottom: 12px;">Selected Sites <span style="color: #64748b; font-weight: 400; font-size: 13px;">(2)</span></div>
+
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <!-- Site card 1 -->
+          <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(59,130,246,0.12); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; color: #3b82f6;">&#9673;</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: baseline; gap: 8px;">
+                <span style="padding: 2px 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; color: #e2e8f0; font-size: 12px; font-weight: 500;">example-yoga.com</span>
+              </div>
+              <div style="color: #60a5fa; font-size: 11px; margin-top: 3px;">https://example-yoga.com</div>
+              <div style="color: #475569; font-size: 11px; margin-top: 1px;">Best Yoga Studio in NYC - Classes & Workshops</div>
+            </div>
+            <div style="color: #64748b; cursor: pointer; font-size: 16px; padding: 4px 8px; opacity: 0.6;">&times;</div>
+          </div>
+
+          <!-- Site card 2 -->
+          <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(59,130,246,0.12); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; color: #3b82f6;">&#9673;</div>
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: baseline; gap: 8px;">
+                <span style="padding: 2px 8px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; color: #e2e8f0; font-size: 12px; font-weight: 500;">zen-studio.com</span>
+              </div>
+              <div style="color: #60a5fa; font-size: 11px; margin-top: 3px;">https://zen-studio.com</div>
+              <div style="color: #475569; font-size: 11px; margin-top: 1px;">Zen Studio - Mindful Movement & Meditation</div>
+            </div>
+            <div style="color: #64748b; cursor: pointer; font-size: 16px; padding: 4px 8px; opacity: 0.6;">&times;</div>
+          </div>
+
+          <!-- Add URL row -->
+          <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 10px;">
+            <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.02); display: flex; align-items: center; justify-content: center; color: #475569; font-size: 18px; flex-shrink: 0;">+</div>
+            <div style="color: #475569; font-size: 12px;">Enter a URL, e.g. example.com</div>
+          </div>
+          <div style="color: #475569; font-size: 11px; margin-top: -2px;">Or search above and select from results</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer action -->
+    <div style="padding: 0 32px 24px; display: flex; justify-content: flex-end;">
+      <div style="padding: 9px 20px; background: #3b82f6; border-radius: 8px; color: white; font-size: 13px; font-weight: 500;">Continue to Categories &rarr;</div>
+    </div>
+  </div>
+</div>
+
+<div style="margin-top: 24px;"></div>
+
+<div class="mockup">
+  <div class="mockup-header">Review Step — Pretty JSON</div>
+  <div class="mockup-body" style="padding: 0; background: #0b1121; color: #e2e8f0; font-family: system-ui, -apple-system, sans-serif;">
+    <div style="padding: 24px 32px;">
+      <div style="font-size: 15px; font-weight: 600; margin-bottom: 12px;">Review</div>
+      <div style="background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 20px; font-family: 'SF Mono', 'Fira Code', monospace; font-size: 12px; line-height: 1.7; overflow-x: auto;">
+        <div>{</div>
+        <div style="padding-left: 20px;">
+          <span style="color: #7dd3fc;">"displayName"</span><span style="color: #94a3b8;">:</span> <span style="color: #86efac;">"Coffee shops in Berlin"</span><span style="color: #94a3b8;">,</span>
+        </div>
+        <div style="padding-left: 20px;">
+          <span style="color: #7dd3fc;">"categories"</span><span style="color: #94a3b8;">:</span> <span style="color: #94a3b8;">[</span>
+        </div>
+        <div style="padding-left: 40px;">
+          <span style="color: #94a3b8;">{</span>
+        </div>
+        <div style="padding-left: 60px;">
+          <span style="color: #7dd3fc;">"name"</span><span style="color: #94a3b8;">:</span> <span style="color: #86efac;">"Home"</span><span style="color: #94a3b8;">,</span>
+        </div>
+        <div style="padding-left: 60px;">
+          <span style="color: #7dd3fc;">"model"</span><span style="color: #94a3b8;">:</span> <span style="color: #86efac;">"sonnet"</span><span style="color: #94a3b8;">,</span>
+        </div>
+        <div style="padding-left: 60px;">
+          <span style="color: #7dd3fc;">"lighthouse"</span><span style="color: #94a3b8;">:</span> <span style="color: #fbbf24;">true</span><span style="color: #94a3b8;">,</span>
+        </div>
+        <div style="padding-left: 60px;">
+          <span style="color: #7dd3fc;">"prompt"</span><span style="color: #94a3b8;">:</span> <span style="color: #86efac;">"Summarize the homepage..."</span>
+        </div>
+        <div style="padding-left: 40px;">
+          <span style="color: #94a3b8;">},</span>
+        </div>
+        <div style="padding-left: 40px; color: #475569;">...</div>
+        <div style="padding-left: 20px;">
+          <span style="color: #94a3b8;">],</span>
+        </div>
+        <div style="padding-left: 20px;">
+          <span style="color: #7dd3fc;">"sites"</span><span style="color: #94a3b8;">:</span> <span style="color: #94a3b8;">[</span><span style="color: #475569;"> 2 sites </span><span style="color: #94a3b8;">]</span>
+        </div>
+        <div>}</div>
+      </div>
+    </div>
+  </div>
+</div>

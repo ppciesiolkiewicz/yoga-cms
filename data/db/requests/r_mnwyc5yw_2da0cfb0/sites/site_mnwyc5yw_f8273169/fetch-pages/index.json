@@ -1,0 +1,59 @@
+{
+  "pages": [
+    {
+      "id": "50ecc8768d",
+      "url": "https://www.threeboonsyoga.de/classeskreuzberg",
+      "status": "ok"
+    },
+    {
+      "id": "f6b2fba41f",
+      "url": "https://www.threeboonsyoga.de/classesmitte",
+      "status": "ok"
+    },
+    {
+      "id": "bc4b579c81",
+      "url": "https://www.threeboonsyoga.de/prices",
+      "status": "ok"
+    },
+    {
+      "id": "787bcd1e94",
+      "url": "https://www.threeboonsyoga.de/classescharlottenburg",
+      "status": "ok"
+    },
+    {
+      "id": "915a20ac5a",
+      "url": "https://www.threeboonsyoga.de/livestream",
+      "status": "ok"
+    },
+    {
+      "id": "8122efa1b9",
+      "url": "https://www.threeboonsyoga.de/training",
+      "status": "ok"
+    },
+    {
+      "id": "2b90f5ba31",
+      "url": "https://www.threeboonsyoga.de/advancedtraining",
+      "status": "ok"
+    },
+    {
+      "id": "9a7f0e037e",
+      "url": "https://www.threeboonsyoga.de/harmoniumtt",
+      "status": "ok"
+    },
+    {
+      "id": "a8c5b18c98",
+      "url": "https://www.threeboonsyoga.de/630hrmentoring",
+      "status": "ok"
+    },
+    {
+      "id": "2506dd8241",
+      "url": "https://www.threeboonsyoga.de/retreats",
+      "status": "ok"
+    },
+    {
+      "id": "a9cd5de511",
+      "url": "https://www.threeboonsyoga.de/contact",
+      "status": "ok"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://www.morito.co.uk",
+      "pageName": "Morito Homepage",
+      "summary": "Visually rich Squarespace homepage for a well-established London tapas and mezze restaurant group with two locations. Features strong food photography and brand storytelling but lacks any integrated booking or ordering functionality.",
+      "opportunityScore": 6,
+      "digitalMaturityScore": 5,
+      "hasOnlineOrdering": false,
+      "hasReservationWidget": false,
+      "hasProfessionalPhotos": true,
+      "hasMobileExperience": true,
+      "techStackNotes": "Squarespace (v1 CDN URLs confirmed), no third-party booking or ordering widgets detected",
+      "topOpportunity": "No reservation widget present — integrating OpenTable, ResDiary or Quandoo directly on the homepage would convert passive visitors into confirmed covers",
+      "notes": "Strong brand identity and photography make this a warm lead for a reservation widget and structured data uplift rather than a full redesign."
+    },
+    {
+      "url": "https://www.morito.co.uk/our-story",
+      "pageName": "Morito Our Story",
+      "summary": "Simple brand narrative page with founder copy and a single image, reusing the homepage story section. No calls-to-action, no social proof, and no links to menus, reservations or events.",
+      "opportunityScore": 7,
+      "digitalMaturityScore": 4,
+      "hasOnlineOrdering": false,
+      "hasReservationWidget": false,
+      "hasProfessionalPhotos": true,
+      "hasMobileExperience": true,
+      "techStackNotes": "Squarespace, static content page with no embedded tools or widgets",
+      "topOpportunity": "Page has no CTA — adding a reservation button, press quotes, or newsletter signup would turn a dead-end brand page into a conversion touchpoint",
+      "notes": "A high-intent page (people researching the brand before booking) that currently drives zero conversions — strong case for a CTA and social proof injection."
+    }
+  ]
+}

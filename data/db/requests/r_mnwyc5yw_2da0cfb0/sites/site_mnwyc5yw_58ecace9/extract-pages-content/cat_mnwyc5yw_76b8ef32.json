@@ -1,0 +1,50 @@
+{
+  "categoryId": "cat_mnwyc5yw_76b8ef32",
+  "records": [
+    {
+      "url": "https://doinyoga.pl/joga-online/",
+      "pageName": "Joga Online – Yin Joga",
+      "summary": "Landing page for weekly online Yin yoga classes led by instructor Domi, held every Wednesday at 19:00. Pricing is clearly displayed with a single session at 40 PLN and a 4-class pack at 150 PLN.",
+      "conversionScore": 7,
+      "seoScore": 5,
+      "classStyles": [
+        "Yin Joga"
+      ],
+      "pricingVisible": true,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "Good conversion basics — schedule and prices are clear — but the booking CTA links to a category page showing 'no products found', which breaks the purchase flow; no city/location in page title hurts local SEO and there is no LocalBusiness schema since it is online-only."
+    },
+    {
+      "url": "https://doinyoga.pl/kategoria/joga-online/",
+      "pageName": "Joga Online – Booking Category Page",
+      "summary": "The actual booking/shop page for online yoga classes, showing pricing options for single sessions and 4-class packs. However, the class listings section shows 'Nie znaleziono produktów' (no products found), making it impossible to actually book.",
+      "conversionScore": 2,
+      "seoScore": 4,
+      "classStyles": [
+        "Yin Joga"
+      ],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": false,
+      "notes": "Critical conversion failure — the page where visitors are directed to book shows no available sessions, meaning no purchase can be completed; pricing is visible but useless without bookable slots."
+    },
+    {
+      "url": "https://doinyoga.pl/joga-we-wroclawiu/",
+      "pageName": "Joga we Wrocławiu – In-Person Classes",
+      "summary": "Page for in-person yoga classes in Wrocław, listing a weekly schedule with days, times, styles, and venue addresses. Prices are not shown on the page itself — visitors are redirected to external booking systems.",
+      "conversionScore": 6,
+      "seoScore": 6,
+      "classStyles": [
+        "Power Joga",
+        "Poranna Joga",
+        "Asana Lab",
+        "Vinyasa Flow"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "Schedule and venue addresses are clearly listed which is a strong plus, but pricing is missing entirely from the page and a closed-group course is mixed in with open drop-in classes, which may confuse first-time visitors."
+    }
+  ]
+}

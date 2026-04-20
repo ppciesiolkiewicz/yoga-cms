@@ -1,0 +1,26 @@
+{
+  "byCategory": {
+    "home": [
+      "https://wdlocksmiths.co.uk",
+      "https://wdlocksmiths.co.uk/about/"
+    ],
+    "services": [
+      "https://wdlocksmiths.co.uk/commercial-locksmith/",
+      "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/",
+      "https://wdlocksmiths.co.uk/residential-emergency-locksmith/",
+      "https://wdlocksmiths.co.uk/residential-change-door-lock-services/",
+      "https://wdlocksmiths.co.uk/safe-locksmith/"
+    ],
+    "pricing": [
+      "https://wdlocksmiths.co.uk/price-list/"
+    ],
+    "trust": [
+      "https://wdlocksmiths.co.uk/testimonials/",
+      "https://wdlocksmiths.co.uk/our-partners/"
+    ],
+    "contact": [
+      "https://wdlocksmiths.co.uk/contact-us/",
+      "https://wdlocksmiths.co.uk/area-covered/"
+    ]
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "categoryId": "cat_mnwyc5yw_76b8ef32",
+  "records": [
+    {
+      "url": "https://www.hotyogabarcelona.com/prices",
+      "pageName": "Hot Yoga Barcelona – Prices",
+      "summary": "Pricing page listing all drop-in and membership options including a €29 resident trial, €25 single class, monthly recurring plans, and class packs. Gift cards are also available.",
+      "conversionScore": 7,
+      "seoScore": 4,
+      "classStyles": [],
+      "pricingVisible": true,
+      "scheduleVisible": false,
+      "firstTimeDeal": true,
+      "notes": "Pricing is clear and well-structured with direct buy links, but there is no schedule, no studio address, no class style descriptions, and the page title/H1 do not reference Barcelona or yoga type for SEO."
+    },
+    {
+      "url": "https://www.hotyogabarcelona.com/schedule",
+      "pageName": "Hot Yoga Barcelona – Schedule",
+      "summary": "Schedule page with an embedded booking widget (Momence) plus a static image of the weekly timetable. Lists Bikram 90 and Vinyasa 60 as class types and includes booking rules.",
+      "conversionScore": 6,
+      "seoScore": 4,
+      "classStyles": [
+        "Bikram",
+        "Vinyasa"
+      ],
+      "pricingVisible": false,
+      "scheduleVisible": true,
+      "firstTimeDeal": false,
+      "notes": "The live booking widget showed no classes on the sampled day and the main schedule relies on a static image with no alt text; pricing, address, and SEO signals like LocalBusiness schema are absent."
+    }
+  ]
+}

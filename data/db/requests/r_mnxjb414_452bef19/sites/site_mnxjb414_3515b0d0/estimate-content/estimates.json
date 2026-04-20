@@ -1,0 +1,52 @@
+{
+  "siteId": "site_mnxjb414_3515b0d0",
+  "pages": [
+    {
+      "url": "https://www.london-locksmiths.com",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/index.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/london-locksmiths-services.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/north-london-locksmiths/index.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/east-london-locksmiths/index.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/south-london-locksmiths/index.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/west-london-locksmiths/index.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/about-london-locksmiths.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.london-locksmiths.com/contact-london-locksmiths.htm",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 45000,
+  "totalEstimatedTokens": 11250
+}

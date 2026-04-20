@@ -1,0 +1,27 @@
+{
+  "home": {
+    "detect-tech": "completed",
+    "run-lighthouse": "completed",
+    "extract-pages-content": "completed"
+  },
+  "services": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "pricing": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "trust": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  },
+  "contact": {
+    "detect-tech": "not-requested",
+    "run-lighthouse": "not-requested",
+    "extract-pages-content": "completed"
+  }
+}

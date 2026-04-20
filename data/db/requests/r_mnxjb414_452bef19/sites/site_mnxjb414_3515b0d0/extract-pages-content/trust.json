@@ -1,0 +1,18 @@
+{
+  "categoryId": "trust",
+  "records": [
+    {
+      "url": "https://www.london-locksmiths.com/about-london-locksmiths.htm",
+      "pageName": "London Locksmiths – About Page",
+      "summary": "The about page is thin on genuine trust signals — no named team members, no trade body logos, no insurance or licence numbers, and no customer reviews. The site mentions a 12-month guarantee and 'no fix no fee' but provides no verifiable credentials to back up these claims.",
+      "opportunityScore": 8,
+      "hasReviews": false,
+      "hasTradeBody": false,
+      "hasInsurance": false,
+      "hasNamedTeam": false,
+      "hasGuarantee": true,
+      "topOpportunity": "Build a trust-focused redesign incorporating Google Reviews integration, MLA membership badge display, named engineer profiles with photos, and visible licence/insurance credentials to dramatically improve conversion from suspicious London searchers.",
+      "notes": "A high-volume emergency locksmith serving all of London with almost zero verifiable trust signals — a textbook prospect for a conversion-led web redesign pitch."
+    }
+  ]
+}

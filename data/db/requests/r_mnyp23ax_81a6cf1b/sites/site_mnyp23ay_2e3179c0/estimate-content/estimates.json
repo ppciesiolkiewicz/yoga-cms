@@ -1,0 +1,27 @@
+{
+  "siteId": "site_mnyp23ay_2e3179c0",
+  "pages": [
+    {
+      "url": "https://fallowrestaurant.com",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://fallowrestaurant.com/our-story/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://fallowrestaurant.com/menus/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://fallowrestaurant.com/find-us/",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 20000,
+  "totalEstimatedTokens": 5000
+}

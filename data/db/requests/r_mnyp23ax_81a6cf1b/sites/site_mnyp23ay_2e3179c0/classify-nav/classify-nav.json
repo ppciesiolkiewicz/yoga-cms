@@ -1,0 +1,16 @@
+{
+  "byCategory": {
+    "home": [
+      "https://fallowrestaurant.com",
+      "https://fallowrestaurant.com/our-story/"
+    ],
+    "menu": [
+      "https://fallowrestaurant.com/menus/"
+    ],
+    "ordering": [],
+    "reservations": [],
+    "contact": [
+      "https://fallowrestaurant.com/find-us/"
+    ]
+  }
+}

@@ -1,0 +1,109 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://www.london-locksmiths.com/london-locksmiths-services.htm",
+      "pageName": "London Locksmiths Services",
+      "summary": "The services page lists a broad range of locksmith and security offerings across two sections, with each service linking to its own dedicated sub-page. Services are organised into loose groupings (emergency, domestic/commercial, physical security, alarms/CCTV) with brief paragraph-level descriptions rather than per-service detail.",
+      "opportunityScore": 5,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "24 Hour Emergency Locksmiths",
+        "Burglary Repairs",
+        "Emergency Lock Repair and Replacement",
+        "Mobile Locksmiths",
+        "Domestic Locksmiths",
+        "Commercial Locksmiths",
+        "Insurance Surveys",
+        "Lock Fitting",
+        "UPVC/Patio Door and Lock Repairs",
+        "Window Locks",
+        "Safe Fitting Opening and Servicing",
+        "Door Repair and Carpentry",
+        "Access Control",
+        "Bars Grills and Shutters",
+        "Security Keys",
+        "Master Keys and Keyed Alike",
+        "Domestic Burglar Alarms",
+        "CCTV",
+        "Commercial Alarm Systems",
+        "Free Security Audits",
+        "Free Security Surveys",
+        "High Security Locks",
+        "Industrial Safe Installation"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Individual service pages exist but lack detailed descriptions, FAQs, before/after photos and service-specific CTAs — a content and conversion optimisation project per service page.",
+      "notes": "The site has the structural bones of a good services section but each linked page likely lacks depth, trust signals and conversion elements, making it a moderate opportunity for a content-led redesign pitch."
+    },
+    {
+      "url": "https://www.london-locksmiths.com/north-london-locksmiths/index.htm",
+      "pageName": "North London Locksmiths",
+      "summary": "A geographic coverage page for North London that presents service capabilities as short bullet-point lists (emergency, response times, pricing) with no descriptive content per service type. The page is essentially a directory of coverage areas with a call-to-action phone number.",
+      "opportunityScore": 7,
+      "serviceStructure": "single-page",
+      "servicesListed": [
+        "Locked In/Out",
+        "Lock Repair and Replacement",
+        "Door and Burglary Repairs",
+        "24 Hour Emergency Service"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Full geo-landing page build with service-specific sections, local trust signals, photos, reviews and dedicated CTAs to replace the thin bullet-list format.",
+      "notes": "This is a weak geo-landing page with no real service content beyond bullet points and a coverage link list — strong candidate for a localised landing page redesign upsell."
+    },
+    {
+      "url": "https://www.london-locksmiths.com/east-london-locksmiths/index.htm",
+      "pageName": "East London Locksmiths",
+      "summary": "Near-identical template to the North London page, offering bullet-point service highlights and a list of coverage area links with no individual service descriptions or location-specific content. Boilerplate copy with East London substituted throughout.",
+      "opportunityScore": 7,
+      "serviceStructure": "single-page",
+      "servicesListed": [
+        "Locked In/Out",
+        "Lock Repair and Replacement",
+        "Door and Burglary Repairs",
+        "24 Hour Emergency Service"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Unique geo-targeted landing page with localised content, service breakdowns, area-specific trust signals and conversion-optimised layout to replace the cloned template.",
+      "notes": "Boilerplate geo-page with zero unique content value — easy to pitch a differentiated local landing page that would outperform this in search and conversion."
+    },
+    {
+      "url": "https://www.london-locksmiths.com/south-london-locksmiths/index.htm",
+      "pageName": "South London Locksmiths",
+      "summary": "Another cloned geographic template for South London, structurally and textually identical to the North and East London pages apart from location name substitutions and a longer coverage area list. No service descriptions or unique content present.",
+      "opportunityScore": 7,
+      "serviceStructure": "single-page",
+      "servicesListed": [
+        "Locked In/Out",
+        "Lock Repair and Replacement",
+        "Door and Burglary Repairs",
+        "24 Hour Emergency Service"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Localised geo-landing page with unique copy, service detail sections, neighbourhood-specific trust content and strong CTA design to replace the templated placeholder.",
+      "notes": "One of four near-identical geo-pages that collectively represent a significant thin-content SEO problem and a clear web agency content strategy opportunity."
+    },
+    {
+      "url": "https://www.london-locksmiths.com/west-london-locksmiths/index.htm",
+      "pageName": "West London Locksmiths",
+      "summary": "Fourth in a series of cloned geographic landing pages, this West London version replicates the same bullet-point structure, boilerplate paragraph copy and area link list as the other regional pages. No service descriptions, photos or unique local content.",
+      "opportunityScore": 7,
+      "serviceStructure": "single-page",
+      "servicesListed": [
+        "Locked In/Out",
+        "Lock Repair and Replacement",
+        "Door and Burglary Repairs",
+        "24 Hour Emergency Service"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": false,
+      "topOpportunity": "Unique geo-landing page with locally relevant content, service-specific sections, testimonials and conversion-focused design to replace the duplicate template.",
+      "notes": "The four near-identical regional pages represent a systemic site-wide content problem — pitching a geo-landing page strategy overhaul covering all four regions plus individual area pages would be a strong agency offer."
+    }
+  ]
+}

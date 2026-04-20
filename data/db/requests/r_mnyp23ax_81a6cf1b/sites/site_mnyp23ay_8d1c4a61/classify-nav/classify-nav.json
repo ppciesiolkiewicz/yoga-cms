@@ -1,0 +1,16 @@
+{
+  "byCategory": {
+    "home": [
+      "https://www.morito.co.uk",
+      "https://www.morito.co.uk/our-story"
+    ],
+    "menu": [],
+    "ordering": [],
+    "reservations": [
+      "https://www.morito.co.uk/book-online"
+    ],
+    "contact": [
+      "https://www.morito.co.uk/contact-us"
+    ]
+  }
+}

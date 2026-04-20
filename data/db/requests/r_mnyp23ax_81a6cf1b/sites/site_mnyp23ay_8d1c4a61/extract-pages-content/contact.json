@@ -1,0 +1,19 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://www.morito.co.uk/contact-us",
+      "pageName": "Morito – Contact Us",
+      "summary": "The contact page features an embedded Google Map and appears to be built on Squarespace. However, no opening hours, phone number, or email address are visibly present on the page, and no LocalBusiness/Restaurant schema markup was detected.",
+      "opportunityScore": 6,
+      "hasAddress": false,
+      "hasPhone": false,
+      "hasEmail": false,
+      "hasMap": true,
+      "hasOpeningHours": false,
+      "hasSchemaMarkup": false,
+      "topOpportunity": "Add structured LocalBusiness/Restaurant schema markup, opening hours, click-to-call phone number, and a visible address to improve local SEO and customer findability.",
+      "notes": "Moderate lead — the map is present but key contact details and schema are missing, leaving significant local SEO and UX gaps a web agency could address."
+    }
+  ]
+}

@@ -1,0 +1,251 @@
+{
+  "siteId": "site_mnwyc5yw_3fcb22f6",
+  "url": "https://www.shalastudios.com",
+  "meta": {
+    "name": "SHA-LA Studios"
+  },
+  "scrapedAt": "2026-04-13T08:53:05.378Z",
+  "navigation": {
+    "links": [
+      {
+        "label": "SCHEDULE",
+        "href": "https://www.shalastudios.com/schedule"
+      },
+      {
+        "label": "BOOK CLASS",
+        "href": "https://www.shalastudios.com/book-class"
+      },
+      {
+        "label": "STUDIOS",
+        "href": "https://www.shalastudios.com/studios"
+      },
+      {
+        "label": "WELLBEING TREATMENTS",
+        "href": "https://www.shalastudios.com/wellbeing-treatments"
+      },
+      {
+        "label": "ACADEMY",
+        "href": "https://www.shalastudios.com/academy"
+      },
+      {
+        "label": "KREUZBERG – WATERFRONT",
+        "href": "https://www.shalastudios.com/events-kreuzberg"
+      },
+      {
+        "label": "PRENZLAUER BERG - KASTANIENALLEE",
+        "href": "https://www.shalastudios.com/events-kreuzberg-1"
+      },
+      {
+        "label": "RETREATS",
+        "href": "https://www.shalastudios.com/academy-1"
+      },
+      {
+        "label": "TEAM",
+        "href": "https://www.shalastudios.com/team"
+      },
+      {
+        "label": "SHA-LA",
+        "href": "https://www.shalastudios.com/about"
+      },
+      {
+        "label": "CONTACT",
+        "href": "https://www.shalastudios.com/contact"
+      },
+      {
+        "label": "Folder: EVENTS",
+        "href": "https://www.shalastudios.com/events"
+      },
+      {
+        "label": "Folder: ABOUT",
+        "href": "https://www.shalastudios.com/shala"
+      },
+      {
+        "label": "Yoga apprenticeship program",
+        "href": "https://www.shalastudios.com/apprenticeship"
+      },
+      {
+        "label": "Datenschutz",
+        "href": "https://www.shalastudios.com/datenschutz"
+      },
+      {
+        "label": "AGB",
+        "href": "https://www.shalastudios.com/agb"
+      }
+    ]
+  },
+  "classification": {
+    "byCategory": {
+      "cat_mnwyc5yw_76b8ef32": [
+        "https://www.shalastudios.com/schedule",
+        "https://www.shalastudios.com/book-class",
+        "https://www.shalastudios.com/studios"
+      ],
+      "cat_mnwyc5yw_f1688492": [
+        "https://www.shalastudios.com/academy",
+        "https://www.shalastudios.com/apprenticeship"
+      ],
+      "cat_mnwyc5yw_2aaa3bfb": [
+        "https://www.shalastudios.com/academy-1"
+      ],
+      "cat_mnwyc5yw_9ee5e377": [
+        "https://www.shalastudios.com/contact",
+        "https://www.shalastudios.com/about"
+      ]
+    }
+  },
+  "tech": {},
+  "lighthouse": {},
+  "extract": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "categoryId": "cat_mnwyc5yw_76b8ef32",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/schedule",
+          "pageName": "SHA-LA Studios Schedule",
+          "summary": "Weekly class schedule page with location and teacher filters for two Berlin studios. The schedule widget appears to be embedded via a third-party tool (Yogo) but no actual class times or styles are visible in the scraped content.",
+          "conversionScore": 4,
+          "seoScore": 4,
+          "classStyles": [],
+          "pricingVisible": false,
+          "scheduleVisible": false,
+          "firstTimeDeal": false,
+          "notes": "Schedule widget is present but renders no visible class data in the page content, and there are no prices or style descriptions — visitors cannot answer 'when can I come' without the widget loading correctly."
+        },
+        {
+          "url": "https://www.shalastudios.com/book-class",
+          "pageName": "SHA-LA Studios Book a Class",
+          "summary": "Pricing and booking page listing all pass options including a €20 drop-in, €49 two-week trial, multi-class packs, memberships, and partner integrations (ClassPass, Wellpass, Wellhub). Prices and booking links are clearly displayed.",
+          "conversionScore": 7,
+          "seoScore": 5,
+          "classStyles": [],
+          "pricingVisible": true,
+          "scheduleVisible": false,
+          "firstTimeDeal": true,
+          "notes": "Pricing is clear and a first-timer trial pass is prominently shown, but there are no class styles listed and no schedule on this page, so visitors still can't see what classes are available or when."
+        },
+        {
+          "url": "https://www.shalastudios.com/studios",
+          "pageName": "SHA-LA Studios Locations",
+          "summary": "Studio locations page describing two Berlin spaces — Prenzlauer Berg (Kastanienallee 63) and Kreuzberg Waterfront (Falckensteinstr 47) — with addresses, directions links, facility details, and studio rental info.",
+          "conversionScore": 5,
+          "seoScore": 6,
+          "classStyles": [],
+          "pricingVisible": false,
+          "scheduleVisible": false,
+          "firstTimeDeal": false,
+          "notes": "Addresses and directions are clearly provided which is good for local SEO and visitor navigation, but there are no class styles, schedule, or drop-in prices on this page — studio rental pricing muddies the drop-in focus."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "categoryId": "cat_mnwyc5yw_f1688492",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/academy",
+          "pageName": "Sha-La Academy – Training Hub",
+          "summary": "The Sha-La Academy in Berlin offers a wide range of yoga teacher trainings and continuing education programmes, from a 200h multi-style YTT to short intensives in Yin, Kundalini, Katonah, and more, led by in-house and guest faculty.",
+          "conversionScore": 7,
+          "seoScore": 4,
+          "trainingName": "Sha-La Academy (multiple programmes)",
+          "hours": "10h–200h depending on programme",
+          "price": "€150–€3,500 (early bird discounts available)",
+          "dates": "May 2026–Jun 2027 (varies by programme)",
+          "style": "Multi-style: Vinyasa, Yin, Kundalini, Katonah, Inversions, Hypnosis/Sound",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "Dates and prices are clearly listed per programme which aids conversion, but this is a hub page with many mixed offerings and no curriculum detail, teacher bios, or reviews visible, and SEO is weak with no structured schema, thin H1, and no city/hours in the title."
+        },
+        {
+          "url": "https://www.shalastudios.com/apprenticeship",
+          "pageName": "Yoga Apprenticeship – 404 Page",
+          "summary": "This URL returns a 404 error; the apprenticeship programme page has been moved or deleted.",
+          "conversionScore": 1,
+          "seoScore": 1,
+          "trainingName": "Yoga Apprenticeship Program",
+          "hours": "Unknown",
+          "price": "€1,200",
+          "dates": "Unknown",
+          "style": "Unknown",
+          "curriculumVisible": false,
+          "teacherBiosVisible": false,
+          "notes": "Page does not exist; any visitor or search engine landing here will see only a 404, losing both conversion and SEO value entirely."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "categoryId": "cat_mnwyc5yw_2aaa3bfb",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/academy-1",
+          "pageName": "Shala Studios Retreats Listing",
+          "summary": "A listing page showing two upcoming yoga retreats near Berlin — 'Be the Leaf' in March 2026 and 'Where We Bloom' in April/May — with brief details and separate booking links for each.",
+          "conversionScore": 4,
+          "seoScore": 3,
+          "retreatName": "Multiple retreats listed (Be the Leaf; Where We Bloom)",
+          "where": "Be the Leaf: Haven Havelland, 90 min from Berlin; Where We Bloom: Haus Erlengrund, Buckow (Märkische Schweiz)",
+          "when": "Be the Leaf: March 12–15, 2026; Where We Bloom: April 30 – May 3",
+          "price": "Be the Leaf: not shown on page; Where We Bloom: see external link (early bird until Feb 14)",
+          "includes": [
+            "Not specified on this page",
+            "Details linked to separate pages"
+          ],
+          "dailyScheduleVisible": false,
+          "notes": "Two retreats are mixed on one listing page with no pricing shown inline, no included amenities listed, no daily schedule, and prices require clicking off to external pages — hurting both conversion and SEO."
+        }
+      ]
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "categoryId": "cat_mnwyc5yw_9ee5e377",
+      "records": [
+        {
+          "url": "https://www.shalastudios.com/contact",
+          "pageName": "SHA-LA Studios Contact & FAQ",
+          "summary": "The contact page features a contact form with studio selection and an extensive FAQ section. An email address is mentioned within the FAQ but no address, phone, map, or opening hours are present.",
+          "conversionScore": 4,
+          "seoScore": 2,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": true,
+          "hasMap": false,
+          "hasOpeningHours": false,
+          "notes": "The page is heavily FAQ-focused and lacks essential contact details like physical address, phone number, map, and opening hours, making it difficult for visitors to locate or directly reach the studio."
+        },
+        {
+          "url": "https://www.shalastudios.com/about",
+          "pageName": "SHA-LA Studios About",
+          "summary": "The about page introduces the studio's philosophy, founders, and general amenities across their two Berlin locations in Prenzlauer Berg and Kreuzberg. No direct contact information, map, phone, email, or opening hours are provided.",
+          "conversionScore": 2,
+          "seoScore": 2,
+          "hasAddress": false,
+          "hasPhone": false,
+          "hasEmail": false,
+          "hasMap": false,
+          "hasOpeningHours": false,
+          "notes": "As an about page it serves its narrative purpose, but it provides zero actionable contact information and would not help a visitor physically locate or contact the business."
+        }
+      ]
+    }
+  },
+  "progress": {
+    "cat_mnwyc5yw_76b8ef32": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_f1688492": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_2aaa3bfb": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    },
+    "cat_mnwyc5yw_9ee5e377": {
+      "detect-tech": "not-requested",
+      "run-lighthouse": "not-requested",
+      "extract-pages-content": "completed"
+    }
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "pages": [
+    {
+      "id": "56363aeb84",
+      "url": "https://www.banham.co.uk",
+      "status": "ok"
+    },
+    {
+      "id": "72bc0367a0",
+      "url": "https://www.banham.co.uk/book-a-survey/",
+      "status": "ok"
+    },
+    {
+      "id": "3157555423",
+      "url": "https://www.banham.co.uk/locksmith-service/",
+      "status": "ok"
+    },
+    {
+      "id": "341ad84ba7",
+      "url": "https://www.banham.co.uk/locks/",
+      "status": "ok"
+    },
+    {
+      "id": "4e27dc0376",
+      "url": "https://www.banham.co.uk/burglar-alarms/",
+      "status": "ok"
+    },
+    {
+      "id": "a5bcb94c0c",
+      "url": "https://www.banham.co.uk/cctv-entry/",
+      "status": "ok"
+    },
+    {
+      "id": "bbfc31d19c",
+      "url": "https://www.banham.co.uk/safes/",
+      "status": "ok"
+    },
+    {
+      "id": "284efaf5b6",
+      "url": "https://www.banham.co.uk/keyholding/pricing/",
+      "status": "ok"
+    },
+    {
+      "id": "857fb94bbf",
+      "url": "https://www.banham.co.uk/journal/award-winning-product",
+      "status": "ok"
+    },
+    {
+      "id": "f0b08667e7",
+      "url": "https://www.banham.co.uk/patents/",
+      "status": "ok"
+    },
+    {
+      "id": "e8cba9e9e1",
+      "url": "https://www.banham.co.uk/about-us",
+      "status": "failed",
+      "error": "page.goto: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - navigating to \"https://www.banham.co.uk/about-us\", waiting until \"networkidle\"\u001b[22m\n"
+    },
+    {
+      "id": "15d3ad39e8",
+      "url": "https://www.banham.co.uk/contact/",
+      "status": "ok"
+    },
+    {
+      "id": "83922f3677",
+      "url": "https://www.banham.co.uk/showrooms",
+      "status": "ok"
+    }
+  ]
+}

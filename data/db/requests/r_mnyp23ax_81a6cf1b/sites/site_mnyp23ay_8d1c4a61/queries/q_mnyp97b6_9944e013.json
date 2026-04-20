@@ -1,0 +1,26 @@
+{
+  "id": "q_mnyp97b6_9944e013",
+  "requestId": "r_mnyp23ax_81a6cf1b",
+  "siteId": "site_mnyp23ay_8d1c4a61",
+  "stage": "classify-nav",
+  "model": "claude-haiku-4-5",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Home\": \n- \"Menu\": menu, food menu, drinks, wine list, specials, dishes\n- \"Ordering\": order online, delivery, takeaway, click and collect, order food\n- \"Reservations\": book a table, reservations, booking, reserve\n- \"Contact\": contact, find us, location, opening hours, address, directions\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "https://www.morito.co.uk/exmouth-market",
+    "https://www.morito.co.uk/hackney-road",
+    "https://www.morito.co.uk/private-hire",
+    "https://www.morito.co.uk/our-story",
+    "https://www.morito.co.uk/outside-catering",
+    "https://www.morito.co.uk/gift-vouchers",
+    "https://www.morito.co.uk/autumn-yard",
+    "https://www.morito.co.uk/book-online",
+    "https://www.morito.co.uk/information",
+    "https://www.morito.co.uk/contact-us"
+  ],
+  "response": "{\n  \"Home\": [\n    \"https://www.morito.co.uk/our-story\"\n  ],\n  \"Reservations\": [\n    \"https://www.morito.co.uk/book-online\"\n  ],\n  \"Contact\": [\n    \"https://www.morito.co.uk/contact-us\"\n  ]\n}",
+  "usage": {
+    "inputTokens": 463,
+    "outputTokens": 94
+  },
+  "createdAt": "2026-04-14T14:11:13.602Z"
+}

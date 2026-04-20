@@ -1,0 +1,9 @@
+{
+  "connection": "keep-alive",
+  "content-encoding": "br",
+  "content-type": "text/html; charset=UTF-8",
+  "date": "Mon, 13 Apr 2026 18:37:50 GMT",
+  "link": "<https://www.londonlocks.com/wp-json/>; rel=\"https://api.w.org/\", <https://www.londonlocks.com/wp-json/wp/v2/pages/8>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://www.londonlocks.com/>; rel=shortlink",
+  "server": "nginx",
+  "transfer-encoding": "chunked"
+}

@@ -1,0 +1,101 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://wdlocksmiths.co.uk/commercial-locksmith/",
+      "pageName": "Commercial Locksmith Overview",
+      "summary": "A well-structured commercial locksmith overview page with clear CTAs, Google reviews widget, and navigation to dedicated sub-service pages. Serves as a hub linking out to emergency, safe, burglary, and lock change pages.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "commercial locksmith",
+        "emergency locksmith",
+        "safe locksmith",
+        "burglary and board up",
+        "lock changes"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Minimal — page is well-organised; could potentially improve with before/after work photos or case studies",
+      "notes": "This is a cold lead — the site has strong service architecture, dedicated sub-pages per category, and clear emergency vs scheduled distinction."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/commercial-emergency-locksmith/",
+      "pageName": "Commercial Emergency Locksmith",
+      "summary": "Dedicated emergency commercial locksmith page with detailed service descriptions, FAQs, social proof, partner logos, and multiple CTAs. Clearly distinguishes emergency and scheduled work.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "24/7 emergency lockouts",
+        "lock repairs and replacements",
+        "new lock installations",
+        "keyless entry and access control",
+        "burglary repairs",
+        "digital and smart lock fitting",
+        "uPVC door and window lock repairs"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Possibly before/after work photography; testimonial videos use stock avatars which weakens trust",
+      "notes": "Cold lead — page is comprehensive, well-structured, and conversion-optimised with FAQs, pricing anchor, and multiple contact channels."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/residential-emergency-locksmith/",
+      "pageName": "Residential Emergency Locksmith",
+      "summary": "Dedicated residential emergency locksmith page covering 24/7 lockouts, lost keys, and urgent lock changes, with DBS-checked credentials, FAQs, and clear pricing signals. Mirrors commercial page structure closely.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "24/7 emergency lockouts",
+        "lock repairs and replacements",
+        "new lock installations",
+        "key cutting and keyed alike",
+        "burglary repairs",
+        "digital and smart lock fitting",
+        "uPVC door and window lock repairs"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Actual before/after job photography would strengthen trust; testimonial profiles use stock imagery",
+      "notes": "Cold lead — page is well-built with strong SEO intent targeting, FAQ section, and clear emergency framing throughout."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/residential-change-door-lock-services/",
+      "pageName": "Residential Door Lock Replacement",
+      "summary": "Dedicated scheduled-service page for residential lock changes, broken down into uPVC, timber/composite, and post-incident scenarios with clear bullet-point descriptions and FAQs. Well-differentiated from emergency content.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "uPVC door lock changes",
+        "home door lock replacement",
+        "lock changes after incidents",
+        "euro cylinder replacement",
+        "mortice lock replacement",
+        "anti-snap lock upgrades"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Real job photography or a lock comparison visual would add conversion value; testimonial section uses stock photos",
+      "notes": "Cold lead — page demonstrates strong service segmentation with use-case-based sub-sections and a comprehensive FAQ addressing objections."
+    },
+    {
+      "url": "https://wdlocksmiths.co.uk/safe-locksmith/",
+      "pageName": "Residential Safe Locksmith",
+      "summary": "Dedicated safe locksmith page covering non-destructive opening, repairs, code replacement, installation, and removal, with detailed FAQs and strong trust signals. Clearly focused on a niche service.",
+      "opportunityScore": 2,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "safe opening",
+        "safe repairs",
+        "key and code replacement",
+        "safe removal",
+        "safe installation",
+        "insurance-approved safe supply"
+      ],
+      "hasEmergencyDistinction": true,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Real safe job photography or a short explainer video would differentiate; testimonial videos link to YouTube but use generic avatars",
+      "notes": "Cold lead — the site as a whole is a well-executed, professionally structured locksmith web presence with very limited gaps for a web agency to exploit."
+    }
+  ]
+}

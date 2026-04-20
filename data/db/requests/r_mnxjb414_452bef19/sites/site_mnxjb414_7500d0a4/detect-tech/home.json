@@ -1,0 +1,200 @@
+{
+  "platform": "Custom / Unknown",
+  "detectedTechnologies": [
+    {
+      "name": "Magento",
+      "categories": [
+        "Ecommerce"
+      ],
+      "version": "2",
+      "confidence": 100
+    },
+    {
+      "name": "Storyblok",
+      "categories": [
+        "CMS"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Doofinder",
+      "categories": [
+        "Search engines"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "MySQL",
+      "categories": [
+        "Databases"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "PHP",
+      "categories": [
+        "Programming languages"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Hyva Themes",
+      "categories": [
+        "Ecommerce frontends"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Tailwind CSS",
+      "categories": [
+        "UI frameworks"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Bootstrap",
+      "categories": [
+        "UI frameworks"
+      ],
+      "version": "5",
+      "confidence": 100
+    },
+    {
+      "name": "Amazon Web Services",
+      "categories": [
+        "PaaS"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Platform.sh",
+      "categories": [
+        "PaaS"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "PayPal",
+      "categories": [
+        "Payment processors"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Alpine.js",
+      "categories": [
+        "JavaScript frameworks"
+      ],
+      "confidence": 75
+    },
+    {
+      "name": "Trustpilot",
+      "categories": [
+        "Reviews"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "SweetAlert2",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "OneTrust",
+      "categories": [
+        "Cookie compliance"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Microsoft Advertising",
+      "categories": [
+        "Advertising"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Linkedin Insight Tag",
+      "categories": [
+        "Analytics"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Linkedin Ads",
+      "categories": [
+        "Advertising"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Klarna Checkout",
+      "categories": [
+        "Payment processors",
+        "Buy now pay later"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "HSTS",
+      "categories": [
+        "Security"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "hCaptcha",
+      "categories": [
+        "Security"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Tag Manager",
+      "categories": [
+        "Tag managers"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Optimize",
+      "categories": [
+        "A/B Testing"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Analytics",
+      "categories": [
+        "Analytics"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Amazon S3",
+      "categories": [
+        "CDN"
+      ],
+      "confidence": 100
+    }
+  ],
+  "costBreakdown": [
+    {
+      "item": "Google Analytics",
+      "min": 0,
+      "max": 0
+    },
+    {
+      "item": "Domain registration",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "totalEstimatedMonthlyCost": {
+    "min": 1,
+    "max": 2,
+    "currency": "USD"
+  }
+}

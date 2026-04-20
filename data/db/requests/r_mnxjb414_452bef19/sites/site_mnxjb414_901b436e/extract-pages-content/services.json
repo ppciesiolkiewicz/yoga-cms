@@ -1,0 +1,37 @@
+{
+  "categoryId": "services",
+  "records": [
+    {
+      "url": "https://londonlocksmiths.com/services/",
+      "pageName": "Services Overview",
+      "summary": "All services are presented on a single page with short descriptive paragraphs per service. There is no structural separation between emergency and scheduled work, no individual service pages linked, and images appear to be stock rather than actual work.",
+      "opportunityScore": 6,
+      "serviceStructure": "single-page",
+      "servicesListed": [
+        "Lock Repairs",
+        "Lock Replacements",
+        "Property Entry",
+        "Lock Picking"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Build out individual landing pages per service (residential, commercial, emergency, auto) with targeted SEO copy and service-specific CTAs to capture intent-driven search traffic.",
+      "notes": "The page has more substance than a bare bullet list but still consolidates everything in one place with stock imagery, no emergency callout, and no segmentation by customer type — leaving significant SEO and conversion value on the table."
+    },
+    {
+      "url": "https://londonlocksmiths.com/lock-repair/",
+      "pageName": "Lock Repair",
+      "summary": "A dedicated lock repair page exists with two descriptive sub-sections covering diagnosis and repair process. However, it relies entirely on stock photography, lacks FAQs, pricing signals, and any emergency vs. scheduled distinction despite claiming 24-hour availability.",
+      "opportunityScore": 5,
+      "serviceStructure": "individual-pages",
+      "servicesListed": [
+        "Lock Repair",
+        "Lock Diagnosis"
+      ],
+      "hasEmergencyDistinction": false,
+      "hasServiceDescriptions": true,
+      "topOpportunity": "Enhance the page with real job photography, an FAQ section, a prominent emergency CTA, and structured data markup to improve local search visibility and trust signals.",
+      "notes": "The site shows partial maturity — individual service pages exist — but content depth, trust assets, and conversion optimisation are underdeveloped, making this a mid-tier opportunity for a web agency pitching SEO and CRO improvements."
+    }
+  ]
+}

@@ -1,0 +1,117 @@
+{
+  "platform": "WordPress",
+  "detectedTechnologies": [
+    {
+      "name": "WordPress",
+      "categories": [
+        "CMS",
+        "Blogs"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "MySQL",
+      "categories": [
+        "Databases"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "PHP",
+      "categories": [
+        "Programming languages"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Yoast SEO",
+      "categories": [
+        "SEO",
+        "WordPress plugins"
+      ],
+      "version": "27.3",
+      "confidence": 100
+    },
+    {
+      "name": "WP Engine",
+      "categories": [
+        "PaaS",
+        "Hosting"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "jQuery Migrate",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "version": "3.4.1",
+      "confidence": 100
+    },
+    {
+      "name": "jQuery",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "imagesLoaded",
+      "categories": [
+        "JavaScript libraries"
+      ],
+      "version": "4.1.4",
+      "confidence": 100
+    },
+    {
+      "name": "HSTS",
+      "categories": [
+        "Security"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Google Tag Manager",
+      "categories": [
+        "Tag managers"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "Cloudflare",
+      "categories": [
+        "CDN"
+      ],
+      "confidence": 100
+    },
+    {
+      "name": "HTTP/3",
+      "categories": [
+        "Miscellaneous"
+      ],
+      "confidence": 100
+    }
+  ],
+  "costBreakdown": [
+    {
+      "item": "WordPress hosting",
+      "min": 5,
+      "max": 50
+    },
+    {
+      "item": "Cloudflare",
+      "min": 0,
+      "max": 20
+    },
+    {
+      "item": "Domain registration",
+      "min": 1,
+      "max": 2
+    }
+  ],
+  "totalEstimatedMonthlyCost": {
+    "min": 6,
+    "max": 72,
+    "currency": "USD"
+  }
+}

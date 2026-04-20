@@ -1,0 +1,70 @@
+{
+  "categoryId": "menu",
+  "records": [
+    {
+      "url": "https://moro.co.uk/menus",
+      "pageName": "Menus Index (404)",
+      "summary": "The main menus index page returns a 404 error, meaning visitors have no central hub to find menu options. Navigation to food and drink content is broken at the top level.",
+      "opportunityScore": 7,
+      "menuFormat": "none",
+      "hasPrices": false,
+      "hasAllergenInfo": false,
+      "hasFoodPhotos": false,
+      "isOutdated": false,
+      "topOpportunity": "Rebuild a proper menus landing/index page with clear navigation to all menu sections",
+      "notes": "A broken menu index is a direct conversion killer — any prospecting pitch should lead with fixing this structural navigation failure."
+    },
+    {
+      "url": "https://moro.co.uk/menu/christmas-menu-2024/",
+      "pageName": "Christmas Menu 2024",
+      "summary": "A plain-text HTML page presenting what is labelled a Christmas 2024 menu but appears to display spring/summer dishes (asparagus, broad beans, morels) with an April 2026 timestamp. The menu is well-priced and detailed but the seasonal mismatch and stale branding are significant red flags.",
+      "opportunityScore": 8,
+      "menuFormat": "html",
+      "hasPrices": true,
+      "hasAllergenInfo": true,
+      "hasFoodPhotos": false,
+      "isOutdated": true,
+      "topOpportunity": "Redesign menu pages with proper seasonal labelling, dynamic date management, food photography, and structured layout replacing raw text",
+      "notes": "A Christmas-branded URL serving spring content dated April 2026 signals poor CMS hygiene and no menu update workflow — strong agency pitch around content management and seasonal templating."
+    },
+    {
+      "url": "https://moro.co.uk/menu/drinks/",
+      "pageName": "Drinks Menu",
+      "summary": "A comprehensive plain-text HTML drinks menu covering cocktails, vermouth, sherry, wine by region, spirits, and softs — all with prices. Presentation is purely typographic with no visual hierarchy, imagery, or filtering.",
+      "opportunityScore": 5,
+      "menuFormat": "html",
+      "hasPrices": true,
+      "hasAllergenInfo": false,
+      "hasFoodPhotos": false,
+      "isOutdated": false,
+      "topOpportunity": "Redesign with visual hierarchy, category navigation/tabs, and curated wine/cocktail photography to elevate perceived quality",
+      "notes": "Content is thorough and current, but the wall-of-text format undersells a clearly premium drinks programme — a design-led agency could pitch a high-impact visual refresh."
+    },
+    {
+      "url": "https://moro.co.uk/menu/tapas/",
+      "pageName": "Tapas Menu",
+      "summary": "A very short plain-text HTML tapas menu listing items with prices, available at the bar and terrace. Minimal detail, no descriptions, no allergen info, and no imagery.",
+      "opportunityScore": 6,
+      "menuFormat": "html",
+      "hasPrices": true,
+      "hasAllergenInfo": false,
+      "hasFoodPhotos": false,
+      "isOutdated": false,
+      "topOpportunity": "Expand tapas page with dish descriptions, food photography, and allergen indicators to drive bar-area upsell",
+      "notes": "Bare-bones presentation for what is likely a high-margin bar offering — easy win for an agency to pitch enhanced content and layout to boost tapas visibility and revenue."
+    },
+    {
+      "url": "https://moro.co.uk/sunday-lunch-club/",
+      "pageName": "Sunday Lunch Club",
+      "summary": "A well-written landing page for a set-menu Sunday feast concept, with full menu details, clear pricing (£45/£55), and a booking CTA. Presentation is still plain HTML text with no imagery or interactive elements.",
+      "opportunityScore": 4,
+      "menuFormat": "html",
+      "hasPrices": true,
+      "hasAllergenInfo": false,
+      "hasFoodPhotos": false,
+      "isOutdated": false,
+      "topOpportunity": "Add hero food photography and atmosphere imagery to convert the strong editorial copy into a higher-performing booking page",
+      "notes": "This is the most conversion-ready page on the site — good copy and clear pricing — but a lack of visuals leaves significant booking uplift on the table."
+    }
+  ]
+}

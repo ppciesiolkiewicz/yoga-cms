@@ -1,0 +1,18 @@
+{
+  "byCategory": {
+    "home": [
+      "https://londonlocksmiths.com"
+    ],
+    "services": [
+      "https://londonlocksmiths.com/services/",
+      "https://londonlocksmiths.com/lock-repair/"
+    ],
+    "pricing": [],
+    "trust": [
+      "https://londonlocksmiths.com/about/"
+    ],
+    "contact": [
+      "https://londonlocksmiths.com/contact/"
+    ]
+  }
+}

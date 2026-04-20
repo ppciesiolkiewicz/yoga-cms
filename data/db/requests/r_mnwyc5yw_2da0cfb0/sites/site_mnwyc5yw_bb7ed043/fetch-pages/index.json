@@ -1,0 +1,44 @@
+{
+  "pages": [
+    {
+      "id": "7bfb85372d",
+      "url": "https://www.shalastudios.com/schedule",
+      "status": "ok"
+    },
+    {
+      "id": "cf4b2006ba",
+      "url": "https://www.shalastudios.com/book-class",
+      "status": "ok"
+    },
+    {
+      "id": "8f757649ce",
+      "url": "https://www.shalastudios.com/academy",
+      "status": "ok"
+    },
+    {
+      "id": "2f449ea76f",
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "status": "ok"
+    },
+    {
+      "id": "b9c74506f0",
+      "url": "https://www.shalastudios.com/academy-1",
+      "status": "ok"
+    },
+    {
+      "id": "29bdcefde2",
+      "url": "https://www.shalastudios.com/contact",
+      "status": "ok"
+    },
+    {
+      "id": "a7a01ce44d",
+      "url": "https://www.shalastudios.com/about",
+      "status": "ok"
+    },
+    {
+      "id": "f8d2d5eb53",
+      "url": "https://www.shalastudios.com/wellbeing-treatments",
+      "status": "ok"
+    }
+  ]
+}

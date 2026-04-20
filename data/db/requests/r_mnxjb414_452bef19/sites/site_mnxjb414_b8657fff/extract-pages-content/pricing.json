@@ -1,0 +1,17 @@
+{
+  "categoryId": "pricing",
+  "records": [
+    {
+      "url": "https://wdlocksmiths.co.uk/price-list/",
+      "pageName": "Watchdog Locksmiths – Price List",
+      "summary": "This page features a comprehensive, itemised price list covering working hours, out-of-hours, night rates, parts, and safe opening charges with specific figures for each service. The site explicitly promotes 'no hidden fees' and offers free survey visits within 3 miles, making it one of the most transparent locksmith pricing pages available.",
+      "opportunityScore": 2,
+      "pricingType": "listed",
+      "hasCalloutCharge": true,
+      "hasQuoteForm": false,
+      "hasPriceGuarantee": true,
+      "topOpportunity": "Very limited — pricing transparency is already a strength; only marginal gains possible via an online quote calculator or structured WhatsApp intake form to replace the informal photo-request flow.",
+      "notes": "This is a cold lead — the business has already invested heavily in pricing transparency, making it a poor candidate for a web agency pitch centred on pricing visibility improvements."
+    }
+  ]
+}

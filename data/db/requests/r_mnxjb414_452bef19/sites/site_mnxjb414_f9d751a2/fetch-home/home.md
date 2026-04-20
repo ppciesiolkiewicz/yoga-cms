@@ -1,0 +1,333 @@
+Locksmiths London | Emergency Locksmith London: London Locks                                                                
+
+[Skip to content](#content)
+
+  [info@londonlocks.com](mailto:info@londonlocks.com)
+
+[](https://www.facebook.com/LondonLocks?fref=ts)[](https://twitter.com/londoncitylocks)[](http://pinterest.com/londonlocks/)[](https://www.instagram.com/londonlocksandkeys/)[](https://www.youtube.com/user/TheLondonLocksmith)
+
+[![London Locks](https://www.londonlocks.com/wp-content/uploads/2024/02/LL-new-logo-e1774014989103.jpg)](https://www.londonlocks.com/ "London Locks")
+
+## Locksmith Call Out
+
+[07743 247 007](tel:07743247007)
+
+[](javascript:void\(0\))[![London Locks](https://www.londonlocks.com/wp-content/uploads/2024/02/LL-new-logo-e1774014989103.jpg)](https://www.londonlocks.com/ "London Locks")
+
+*   [Home](https://www.londonlocks.com/ "Home")
+*   [About Us](https://www.londonlocks.com/about-us/ "About Us")
+*   [Services](# "Services")
+    *   [Emergency Lockouts](https://www.londonlocks.com/emergency-lock-outs/ "Emergency Lockouts")
+    *   [Key and Lock Collection](https://www.londonlocks.com/key-and-lock-collection-and-delivery-services/ "Key and Lock Collection")
+    *   [Key Cutting](https://www.londonlocks.com/key-cutting/ "Key Cutting")
+    *   [Key Holding Services](https://www.londonlocks.com/key-holding-services/ "Key Holding Services")
+    *   [Keying Alike](https://www.londonlocks.com/key-alike/ "Keying Alike")
+    *   [Lock Fitting](https://www.londonlocks.com/lock-fitting/ "Lock Fitting")
+    *   [Lock Repairs](https://www.londonlocks.com/lock-repairs-london/ "Lock Repairs")
+    *   [Key Fobs](https://www.londonlocks.com/key-fobs-london/ "Key Fobs")
+    *   [Master Key Systems](https://www.londonlocks.com/master-key-systems-london/)
+    *   [Landlord Services](https://www.londonlocks.com/landlord-locksmith-assistance-london/)
+    *   [Engraving Services](https://www.londonlocks.com/engraving-services-east-london/)
+*   [Advice](https://www.londonlocks.com/advice/ "Advice")
+*   [Articles](https://www.londonlocks.com/articles/ "Articles")
+*   [Glossary](https://www.londonlocks.com/glossary/ "Glossary")
+*   [Green Policy](https://www.londonlocks.com/green-policy/ "Green Policy")
+*   [Contact Us](https://www.londonlocks.com/contact-us/ "Contact Us")
+*   [Blog](https://www.londonlocks.com/blog/ "Blog")
+
+### Superior High Security
+
+# Door Locks
+
+### With Automatic Deadbolts
+
+# Locksmith London
+
+### Covering London City and East London
+
+Watch Video
+
+# Locksmith London
+
+Lock Fitting | Lock Repairs | Lock Changes | Faulty Lock Replacement
+
+[CALL NOW 07743 247 007](tel:07743247007)
+
+[CONTACT US ON WHATSAPP](https://api.whatsapp.com/send?phone=447743247007)
+
+### Tired of Double Locking
+
+Your Door?
+
+FinBolt automatically deadbolts your door.
+
+Banish worrying afterthoughts of **“Did I  
+remember to lock the door?”** forever.
+
+### You Leave, It Locks!
+
+  
+
+[](https://www.londonlocks.com/key-cutting/ "Key Cutting")
+
+### [Key Cutting](https://www.londonlocks.com/key-cutting/ "Key Cutting")
+
+We provide key cutting and can duplicate all keys and fobs. Pop into our shop, or send us an image and we will supply a free quote. We also offer key duplication, collection and delivery.
+
+[](https://www.londonlocks.com/burglary-repairs/ "Burglary Repairs")
+
+### [Lock Change](https://www.londonlocks.com/key-holding-services/ "Key Holding Services")
+
+If you’re in need of a [lock change](https://www.londonlocks.com/why-should-you-change-your-locks/ "Why Should You Change your Locks") in London, let our experts at London Locks help. We can change all types of locks at properties, including services for replacement locks and broken keys.
+
+[](https://www.londonlocks.com/24-hour-emergency-lock-outs/ "Emergency Lock Outs")
+
+### [Emergency Lock Outs](https://www.londonlocks.com/24-hour-emergency-lock-outs/ "Emergency Lock Outs")
+
+We’re on hand for your emergency lock outs. Whether you’ve lost your keys, broken them, or left them in the office, we can help you get back in your home with no or little damage.
+
+[](https://www.londonlocks.com/lock-fitting/ "Lock Fitting")
+
+### [Lock Fitting](https://www.londonlocks.com/lock-fitting/ "Lock Fitting")
+
+We can install locks for every application, from adding additional locks to opening locks you have lost the key for and [door lock installation services](https://www.londonlocks.com/what-is-the-best-lock-for-my-door/ "What is the Best Lock for My Door?"). All locks are fitted to the latest Fire & Safety Regulations.
+
+[](https://www.londonlocks.com/lock-repairs/ "Lock Repairs")
+
+### [Lock Repairs](https://www.londonlocks.com/lock-repairs/ "Lock Repairs")
+
+Should your [lock need fixing](https://londonlocks.com/how-to-fix-a-broken-lock), we provide a [full repair service](https://londonlocks.com/lock-repairs-london) including [burglary repairs](https://www.londonlocks.com/what-to-do-if-you-are-burgled/ "What To Do If You Are Burgled"), with no need to buy a new lock. Simply contact our team who will be able to advise on repairs.
+
+[](https://www.londonlocks.com/key-fobs-london/ "Door Installations")
+
+### [Key Fobs](https://www.londonlocks.com/key-fobs-london/ "Door Installations")
+
+When it comes to key fob entry, whether you need new key fobs, additional key fobs, or re-pairing key fobs, our team can provide a full service.
+
+## Welcome To London Locks
+
+Searching for a 'Locksmith Near me'
+
+### Fully Qualified and Highly Experienced Locksmiths
+
+Problems with locks and keys can befall us at any time, which is why it is important to turn to the right London locksmiths to help you out, whether it’s day or night. That’s when you need London Locks and our team of expert locksmiths. As there are many London locksmiths firms offering a local locksmith service, we want to highlight why you should choose us for all [locksmith emergencies](https://www.londonlocks.com/common-locksmith-emergencies-in-bow/ "Common Locksmith Emergencies in Bow") including lock outs, key cutting and lock changes London. We also provide our [locksmith services in E1](https://www.londonlocks.com/locksmith-e1/) and the surrounding areas.
+
+We have been in business since 2004, since the company was established by Lloyd Morgan, our manager, who has learnt all he knows from the British Locksmiths Association. His aim for the company was simple – to provide customers with a team who could open any lock without requiring the original key or tool designed to open it. Experience is considered very important at London Locks.
+
+Every month Morgan spends time with our team to make sure they’re fully aware of the ins and outs of any [new locks](https://www.londonlocks.com/5-reasons-to-upgrade-your-locks/ "5 Reasons to Upgrade Your Locks") that have been introduced to the market. no matter whether you have trouble with locks and keys at a business premises or your residential property, you can always rely on London Locks to deliver a first-rate professional and efficient [locksmith service](https://www.londonlocks.com/locksmith-hackney/), every time. So when looking for ‘best locksmiths near me’, check out our locksmith services in London. We cover all of London, from [Islington](https://www.londonlocks.com/locksmith-islington/) in N1 to Greenwich in SE10.
+
+### We are approved by Master Locksmith Association
+
+Locally approved locksmith
+
+[Verify Us Here](https://www.locksmiths.co.uk/find-a-locksmith/london-locks-ltd/ "Verify Us Here")
+
+[![MLA Logo](https://www.londonlocks.com/wp-content/uploads/2022/10/mla-logo-e1774014223847.png "MLA Logo")](https://www.locksmiths.co.uk/find-a-locksmith/london-locks-ltd/)
+
+### Member of the UK's Largest Locksmith Association
+
+Master Locksmiths Association
+
+[Official Website](https://www.locksmiths.co.uk/faq/choosing-a-locksmith/ "Official Website")
+
+## Emergency Locksmith in London
+
+Call London Locks Today If You're Locked Out Central London
+
+London Locks offers a full emergency locksmith services throughout [Hackney](https://www.londonlocks.com/locksmith-hackney/), [Bethnal Green](https://www.londonlocks.com/locksmith-bethnal-green/), [Stratford,](https://londonlocks.com/locksmith-stratford) [Poplar](https://www.londonlocks.com/locksmith-poplar/) and across all areas of London including [E1](https://www.londonlocks.com/locksmith-e1/) and [**Central London**](https://londonlocks.com/locksmith-central-london). We fit, repair, replace and source all types of locks and locking products for offices, shops, industrial premises, residential and private homes. For an ’emergency locksmith near me’ and more information regarding our lock changes in London, **call us on** [**07743 247 007**](tel:07743247007) for a quotation or to make a booking.
+
+As London locksmiths mission is simple, we want to be able to open anything without the key or the original tool made to open it. Regardless of which of our locksmith services you require, you can rely on the team at London Locks to provide a high quality, efficient and very professional locksmiths service for those in search of ‘door unlock London’.
+
+The opinion of our expert [local locksmith](https://www.londonlocks.com/locksmith-whitechapel/) team can pay for itself time and time again. Our team of locksmiths have the inside knowledge of what works and what doesn’t when it comes to fitting locks and improving the security systems of your premises, as well as what’s secure and what isn’t. Quite often the cheap option of looking for a ‘cheap locksmith near me’ can prove to be much more expensive in the long run, so be sure to call upon London Locks today.
+
+We pride ourselves on providing a premier locksmith service in London and as experts we keep up to date with all of the latest information regarding the [latest crime rates and statistics in London](https://www.londonlocks.com/the-latest-crime-rates-and-statistics-in-london/ "The Latest Crime Rates and Statistics in London"). We are known for our proficient and economical services and much of our work comes from personal recommendation. Just take a look at some of our great customer feedback below.
+
+### No Call Out Fee
+
+The price we quote you on the phone will be the price that you pay! Call now for a free quote.
+
+### No Fix No Fee
+
+We pride ourselves on our highly skilled services, so if we can’t find a solution, you don’t pay us.
+
+### Key Cutting
+
+We offer a walk in key cutting service. We also provide collection and delivery services for businesses.
+
+### Find Emergency Locksmiths Near Me
+
+Working locally across the London area, our locksmiths will get to you as quickly as possible and provide an efficient service.
+
+### Lock Changes
+
+Our rapid service, delivered on e-cargo bikes and motorbikes means we can have your locks changed in as little as 30 minutes, location dependant.
+
+## Lock outs and key cutting in London
+
+Whether you require a lock fitting, repair or a key cutting service, we offer a number of solutions, which we aim to deliver to the highest standard. For more information or a quote, contact us today!
+
+[CALL FOR A QUOTE](tel:0774%20324%207007)
+
+### Locked Out Central London
+
+We don’t like surprises just like you, so we do all we can to avoid nasty price hikes and labour charges like other firms. Just call London Locks for a quote, remember the more information you give our local locksmiths the more accurate we can be with the quotation. If you are able to send us a photo of your lock or locks please [contact](https://londonlocks.com/contact-us) us with your name, address and contact details so we can call you back.
+
+We work closely with housing associations, local councils, block managers, estate owners, landlords, private homeowners and tenants in both commercial and domestic properties. Our emergency [locksmiths in Canary Wharf](https://londonlocks.com/locksmith-canary-wharf) and throughout London are always here to help no matter where you are in London. So, for lock changes London, call on our team where we will be happy to help you.
+
+### Best Locksmith Services London
+
+Our services include fitting all types of alarms, lock changes, window locks, door closers, door entry systems as well as lock repairs and of course key cutting. Our mobile locksmiths cover [Central London](https://londonlocks.com/locksmith-central-london) and East London including [Hackney](https://londonlocks.com/locksmith-hackney), [E3](https://londonlocks.com/locksmith-e3), [E1](https://www.londonlocks.com/locksmith-e1/), [E9](https://londonlocks.com/locksmith-e9), [E14](https://londonlocks.com/locksmith-e14), and [Stratford](https://londonlocks.com/locksmith-stratford).
+
+We are a bricks and mortar locksmith business, Our head office is based in Bow, just near the Olympic site in [**East London**](https://londonlocks.com/locksmiths-east-london) within easy reach of Hackney and Stratford. We offer key cutting, sell all makes of locks and locking products and offer a full list of workshop services. Just call to see if we do what you need. Our [London locksmiths in Bow](https://www.londonlocks.com/locksmith-bow/ "Locksmiths Bow"), are located opposite the Bow Bells Pub in the Bow Business Centre 153-159 Bow Rd, London, E3 2SE. Unit B1 in the basement.
+
+![Local Locksmith](https://www.londonlocks.com/wp-content/uploads/2021/08/Local-Locksmith-575x370.jpeg "How To Fix A Broken Lock")
+
+### Lock Changes in London
+
+Experiencing a lockout situation can be distressing, especially during cold nights. That’s why our locksmith service in London specialises in emergency lockouts and swift lock changes. Just contact us with your details, and we’ll dispatch our team to your location promptly. We prioritise quick response times, aiming to reach you within 30 minutes, regardless of the time of day. As a dedicated London locksmith service, we take pride in our commitment to customer satisfaction and we also offer [master key systems](https://www.londonlocks.com/master-key-systems-london/) to businesses in London.
+
+That’s why we offer a ‘No Call Out Fee’ policy, ensuring that our team can assess any damage, necessary repairs, or installations without any upfront charges. Whether you require a faulty lock replacement or find yourself locked out in London, our residential and commercial locksmiths have the expertise to assist you. Our door unlock and change service caters to both domestic and commercial properties.
+
+Our professional London locksmiths provide the ‘lock changes London’ service throughout the capital, ensuring that help is always within reach. Moreover, we stand by our quality workmanship with a ‘No Fix No Fee’ policy, ensuring you only pay when the issue is successfully resolved. Don’t let lock-related challenges disrupt your peace of mind. Contact our reliable London locksmith service today for efficient lock changes and unrivalled customer support.
+
+#### Frequently Asked Questions
+
+#### [What is a locksmith?](#1596380066710-7b8778bb-7d18)
+
+The role of London locksmiths is to repair or replace issues such as damaged locks, replacement keys, home security installations and much more. Whether it’s from being locked out of the home or moving into a new property and wanting some extra peace of mind, then a locksmith will be able to provide a range of services to keep you safe and secure. Should you be searching for a locksmith in my area, then be sure to get in touch with London Locks today.
+
+#### [Can a locksmith open a deadbolt?](#1596380105853-359d413e-0900)
+
+This all depends entirely on the type of lock it is. Most standard locks can be picked or opened with ease. High security locks that use a deadbolt are more difficult to get into and will usually require the lock to be drilled out.
+
+#### [I need my lock changing urgently, can you help?](#1685613204961-c5f4a4e8-3b2f)
+
+At London Locks, as a trusted MLA member, we take pride in our prompt and efficient lock changing services. If you’re within London, we can generally be with you within 30 minutes of your call to us. We prioritise your security by using only the best and most trusted lock brands in the industry. Rest assured that when you choose us, you’re getting top-quality products and reliable locksmith expertise.
+
+#### [If I require key cutting services, what types of keys can you cut?](#1596380159361-2c2bc447-dad8)
+
+We offer a range of key cutting services to both domestic and commercial customers throughout London. At London Locks, we can cut a range of such as:
+
+*   **Standard Keys** – We can cut any type of standard key whether it be for your home, garage or something else.
+*   **Fobs & Remotes** – London Locks is able to copy, duplicate, program and reprogram most European fobs and remote controls for gates, doors, shutters and windows. Just send us a photo of your fob or remote so we can identify it then organise your replacement or copy.
+*   **Fire Brigade & Access Keys** – We have stock of all fire brigade keys, lift keys, drop keys and common access keys.
+
+For more information on the key cutting services our London locksmiths offer to customers throughout London, or to arrange to have a key cut, don’t hesitate to get in touch. One of the London Locks team is always on hand to help and assist.
+
+#### [How much do your professional locksmith callouts cost?](#1596380188931-12c2896b-2ecf)
+
+When you choose London Locks you can trust that you’ll receive a value for money service, if you are stuck in an emergency, we understand that this is never easy, with this in mind we want to help. So if you’re worried about expensive locksmith services, don’t, London Locks offer competitive and efficient locksmith callout rates.
+
+#### [Do you offer domestic and commercial locksmith services?](#1596380220737-8a3cc84b-0f60)
+
+Yes, here at London Locks we specialise in domestic and commercial key cutting services across London and the surrounding areas. No matter the type of key that you need cutting, we’ve got you covered. No matter if you’re in search of a commercial or house lock replacement London, we’re here to help. Get in touch today for a FREE quote.
+
+#### [If I lose my keys, should I change my locks?](#1596380257357-26fe28ad-246c)
+
+Yes, we do advise this, while it’s unlikely that anyone will find your keys and know which lock they open, it will all depend on the person who finds them and where they find them, at London Locks, we advise that it’s better to be safe than sorry. In the instance that you are burgled by using your missing key, it’s unlikely that your insurance will pay out.
+
+#### [My key has broken in the lock, what should I do?](#1596380277601-a8c455f3-fd65)
+
+While you may find it tempting to fiddle or poke the broken key, we advise against this, it can cause further damage. It’s also important that the other part of the key is retained, this is so that your locksmith can quickly identify the issue and find a replacement. So, for faulty lock replacement London and door unlock services London, be sure to choose London Locks. We’re here for you.
+
+#### [Are your emergency locksmith services 24/7?](#1596380302362-b5c8c639-df70)
+
+No, we are not 24/7 locksmiths. We do however operate an emergency locksmith service, through this we will try and priorities customers who need our help as a matter of emergency for example if you have had a break in. We will do our best to get to you asap.
+
+#### [What types of professional locksmith services do you offer?](#1596380324387-7b530e08-6119)
+
+Here at London Locks, we offer a comprehensive range of the best local locksmith services to customers throughout the areas. Our services cover a number of things such as lock replacement, key cutting, key holding, fault lock replacement, locked out services, door unlock services, house lock replacements and much more. No matter what type of locksmith service you might require, you can count on London Locks to provide it for you. When it comes to needing a locksmith, be sure to get in touch with London Locks and we’ll be more than happy to assist.
+
+#### [How much does a locksmith cost?](#1596380352880-a7656fc8-2775)
+
+We price all of our London locksmith services individually, whether it’s key cutting or something else, we’ll ensure that you receive a fair and competitive price for the locksmith services that we provide. When it comes to needing a locksmith in London, make sure that you get in touch with London Locks today.
+
+#### [Do I need to change the locks if I lose my keys?](#1596380418831-1c65b56e-da2b)
+
+Absolutely. Although it is unlikely for someone to find the keys and know where you live, (unless you have personal information on the keys) it is always worth having your locks changed. It’s best to be safe than sorry, so come to London Locks where our professional team will replace your locks for you.
+
+Remember, if someone gains access to your home with keys, your insurance may not pay out.
+
+#### [Why choose London Locks for locksmiths?](#1596380387603-5ede10c2-0d3b)
+
+We have been providing our range of locksmith services to customers in and around the area for many years. With years of experience in the industry, we have all the skills and knowledge needed to ensure professional and efficient locksmith services are provided. No matter what your reason for needing a locksmith might be, you can count on us. Get in touch today!
+
+### See What Our Clients Say
+
+[![Google Reviews](https://www.londonlocks.com/wp-content/uploads/2020/07/Google@2x.jpg)](https://www.google.com/search?rlz=1C1GCEU_en-GBGB895GB895&biw=1920&bih=937&ei=S178XuvFBri71fAPvZu10A0&q=london+locks+e3+2se&oq=london+locks+e3+2se&gs_lcp=CgZwc3ktYWIQAzIFCCEQoAE6BAgAEEc6AggAOgQIABBDOgUIABCLAzoJCAAQChBDEIsDOgYIABAWEB46BAghEBVQp6sBWIi6AWDvugFoAHABeACAAVGIAZIEkgEBN5gBAKABAaoBB2d3cy13aXq4AQI&sclient=psy-ab&ved=0ahUKEwirl7au5avqAhW4XRUIHb1NDdoQ4dUDCAw&uact=5#lrd=0x48761d46fa154deb:0x17b055d5ab61234f,1,,, "Google Reviews")
+
+[![Yell Reviews](https://www.londonlocks.com/wp-content/uploads/2020/07/Yell@2x.jpg)](https://www.yell.com/biz/london-locks-locksmiths-keys-and-fobs-london-3918100/ "Yell Reviews")
+
+[![Bizify Reviews](https://www.londonlocks.com/wp-content/uploads/2026/02/yll-logo.png)](https://yourlocallistings.co.uk/london-locks/locksmith-in-bow/ "Your Local Listing")
+
+[![MyLocalService Reviews](https://www.londonlocks.com/wp-content/uploads/2020/07/MyLocalServices@2x.jpg)](https://www.mylocalservices.co.uk/London+Locks+Locksmiths+Keys+and+Fobs-London-2386589.html "MyLocalService Reviews")
+
+[![Thomson Local Reviews](https://www.londonlocks.com/wp-content/uploads/2020/07/ThomsonLocal@2x.jpg)](https://www.thomsonlocal.com/search/locksmiths/east-london/london-locks-ltd/2862857/02089804091 "Thomson Local Reviews")
+
+## WE CAN GET TO YOU IN 30 MINUTES!
+
+Lock fitting | Lock Repairs | Emergency Lock Outs
+
+[Call Now](<tel:0774 324 7007>)
+
+##### Where We Are
+
+**London Locks**  
+
+143 Bow Road  
+Bow  
+London  
+E3 2AN  
+  
+Tel: [020 8980 4091](tel:02089804091 "Call us")  
+Mob: [07743 247 007](<tel:07743 247 007> "Call us")  
+Email: [info@londonlocks.com](mailto:info@londonlocks.com "Email us")
+
+![London Locks](https://www.londonlocks.com/wp-content/uploads/2017/05/london-logo.gif "London Locks")
+
+  ££
+
+[East London Locks](https://www.eastlondonlocksmiths.com/)
+
+##### Quick Links
+
+*   [Home](https://www.londonlocks.com/)
+*   [Contact Us](https://www.londonlocks.com/contact-us/)
+*   [Terms & Conditions](https://www.londonlocks.com/terms-conditions/)
+*   [Privacy Policy](https://www.londonlocks.com/privacy-policy/)
+*   [Cookie Policy](https://www.londonlocks.com/cookie-policy/)
+*   [HTML Sitemap](https://www.londonlocks.com/html-sitemap/)
+
+##### Certified Locksmiths
+
+[![Certified Locksmiths and Security logo](https://www.londonlocks.com/wp-content/uploads/2026/03/Screenshot-2026-03-19-at-09.00.46.png)](https://certifiedlocksmithsandsecurity.co.uk/service/london-locks-bow/)
+
+##### MLA Approved
+
+[![MLA Approved](https://www.londonlocks.com/wp-content/uploads/2022/10/mla-approved.jpeg)](https://www.locksmiths.co.uk/find-a-locksmith/london-locks-ltd/)
+
+© 2026 London Locks | [Locksmith SEO by Outrank](https://www.outrank.co.uk/locksmith-seo-services/ "Locksmith SEO Services by Outrank")
+
+ 
+
+[×](#)
+
+              [](#)
+
+![Merchant Logo](https://fuzey-inbox-attachments-dev.s3-eu-west-1.amazonaws.com/ad702ec5-4494-4d23-8617-024b7a82a94d.png)
+
+Message us on...
+
+![WhatsApp](https://widget.fuzey.io//static/media/whatsapp.39754251ddd7345720bbbfb4b26d1b26.svg)
+
+WhatsApp
+
+![SMS](https://widget.fuzey.io//static/media/sms.fd5383e125e91574ae5f6467a38ad16b.svg)[a](sms://+447743247007?&body=)
+
+SMS
+
+![Contact Form](https://widget.fuzey.io//static/media/contact_form.01f069564316bf5466eb00d5cf070d18.svg)
+
+Contact Form
+
+Powered by [Fuzey](https://getfuzey.com)

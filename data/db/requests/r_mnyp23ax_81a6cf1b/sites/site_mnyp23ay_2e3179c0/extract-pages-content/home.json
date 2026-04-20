@@ -1,0 +1,19 @@
+{
+  "categoryId": "home",
+  "records": [
+    {
+      "url": "https://fallowrestaurant.com/our-story/",
+      "pageName": "Fallow Restaurant – Our Story",
+      "summary": "Brand storytelling page covering the founding team's backgrounds and restaurant history. No transactional elements, digital integrations, or conversion features are present on this page.",
+      "opportunityScore": 6,
+      "digitalMaturityScore": 4,
+      "hasOnlineOrdering": false,
+      "hasReservationWidget": false,
+      "hasProfessionalPhotos": false,
+      "hasMobileExperience": true,
+      "techStackNotes": "No CMS, e-commerce, or widget technology observable on this page; Instagram linked externally; contact via raw mailto links only",
+      "topOpportunity": "No reservation widget or CTA on the page — a high-intent visitor reading the brand story has no immediate path to book a table",
+      "notes": "Fallow is an award-winning, concept-driven restaurant with strong brand equity but this page lacks any conversion infrastructure, making it a viable lead for CRO, reservation integration, and structured content strategy."
+    }
+  ]
+}

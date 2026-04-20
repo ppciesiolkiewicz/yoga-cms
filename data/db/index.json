@@ -7,17 +7,24 @@
     "categoryCount": 5
   },
   {
-    "id": "r_mnww2j4f_6eb978d2",
-    "displayName": "Developer tool SaaS landing pages",
-    "createdAt": "2026-04-13T07:46:27.279Z",
-    "siteCount": 15,
-    "categoryCount": 4
-  },
-  {
     "id": "r_mnwyc5yw_2da0cfb0",
     "displayName": "Yoga studios (smoke test)",
     "createdAt": "2026-04-13T08:49:56.024Z",
     "siteCount": 6,
     "categoryCount": 4
+  },
+  {
+    "id": "r_mnxjb414_452bef19",
+    "displayName": "Local locksmiths — B2B prospecting",
+    "createdAt": "2026-04-13T18:36:58.792Z",
+    "siteCount": 6,
+    "categoryCount": 5
+  },
+  {
+    "id": "r_mnyp23ax_81a6cf1b",
+    "displayName": "Local restaurants — B2B prospecting",
+    "createdAt": "2026-04-14T14:05:41.817Z",
+    "siteCount": 6,
+    "categoryCount": 5
   }
 ]

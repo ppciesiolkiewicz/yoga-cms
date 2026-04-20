@@ -1,0 +1,46 @@
+<h2>Empty State: How much guidance?</h2>
+<p class="subtitle">What should the user see before they've added any sites?</p>
+
+<div class="cards">
+  <!-- A: Minimal -->
+  <div class="card" data-choice="a" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 24px; background: #0d1520;">
+      <div style="font-size: 13px;">
+        <div style="font-weight: 600; color: #e2e8f0; margin-bottom: 12px;">Selected Sites</div>
+        <!-- Just the add input -->
+        <div style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; border: 1px dashed rgba(255,255,255,0.1); border-radius: 10px;">
+          <div style="width: 36px; height: 36px; border-radius: 8px; background: rgba(255,255,255,0.03); display: flex; align-items: center; justify-content: center; color: #475569; font-size: 18px; flex-shrink: 0;">+</div>
+          <div style="color: #475569; font-size: 12px;">Enter a URL, e.g. example.com</div>
+        </div>
+        <div style="color: #475569; font-size: 11px; margin-top: 8px;">Or search above and select from results</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>A. Minimal</h3>
+      <p>Just the add-URL input with a hint. Clean, no clutter.</p>
+    </div>
+  </div>
+
+  <!-- B: Illustrated -->
+  <div class="card" data-choice="b" onclick="toggleSelect(this)">
+    <div class="card-image" style="padding: 24px; background: #0d1520;">
+      <div style="font-size: 13px;">
+        <div style="font-weight: 600; color: #e2e8f0; margin-bottom: 12px;">Selected Sites</div>
+        <div style="border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; padding: 32px 24px; text-align: center;">
+          <div style="font-size: 28px; margin-bottom: 8px; opacity: 0.5;">🔍</div>
+          <div style="color: #94a3b8; font-size: 13px; font-weight: 500;">No sites selected yet</div>
+          <div style="color: #475569; font-size: 12px; margin-top: 4px;">Search Google above or paste a URL below</div>
+          <!-- Inline add -->
+          <div style="display: flex; align-items: center; gap: 8px; margin-top: 16px; max-width: 320px; margin-left: auto; margin-right: auto;">
+            <div style="flex: 1; padding: 8px 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); border-radius: 8px; color: #475569; font-size: 12px; text-align: left;">example.com</div>
+            <div style="padding: 8px 14px; background: #3b82f6; border-radius: 8px; color: white; font-size: 12px; font-weight: 500;">Add</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3>B. Guided Empty State</h3>
+      <p>Centered message with icon, clear instructions, and inline URL input. More welcoming for first-time users.</p>
+    </div>
+  </div>
+</div>

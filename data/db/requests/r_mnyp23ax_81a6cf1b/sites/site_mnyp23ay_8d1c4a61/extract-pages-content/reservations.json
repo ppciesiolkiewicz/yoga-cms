@@ -1,0 +1,17 @@
+{
+  "categoryId": "reservations",
+  "records": [
+    {
+      "url": "https://www.morito.co.uk/book-online",
+      "pageName": "Morito – Book Online",
+      "summary": "Morito offers online reservations for both its Exmouth Market and Hackney Road locations via embedded OpenTable links. Guests are directed to OpenTable's availability picker to find and book a table.",
+      "opportunityScore": 2,
+      "bookingType": "widget",
+      "bookingPlatform": "OpenTable",
+      "hasOnlineBooking": true,
+      "hasWaitlist": false,
+      "topOpportunity": "Minimal — could pitch a native booking system to reduce OpenTable commission fees or add a waitlist feature",
+      "notes": "Strong cold lead; Morito already has functional online booking via OpenTable for both locations, leaving little room for a reservation-focused agency pitch."
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "categoryId": "contact",
+  "records": [
+    {
+      "url": "https://www.london-locksmiths.com/contact-london-locksmiths.htm",
+      "pageName": "Contact London Locksmiths",
+      "summary": "The page provides a physical address, email, freephone and mobile number, plus a small click-to-call image button and a contact enquiry form. Core emergency signals like response time, 24/7 statement, service area map, live chat, or WhatsApp are entirely absent.",
+      "opportunityScore": 7,
+      "hasClickToCall": true,
+      "hasServiceAreaMap": false,
+      "hasResponseTime": false,
+      "has24x7Info": false,
+      "hasLiveChat": false,
+      "topOpportunity": "Full emergency landing page redesign: prominent 24/7 badge, response time guarantee, interactive service area map, WhatsApp/text CTA, and removal of the form as the fallback contact method.",
+      "notes": "The click-to-call button exists but is a small GIF image with no size or urgency hierarchy; the absence of 24/7 info, response time, and a service map makes this a weak emergency page and a solid mid-tier prospect for a conversion-focused redesign."
+    }
+  ]
+}

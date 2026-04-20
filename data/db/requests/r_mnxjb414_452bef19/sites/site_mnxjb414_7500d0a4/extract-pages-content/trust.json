@@ -1,0 +1,31 @@
+{
+  "categoryId": "trust",
+  "records": [
+    {
+      "url": "https://www.banham.co.uk/journal/award-winning-product",
+      "pageName": "Great British Brands Product of the Year 2026",
+      "summary": "Banham showcases a prestigious 2026 product award, a century of family business heritage, and named co-managing directors — all strong trust signals. The page emphasises craftsmanship, British manufacturing, and a robust product range with specialist team support in showrooms.",
+      "opportunityScore": 2,
+      "hasReviews": false,
+      "hasTradeBody": false,
+      "hasInsurance": false,
+      "hasNamedTeam": true,
+      "hasGuarantee": false,
+      "topOpportunity": "Adding embedded Google/Trustpilot reviews and a trade body membership badge section could round out an already strong trust page",
+      "notes": "Banham is a well-established, highly credible brand with strong heritage and award proof points — very cold lead with minimal web agency opportunity."
+    },
+    {
+      "url": "https://www.banham.co.uk/patents/",
+      "pageName": "Banham Patents Page",
+      "summary": "This page details Banham's patented lock and key systems, including the Mark III patent valid until 2032, emphasising legal exclusivity, key registration, and a decades-long history of innovation. It functions as a strong technical trust signal demonstrating proprietary security credentials.",
+      "opportunityScore": 2,
+      "hasReviews": false,
+      "hasTradeBody": false,
+      "hasInsurance": false,
+      "hasNamedTeam": false,
+      "hasGuarantee": false,
+      "topOpportunity": "Integrating customer testimonials or case studies to complement the technical patent content with social proof",
+      "notes": "Banham's patent page is a sophisticated trust asset that few competitors can match — this is a cold lead representing a mature, self-sufficient brand."
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "byCategory": {
+    "home": [
+      "https://www.banham.co.uk",
+      "https://www.banham.co.uk/book-a-survey/"
+    ],
+    "services": [
+      "https://www.banham.co.uk/locksmith-service/",
+      "https://www.banham.co.uk/locks/",
+      "https://www.banham.co.uk/burglar-alarms/",
+      "https://www.banham.co.uk/cctv-entry/",
+      "https://www.banham.co.uk/safes/"
+    ],
+    "pricing": [
+      "https://www.banham.co.uk/keyholding/pricing/"
+    ],
+    "trust": [
+      "https://www.banham.co.uk/about-us",
+      "https://www.banham.co.uk/journal/award-winning-product",
+      "https://www.banham.co.uk/patents/"
+    ],
+    "contact": [
+      "https://www.banham.co.uk/contact/",
+      "https://www.banham.co.uk/showrooms"
+    ]
+  }
+}
