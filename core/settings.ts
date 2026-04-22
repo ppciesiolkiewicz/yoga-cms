@@ -9,7 +9,6 @@ export const SETTINGS = {
   models: {
     classifyNav:   { provider: "groq",      model: "llama-3.1-8b-instant" },
     extractPages:  { provider: "anthropic", model: "claude-sonnet-4-6" },
-    basePromptGen: { provider: "anthropic", model: "claude-sonnet-4-6" },
     chatDefault:   { provider: "anthropic", model: "claude-sonnet-4-6" },
   },
   stageEstimates: {

@@ -12,13 +12,6 @@ describe("SETTINGS", () => {
     expect(SETTINGS.models.extractPages.model).toBe("claude-sonnet-4-6")
   })
 
-  it("defaults base-prompt generation to Anthropic sonnet", () => {
-    expect(SETTINGS.models.basePromptGen).toEqual({
-      provider: "anthropic",
-      model: "claude-sonnet-4-6",
-    })
-  })
-
   it("defaults chat to Anthropic sonnet", () => {
     expect(SETTINGS.models.chatDefault).toEqual({
       provider: "anthropic",

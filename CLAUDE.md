@@ -12,7 +12,6 @@ Next.js 16 project — a generic site-analysis pipeline with a browse UI. The yo
 - `core/settings.ts` — per-stage model defaults, provider env-var mapping
 - `scripts/core/run.ts` — `runAnalysis(input, opts)` public entrypoint
 - `scripts/core/types.ts` — shared types (`AnalyzeInput`, `Request`, `ArtifactRef`, `CategoryProgress`, etc.)
-- `scripts/core/base-prompt.ts` — `BASE_PROMPT` + `generatePrompt` utility (opt-in, not called by the pipeline)
 - `scripts/db/repo.ts` — `Repo` class, the only code that touches `data/db/`
 - `scripts/db/store.ts`, `scripts/db/paths.ts` — fs primitives + ref-to-path
 - `scripts/pipeline/*` — one file per stage (fetch-home, parse-links, classify-nav, fetch-pages, detect-tech, run-lighthouse, assess-pages, extract-pages-content, build-report)
@@ -75,7 +74,7 @@ Sub-components inside a `components/` folder are **private** — they must not b
 
 ## Key notes
 - Uses cheerio + Playwright + Firecrawl for fetching, wappalyzer-core for tech detection. LLM calls route through `core/ai-client.ts` with Anthropic + Groq support; per-stage defaults live in `core/settings.ts`.
-- Every category in an input must provide its own `prompt`, `provider`, and `model` (raw model ID, e.g. `"claude-sonnet-4-6"` or `"llama-3.3-70b-versatile"`). The pipeline does NOT auto-generate prompts. Use `core/base-prompt.ts#generatePrompt` from a separate step if you want assisted drafting.
+- Every category in an input must provide its own `prompt`, `provider`, and `model` (raw model ID, e.g. `"claude-sonnet-4-6"` or `"llama-3.3-70b-versatile"`). The pipeline does NOT auto-generate prompts.
 - Wappalyzer needs raw HTML but fetch-pages only stores markdown. For all categories, detect-tech uses the homepage HTML as a proxy (tech stack is generally site-wide).
 - classify-nav automatically assigns `site.url` to any category named "home" (case-insensitive).
 - Read Next.js docs in `node_modules/next/dist/docs/` before changing app code.
