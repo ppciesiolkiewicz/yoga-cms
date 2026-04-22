@@ -45,7 +45,11 @@ export function ComposeModal({
   const [request, setRequest] = useState<Request | null>(null)
   const [copied, setCopied] = useState(false)
 
-  useEffect(() => { if (open) { setLocalScope(scope); setLocalTiers(tiers) } }, [open, scope, tiers])
+  useEffect(() => {
+    if (!open) return
+    setLocalScope(scope)
+    setLocalTiers(mode === "chat" ? { ...tiers, progress: false } : tiers)
+  }, [open, scope, tiers, mode])
 
   useEffect(() => {
     fetch(`/api/request/${requestId}`)
@@ -211,7 +215,7 @@ export function ComposeModal({
         {/* Tier toggles */}
         <TooltipProvider delayDuration={200}>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
-            {ALL_TOGGLES.map(t => {
+            {ALL_TOGGLES.filter(t => !(mode === "chat" && t.key === "progress")).map(t => {
               const missing = data?.missing?.includes(t.key)
               const checked = !!localTiers[t.key]
               return (

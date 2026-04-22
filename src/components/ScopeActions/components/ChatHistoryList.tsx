@@ -1,7 +1,9 @@
 "use client"
 
 import { Badge } from "@/components/ui/shadcn/badge"
+import { ProviderBadge } from "@/components/ui"
 import { relativeDate } from "../lib/relativeDate"
+import { getChatModel } from "../../../../scripts/chat/models"
 import type {
   AnalysisContextTiers,
   ChatMeta,
@@ -58,15 +60,24 @@ export function ChatHistoryList({
                   {relativeDate(c.createdAt)}
                 </span>
               </div>
-              {labels.length > 0 && (
-                <div className="mt-1 flex flex-wrap gap-1">
-                  {labels.map(l => (
-                    <Badge key={l} variant="outline" className="text-[10px]">
-                      {l}
-                    </Badge>
-                  ))}
-                </div>
-              )}
+              <div className="mt-1 flex flex-wrap items-center gap-1">
+                {(() => {
+                  const cm = getChatModel(c.model)
+                  return cm ? (
+                    <>
+                      <ProviderBadge provider={cm.provider} className="text-[10px]" />
+                      <Badge variant="outline" className="text-[10px]">{cm.label}</Badge>
+                    </>
+                  ) : (
+                    <Badge variant="outline" className="text-[10px]">{c.model}</Badge>
+                  )
+                })()}
+                {labels.map(l => (
+                  <Badge key={l} variant="outline" className="text-[10px]">
+                    {l}
+                  </Badge>
+                ))}
+              </div>
             </button>
           </li>
         )
