@@ -13,8 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/shadcn/select"
-import { ProviderBadge } from "@/components/ui"
-import { SUPPORTED_CHAT_MODELS, getChatModel } from "../../../../scripts/chat/models"
+import { SUPPORTED_CHAT_MODELS } from "../../../../scripts/chat/models"
 import type {
   AnalysisContextScope,
   AnalysisContextTiers,
@@ -175,7 +174,7 @@ export function ChatDrawer({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent data-tour="site-chat-drawer" className="flex w-full flex-col gap-0 p-0 sm:max-w-3xl">
+      <SheetContent data-tour="site-chat-drawer" className="flex w-full flex-col gap-0 p-0 sm:max-w-[min(90vw,1400px)]">
         <SheetHeader className="border-b">
           <SheetTitle>Chat about this analysis</SheetTitle>
         </SheetHeader>
@@ -197,10 +196,6 @@ export function ChatDrawer({
               </SelectGroup>
             </SelectContent>
           </Select>
-          {(() => {
-            const cm = getChatModel(model)
-            return cm ? <ProviderBadge provider={cm.provider} className="text-[10px]" /> : null
-          })()}
           <Button variant="outline" size="sm" onClick={() => setConfigureOpen(true)}>
             Configure
           </Button>
