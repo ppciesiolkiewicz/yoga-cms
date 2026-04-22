@@ -23,6 +23,7 @@ import type {
 } from "../../../../scripts/analysis-context/types"
 import { ChatHistoryList } from "./ChatHistoryList"
 import { ComposeModal } from "./ComposeModal"
+import { MarkdownMessage } from "./MarkdownMessage"
 
 type Draft = { scope: AnalysisContextScope; tiers: AnalysisContextTiers }
 
@@ -197,7 +198,7 @@ export function ChatDrawer({
             </SelectContent>
           </Select>
           <Button variant="outline" size="sm" onClick={() => setConfigureOpen(true)}>
-            Configure
+            Configure context
           </Button>
           <Button variant="outline" size="sm" onClick={startNewChat}>
             New chat
@@ -214,16 +215,21 @@ export function ChatDrawer({
                   Ask a question grounded in this analysis.
                 </p>
               )}
-              {messages.map((m, i) => (
-                <div key={i} className={m.role === "user" ? "rounded-md bg-muted px-3 py-2 text-sm" : "rounded-md border px-3 py-2 text-sm"}>
-                  <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                    {m.role === "user" ? "You" : "Assistant"}
+              {messages.map((m, i) => {
+                const placeholder = sending && i === messages.length - 1
+                return (
+                  <div key={i} className={m.role === "user" ? "rounded-md bg-muted px-3 py-2 text-sm" : "rounded-md border px-3 py-2 text-sm"}>
+                    <div className="mb-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                      {m.role === "user" ? "You" : "Assistant"}
+                    </div>
+                    {m.role === "assistant" ? (
+                      m.content ? <MarkdownMessage content={m.content} /> : <div>{placeholder ? "…" : ""}</div>
+                    ) : (
+                      <div className="whitespace-pre-wrap">{m.content}</div>
+                    )}
                   </div>
-                  <div className="whitespace-pre-wrap">
-                    {m.content || (sending && i === messages.length - 1 ? "…" : "")}
-                  </div>
-                </div>
-              ))}
+                )
+              })}
               {error && (
                 <div className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm text-destructive">
                   {error}

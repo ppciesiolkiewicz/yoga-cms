@@ -3,6 +3,8 @@
 @import "shadcn/tailwind.css";
 @import "driver.js/dist/driver.css";
 
+@plugin "@tailwindcss/typography";
+
 @source not "../../data/**";
 @source not "../../docs/**";
 
