@@ -230,9 +230,13 @@ export function formatQuoteSummary(order: Order): string {
   let scraping = 0
   let ai = 0
   let serviceFee = 0
+  let serviceFeePages = 0
   for (const site of order.sites) {
     for (const li of site.lineItems) {
-      if (li.stage === "service-fee") serviceFee += li.estimatedCost
+      if (li.stage === "service-fee") {
+        serviceFee += li.estimatedCost
+        serviceFeePages += li.quantity
+      }
       else if (li.stage === "fetch-home" || li.stage === "fetch-pages" || li.stage === "estimate-content") scraping += li.estimatedCost
       else ai += li.estimatedCost
     }
@@ -241,7 +245,7 @@ export function formatQuoteSummary(order: Order): string {
   lines.push(`  ──────────────────────────────────────`)
   lines.push(`    ${"Scraping".padEnd(35)} $${scraping.toFixed(4)}`)
   lines.push(`    ${"AI".padEnd(35)} $${ai.toFixed(4)}`)
-  lines.push(`    ${"Service fee".padEnd(35)} $${serviceFee.toFixed(4)}`)
+  lines.push(`    ${`Service fee (${serviceFeePages} pages)`.padEnd(35)} $${serviceFee.toFixed(4)}`)
   lines.push(`  ──────────────────────────────────────`)
   lines.push(`  ${"TOTAL ESTIMATED COST".padEnd(37)} $${order.totalEstimatedCost.toFixed(4)}`)
   lines.push(``)
@@ -272,11 +276,12 @@ export function formatOrderComparison(order: Order): string {
   let estScraping = 0, actScraping = 0
   let estAi = 0, actAi = 0
   let estFee = 0, actFee = 0
+  let feePages = 0
   for (const site of order.sites) {
     for (const li of site.lineItems) {
       const est = li.estimatedCost
       const act = li.actualCost ?? est
-      if (li.stage === "service-fee") { estFee += est; actFee += act }
+      if (li.stage === "service-fee") { estFee += est; actFee += act; feePages += li.quantity }
       else if (li.stage === "fetch-home" || li.stage === "fetch-pages" || li.stage === "estimate-content") { estScraping += est; actScraping += act }
       else { estAi += est; actAi += act }
     }
@@ -291,7 +296,7 @@ export function formatOrderComparison(order: Order): string {
   lines.push(`  ──────────────────────────────────────────────────────────`)
   lines.push(fmtRow("Scraping", estScraping, actScraping))
   lines.push(fmtRow("AI", estAi, actAi))
-  lines.push(fmtRow("Service fee", estFee, actFee))
+  lines.push(fmtRow(`Service fee (${feePages} pages)`, estFee, actFee))
   lines.push(`  ──────────────────────────────────────────────────────────`)
 
   const totalEst = order.totalEstimatedCost

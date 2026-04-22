@@ -1,0 +1,20 @@
+{
+  "alt-svc": "h3=\":443\"; ma=86400",
+  "cache-control": "no-store, no-cache, must-revalidate",
+  "cf-cache-status": "DYNAMIC",
+  "cf-ray": "9f02d43de865704e-MRS",
+  "connection": "keep-alive",
+  "content-encoding": "br",
+  "content-type": "text/html; charset=UTF-8",
+  "date": "Wed, 22 Apr 2026 07:14:00 GMT",
+  "expires": "Thu, 19 Nov 1981 08:52:00 GMT",
+  "link": "<https://doinyoga.pl/wp-json/>; rel=\"https://api.w.org/\", <https://doinyoga.pl/wp-json/wp/v2/pages/16>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://doinyoga.pl/>; rel=shortlink",
+  "nel": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}",
+  "pragma": "no-cache",
+  "report-to": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=4QdkFfYS7TYg7Rx%2FqwWQ%2F6XsaKkkb6x3OFjIa4TmG1D0SQNFRjCdZjoz35rVyh0himOe45AP8Sw9HA61parQ7AU%2F0YDkTSrmTxOSFWtOcbof%2F5MF59HBrPJM3XcxVA%3D%3D\"}]}",
+  "server": "cloudflare",
+  "transfer-encoding": "chunked",
+  "vary": "Accept-Encoding",
+  "x-litespeed-cache": "hit",
+  "x-turbo-charged-by": "LiteSpeed"
+}

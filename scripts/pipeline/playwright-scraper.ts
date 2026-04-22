@@ -69,10 +69,37 @@ export async function scrapeWithPlaywright(
   opts: { includeHtml?: boolean; includeRawHtml?: boolean; onlyMainContent?: boolean } = {},
 ): Promise<ScrapeResult | { error: string }> {
   let page: Page | null = null
+  let mainStatus: number | null = null
+  let mainResponseUrl: string | null = null
+  const pending = new Map<string, { url: string; resourceType: string; startedAt: number }>()
   try {
     const browser = await getBrowser()
     page = await browser.newPage()
-    await page.goto(url, { waitUntil: "networkidle", timeout: 30_000 })
+
+    page.on("request", (req) => {
+      pending.set(req.url(), { url: req.url(), resourceType: req.resourceType(), startedAt: Date.now() })
+    })
+    page.on("requestfinished", (req) => pending.delete(req.url()))
+    page.on("requestfailed", (req) => pending.delete(req.url()))
+    page.on("response", (res) => {
+      if (mainStatus === null && res.request().resourceType() === "document" && res.request().frame() === page?.mainFrame()) {
+        mainStatus = res.status()
+        mainResponseUrl = res.url()
+      }
+    })
+
+    const response = await page.goto(url, { waitUntil: "domcontentloaded", timeout: 30_000 })
+    if (response && mainStatus === null) {
+      mainStatus = response.status()
+      mainResponseUrl = response.url()
+    }
+
+    try {
+      await page.waitForLoadState("networkidle", { timeout: 10_000 })
+    } catch {
+      // late assets still loading is fine — DOM is ready
+    }
+
     const rawHtml = await page.content()
     const markdown = htmlToMarkdown(rawHtml, opts.onlyMainContent ?? true)
     const links = extractLinks(rawHtml)
@@ -83,7 +110,34 @@ export async function scrapeWithPlaywright(
       links,
     }
   } catch (error) {
-    return { error: error instanceof Error ? error.message : String(error) }
+    const message = error instanceof Error ? error.message : String(error)
+    const diag: string[] = []
+    if (mainStatus !== null) diag.push(`status=${mainStatus}`)
+    if (mainResponseUrl && mainResponseUrl !== url) diag.push(`finalUrl=${mainResponseUrl}`)
+    if (page) {
+      try {
+        const currentUrl = page.url()
+        if (currentUrl && currentUrl !== url && currentUrl !== mainResponseUrl) {
+          diag.push(`pageUrl=${currentUrl}`)
+        }
+        const readyState = await page.evaluate(() => document.readyState).catch(() => null)
+        if (readyState) diag.push(`readyState=${readyState}`)
+        const title = await page.title().catch(() => "")
+        if (title) diag.push(`title=${JSON.stringify(title.slice(0, 80))}`)
+      } catch {
+        // page may be closed already
+      }
+    }
+    if (pending.size > 0) {
+      diag.push(`pending=${pending.size}`)
+      const sample = Array.from(pending.values())
+        .sort((a, b) => a.startedAt - b.startedAt)
+        .slice(0, 5)
+        .map((r) => `${r.resourceType}:${r.url}`)
+      diag.push(`pendingSample=${JSON.stringify(sample)}`)
+    }
+    const detail = diag.length ? ` [${diag.join(" ")}]` : ""
+    return { error: `${message}${detail}` }
   } finally {
     await page?.close()
   }

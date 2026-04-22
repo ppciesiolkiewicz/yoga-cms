@@ -3,6 +3,7 @@ import type { Repo } from "../db/repo";
 import type { Request, Site, Category, AIQuery } from "../core/types";
 import { loadCategoryPages } from "./load-pages";
 import { getClient } from "../../core/ai-client";
+import { parseLlmJson } from "./parse-llm-json";
 
 const EXTRACT_FRAMING = `You are analyzing web pages for the category described above.
 For each page provided below, extract one record.
@@ -45,12 +46,8 @@ async function callExtract(
         system,
         messages: [{ role: "user", content: body }],
       });
-      let text = response.text;
-      text = text
-        .replace(/^```(?:json)?\s*\n?/i, "")
-        .replace(/\n?```\s*$/i, "")
-        .trim();
-      const parsed = JSON.parse(text) as { records?: unknown[] };
+      const text = response.text.trim();
+      const parsed = parseLlmJson<{ records?: unknown[] }>(text);
       return {
         records: parsed.records ?? [],
         queryInfo: {

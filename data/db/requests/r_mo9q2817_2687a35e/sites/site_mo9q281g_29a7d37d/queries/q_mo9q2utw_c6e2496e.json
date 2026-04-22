@@ -1,0 +1,26 @@
+{
+  "id": "q_mo9q2utw_c6e2496e",
+  "requestId": "r_mo9q2817_2687a35e",
+  "siteId": "site_mo9q281g_29a7d37d",
+  "stage": "classify-nav",
+  "provider": "groq",
+  "model": "llama-3.1-8b-instant",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Drop in\": single-session classes, schedules, timetables, class prices, walk-in classes\n- \"Training\": multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs\n- \"Retreat\": multi-day immersive stays away from the studio (abroad, in nature, residential retreats)\n- \"Contact\": contact page, about-with-contact, location page\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "http://www.hotyogabarcelona.com/",
+    "https://www.hotyogabarcelona.com/one-day-yoga-retreat",
+    "https://www.hotyogabarcelona.com/schedule",
+    "https://www.hotyogabarcelona.com/prices",
+    "https://www.hotyogabarcelona.com/webinar-registration",
+    "https://www.hotyogabarcelona.com/shop",
+    "https://www.hotyogabarcelona.com/massage",
+    "https://www.hotyogabarcelona.com/faq-es",
+    "https://www.hotyogabarcelona.com/teacher-training"
+  ],
+  "response": "```json\n{\n  \"Drop in\": [\n    \"http://www.hotyogabarcelona.com/\",\n    \"https://www.hotyogabarcelona.com/schedule\",\n    \"https://www.hotyogabarcelona.com/prices\",\n    \"https://www.hotyogabarcelona.com/faq-es\",\n    \"https://www.hotyogabarcelona.com/webinar-registration\"\n  ],\n  \"Training\": [\n    \"https://www.hotyogabarcelona.com/teacher-training\"\n  ],\n  \"Retreat\": [\n    \"https://www.hotyogabarcelona.com/one-day-yoga-retreat\"\n  ],\n  \"Contact\": []\n}\n```\n\nThe classifications were derived as follows:\n\n- \"Drop in\": the homepage is a drop-in, schedule and prices pages are for drop-in classes, the FAQ page can be useful for those unfamiliar with drop-in classes, and the webinar-registration page seems to be promotional content for new students.\n- \"Training\": the Teacher Training page fits the \"Training\" category with the TTC (Teacher Training Certification) being a multi-day course for those looking to become certified.\n- \"Retreat\": the \"One Day Yoga Retreat\" page fits the \"Retreat\" category as it is an immersive stay away from the studio.\n- \"Contact\": there is no contact page or any contact-related pages in the provided links.",
+  "usage": {
+    "inputTokens": 425,
+    "outputTokens": 281
+  },
+  "createdAt": "2026-04-22T07:19:45.044Z"
+}

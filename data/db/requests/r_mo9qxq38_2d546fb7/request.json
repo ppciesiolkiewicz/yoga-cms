@@ -1,0 +1,76 @@
+{
+  "id": "r_mo9qxq38_2d546fb7",
+  "createdAt": "2026-04-22T07:43:45.236Z",
+  "displayName": "Yoga (5 studios) (Llama 3.1 8B)",
+  "categories": [
+    {
+      "name": "Drop in",
+      "extraInfo": "single-session classes, schedules, timetables, class prices, walk-in classes",
+      "model": "llama-3.1-8b-instant",
+      "prompt": "You judge yoga drop-in class pages.\n\nA visitor wants to answer: \"When can I come? How much? Where? What styles?\"\n\nGood page:\n- Class schedule visible near the top — day, time, style\n- Prices clear (single class, class packs, first-time deals)\n- Studio address and how to get there\n- Easy way to book or just show up\n- Short class descriptions, not long philosophy\n\nBad page:\n- Schedule hidden below a long story\n- \"What is yoga\" text on a commercial class page\n- Prices missing or \"contact us for prices\"\n- Training and retreat offers mixed in with drop-in classes\n\nSEO (Google) — check:\n- Page title names the city and class type (e.g. \"Hatha classes in Barcelona\")\n- Clear H1 matching the title\n- LocalBusiness schema with address, phone, hours\n- Unique copy, not generic boilerplate\n- Images have alt text\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of what the page offers>\",\n  \"conversionScore\": \"<1-10, how well does the page help a visitor book?>\",\n  \"seoScore\": \"<1-10, how well can Google find and rank the page?>\",\n  \"classStyles\": [\"<yoga style>\", \"...\"],\n  \"pricingVisible\": true/false,\n  \"scheduleVisible\": true/false,\n  \"firstTimeDeal\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}",
+      "provider": "groq",
+      "id": "drop-in"
+    },
+    {
+      "name": "Training",
+      "extraInfo": "multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs",
+      "model": "llama-3.1-8b-instant",
+      "prompt": "You judge yoga teacher training (YTT) pages.\n\nA visitor is deciding: \"Should I enroll here, or keep looking?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE\n- WHAT — what you will learn, hours, style\n- HOW LONG — days or weeks\n\nGood page:\n- All 5 facts visible before any philosophy\n- Real curriculum with topics listed\n- Teacher names and short bios\n- Reviews or past student outcomes\n- Clear way to apply or book\n\nBad page:\n- \"What is yoga\" or philosophy before the price\n- \"Why choose us\" filler sections\n- Price or dates hidden far down\n- Many different training offers mixed on one page\n\nSEO (Google) — check:\n- Title names the course, hours, and city (e.g. \"200hr YTT Rishikesh\")\n- Clear H1 matching the title\n- Course schema, FAQ schema if there is a FAQ\n- Real curriculum depth — Google rewards this on training pages\n- Images with alt text, unique photos\n\nA training page can score high on both: put price and dates at the top, keep curriculum depth below. Conversion and SEO do not have to fight.\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of what the page offers>\",\n  \"conversionScore\": \"<1-10, how well does it help a visitor decide and enroll?>\",\n  \"seoScore\": \"<1-10, how well can Google find and rank it?>\",\n  \"trainingName\": \"<name of the training program>\",\n  \"hours\": \"<total hours or duration>\",\n  \"price\": \"<price or price range>\",\n  \"dates\": \"<upcoming dates>\",\n  \"style\": \"<yoga style>\",\n  \"curriculumVisible\": true/false,\n  \"teacherBiosVisible\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}",
+      "provider": "groq",
+      "id": "training"
+    },
+    {
+      "name": "Retreat",
+      "extraInfo": "multi-day immersive stays away from the studio (abroad, in nature, residential retreats)",
+      "model": "llama-3.1-8b-instant",
+      "prompt": "You judge yoga retreat pages.\n\nA visitor wants to answer: \"Can I go? When? Where? How much? What happens each day?\"\n\nFive facts must be near the top, before any story:\n- WHEN — dates\n- WHERE — place\n- PRICE and what it includes\n- WHAT — yoga style, activities\n- HOW LONG — days\n\nGood page:\n- All 5 facts visible before the story\n- Real location — town, venue, not just \"paradise\"\n- What is included: room, food, yoga, transfers\n- Daily schedule\n- Clear way to book\n\nBad page:\n- Dates or price hidden\n- Long philosophy before facts\n- Stock photos with no real place info\n- Several different retreats mixed on one page\n\nSEO (Google) — check:\n- Title names the retreat type, place, and month (e.g. \"Yoga retreat in Bali, November\")\n- Clear H1 matching the title\n- Event or TouristTrip schema if possible\n- Real itinerary text, not filler\n- Images with alt text\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of what the page offers>\",\n  \"conversionScore\": \"<1-10, how well does it help a visitor decide and book?>\",\n  \"seoScore\": \"<1-10, how well can Google find and rank it?>\",\n  \"retreatName\": \"<name of the retreat>\",\n  \"where\": \"<location>\",\n  \"when\": \"<dates>\",\n  \"price\": \"<price or price range>\",\n  \"includes\": [\"<what is included>\", \"...\"],\n  \"dailyScheduleVisible\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}",
+      "provider": "groq",
+      "id": "retreat"
+    },
+    {
+      "name": "Contact",
+      "extraInfo": "contact page, about-with-contact, location page",
+      "model": "llama-3.1-8b-instant",
+      "prompt": "You judge contact pages for a business. A visitor needs: address, phone, email, map, opening hours. Good pages put all of this above the fold.\n\nReturn each record as:\n{\n  \"url\": \"<page url>\",\n  \"pageName\": \"<short name>\",\n  \"summary\": \"<1-2 sentence overview of the page>\",\n  \"conversionScore\": \"<1-10, clear path to reach the business>\",\n  \"seoScore\": \"<1-10, LocalBusiness schema, unique copy, correct NAP>\",\n  \"hasAddress\": true/false,\n  \"hasPhone\": true/false,\n  \"hasEmail\": true/false,\n  \"hasMap\": true/false,\n  \"hasOpeningHours\": true/false,\n  \"notes\": \"<one sentence assessment>\"\n}",
+      "provider": "groq",
+      "id": "contact"
+    }
+  ],
+  "sites": [
+    {
+      "url": "https://doinyoga.pl",
+      "meta": {
+        "name": "Doinyoga"
+      },
+      "id": "site_mo9qxq39_7706baf5"
+    },
+    {
+      "url": "https://www.hotyogabarcelona.com",
+      "meta": {
+        "name": "Hot Yoga Barcelona"
+      },
+      "id": "site_mo9qxq39_bfce2a22"
+    },
+    {
+      "url": "https://www.shalastudios.com",
+      "meta": {
+        "name": "SHA-LA Studios"
+      },
+      "id": "site_mo9qxq39_dc793205"
+    },
+    {
+      "url": "https://www.threeboonsyoga.de",
+      "meta": {
+        "name": "Three Boons Yoga"
+      },
+      "id": "site_mo9qxq39_2a6828a7"
+    },
+    {
+      "url": "https://www.yoga-lotos.de",
+      "meta": {
+        "name": "Lotos Yoga Berlin"
+      },
+      "id": "site_mo9qxq39_029c6367"
+    }
+  ]
+}

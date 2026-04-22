@@ -1,0 +1,32 @@
+{
+  "byCategory": {
+    "drop-in": [
+      "https://doinyoga.pl/joga-online/",
+      "https://doinyoga.pl/joga-we-wroclawiu/",
+      "https://doinyoga.pl/koszyk/",
+      "https://doinyoga.pl/kategoria/joga-stacjonarnie/%22",
+      "https://doinyoga.pl/kategoria/joga-online/"
+    ],
+    "training": [
+      "https://doinyoga.pl/warsztaty-jogowe-wroclaw/",
+      "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/",
+      "https://doinyoga.pl/polityka-prywatnosci/#cmplz-manage-consent-container",
+      "https://doinyoga.pl/moje-konto/",
+      "https://doinyoga.pl/regulamin-sklepu-internetowego-doinyoga/"
+    ],
+    "retreat": [
+      "https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/",
+      "https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/",
+      "https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/",
+      "https://doinyoga.pl/joga-online/%22",
+      "https://doinyoga.pl/asana-lab-grupa-zamknieta/%22"
+    ],
+    "contact": [
+      "https://doinyoga.pl/kontakt/",
+      "https://doinyoga.pl/dominika-galka/",
+      "https://doinyoga.pl/blog/",
+      "https://doinyoga.pl/yoga-in-english-wroclaw-online/",
+      "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/"
+    ]
+  }
+}

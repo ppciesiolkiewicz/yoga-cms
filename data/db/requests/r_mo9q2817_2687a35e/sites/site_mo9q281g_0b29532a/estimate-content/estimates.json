@@ -1,0 +1,52 @@
+{
+  "siteId": "site_mo9q281g_0b29532a",
+  "pages": [
+    {
+      "url": "https://www.shalastudios.com/book-class",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/schedule",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/studios",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/wellbeing-treatments",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/events",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/academy",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/apprenticeship",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/academy-1",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    },
+    {
+      "url": "https://www.shalastudios.com/contact",
+      "charCount": 5000,
+      "estimatedTokens": 1250
+    }
+  ],
+  "totalChars": 45000,
+  "totalEstimatedTokens": 11250
+}

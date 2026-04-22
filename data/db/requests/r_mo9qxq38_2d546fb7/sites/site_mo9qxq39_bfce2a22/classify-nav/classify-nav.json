@@ -1,0 +1,16 @@
+{
+  "byCategory": {
+    "drop-in": [
+      "https://www.hotyogabarcelona.com/prices",
+      "https://www.hotyogabarcelona.com/schedule",
+      "https://www.hotyogabarcelona.com/faq-es"
+    ],
+    "training": [
+      "https://www.hotyogabarcelona.com/teacher-training"
+    ],
+    "retreat": [
+      "https://www.hotyogabarcelona.com/one-day-yoga-retreat"
+    ],
+    "contact": []
+  }
+}

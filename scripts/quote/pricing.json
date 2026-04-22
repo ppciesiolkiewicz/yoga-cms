@@ -2,30 +2,48 @@
   "version": 2,
   "currency": "USD",
   "serviceFee": {
-    "perPage": 0.01
+    "perPage": 0.005
   },
   "firecrawl": {
     "perScrape": 0.002
   },
   "models": {
     "anthropic": {
-      "claude-haiku-4-5":  { "inputPer1kTokens": 0.001, "outputPer1kTokens": 0.005 },
-      "claude-sonnet-4-6": { "inputPer1kTokens": 0.003, "outputPer1kTokens": 0.015 },
-      "claude-opus-4-6":   { "inputPer1kTokens": 0.015, "outputPer1kTokens": 0.075 }
+      "claude-haiku-4-5": {
+        "inputPer1kTokens": 0.001,
+        "outputPer1kTokens": 0.005
+      },
+      "claude-sonnet-4-6": {
+        "inputPer1kTokens": 0.003,
+        "outputPer1kTokens": 0.015
+      },
+      "claude-opus-4-6": {
+        "inputPer1kTokens": 0.015,
+        "outputPer1kTokens": 0.075
+      }
     },
     "groq": {
-      "llama-3.1-8b-instant":        { "inputPer1kTokens": 0.00005, "outputPer1kTokens": 0.00008 },
-      "llama-3.3-70b-versatile":     { "inputPer1kTokens": 0.00059, "outputPer1kTokens": 0.00079 },
-      "moonshotai/kimi-k2-instruct": { "inputPer1kTokens": 0.001,   "outputPer1kTokens": 0.003 }
+      "llama-3.1-8b-instant": {
+        "inputPer1kTokens": 0.00005,
+        "outputPer1kTokens": 0.00008
+      },
+      "llama-3.3-70b-versatile": {
+        "inputPer1kTokens": 0.00059,
+        "outputPer1kTokens": 0.00079
+      },
+      "moonshotai/kimi-k2-instruct": {
+        "inputPer1kTokens": 0.001,
+        "outputPer1kTokens": 0.003
+      }
     }
   },
   "lighthouse": {
-    "perRun": 0.00
+    "perRun": 0.0
   },
   "wappalyzer": {
-    "perRun": 0.00
+    "perRun": 0.0
   },
   "contentEstimator": {
-    "perPage": 0.00
+    "perPage": 0.0
   }
 }

@@ -4,6 +4,7 @@ import type { Request, Site, Category, AIQuery } from "../core/types"
 import type { NavLink } from "./parse-links"
 import { getClient } from "../../core/ai-client"
 import { SETTINGS } from "../../core/settings"
+import { parseLlmJson } from "./parse-llm-json"
 
 const PER_CATEGORY_CAP = 5
 
@@ -54,8 +55,7 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
     system,
     messages: [{ role: "user", content: userMessage }],
   })
-  let text = response.text
-  text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
+  const text = response.text.trim()
 
   const query: AIQuery = {
     id: newId("q"),
@@ -72,7 +72,7 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
   }
   await repo.putQuery(query)
 
-  const parsed = JSON.parse(text) as Record<string, unknown>
+  const parsed = parseLlmJson<Record<string, unknown>>(text)
   for (const category of request.categories) {
     const raw = parsed[category.name]
     if (Array.isArray(raw)) {

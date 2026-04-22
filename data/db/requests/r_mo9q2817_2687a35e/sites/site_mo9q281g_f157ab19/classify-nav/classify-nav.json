@@ -1,0 +1,28 @@
+{
+  "byCategory": {
+    "drop-in": [
+      "https://www.threeboonsyoga.de/classesmitte",
+      "https://www.threeboonsyoga.de/classeskreuzberg",
+      "https://www.threeboonsyoga.de/classescharlottenburg",
+      "https://www.threeboonsyoga.de/livestream",
+      "https://www.threeboonsyoga.de/practice4freemitte"
+    ],
+    "training": [
+      "https://www.threeboonsyoga.de/training",
+      "https://www.threeboonsyoga.de/advancedtraining",
+      "https://www.threeboonsyoga.de/harmoniumtt",
+      "https://www.threeboonsyoga.de/events",
+      "https://www.threeboonsyoga.de/cburg"
+    ],
+    "retreat": [
+      "https://www.threeboonsyoga.de/retreats"
+    ],
+    "contact": [
+      "https://www.threeboonsyoga.de/contact",
+      "https://www.threeboonsyoga.de/cancel",
+      "https://www.threeboonsyoga.de/concierge",
+      "https://www.threeboonsyoga.de/contact-1",
+      "https://www.threeboonsyoga.de/faq"
+    ]
+  }
+}

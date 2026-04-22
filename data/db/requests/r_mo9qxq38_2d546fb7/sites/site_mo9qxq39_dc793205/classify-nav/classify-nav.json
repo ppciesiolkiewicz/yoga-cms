@@ -1,0 +1,20 @@
+{
+  "byCategory": {
+    "drop-in": [
+      "https://www.shalastudios.com/schedule",
+      "https://www.shalastudios.com/book-class",
+      "https://www.shalastudios.com/events"
+    ],
+    "training": [
+      "https://www.shalastudios.com/academy",
+      "https://www.shalastudios.com/apprenticeship",
+      "https://www.shalastudios.com/academy-1"
+    ],
+    "retreat": [],
+    "contact": [
+      "https://www.shalastudios.com/contact",
+      "https://www.shalastudios.com/datenschutz",
+      "https://www.shalastudios.com/agb"
+    ]
+  }
+}

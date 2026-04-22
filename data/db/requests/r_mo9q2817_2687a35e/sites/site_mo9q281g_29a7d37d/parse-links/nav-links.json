@@ -1,0 +1,40 @@
+{
+  "links": [
+    {
+      "label": "home",
+      "href": "http://www.hotyogabarcelona.com/"
+    },
+    {
+      "label": "One Day Yoga Retreat",
+      "href": "https://www.hotyogabarcelona.com/one-day-yoga-retreat"
+    },
+    {
+      "label": "Schedule",
+      "href": "https://www.hotyogabarcelona.com/schedule"
+    },
+    {
+      "label": "Prices",
+      "href": "https://www.hotyogabarcelona.com/prices"
+    },
+    {
+      "label": "New to Hot Yoga",
+      "href": "https://www.hotyogabarcelona.com/webinar-registration"
+    },
+    {
+      "label": "Shop",
+      "href": "https://www.hotyogabarcelona.com/shop"
+    },
+    {
+      "label": "Massage",
+      "href": "https://www.hotyogabarcelona.com/massage"
+    },
+    {
+      "label": "FAQ",
+      "href": "https://www.hotyogabarcelona.com/faq-es"
+    },
+    {
+      "label": "Teacher Training",
+      "href": "https://www.hotyogabarcelona.com/teacher-training"
+    }
+  ]
+}

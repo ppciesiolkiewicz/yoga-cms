@@ -1,0 +1,39 @@
+{
+  "id": "q_mo9pvwp1_05b7d7a3",
+  "requestId": "r_mo9pvewv_36a83f89",
+  "siteId": "site_mo9pveww_de3583d7",
+  "stage": "classify-nav",
+  "provider": "groq",
+  "model": "llama-3.1-8b-instant",
+  "prompt": "You classify links from a website homepage into buckets. The buckets are:\n- \"Drop in\": single-session classes, schedules, timetables, class prices, walk-in classes\n- \"Training\": multi-day courses, teacher trainings (TTC, YTT, 200hr, 300hr), certifications, immersions, programs\n- \"Retreat\": multi-day immersive stays away from the studio (abroad, in nature, residential retreats)\n- \"Contact\": contact page, about-with-contact, location page\n- \"other\": everything else\n\nReturn ONLY a JSON object with one key per bucket name. Each value is an array of\nmatched URLs (use the exact href from the input), except \"other\" which you may omit.\nCap each named bucket at 5 URLs. Prefer the most informative URL\nwhen forced to choose. Use labels as the primary signal, URLs as fallback.",
+  "dataRefs": [
+    "https://doinyoga.pl/polityka-prywatnosci/#cmplz-manage-consent-container",
+    "https://doinyoga.pl/cdn-cgi/content?id=d2Nmch2Ka4DBXqtIADKlEJaxFOAORWEqBjaXo3eobkI-1776842040.6051185-1.0.1.1-d7oguMNtwiZHdNCzecAruEPjDN8H.6RU1_MSitU0sso",
+    "https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/",
+    "https://doinyoga.pl/joga-online/",
+    "https://doinyoga.pl/joga-we-wroclawiu/",
+    "https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/",
+    "https://doinyoga.pl/warsztaty-jogowe-wroclaw/",
+    "https://doinyoga.pl/wyjazdy-jogowe/",
+    "https://doinyoga.pl/dominika-galka/",
+    "https://doinyoga.pl/blog/",
+    "https://doinyoga.pl/yoga-in-english-wroclaw-online/",
+    "https://doinyoga.pl/kontakt/",
+    "https://doinyoga.pl/koszyk/",
+    "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/%22",
+    "https://doinyoga.pl/joga-online/%22",
+    "https://doinyoga.pl/kategoria/joga-stacjonarnie/%22",
+    "https://doinyoga.pl/kategoria/joga-online/",
+    "https://doinyoga.pl/sklep/asana-lab-grupa-zamknieta/",
+    "https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/",
+    "https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/",
+    "https://doinyoga.pl/moje-konto/",
+    "https://doinyoga.pl/regulamin-sklepu-internetowego-doinyoga/"
+  ],
+  "response": "{\n  \"Drop\": [\n    \"https://doinyoga.pl/joga-we-wroclawiu/\",\n    \"https://doinyoga.pl/joga-indywidualnie-online-i-we-wroclawiu/\",\n    \"https://doinyoga.pl/joga-online/\",\n    \"https://doinyoga.pl/kategoria/joga-stacjonarnie/\",\n    \"https://doinyoga.pl/kategoria/joga-online/\"\n  ],\n  \"Training\": [\n    \"https://doinyoga.pl/joga-online/\",\n    \"https://doinyoga.pl/joga-stacjonarnie-wroclaw/\",\n    \"https://doinyoga.pl/warsztaty-jogowe-wroclaw/\",\n    \"https://doinyoga.pl/yoga-in-english-wroclaw-online/\",\n    \"https://doinyoga.pl/moje-konto/\"\n  ],\n  \"Retreat\": [\n    \"https://doinyoga.pl/wyjazd/poza-zasiegiem-weekend-offline-z-joga-dolny-slask-czerwiec-2026/\",\n    \"https://doinyoga.pl/wyjazd/rejs-z-joga-mazury-sierpien-2026/\",\n    \"https://doinyoga.pl/wyjazd/island-balance-sri-lanka-listopad-2026/\",\n    \"https://doinyoga.pl/wyjazdy-jogowe/\",\n    \"\",\n  ],\n  \"Contact\": [\n    \"https://doinyoga.pl/kontakt/\",\n    \"https://doinyoga.pl/polityka-prywatnosci/#cmplz-manage-consent-container\",\n    \"https://doinyoga.pl/regulamin-sklepu-internetowego-doinyoga/\",\n    \"https://doinyoga.pl/dominika-galka/\",\n    \"https://doinyoga.pl/koszyk/\"\n  ]\n}\n```\nNote that some URL's had '  \" (double quote) marks on the end which were stripped in this representation, as they should be. The most informative URL was chosen in most places however this may be the case where the same link could have been in multiple categories.",
+  "usage": {
+    "inputTokens": 942,
+    "outputTokens": 484
+  },
+  "createdAt": "2026-04-22T07:14:20.869Z"
+}
