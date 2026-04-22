@@ -8,8 +8,8 @@ import type { AnalyzeInput } from "../../core/types"
 
 const input: AnalyzeInput = {
   categories: [
-    { name: "Home", extraInfo: "", prompt: "", model: "sonnet" },
-    { name: "Pricing", extraInfo: "", prompt: "", model: "sonnet" },
+    { name: "Home", extraInfo: "", prompt: "", provider: "anthropic", model: "claude-sonnet-4-6" },
+    { name: "Pricing", extraInfo: "", prompt: "", provider: "anthropic", model: "claude-sonnet-4-6" },
   ],
   sites: [{ url: "https://a.test" }, { url: "https://b.test" }],
 }

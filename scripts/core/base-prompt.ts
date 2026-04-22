@@ -1,4 +1,5 @@
-import Anthropic from "@anthropic-ai/sdk"
+import { getClient } from "../../core/ai-client"
+import { SETTINGS } from "../../core/settings"
 
 export const BASE_PROMPT = `You help build prompts for a site-analysis pipeline.
 Each prompt describes a *category* of pages on a website. The analysis pipeline
@@ -25,18 +26,14 @@ export function buildBasePromptMessage(categoryName: string, extraInfo: string):
     .replace("{extraInfo}", extraInfo)
 }
 
-let _client: Anthropic | null = null
-function client(): Anthropic {
-  if (!_client) _client = new Anthropic()
-  return _client
-}
-
 export async function generatePrompt(categoryName: string, extraInfo: string): Promise<string> {
-  const res = await client().messages.create({
-    model: "claude-sonnet-4-6",
-    max_tokens: 1024,
+  const { provider, model } = SETTINGS.models.basePromptGen
+  const client = getClient(provider)
+  const res = await client.complete({
+    model,
+    maxTokens: 1024,
+    system: "",
     messages: [{ role: "user", content: buildBasePromptMessage(categoryName, extraInfo) }],
   })
-  const text = res.content[0].type === "text" ? res.content[0].text : ""
-  return text.trim()
+  return res.text.trim()
 }

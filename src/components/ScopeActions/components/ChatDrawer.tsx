@@ -4,8 +4,17 @@ import { useEffect, useRef, useState } from "react"
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "@/components/ui/shadcn/sheet"
 import { Button } from "@/components/ui/shadcn/button"
 import { Input } from "@/components/ui/shadcn/input"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/shadcn/select"
-import { SUPPORTED_CHAT_MODELS } from "../../../../scripts/chat/models"
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/shadcn/select"
+import { ProviderBadge } from "@/components/ui"
+import { SUPPORTED_CHAT_MODELS, getChatModel } from "../../../../scripts/chat/models"
 import type {
   AnalysisContextScope,
   AnalysisContextTiers,
@@ -171,6 +180,7 @@ export function ChatDrawer({
           <SheetTitle>Chat about this analysis</SheetTitle>
         </SheetHeader>
         <div className="flex items-center gap-2 border-b px-4 py-2">
+<<<<<<< HEAD
           <Select value={model} onValueChange={setModel} disabled={!!activeChatId || hasMessages}>
             <SelectTrigger className="w-50"><SelectValue /></SelectTrigger>
             <SelectContent>
@@ -182,6 +192,36 @@ export function ChatDrawer({
           <Button variant="outline" size="sm" onClick={() => setConfigureOpen(true)}>
             Configure
           </Button>
+=======
+          <Select value={model} onValueChange={setModel}>
+            <SelectTrigger className="w-45">
+              <SelectValue />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Anthropic</SelectLabel>
+                {SUPPORTED_CHAT_MODELS.filter(m => m.provider === "anthropic").map(m => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {m.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+              <SelectGroup>
+                <SelectLabel>Groq</SelectLabel>
+                {SUPPORTED_CHAT_MODELS.filter(m => m.provider === "groq").map(m => (
+                  <SelectItem key={m.id} value={m.id}>
+                    {m.label}
+                  </SelectItem>
+                ))}
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+          {(() => {
+            const cm = getChatModel(model)
+            return cm ? <ProviderBadge provider={cm.provider} className="text-[10px]" /> : null
+          })()}
+          <ChatHistoryMenu chats={chats} activeChatId={chatId} onResume={resumeChat} />
+>>>>>>> feat/groq-provider
           <Button variant="outline" size="sm" onClick={startNewChat}>
             New chat
           </Button>

@@ -1,9 +1,10 @@
 import { NextResponse } from "next/server"
 import { buildAnalysisContext } from "../../../../scripts/analysis-context"
 import type { AnalysisContextScope, AnalysisContextTiers, ChatMessage } from "../../../../scripts/analysis-context/types"
-import { isSupportedModel } from "../../../../scripts/chat/models"
+import { getChatModel } from "../../../../scripts/chat/models"
 import { streamScopedChat } from "../../../../scripts/chat/stream"
 import { getRepo, resetRepoForTests } from "../../../lib/repo-server"
+import { requireApiKeysFor } from "../../../../core/validate-env"
 
 type Body = {
   requestId: string
@@ -22,11 +23,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "invalid JSON" }, { status: 400 })
   }
   if (!body.requestId) return NextResponse.json({ error: "missing requestId" }, { status: 400 })
-  if (!isSupportedModel(body.model)) {
+  const chatModel = getChatModel(body.model)
+  if (!chatModel) {
     return NextResponse.json({ error: `unsupported model: ${body.model}` }, { status: 400 })
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    return NextResponse.json({ error: "ANTHROPIC_API_KEY not set" }, { status: 500 })
+  try {
+    requireApiKeysFor([chatModel.provider])
+  } catch (err) {
+    return NextResponse.json({ error: err instanceof Error ? err.message : String(err) }, { status: 500 })
   }
 
   if (process.env.NODE_ENV === "test") resetRepoForTests()

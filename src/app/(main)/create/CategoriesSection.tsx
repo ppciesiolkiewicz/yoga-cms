@@ -8,18 +8,29 @@ import { Checkbox } from "@/components/ui/Checkbox"
 import { Card } from "@/components/ui/Card"
 import { Collapsible } from "@/components/ui/Collapsible"
 import { Modal, ModalTitle, ModalDescription, ModalClose } from "@/components/ui/Modal"
+import type { Provider } from "../../../../core/ai-client"
 
 export interface CategoryDraft {
   id: string
   name: string
   extraInfo: string
   prompt: string
-  model: "haiku" | "sonnet" | "opus"
+  provider: Provider
+  model: string
   wappalyzer: boolean
   lighthouse: boolean
   removable: boolean
   enabled: boolean
 }
+
+export const MODEL_OPTIONS: Array<{ label: string; provider: Provider; model: string }> = [
+  { label: "Claude Haiku 4.5",  provider: "anthropic", model: "claude-haiku-4-5" },
+  { label: "Claude Sonnet 4.6", provider: "anthropic", model: "claude-sonnet-4-6" },
+  { label: "Claude Opus 4.6",   provider: "anthropic", model: "claude-opus-4-6" },
+  { label: "Llama 3.1 8B",      provider: "groq",      model: "llama-3.1-8b-instant" },
+  { label: "Llama 3.3 70B",     provider: "groq",      model: "llama-3.3-70b-versatile" },
+  { label: "Kimi K2",           provider: "groq",      model: "moonshotai/kimi-k2-instruct" },
+]
 
 export interface CategoryTemplate {
   name: string
@@ -167,12 +178,15 @@ function BuiltInCategory({
               <span className="text-xs text-foreground-faint">Model</span>
               <select
                 value={cat.model}
-                onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
+                onChange={(e) => {
+                  const opt = MODEL_OPTIONS.find(o => o.model === e.target.value)
+                  if (opt) onUpdate(cat.id, { provider: opt.provider, model: opt.model })
+                }}
                 className="h-7 rounded border border-accent-fg/30 bg-surface px-1.5 text-xs text-foreground hover:border-accent-fg/50 focus:border-accent-fg focus:ring-1 focus:ring-accent-fg/30 focus:outline-none"
               >
-                <option value="haiku">Haiku</option>
-                <option value="sonnet">Sonnet</option>
-                <option value="opus">Opus</option>
+                {MODEL_OPTIONS.map(o => (
+                  <option key={o.model} value={o.model}>{o.label}</option>
+                ))}
               </select>
             </div>
             <Checkbox
@@ -221,12 +235,15 @@ function CustomCategory({
             <div className="w-28">
               <select
                 value={cat.model}
-                onChange={(e) => onUpdate(cat.id, { model: e.target.value as CategoryDraft["model"] })}
+                onChange={(e) => {
+                  const opt = MODEL_OPTIONS.find(o => o.model === e.target.value)
+                  if (opt) onUpdate(cat.id, { provider: opt.provider, model: opt.model })
+                }}
                 className="h-9 w-full rounded-md border border-accent-fg/30 bg-surface px-2 text-sm text-foreground hover:border-accent-fg/50 focus:border-accent-fg focus:ring-1 focus:ring-accent-fg/30 focus:outline-none"
               >
-                <option value="haiku">Haiku</option>
-                <option value="sonnet">Sonnet</option>
-                <option value="opus">Opus</option>
+                {MODEL_OPTIONS.map(o => (
+                  <option key={o.model} value={o.model}>{o.label}</option>
+                ))}
               </select>
               <span className="mt-0.5 block text-xs text-foreground-faint">
                 AI model

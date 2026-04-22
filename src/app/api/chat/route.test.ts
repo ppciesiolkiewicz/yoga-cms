@@ -34,7 +34,7 @@ describe("POST /api/chat", () => {
     resetRepoForTests()
     const repo = new Repo(dir)
     const req = await repo.createRequest({
-      categories: [{ name: "Home", extraInfo: "", prompt: "", model: "sonnet" }],
+      categories: [{ name: "Home", extraInfo: "", prompt: "", provider: "anthropic", model: "claude-sonnet-4-6" }],
       sites: [{ url: "https://a.test" }],
     })
     requestId = req.id

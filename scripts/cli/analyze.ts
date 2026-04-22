@@ -3,6 +3,9 @@ import { resolve } from "path"
 import { config } from "dotenv"
 import { runAnalysis } from "../core/run"
 import type { AnalyzeInput, RunOptions, StageName } from "../core/types"
+import { SETTINGS } from "../../core/settings"
+import { requireApiKeysFor } from "../../core/validate-env"
+import type { Provider } from "../../core/ai-client"
 
 config()
 
@@ -49,13 +52,22 @@ async function main(): Promise<void> {
     if (!args.help) process.exit(1)
     return
   }
-  if (!process.env.ANTHROPIC_API_KEY) {
-    console.error("Error: ANTHROPIC_API_KEY is required")
-    process.exit(1)
-  }
-
   const path = resolve(args.input)
   const input = JSON.parse(readFileSync(path, "utf8")) as AnalyzeInput
+
+  const providers = new Set<Provider>([
+    SETTINGS.models.classifyNav.provider,
+    SETTINGS.models.extractPages.provider,
+  ])
+  for (const c of input.categories) {
+    if (c.provider) providers.add(c.provider)
+  }
+  try {
+    requireApiKeysFor(Array.from(providers))
+  } catch (err) {
+    console.error(`Error: ${err instanceof Error ? err.message : String(err)}`)
+    process.exit(1)
+  }
 
   const opts: RunOptions = {
     concurrency: args.concurrency,

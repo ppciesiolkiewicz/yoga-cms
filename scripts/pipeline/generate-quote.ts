@@ -2,6 +2,8 @@ import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
 import type { Request, SiteEstimate, Order, OrderLineItem, OrderSite, AIQuery } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
+import { lookupModelPricing } from "../quote/pricing"
+import { SETTINGS } from "../../core/settings"
 
 interface SunkCosts {
   fetchHomeCost: number
@@ -21,9 +23,14 @@ function computeSunkCosts(queries: AIQuery[], pricing: PricingConfig): SunkCosts
     const inputTokens = classifyQuery.usage?.inputTokens ?? Math.ceil(classifyQuery.prompt.length / 4)
     const outputTokens = classifyQuery.usage?.outputTokens ?? Math.ceil(classifyQuery.response.length / 4)
     classifyNavTokens = inputTokens + outputTokens
+    const classifyPricing = lookupModelPricing(
+      pricing,
+      SETTINGS.models.classifyNav.provider,
+      SETTINGS.models.classifyNav.model,
+    )
     classifyNavCost =
-      (inputTokens / 1000) * pricing.ai.classifyNav.inputPer1kTokens +
-      (outputTokens / 1000) * pricing.ai.classifyNav.outputPer1kTokens
+      (inputTokens / 1000) * classifyPricing.inputPer1kTokens +
+      (outputTokens / 1000) * classifyPricing.outputPer1kTokens
   }
 
   return { fetchHomeCost, classifyNavCost, classifyNavTokens }
@@ -97,10 +104,10 @@ function buildSiteLineItems(
   for (const cat of request.categories) {
     const inputTokens = estimate.totalEstimatedTokens
 
-    // extract-pages-content
-    const extractPricing = pricing.ai.extractPagesContent[cat.model]
+    // extract-pages-content — provider+model come from the category
+    const extractPricing = lookupModelPricing(pricing, cat.provider, cat.model)
     const extractInput = inputTokens / 1000
-    const extractOutput = extractPricing.estimatedOutputTokens / 1000
+    const extractOutput = SETTINGS.stageEstimates.extractPagesOutputTokens / 1000
     const extractCost =
       extractInput * extractPricing.inputPer1kTokens +
       extractOutput * extractPricing.outputPer1kTokens

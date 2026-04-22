@@ -1,14 +1,9 @@
-import Anthropic from "@anthropic-ai/sdk"
 import { newId } from "../db/repo"
 import type { Repo } from "../db/repo"
 import type { Request, Site, Category, AIQuery } from "../core/types"
 import type { NavLink } from "./parse-links"
-
-let _client: Anthropic | null = null
-function client(): Anthropic {
-  if (!_client) _client = new Anthropic()
-  return _client
-}
+import { getClient } from "../../core/ai-client"
+import { SETTINGS } from "../../core/settings"
 
 const PER_CATEGORY_CAP = 5
 
@@ -51,13 +46,15 @@ ${nav.links.map(l => `- "${l.label}" -> ${l.href}`).join("\n")}
 
 Classify into JSON as instructed. Bucket names to use: ${request.categories.map(c => `"${c.name}"`).join(", ")}.`
 
-  const response = await client().messages.create({
-    model: "claude-haiku-4-5",
-    max_tokens: 1024,
+  const { provider, model } = SETTINGS.models.classifyNav
+  const client = getClient(provider)
+  const response = await client.complete({
+    model,
+    maxTokens: 1024,
     system,
     messages: [{ role: "user", content: userMessage }],
   })
-  let text = response.content[0].type === "text" ? response.content[0].text : ""
+  let text = response.text
   text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "").trim()
 
   const query: AIQuery = {
@@ -65,11 +62,12 @@ Classify into JSON as instructed. Bucket names to use: ${request.categories.map(
     requestId: request.id,
     siteId: site.id,
     stage: "classify-nav",
-    model: "claude-haiku-4-5",
+    provider,
+    model,
     prompt: system,
     dataRefs: nav.links.map(l => l.href),
     response: text,
-    usage: { inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens },
+    usage: response.usage,
     createdAt: new Date().toISOString(),
   }
   await repo.putQuery(query)

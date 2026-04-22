@@ -1,6 +1,7 @@
 import type { Repo } from "../db/repo"
 import type { Request, Order, AIQuery } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
+import { lookupModelPricing } from "../quote/pricing"
 
 function tokenCost(
   query: AIQuery,
@@ -55,10 +56,7 @@ export async function finalizeOrder(
         let totalInputTokens = 0
         let totalCost = 0
         for (const q of stageQueries) {
-          // Find category model for this query, default to sonnet pricing
-          const cat = request.categories.find(c => c.id === q.categoryId)
-          const tier = cat?.model ?? "sonnet"
-          const aiConfig = pricing.ai.extractPagesContent[tier]
+          const aiConfig = lookupModelPricing(pricing, q.provider, q.model)
           const result = tokenCost(q, aiConfig)
           totalInputTokens += result.inputTokens + result.outputTokens
           totalCost += result.cost

@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "currency": "USD",
   "serviceFee": {
     "perPage": 0.01
@@ -7,29 +7,16 @@
   "firecrawl": {
     "perScrape": 0.002
   },
-  "ai": {
-    "classifyNav": {
-      "model": "claude-haiku-4-5",
-      "inputPer1kTokens": 0.001,
-      "outputPer1kTokens": 0.005,
-      "estimatedOutputTokens": 500
+  "models": {
+    "anthropic": {
+      "claude-haiku-4-5":  { "inputPer1kTokens": 0.001, "outputPer1kTokens": 0.005 },
+      "claude-sonnet-4-6": { "inputPer1kTokens": 0.003, "outputPer1kTokens": 0.015 },
+      "claude-opus-4-6":   { "inputPer1kTokens": 0.015, "outputPer1kTokens": 0.075 }
     },
-    "extractPagesContent": {
-      "haiku": {
-        "inputPer1kTokens": 0.001,
-        "outputPer1kTokens": 0.005,
-        "estimatedOutputTokens": 1500
-      },
-      "sonnet": {
-        "inputPer1kTokens": 0.003,
-        "outputPer1kTokens": 0.015,
-        "estimatedOutputTokens": 1500
-      },
-      "opus": {
-        "inputPer1kTokens": 0.015,
-        "outputPer1kTokens": 0.075,
-        "estimatedOutputTokens": 1500
-      }
+    "groq": {
+      "llama-3.1-8b-instant":        { "inputPer1kTokens": 0.00005, "outputPer1kTokens": 0.00008 },
+      "llama-3.3-70b-versatile":     { "inputPer1kTokens": 0.00059, "outputPer1kTokens": 0.00079 },
+      "moonshotai/kimi-k2-instruct": { "inputPer1kTokens": 0.001,   "outputPer1kTokens": 0.003 }
     }
   },
   "lighthouse": {

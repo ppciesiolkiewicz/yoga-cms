@@ -9,8 +9,8 @@ function sampleInput(): AnalyzeInput {
   return {
     displayName: "Test run",
     categories: [
-      { name: "menu", extraInfo: "food menus", prompt: "describe menus", model: "sonnet" },
-      { name: "hours", extraInfo: "opening hours", prompt: "describe hours", model: "sonnet" },
+      { name: "menu", extraInfo: "food menus", prompt: "describe menus", provider: "anthropic", model: "claude-sonnet-4-6" },
+      { name: "hours", extraInfo: "opening hours", prompt: "describe hours", provider: "anthropic", model: "claude-sonnet-4-6" },
     ],
     sites: [{ url: "https://example.com", meta: { city: "Testville" } }],
   }
@@ -114,7 +114,7 @@ describe("Repo", () => {
 })
 
 const chatInput: AnalyzeInput = {
-  categories: [{ name: "Home", extraInfo: "", prompt: "", model: "sonnet" }],
+  categories: [{ name: "Home", extraInfo: "", prompt: "", provider: "anthropic", model: "claude-sonnet-4-6" }],
   sites: [{ url: "https://a.test" }],
 }
 

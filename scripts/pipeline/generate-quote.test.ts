@@ -4,16 +4,18 @@ import type { Request, Site, SiteEstimate, Order } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
 
 const pricing: PricingConfig = {
-  version: 1,
+  version: 2,
   currency: "USD",
   serviceFee: { perPage: 0.01 },
   firecrawl: { perScrape: 0.002 },
-  ai: {
-    classifyNav: { model: "claude-haiku-4-5", inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 500 },
-    extractPagesContent: {
-      haiku: { inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 1500 },
-      sonnet: { inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1500 },
-      opus: { inputPer1kTokens: 0.015, outputPer1kTokens: 0.075, estimatedOutputTokens: 1500 },
+  models: {
+    anthropic: {
+      "claude-haiku-4-5":  { inputPer1kTokens: 0.001, outputPer1kTokens: 0.005 },
+      "claude-sonnet-4-6": { inputPer1kTokens: 0.003, outputPer1kTokens: 0.015 },
+      "claude-opus-4-6":   { inputPer1kTokens: 0.015, outputPer1kTokens: 0.075 },
+    },
+    groq: {
+      "llama-3.1-8b-instant": { inputPer1kTokens: 0.00005, outputPer1kTokens: 0.00008 },
     },
   },
   lighthouse: { perRun: 0 },
@@ -26,8 +28,8 @@ const request: Request = {
   id: "r_1",
   createdAt: "2026-04-13T00:00:00Z",
   categories: [
-    { id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "p", model: "sonnet" as const, lighthouse: true },
-    { id: "cat_2", name: "classes", extraInfo: "Classes", prompt: "p", model: "sonnet" as const },
+    { id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "p", provider: "anthropic" as const, model: "claude-sonnet-4-6", lighthouse: true },
+    { id: "cat_2", name: "classes", extraInfo: "Classes", prompt: "p", provider: "anthropic" as const, model: "claude-sonnet-4-6" },
   ],
   sites: [site],
 }
@@ -44,7 +46,7 @@ const siteEstimate: SiteEstimate = {
 
 const classifyQuery = {
   id: "q_1", requestId: "r_1", siteId: "site_1",
-  stage: "classify-nav", model: "claude-haiku-4-5",
+  stage: "classify-nav", provider: "groq" as const, model: "llama-3.1-8b-instant",
   prompt: "a".repeat(2000), dataRefs: [], response: "b".repeat(500),
   createdAt: "2026-04-13T00:00:00Z",
 }

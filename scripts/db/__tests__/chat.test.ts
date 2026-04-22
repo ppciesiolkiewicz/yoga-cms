@@ -6,7 +6,7 @@ import { Repo } from "../repo"
 import type { AnalyzeInput } from "../../core/types"
 
 const input: AnalyzeInput = {
-  categories: [{ name: "Home", extraInfo: "", prompt: "", model: "sonnet" }],
+  categories: [{ name: "Home", extraInfo: "", prompt: "", provider: "anthropic", model: "claude-sonnet-4-6" }],
   sites: [{ url: "https://a.test" }],
 }
 

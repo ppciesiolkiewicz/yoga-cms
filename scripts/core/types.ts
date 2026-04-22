@@ -1,10 +1,11 @@
-import type { ModelTier } from "./models"
+import type { Provider } from "../../core/ai-client"
 
 export interface CategoryInput {
   name: string
   extraInfo: string
   prompt: string
-  model: ModelTier
+  provider: Provider
+  model: string
   lighthouse?: boolean
   wappalyzer?: boolean
 }
@@ -86,6 +87,7 @@ export interface AIQuery {
   siteId: string
   categoryId?: string
   stage: string
+  provider: Provider
   model: string
   prompt: string          // full system message (category.prompt + stage framing)
   dataRefs: string[]      // page URLs fed as context

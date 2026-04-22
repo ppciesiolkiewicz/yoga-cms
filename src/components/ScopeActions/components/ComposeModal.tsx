@@ -129,7 +129,7 @@ export function ComposeModal({
 
   return (
     <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="flex h-[85vh] w-[calc(100vw-2rem)] max-w-6xl flex-col gap-4 sm:w-5xl lg:w-6xl">
+      <DialogContent className="flex h-[95vh] w-[calc(100vw-2rem)] max-w-[100rem] flex-col gap-4 sm:max-w-[calc(100vw-2rem)]">
         <DialogHeader>
           <DialogTitle>{readOnly ? "Context (read-only)" : `Configure ${mode === "copy" ? "copy" : "chat context"}`}</DialogTitle>
         </DialogHeader>

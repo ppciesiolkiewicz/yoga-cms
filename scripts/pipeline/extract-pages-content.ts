@@ -1,15 +1,8 @@
-import Anthropic from "@anthropic-ai/sdk";
 import { newId } from "../db/repo";
 import type { Repo } from "../db/repo";
 import type { Request, Site, Category, AIQuery } from "../core/types";
-import { MODEL_MAP } from "../core/models";
 import { loadCategoryPages } from "./load-pages";
-
-let _client: Anthropic | null = null;
-function client(): Anthropic {
-  if (!_client) _client = new Anthropic();
-  return _client;
-}
+import { getClient } from "../../core/ai-client";
 
 const EXTRACT_FRAMING = `You are analyzing web pages for the category described above.
 For each page provided below, extract one record.
@@ -40,19 +33,19 @@ async function callExtract(
   body: string,
 ): Promise<ExtractResult> {
   const system = `${category.prompt}\n\n---\n${EXTRACT_FRAMING}`;
-  const modelId = MODEL_MAP[category.model];
+  const { provider, model } = category
+  const client = getClient(provider)
   const maxAttempts = 3;
   let lastError: unknown;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     try {
-      const response = await client().messages.create({
-        model: modelId,
-        max_tokens: 4096,
+      const response = await client.complete({
+        model,
+        maxTokens: 4096,
         system,
         messages: [{ role: "user", content: body }],
       });
-      let text =
-        response.content[0].type === "text" ? response.content[0].text : "";
+      let text = response.text;
       text = text
         .replace(/^```(?:json)?\s*\n?/i, "")
         .replace(/\n?```\s*$/i, "")
@@ -63,7 +56,7 @@ async function callExtract(
         queryInfo: {
           prompt: system,
           response: text,
-          usage: { inputTokens: response.usage.input_tokens, outputTokens: response.usage.output_tokens },
+          usage: response.usage,
         },
       };
     } catch (err) {
@@ -100,13 +93,15 @@ export async function extractPagesContentForCategory(
   const result = await callExtract(category, body);
 
   if (result.queryInfo) {
+    const { provider, model } = category
     const query: AIQuery = {
       id: newId("q"),
       requestId: request.id,
       siteId: site.id,
       categoryId: category.id,
       stage: "extract-pages-content",
-      model: MODEL_MAP[category.model],
+      provider,
+      model,
       prompt: result.queryInfo.prompt,
       dataRefs: pages.map((p) => p.url),
       response: result.queryInfo.response,

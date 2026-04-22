@@ -1,6 +1,7 @@
-import Anthropic from "@anthropic-ai/sdk"
 import type { AnalysisContext, ChatMessage } from "../analysis-context/types"
 import { chunkAnalysisContext } from "../analysis-context/chunk"
+import { getClient } from "../../core/ai-client"
+import { getChatModel } from "./models"
 
 export type BuiltMessages = {
   system: string
@@ -45,7 +46,10 @@ function describeScope(s: AnalysisContext["scope"]): string {
   return `${n} site/category pair${n === 1 ? "" : "s"} in request ${s.requestId}`
 }
 
-export type StreamEvent = { type: "token"; text: string } | { type: "done" } | { type: "error"; message: string }
+export type StreamEvent =
+  | { type: "token"; text: string }
+  | { type: "done" }
+  | { type: "error"; message: string }
 
 export async function* streamScopedChat(params: {
   model: string
@@ -53,22 +57,23 @@ export async function* streamScopedChat(params: {
   history: ChatMessage[]
   userMessage: string
   maxBytes?: number
-  client?: Anthropic
 }): AsyncIterable<StreamEvent> {
-  const client = params.client ?? new Anthropic()
+  const chatModel = getChatModel(params.model)
+  if (!chatModel) {
+    yield { type: "error", message: `Unsupported model: ${params.model}` }
+    return
+  }
+  const client = getClient(chatModel.provider)
   const { system, messages } = buildChatMessages(params)
 
   try {
-    const stream = client.messages.stream({
-      model: params.model,
-      max_tokens: 4096,
+    for await (const ev of client.stream({
+      model: chatModel.id,
+      maxTokens: 4096,
       system,
       messages,
-    })
-    for await (const event of stream) {
-      if (event.type === "content_block_delta" && event.delta.type === "text_delta") {
-        yield { type: "token", text: event.delta.text }
-      }
+    })) {
+      if (ev.type === "text") yield { type: "token", text: ev.delta }
     }
     yield { type: "done" }
   } catch (err) {

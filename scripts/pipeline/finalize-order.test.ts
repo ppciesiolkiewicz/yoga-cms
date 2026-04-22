@@ -4,17 +4,17 @@ import type { Request, Order, AIQuery } from "../core/types"
 import type { PricingConfig } from "../quote/pricing"
 
 const pricing: PricingConfig = {
-  version: 1,
+  version: 2,
   currency: "USD",
   serviceFee: { perPage: 0.01 },
   firecrawl: { perScrape: 0.002 },
-  ai: {
-    classifyNav: { model: "claude-haiku-4-5", inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 500 },
-    extractPagesContent: {
-      haiku: { inputPer1kTokens: 0.001, outputPer1kTokens: 0.005, estimatedOutputTokens: 1500 },
-      sonnet: { inputPer1kTokens: 0.003, outputPer1kTokens: 0.015, estimatedOutputTokens: 1500 },
-      opus: { inputPer1kTokens: 0.015, outputPer1kTokens: 0.075, estimatedOutputTokens: 1500 },
+  models: {
+    anthropic: {
+      "claude-haiku-4-5":  { inputPer1kTokens: 0.001, outputPer1kTokens: 0.005 },
+      "claude-sonnet-4-6": { inputPer1kTokens: 0.003, outputPer1kTokens: 0.015 },
+      "claude-opus-4-6":   { inputPer1kTokens: 0.015, outputPer1kTokens: 0.075 },
     },
+    groq: {},
   },
   lighthouse: { perRun: 0 },
   wappalyzer: { perRun: 0 },
@@ -45,7 +45,7 @@ const order: Order = {
 const queries: AIQuery[] = [
   {
     id: "q_1", requestId: "r_1", siteId: "site_1", categoryId: "cat_1",
-    stage: "extract-pages-content", model: "claude-sonnet-4-6",
+    stage: "extract-pages-content", provider: "anthropic", model: "claude-sonnet-4-6",
     prompt: "c".repeat(4000), dataRefs: [], response: "d".repeat(3000),
     createdAt: "2026-04-13T00:03:00Z",
   },
@@ -79,7 +79,7 @@ describe("finalizeOrder", () => {
     const repo = makeMockRepo()
     const request: Request = {
       id: "r_1", createdAt: "2026-04-13T00:00:00Z",
-      categories: [{ id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "p", model: "sonnet" as const }],
+      categories: [{ id: "cat_1", name: "home", extraInfo: "Homepage", prompt: "p", provider: "anthropic" as const, model: "claude-sonnet-4-6" }],
       sites: [{ id: "site_1", url: "https://example.com" }],
     }
 
