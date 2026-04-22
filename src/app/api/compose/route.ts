@@ -1,17 +1,23 @@
 import { NextResponse } from "next/server"
-import { decodeScope, decodeTiers } from "../../../../scripts/analysis-context/scope-codec"
 import { buildAnalysisContext } from "../../../../scripts/analysis-context"
+import type { AnalysisContextScope, AnalysisContextTiers } from "../../../../scripts/analysis-context/types"
 import { getRepo, resetRepoForTests } from "../../../lib/repo-server"
 
-export async function GET(req: Request) {
-  const url = new URL(req.url)
-  const scopeRaw = url.searchParams.get("scope") ?? ""
-  const tiersRaw = url.searchParams.get("tiers") ?? ""
+type Body = { scope: AnalysisContextScope; tiers: AnalysisContextTiers }
+
+export async function POST(req: Request) {
+  let body: Body
   try {
-    const scope = decodeScope(scopeRaw)
-    const tiers = decodeTiers(tiersRaw)
-    if (process.env.NODE_ENV === "test") resetRepoForTests()
-    const ctx = await buildAnalysisContext(getRepo(), scope, tiers)
+    body = (await req.json()) as Body
+  } catch {
+    return NextResponse.json({ error: "invalid JSON" }, { status: 400 })
+  }
+  if (!body?.scope?.requestId) {
+    return NextResponse.json({ error: "missing requestId" }, { status: 400 })
+  }
+  if (process.env.NODE_ENV === "test") resetRepoForTests()
+  try {
+    const ctx = await buildAnalysisContext(getRepo(), body.scope, body.tiers ?? {})
     return NextResponse.json(ctx)
   } catch (err) {
     return NextResponse.json(

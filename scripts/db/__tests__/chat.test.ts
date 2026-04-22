@@ -10,7 +10,7 @@ const input: AnalyzeInput = {
   sites: [{ url: "https://a.test" }],
 }
 
-describe("Repo scoped chats", () => {
+describe("Repo chats", () => {
   let dir: string
   let repo: Repo
   let requestId: string
@@ -23,27 +23,43 @@ describe("Repo scoped chats", () => {
   })
   afterEach(() => rmSync(dir, { recursive: true, force: true }))
 
-  it("create, list, get, append", async () => {
-    const scope = { kind: "request" as const, requestId }
-    const chat = await repo.createScopedChat(scope, { model: "claude-sonnet-4-6", tiers: { report: true }, title: "First" })
-    expect(chat.id).toMatch(/^chat_/)
+  it("creates a chat with a UUID id and a scope snapshot", async () => {
+    const scope = { requestId, contextElements: [{ siteId: "site_a", categoryId: "home" }] }
+    const chat = await repo.createChat(requestId, {
+      scope,
+      model: "claude-sonnet-4-6",
+      tiers: { report: true },
+      title: "First",
+    })
+    expect(chat.id).toMatch(/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/)
+    expect(chat.scope).toEqual(scope)
+  })
 
-    await repo.appendScopedChatMessage(scope, chat.id, { role: "user", content: "hi", createdAt: new Date().toISOString() })
-    await repo.appendScopedChatMessage(scope, chat.id, { role: "assistant", content: "hello", createdAt: new Date().toISOString() })
+  it("list/get/append round-trip", async () => {
+    const scope = { requestId, contextElements: [] }
+    const chat = await repo.createChat(requestId, { scope, model: "m", tiers: {}, title: "A" })
 
-    const full = await repo.getScopedChat(scope, chat.id)
+    await repo.appendChatMessage(requestId, chat.id, {
+      role: "user", content: "hi", createdAt: new Date().toISOString(),
+    })
+    await repo.appendChatMessage(requestId, chat.id, {
+      role: "assistant", content: "hello", createdAt: new Date().toISOString(),
+    })
+
+    const full = await repo.getChat(requestId, chat.id)
     expect(full.messages).toHaveLength(2)
     expect(full.messages[0].content).toBe("hi")
 
-    const list = await repo.listScopedChats(scope)
+    const list = await repo.listChats(requestId)
     expect(list).toHaveLength(1)
     expect(list[0].id).toBe(chat.id)
   })
 
-  it("different scopes do not share chats", async () => {
-    const s1 = { kind: "request" as const, requestId }
-    const s2 = { kind: "site" as const, requestId, siteId: "site_x" }
-    await repo.createScopedChat(s1, { model: "m", tiers: {}, title: "A" })
-    expect(await repo.listScopedChats(s2)).toHaveLength(0)
+  it("chats from different requests are isolated", async () => {
+    const other = await repo.createRequest(input)
+    await repo.createChat(requestId, {
+      scope: { requestId, contextElements: [] }, model: "m", tiers: {}, title: "A",
+    })
+    expect(await repo.listChats(other.id)).toHaveLength(0)
   })
 })

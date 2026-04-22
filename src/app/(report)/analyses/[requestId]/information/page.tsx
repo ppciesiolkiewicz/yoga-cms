@@ -9,7 +9,8 @@ import {
   Tooltip,
 } from "@/components/ui";
 import { SitesSidebar } from "../[siteId]/SitesSidebar";
-import type { Order, OrderLineItem } from "../../../../../../scripts/core/types";
+import { ChatDrawerProvider } from "@/components/ScopeActions/components/ChatDrawerProvider";
+import type { Order, OrderLineItem, Request } from "../../../../../../scripts/core/types";
 
 export const dynamic = "force-dynamic";
 
@@ -185,11 +186,13 @@ export default async function InformationPage({ params }: Params) {
   const { requestId } = await params;
   const repo = getRepo();
 
-  let request;
+  let request: Request & { status: string };
   try {
     request = await repo.getRequest(requestId);
   } catch {
     notFound();
+    // unreachable, but satisfies TS control flow
+    throw new Error("not found");
   }
   const order = await repo.getOrder(requestId);
 
@@ -256,8 +259,9 @@ export default async function InformationPage({ params }: Params) {
   const displayName = request.displayName ?? requestId;
 
   return (
-    <>
+    <ChatDrawerProvider requestId={requestId}>
       <SitesSidebar
+        request={request}
         requestId={requestId}
         displayName={displayName}
         sites={sidebarSites}
@@ -392,6 +396,6 @@ export default async function InformationPage({ params }: Params) {
           </div>
         </div>
       </main>
-    </>
+    </ChatDrawerProvider>
   );
 }

@@ -3,17 +3,18 @@ import { mkdtempSync, rmSync } from "fs"
 import { tmpdir } from "os"
 import { join } from "path"
 import { Repo } from "../../../../scripts/db/repo"
-import { encodeScope, encodeTiers } from "../../../../scripts/analysis-context/scope-codec"
-import { GET } from "./route"
+import { resetRepoForTests } from "../../../lib/repo-server"
+import { POST } from "./route"
 
-describe("GET /api/compose", () => {
+describe("POST /api/compose", () => {
   let dir: string
   let requestId: string
   let siteId: string
 
   beforeEach(async () => {
-    dir = mkdtempSync(join(tmpdir(), "api-compose-"))
+    dir = mkdtempSync(join(tmpdir(), "compose-"))
     process.env.YOGA_DATA_DIR = dir
+    resetRepoForTests()
     const repo = new Repo(dir)
     const req = await repo.createRequest({
       categories: [{ name: "Home", extraInfo: "", prompt: "", model: "sonnet" }],
@@ -22,8 +23,8 @@ describe("GET /api/compose", () => {
     requestId = req.id
     siteId = req.sites[0].id
     await repo.putJson(
-      { requestId, siteId, stage: "build-report", name: "build-report.json" },
-      { summary: "ok" },
+      { requestId, siteId, stage: "extract-pages-content", name: "home.json" },
+      { items: ["X"] },
     )
   })
 
@@ -32,20 +33,28 @@ describe("GET /api/compose", () => {
     delete process.env.YOGA_DATA_DIR
   })
 
-  it("returns composed JSON", async () => {
-    const scope = encodeScope({ kind: "site", requestId, siteId })
-    const tiers = encodeTiers({ report: true })
-    const req = new Request(`http://localhost/api/compose?scope=${scope}&tiers=${tiers}`)
-    const res = await GET(req)
-    const body = await res.json()
+  it("returns the context for a pair", async () => {
+    const res = await POST(
+      new Request("http://localhost/api/compose", {
+        method: "POST",
+        body: JSON.stringify({
+          scope: { requestId, contextElements: [{ siteId, categoryId: "home" }] },
+          tiers: { extractedContent: true },
+        }),
+      }),
+    )
     expect(res.status).toBe(200)
-    expect(body.json).toEqual({ report: { summary: "ok" } })
-    expect(body.bytes).toBeGreaterThan(0)
+    const body = await res.json()
+    expect(body.json.sites[siteId].home.extractedContent).toEqual({ items: ["X"] })
   })
 
-  it("400 on malformed scope", async () => {
-    const req = new Request("http://localhost/api/compose?scope=bad&tiers=r")
-    const res = await GET(req)
+  it("rejects missing requestId", async () => {
+    const res = await POST(
+      new Request("http://localhost/api/compose", {
+        method: "POST",
+        body: JSON.stringify({ scope: { contextElements: [] }, tiers: {} }),
+      }),
+    )
     expect(res.status).toBe(400)
   })
 })

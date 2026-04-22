@@ -2,28 +2,25 @@
 
 import { useState } from "react"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
 } from "@/components/ui/shadcn/dropdown-menu"
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/shadcn/tooltip"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/shadcn/tooltip"
 import { Button } from "@/components/ui/shadcn/button"
 import { Copy } from "lucide-react"
 import { fetchAnalysisContextOnce, copyToClipboard } from "../lib/useAnalysisContext"
-import { scopeDescription, scopeShortLabel } from "../lib/scopeLabel"
 import { ComposeModal } from "./ComposeModal"
-import type {
-  AnalysisContextScope,
-  AnalysisContextTiers,
-} from "../../../../scripts/analysis-context/types"
+import type { Preset } from "../lib/presets"
+import type { AnalysisContextTiers } from "../../../../scripts/analysis-context/types"
 
-export function CopyMenu({ scope, fullWidth = false }: { scope: AnalysisContextScope; fullWidth?: boolean }) {
+type Props = {
+  label: string
+  tooltip: string
+  preset: Preset
+  requestId: string
+  fullWidth?: boolean
+}
+
+export function CopyMenu({ label, tooltip, preset, requestId, fullWidth = false }: Props) {
   const [modalOpen, setModalOpen] = useState(false)
   const [busy, setBusy] = useState(false)
 
@@ -31,15 +28,10 @@ export function CopyMenu({ scope, fullWidth = false }: { scope: AnalysisContextS
     if (busy) return
     setBusy(true)
     try {
-      const ctx = await fetchAnalysisContextOnce(scope, tiers)
+      const ctx = await fetchAnalysisContextOnce(preset.scope, tiers)
       await copyToClipboard(JSON.stringify(ctx.json, null, 2))
-    } finally {
-      setBusy(false)
-    }
+    } finally { setBusy(false) }
   }
-
-  const tooltipText = `Copy analysis data for ${scopeDescription(scope)} to your clipboard.`
-  const label = `Copy ${scopeShortLabel(scope)}`
 
   return (
     <>
@@ -48,38 +40,26 @@ export function CopyMenu({ scope, fullWidth = false }: { scope: AnalysisContextS
           <Tooltip>
             <TooltipTrigger asChild>
               <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  disabled={busy}
-                  className={fullWidth ? "w-full justify-start" : undefined}
-                >
-                  <Copy className="mr-1 h-3.5 w-3.5" />
-                  {label}
+                <Button variant="outline" size="sm" disabled={busy} className={fullWidth ? "w-full justify-start" : undefined}>
+                  <Copy className="mr-1 h-3.5 w-3.5" />{label}
                 </Button>
               </DropdownMenuTrigger>
             </TooltipTrigger>
-            <TooltipContent side="top" className="max-w-xs">
-              {tooltipText}
-            </TooltipContent>
+            <TooltipContent side="top" className="max-w-xs">{tooltip}</TooltipContent>
           </Tooltip>
         </TooltipProvider>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onClick={() => copyPreset({ report: true })}>
-            Report
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => copyPreset({ extractedContent: true })}>
-            Content
-          </DropdownMenuItem>
-          <DropdownMenuItem onClick={() => setModalOpen(true)}>
-            Configure…
-          </DropdownMenuItem>
+          <DropdownMenuItem onClick={() => copyPreset({ report: true })}>Report</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => copyPreset({ extractedContent: true })}>Content</DropdownMenuItem>
+          <DropdownMenuItem onClick={() => setModalOpen(true)}>Configure…</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
       <ComposeModal
         open={modalOpen}
         onOpenChange={setModalOpen}
-        scope={scope}
+        requestId={requestId}
+        scope={preset.scope}
+        tiers={preset.tiers}
         mode="copy"
       />
     </>

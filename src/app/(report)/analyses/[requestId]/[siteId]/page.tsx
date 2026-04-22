@@ -7,6 +7,8 @@ import { SitesSidebar } from "./SitesSidebar";
 import { PageNav } from "./PageNav";
 import { SectionDivider } from "./SectionDivider";
 import { SiteReportWalkthrough } from "./SiteReportWalkthrough";
+import { ChatDrawerProvider } from "@/components/ScopeActions/components/ChatDrawerProvider";
+import type { Request } from "../../../../../../scripts/core/types";
 
 export const dynamic = "force-dynamic";
 
@@ -83,6 +85,13 @@ export default async function SiteDetailPage({ params }: Params) {
       stage: "",
       name: "result.json",
     });
+  } catch {
+    return notFound();
+  }
+
+  let request: Request;
+  try {
+    request = await repo.getRequest(requestId);
   } catch {
     return notFound();
   }
@@ -254,6 +263,7 @@ export default async function SiteDetailPage({ params }: Params) {
     return (
       <CategoryBlock
         key={cat.id}
+        request={request}
         requestId={requestId}
         siteId={siteId}
         categoryId={cat.id}
@@ -272,8 +282,9 @@ export default async function SiteDetailPage({ params }: Params) {
   }
 
   return (
-    <>
+    <ChatDrawerProvider requestId={requestId}>
       <SitesSidebar
+        request={request}
         requestId={requestId}
         displayName={displayName}
         sites={sidebarSites}
@@ -344,7 +355,7 @@ export default async function SiteDetailPage({ params }: Params) {
         </div>
       </main>
 
-      <PageNav sections={sections} requestId={requestId} siteId={siteId} />
-    </>
+      <PageNav request={request} sections={sections} requestId={requestId} siteId={siteId} />
+    </ChatDrawerProvider>
   );
 }

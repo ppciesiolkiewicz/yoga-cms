@@ -24,63 +24,83 @@ describe("buildAnalysisContext", () => {
   })
   afterEach(() => rmSync(dir, { recursive: true, force: true }))
 
-  it("category scope aggregates per-site data keyed by siteId", async () => {
+  it("produces site-then-category nested shape for a single pair", async () => {
     const req = await repo.createRequest(input)
-    const [siteA, siteB] = req.sites
-    const ref = (siteId: string) => ({
-      requestId: req.id,
-      siteId,
-      stage: "extract-pages-content",
-      name: "pricing.json",
-    })
-    await repo.putJson(ref(siteA.id), { items: ["A"] })
-    await repo.putJson(ref(siteB.id), { items: ["B"] })
+    const [siteA] = req.sites
+    await repo.putJson(
+      { requestId: req.id, siteId: siteA.id, stage: "extract-pages-content", name: "pricing.json" },
+      { items: ["A"] },
+    )
 
     const ctx = await buildAnalysisContext(
       repo,
-      { kind: "category", requestId: req.id, categoryId: "pricing" },
+      {
+        requestId: req.id,
+        contextElements: [{ siteId: siteA.id, categoryId: "pricing" }],
+      },
       { extractedContent: true },
     )
 
     expect(ctx.json).toEqual({
       sites: {
-        [siteA.id]: { extractedContent: { items: ["A"] } },
-        [siteB.id]: { extractedContent: { items: ["B"] } },
+        [siteA.id]: { pricing: { extractedContent: { items: ["A"] } } },
       },
     })
     expect(ctx.bytes).toBeGreaterThan(0)
   })
 
-  it("category scope with explicit siteIds filters the aggregation", async () => {
+  it("aggregates many pairs under the same site key", async () => {
     const req = await repo.createRequest(input)
-    const [siteA, siteB] = req.sites
-    const ref = (siteId: string) => ({
-      requestId: req.id,
-      siteId,
-      stage: "extract-pages-content",
-      name: "pricing.json",
-    })
-    await repo.putJson(ref(siteA.id), { items: ["A"] })
-    await repo.putJson(ref(siteB.id), { items: ["B"] })
+    const [siteA] = req.sites
+    await repo.putJson(
+      { requestId: req.id, siteId: siteA.id, stage: "extract-pages-content", name: "home.json" },
+      { items: ["H"] },
+    )
+    await repo.putJson(
+      { requestId: req.id, siteId: siteA.id, stage: "extract-pages-content", name: "pricing.json" },
+      { items: ["P"] },
+    )
 
     const ctx = await buildAnalysisContext(
       repo,
-      { kind: "category", requestId: req.id, categoryId: "pricing", siteIds: [siteA.id] },
+      {
+        requestId: req.id,
+        contextElements: [
+          { siteId: siteA.id, categoryId: "home" },
+          { siteId: siteA.id, categoryId: "pricing" },
+        ],
+      },
       { extractedContent: true },
     )
 
-    expect(Object.keys(ctx.json.sites as object)).toEqual([siteA.id])
+    expect(ctx.json).toEqual({
+      sites: {
+        [siteA.id]: {
+          home: { extractedContent: { items: ["H"] } },
+          pricing: { extractedContent: { items: ["P"] } },
+        },
+      },
+    })
   })
 
-  it("category scope includes request input when tiers.input is set", async () => {
+  it("empty contextElements yields empty sites map", async () => {
+    const req = await repo.createRequest(input)
+    const ctx = await buildAnalysisContext(repo, { requestId: req.id, contextElements: [] }, { report: true })
+    expect(ctx.json).toEqual({ sites: {} })
+    expect(ctx.missing).toEqual([])
+  })
+
+  it("includes request input when tiers.input is set", async () => {
     const req = await repo.createRequest(input)
     const ctx = await buildAnalysisContext(
       repo,
-      { kind: "category", requestId: req.id, categoryId: "home" },
+      {
+        requestId: req.id,
+        contextElements: [{ siteId: req.sites[0].id, categoryId: "home" }],
+      },
       { input: true },
     )
-    const json = ctx.json as { input?: unknown; sites: Record<string, unknown> }
+    const json = ctx.json as { input?: unknown }
     expect(json.input).toBeTruthy()
-    expect(Object.keys(json.sites)).toHaveLength(2)
   })
 })

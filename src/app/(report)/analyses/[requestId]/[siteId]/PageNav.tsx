@@ -2,6 +2,8 @@
 
 import { useEffect, useState } from "react"
 import { ScopeActions } from "@/components/ScopeActions"
+import { sitePreset } from "@/components/ScopeActions/lib/presets"
+import type { Request } from "../../../../../../scripts/core/types"
 
 interface Section {
   id: string
@@ -9,10 +11,12 @@ interface Section {
 }
 
 export function PageNav({
+  request,
   sections,
   requestId,
   siteId,
 }: {
+  request: Request
   sections: Section[]
   requestId: string
   siteId: string
@@ -98,7 +102,12 @@ export function PageNav({
         )
       })}
       <div data-tour="site-page-actions" className="mt-2 border-t border-border-default px-2 py-2">
-        <ScopeActions scope={{ kind: "site", requestId, siteId }} orientation="vertical" />
+        <ScopeActions
+          preset={sitePreset(request, siteId)}
+          label="site"
+          tooltip="this site (all of its categories)"
+          orientation="vertical"
+        />
       </div>
     </nav>
   )

@@ -4,7 +4,9 @@ import { TechCard, LighthouseCard } from "./TechCard"
 import { Tooltip, ScoreBadge, StatusBadge, Accordion, AccordionItem, AccordionTrigger, AccordionContent } from "@/components/ui"
 import { RecordRenderer } from "@/components/RecordRenderer"
 import { ScopeActions } from "@/components/ScopeActions"
+import { categoryPreset } from "@/components/ScopeActions/lib/presets"
 import { slugify } from "@/lib/utils"
+import type { Request } from "../../../../../../scripts/core/types"
 
 interface PageAssessment {
   url: string
@@ -41,6 +43,7 @@ interface LighthouseArtifact {
 }
 
 interface Props {
+  request: Request
   requestId: string
   siteId: string
   categoryId: string
@@ -221,11 +224,9 @@ export default function CategoryBlock(props: Props) {
         <div className="flex items-center gap-3">
           <div {...(props.tourAnchor ? { "data-tour": "site-category-actions" } : {})}>
             <ScopeActions
-              scope={{
-                kind: "category",
-                requestId: props.requestId,
-                categoryId: props.categoryId,
-              }}
+              preset={categoryPreset(props.request, props.categoryId)}
+              label="category"
+              tooltip="this category across all sites in this analysis"
             />
           </div>
           {props.progress && <ProgressIcon progress={props.progress} />}

@@ -1,16 +1,10 @@
 import type { Tour } from "@/components/Walkthrough";
 import { waitForSelector } from "@/components/Walkthrough";
-import type { AnalysisContextScope } from "../../../../../../scripts/analysis-context/types";
 
-export function makeSiteTour(scope: {
+export function makeSiteTour(_scope: {
   requestId: string;
   siteId: string;
 }): Tour {
-  const requestScope: AnalysisContextScope = {
-    kind: "request",
-    requestId: scope.requestId,
-  };
-
   return {
     id: "site-report",
     steps: [
@@ -52,11 +46,7 @@ export function makeSiteTour(scope: {
         body:
           "Answers are grounded strictly in the scope you picked — no leakage across unrelated data.",
         onBefore: async () => {
-          window.dispatchEvent(
-            new CustomEvent("walkthrough:open-chat", {
-              detail: { scope: requestScope },
-            }),
-          );
+          window.dispatchEvent(new CustomEvent("walkthrough:open-chat"));
           await waitForSelector('[data-tour="site-chat-drawer"]', { timeout: 2500 });
         },
         onAfter: () => {

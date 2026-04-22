@@ -4,6 +4,8 @@ import Link from "next/link"
 import { useRef, useEffect } from "react"
 import { Settings } from "lucide-react"
 import { ScopeActions } from "@/components/ScopeActions"
+import { requestPreset } from "@/components/ScopeActions/lib/presets"
+import type { Request } from "../../../../../../scripts/core/types"
 
 interface SiteEntry {
   id: string
@@ -38,11 +40,13 @@ function StatusDot({ status }: { status: SiteEntry["overallStatus"] }) {
 }
 
 export function SitesSidebar({
+  request,
   requestId,
   displayName,
   sites,
   currentSiteId,
 }: {
+  request: Request
   requestId: string
   displayName: string
   sites: SiteEntry[]
@@ -165,7 +169,12 @@ export function SitesSidebar({
         </ul>
       </div>
       <div data-tour="site-request-actions" className="border-t border-border-default px-3 py-3 space-y-2">
-        <ScopeActions scope={{ kind: "request", requestId }} orientation="vertical" />
+        <ScopeActions
+          preset={requestPreset(request)}
+          label="analysis"
+          tooltip="the entire analysis (all sites and all categories)"
+          orientation="vertical"
+        />
         <Link
           href={`/analyses/${requestId}/information`}
           className={`flex items-center gap-2 rounded-md px-3 py-2 text-sm font-medium transition-colors ${

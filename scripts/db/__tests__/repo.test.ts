@@ -135,27 +135,27 @@ describe("Repo chat counts", () => {
 
   it("countChats sums .json files across scope subdirectories", async () => {
     const req = await repo.createRequest(chatInput)
-    await repo.createScopedChat(
-      { kind: "request", requestId: req.id },
-      { model: "m", tiers: {}, title: "A" },
-    )
-    await repo.createScopedChat(
-      { kind: "request", requestId: req.id },
-      { model: "m", tiers: {}, title: "B" },
-    )
-    await repo.createScopedChat(
-      { kind: "category", requestId: req.id, categoryId: "home" },
-      { model: "m", tiers: {}, title: "C" },
-    )
+    await repo.createChat(req.id, {
+      scope: { requestId: req.id, contextElements: [] },
+      model: "m", tiers: {}, title: "A",
+    })
+    await repo.createChat(req.id, {
+      scope: { requestId: req.id, contextElements: [] },
+      model: "m", tiers: {}, title: "B",
+    })
+    await repo.createChat(req.id, {
+      scope: { requestId: req.id, contextElements: [{ siteId: "x", categoryId: "home" }] },
+      model: "m", tiers: {}, title: "C",
+    })
     expect(await repo.countChats(req.id)).toBe(3)
   })
 
   it("listRequests populates chatCount per entry", async () => {
     const req = await repo.createRequest(chatInput)
-    await repo.createScopedChat(
-      { kind: "request", requestId: req.id },
-      { model: "m", tiers: {}, title: "only" },
-    )
+    await repo.createChat(req.id, {
+      scope: { requestId: req.id, contextElements: [] },
+      model: "m", tiers: {}, title: "only",
+    })
     const list = await repo.listRequests()
     const match = list.find(e => e.id === req.id)
     expect(match?.chatCount).toBe(1)

@@ -1,13 +1,12 @@
 import { NextResponse } from "next/server"
-import { decodeScope } from "../../../../../scripts/analysis-context/scope-codec"
 import { getRepo } from "../../../../lib/repo-server"
 
 export async function GET(req: Request) {
   const url = new URL(req.url)
-  const scopeRaw = url.searchParams.get("scope") ?? ""
+  const requestId = url.searchParams.get("requestId") ?? ""
+  if (!requestId) return NextResponse.json({ error: "missing requestId" }, { status: 400 })
   try {
-    const scope = decodeScope(scopeRaw)
-    const metas = await getRepo().listScopedChats(scope)
+    const metas = await getRepo().listChats(requestId)
     return NextResponse.json(metas)
   } catch (err) {
     return NextResponse.json(

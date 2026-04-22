@@ -1,4 +1,4 @@
-import { randomBytes } from "crypto"
+import { randomBytes, randomUUID } from "crypto"
 import { join } from "path"
 import type {
   AnalyzeInput,
@@ -13,7 +13,6 @@ import type {
   Site,
 } from "../core/types"
 import type { AnalysisContextScope, ChatMeta, ChatMessage, ChatRecord, AnalysisContextTiers } from "../analysis-context/types"
-import { scopeKey } from "../analysis-context/scope-codec"
 import { Store } from "./store"
 import { dbRoot, requestDir, refToPath } from "./paths"
 
@@ -231,38 +230,39 @@ export class Repo {
     )
   }
 
-  // ── scoped chats ──
+  // ── chats ──
 
-  private chatDir(requestId: string, key: string): string {
-    return join(requestDir(this.root, requestId), "chats", key)
+  private chatsDir(requestId: string): string {
+    return join(requestDir(this.root, requestId), "chats")
   }
 
-  async createScopedChat(
-    scope: AnalysisContextScope,
-    meta: { model: string; tiers: AnalysisContextTiers; title: string }
+  async createChat(
+    requestId: string,
+    init: { scope: AnalysisContextScope; model: string; tiers: AnalysisContextTiers; title: string },
   ): Promise<ChatRecord> {
-    const id = newId("chat")
+    const id = randomUUID()
     const record: ChatRecord = {
       id,
       createdAt: new Date().toISOString(),
-      title: meta.title,
-      model: meta.model,
-      tiers: meta.tiers,
+      title: init.title,
+      model: init.model,
+      tiers: init.tiers,
+      scope: init.scope,
       messages: [],
     }
-    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${id}.json`)
+    const path = join(this.chatsDir(requestId), `${id}.json`)
     await this.store.writeFile(path, JSON.stringify(record, null, 2))
     return record
   }
 
-  async getScopedChat(scope: AnalysisContextScope, chatId: string): Promise<ChatRecord> {
-    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${chatId}.json`)
+  async getChat(requestId: string, chatId: string): Promise<ChatRecord> {
+    const path = join(this.chatsDir(requestId), `${chatId}.json`)
     const buf = await this.store.readFile(path)
     return JSON.parse(buf.toString("utf8")) as ChatRecord
   }
 
-  async listScopedChats(scope: AnalysisContextScope): Promise<ChatMeta[]> {
-    const dir = this.chatDir(scope.requestId, scopeKey(scope))
+  async listChats(requestId: string): Promise<ChatMeta[]> {
+    const dir = this.chatsDir(requestId)
     if (!(await this.store.exists(dir))) return []
     const files = await this.store.listFiles(dir)
     const metas: ChatMeta[] = []
@@ -276,14 +276,14 @@ export class Repo {
     return metas.sort((a, b) => b.createdAt.localeCompare(a.createdAt))
   }
 
-  async appendScopedChatMessage(
-    scope: AnalysisContextScope,
+  async appendChatMessage(
+    requestId: string,
     chatId: string,
-    msg: ChatMessage
+    msg: ChatMessage,
   ): Promise<void> {
-    const rec = await this.getScopedChat(scope, chatId)
+    const rec = await this.getChat(requestId, chatId)
     rec.messages.push(msg)
-    const path = join(this.chatDir(scope.requestId, scopeKey(scope)), `${chatId}.json`)
+    const path = join(this.chatsDir(requestId), `${chatId}.json`)
     await this.store.writeFile(path, JSON.stringify(rec, null, 2))
   }
 }

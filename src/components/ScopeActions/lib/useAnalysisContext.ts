@@ -6,7 +6,6 @@ import type {
   AnalysisContextScope,
   AnalysisContextTiers,
 } from "../../../../scripts/analysis-context/types"
-import { encodeScope, encodeTiers } from "../../../../scripts/analysis-context/scope-codec"
 
 export function useAnalysisContext(
   scope: AnalysisContextScope,
@@ -23,7 +22,8 @@ export function useAnalysisContext(
 
   useEffect(() => {
     const hasAny = Object.values(tiers).some(Boolean)
-    if (!hasAny) {
+    const hasPairs = scope.contextElements.length > 0
+    if (!hasAny || !hasPairs) {
       setData(null)
       setError(null)
       return
@@ -35,11 +35,14 @@ export function useAnalysisContext(
       setLoading(true)
       setError(null)
       try {
-        const qs = `scope=${encodeURIComponent(encodeScope(scope))}&tiers=${encodeURIComponent(encodeTiers(tiers))}`
-        const res = await fetch(`/api/compose?${qs}`, { signal: ctrl.signal })
+        const res = await fetch("/api/compose", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify({ scope, tiers }),
+          signal: ctrl.signal,
+        })
         if (!res.ok) throw new Error(`compose failed: ${res.status}`)
-        const body = (await res.json()) as AnalysisContext
-        setData(body)
+        setData(await res.json() as AnalysisContext)
       } catch (e) {
         if ((e as Error).name === "AbortError") return
         setError((e as Error).message)
@@ -58,10 +61,13 @@ export async function fetchAnalysisContextOnce(
   scope: AnalysisContextScope,
   tiers: AnalysisContextTiers,
 ): Promise<AnalysisContext> {
-  const qs = `scope=${encodeURIComponent(encodeScope(scope))}&tiers=${encodeURIComponent(encodeTiers(tiers))}`
-  const res = await fetch(`/api/compose?${qs}`)
+  const res = await fetch("/api/compose", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ scope, tiers }),
+  })
   if (!res.ok) throw new Error(`compose failed: ${res.status}`)
-  return (await res.json()) as AnalysisContext
+  return await res.json() as AnalysisContext
 }
 
 export async function copyToClipboard(text: string): Promise<void> {

@@ -1,7 +1,7 @@
-export type AnalysisContextScope =
-  | { kind: "request"; requestId: string }
-  | { kind: "site"; requestId: string; siteId: string }
-  | { kind: "category"; requestId: string; categoryId: string; siteIds?: string[] }
+export type AnalysisContextScope = {
+  requestId: string
+  contextElements: { siteId: string; categoryId: string }[]
+}
 
 export type AnalysisContextTiers = {
   report?: boolean
@@ -34,6 +34,7 @@ export type ChatMeta = {
   title: string
   model: string
   tiers: AnalysisContextTiers
+  scope: AnalysisContextScope
 }
 
 export type ChatRecord = ChatMeta & { messages: ChatMessage[] }

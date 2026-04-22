@@ -3,7 +3,7 @@ import { buildChatMessages } from "./stream"
 import type { AnalysisContext } from "../analysis-context/types"
 
 const ctx = (json: Record<string, unknown>): AnalysisContext => ({
-  scope: { kind: "request", requestId: "r" },
+  scope: { requestId: "r", contextElements: [] },
   tiers: {},
   json,
   bytes: Buffer.byteLength(JSON.stringify(json)),

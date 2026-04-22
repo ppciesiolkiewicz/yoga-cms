@@ -3,7 +3,7 @@ import { chunkAnalysisContext } from "./chunk"
 import type { AnalysisContext } from "./types"
 
 const ctx = (json: Record<string, unknown>): AnalysisContext => ({
-  scope: { kind: "request", requestId: "r" },
+  scope: { requestId: "r", contextElements: [] },
   tiers: {},
   json,
   bytes: Buffer.byteLength(JSON.stringify(json)),

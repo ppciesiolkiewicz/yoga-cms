@@ -14,7 +14,11 @@ export default async function AnalysesPage() {
   if (requests.length === 0) {
     return (
       <main className="mx-auto max-w-6xl px-4 py-16">
-        <h1 className="text-3xl font-bold text-foreground">Past Analyses</h1>
+        <Walkthrough tour={analysesTour} />
+        <div className="flex items-center gap-2">
+          <h1 className="text-3xl font-bold text-foreground">Past Analyses</h1>
+          <WalkthroughButton tour={analysesTour} />
+        </div>
         <p className="mt-4 text-foreground-secondary">
           No analyses yet. Run{" "}
           <code className="rounded bg-surface-raised px-2 py-1">

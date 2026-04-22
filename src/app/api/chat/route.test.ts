@@ -25,6 +25,7 @@ import { POST } from "./route"
 describe("POST /api/chat", () => {
   let dir: string
   let requestId: string
+  let siteId: string
 
   beforeEach(async () => {
     dir = mkdtempSync(join(tmpdir(), "api-chat-"))
@@ -37,6 +38,7 @@ describe("POST /api/chat", () => {
       sites: [{ url: "https://a.test" }],
     })
     requestId = req.id
+    siteId = req.sites[0].id
   })
 
   afterEach(() => {
@@ -47,7 +49,8 @@ describe("POST /api/chat", () => {
 
   it("creates chat, streams tokens, persists both messages", async () => {
     const body = {
-      scope: { kind: "request", requestId },
+      requestId,
+      scope: { requestId, contextElements: [{ siteId, categoryId: "home" }] },
       tiers: { report: true },
       model: "claude-sonnet-4-6",
       userMessage: "hi",
@@ -67,9 +70,9 @@ describe("POST /api/chat", () => {
     expect(out).toContain("chatId")
 
     const repo = new Repo(dir)
-    const chats = await repo.listScopedChats({ kind: "request", requestId })
+    const chats = await repo.listChats(requestId)
     expect(chats).toHaveLength(1)
-    const full = await repo.getScopedChat({ kind: "request", requestId }, chats[0].id)
+    const full = await repo.getChat(requestId, chats[0].id)
     expect(full.messages).toHaveLength(2)
     expect(full.messages[0].content).toBe("hi")
     expect(full.messages[1].content).toBe("Hello world")
@@ -78,7 +81,13 @@ describe("POST /api/chat", () => {
   it("rejects unsupported model", async () => {
     const res = await POST(new Request("http://localhost/api/chat", {
       method: "POST",
-      body: JSON.stringify({ scope: { kind: "request", requestId }, tiers: {}, model: "gpt-9000", userMessage: "hi" }),
+      body: JSON.stringify({
+        requestId,
+        scope: { requestId, contextElements: [{ siteId, categoryId: "home" }] },
+        tiers: {},
+        model: "gpt-9000",
+        userMessage: "hi",
+      }),
     }))
     expect(res.status).toBe(400)
   })

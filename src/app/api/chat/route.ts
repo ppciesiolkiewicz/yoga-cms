@@ -1,16 +1,17 @@
 import { NextResponse } from "next/server"
 import { buildAnalysisContext } from "../../../../scripts/analysis-context"
-import type { AnalysisContextScope, AnalysisContextTiers } from "../../../../scripts/analysis-context/types"
+import type { AnalysisContextScope, AnalysisContextTiers, ChatMessage } from "../../../../scripts/analysis-context/types"
 import { isSupportedModel } from "../../../../scripts/chat/models"
 import { streamScopedChat } from "../../../../scripts/chat/stream"
 import { getRepo, resetRepoForTests } from "../../../lib/repo-server"
 
 type Body = {
-  scope: AnalysisContextScope
-  tiers: AnalysisContextTiers
-  model: string
+  requestId: string
   chatId?: string
+  model: string
   userMessage: string
+  scope?: AnalysisContextScope
+  tiers?: AnalysisContextTiers
 }
 
 export async function POST(req: Request) {
@@ -20,6 +21,7 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.json({ error: "invalid JSON" }, { status: 400 })
   }
+  if (!body.requestId) return NextResponse.json({ error: "missing requestId" }, { status: 400 })
   if (!isSupportedModel(body.model)) {
     return NextResponse.json({ error: `unsupported model: ${body.model}` }, { status: 400 })
   }
@@ -31,26 +33,40 @@ export async function POST(req: Request) {
   const repo = getRepo()
 
   let chatId = body.chatId
-  let history: Awaited<ReturnType<typeof repo.getScopedChat>>["messages"] = []
+  let scope: AnalysisContextScope
+  let tiers: AnalysisContextTiers
+  let history: ChatMessage[] = []
+
   if (chatId) {
-    const existing = await repo.getScopedChat(body.scope, chatId)
+    const existing = await repo.getChat(body.requestId, chatId)
+    scope = existing.scope
+    tiers = existing.tiers
     history = existing.messages
   } else {
-    const created = await repo.createScopedChat(body.scope, {
+    if (!body.scope || !body.tiers) {
+      return NextResponse.json({ error: "scope and tiers required for new chat" }, { status: 400 })
+    }
+    if (body.scope.contextElements.length === 0) {
+      return NextResponse.json({ error: "contextElements cannot be empty" }, { status: 400 })
+    }
+    scope = body.scope
+    tiers = body.tiers
+    const created = await repo.createChat(body.requestId, {
+      scope,
       model: body.model,
-      tiers: body.tiers,
+      tiers,
       title: body.userMessage.slice(0, 60),
     })
     chatId = created.id
   }
 
-  await repo.appendScopedChatMessage(body.scope, chatId, {
+  await repo.appendChatMessage(body.requestId, chatId, {
     role: "user",
     content: body.userMessage,
     createdAt: new Date().toISOString(),
   })
 
-  const ctx = await buildAnalysisContext(repo, body.scope, body.tiers)
+  const ctx = await buildAnalysisContext(repo, scope, tiers)
 
   const encoder = new TextEncoder()
   let assistantText = ""
@@ -77,7 +93,7 @@ export async function POST(req: Request) {
           }
         }
       } finally {
-        await repo.appendScopedChatMessage(body.scope, chatId!, {
+        await repo.appendChatMessage(body.requestId, chatId!, {
           role: "assistant",
           content: assistantText,
           createdAt: new Date().toISOString(),
