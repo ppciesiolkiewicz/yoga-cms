@@ -174,7 +174,7 @@ export function ChatDrawer({
 
   return (
     <Sheet open={open} onOpenChange={onOpenChange}>
-      <SheetContent data-tour="site-chat-drawer" className="flex w-full flex-col gap-0 p-0 sm:max-w-[min(90vw,1400px)]">
+      <SheetContent data-tour="site-chat-drawer" className="flex w-full flex-col gap-0 p-0 sm:max-w-[min(90vw,1400px)]!">
         <SheetHeader className="border-b">
           <SheetTitle>Chat about this analysis</SheetTitle>
         </SheetHeader>

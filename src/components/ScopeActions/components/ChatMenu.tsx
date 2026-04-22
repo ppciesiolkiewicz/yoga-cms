@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import {
-  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger,
+  DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger,
 } from "@/components/ui/shadcn/dropdown-menu"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/shadcn/tooltip"
 import { Button } from "@/components/ui/shadcn/button"
@@ -38,14 +38,16 @@ export function ChatMenu({ label, tooltip, preset, fullWidth = false }: Props) {
           </Tooltip>
         </TooltipProvider>
         <DropdownMenuContent align="end">
+          <DropdownMenuLabel>Select data shared with AI model</DropdownMenuLabel>
+          <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => openWithPreset({ scope: preset.scope, tiers: { report: true } })}>
-            Report
+            Report context
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => openWithPreset({ scope: preset.scope, tiers: { extractedContent: true } })}>
-            Content
+            Content context
           </DropdownMenuItem>
           <DropdownMenuItem onClick={() => setConfigureOpen(true)}>
-            Configure…
+            Configure context
           </DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
